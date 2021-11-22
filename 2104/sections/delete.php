@@ -17,6 +17,12 @@
             mysqli_query($conn, $deleteSupplier);
             header("Location: suppliers.php");      
             break;
+        case "inventory":
+            $productID = $_POST['productID'];
+            $deleteproduct = "DELETE FROM product WHERE productID=$productID";
+            mysqli_query($conn, $deleteproduct);
+            header("Location: inventory.php");      
+            break;
             
     }
     
