@@ -28,7 +28,7 @@ include('../crud/supplier/check-default.php');
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#report" />
                         </svg>
-                        Reports
+                        Notifications
                     </a>
                 </li>
                 <li>
