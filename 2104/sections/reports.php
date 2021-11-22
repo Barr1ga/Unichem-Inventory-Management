@@ -3,7 +3,6 @@ session_start();
 include('../style/import.php'); 
 include('../crud/db_connect.php');
 
-
 ?>
 
 <main>
