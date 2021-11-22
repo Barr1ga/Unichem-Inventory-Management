@@ -332,6 +332,7 @@
 
   .create-new-button {
     display: flex;
+    margin-left: 82px;
     justify-content: end;
     width: 470px;
   }
