@@ -31,10 +31,10 @@ include('../crud/db_connect.php');
 
                                         <div>";
                                             
-                                        if($row['inStock'] <= 60 && $row['inStock'] >= 40){
+                                        if($row['inStock'] <= 60 && $row['inStock'] >= 30){
                                             echo  "".$row['tradeName']." needs replenishment";
                                             }
-                                         elseif($row['inStock'] <= 40 && $row['inStock'] >= 20){
+                                         elseif($row['inStock'] <= 30 && $row['inStock'] >= 10){
                                             echo  "".$row['tradeName']." needs replenishment immediately!";
     
                                         }
