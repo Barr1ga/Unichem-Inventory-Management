@@ -4,7 +4,7 @@
     </div>
 
     <div class='list-cell'>
-        Order By
+        Customer
     </div>
 
     <div class='list-cell'>
