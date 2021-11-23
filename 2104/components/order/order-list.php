@@ -26,7 +26,7 @@ echo "
                             </div>
                                 
                             <div class='list-cell'>
-                            ". "₱ " . $order['price'] * $order['quantity'] ."
+                            ". "₱ " . $order['Total']."
                             </div>
 
                             <div class=''>

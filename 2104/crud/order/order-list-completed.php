@@ -1,7 +1,7 @@
 <?php 
     include('../crud/db_connect.php');
     
-    $getOrderList = "SELECT * 
+    $getOrderList = "SELECT *, SUM(ol.quantity * p.price) as 'Total'  
                     FROM orders o
                     JOIN customer c ON o.customerID = c.customerID
                     JOIN inventory_users iu ON o.createdBy = iu.userID 
