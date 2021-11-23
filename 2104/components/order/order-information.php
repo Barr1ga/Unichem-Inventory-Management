@@ -1,8 +1,8 @@
-<div class="to-confirm white-box-container-details-card-status bg-secondary mt-1 ">Shipping</div>
+<div class="<?php echo $order['orderStatus']; ?> white-box-container-details-card-status"><?php echo $order['orderStatus']; ?></div>
 <div class="white-box-container-details-card-body rounded">
     <div class="row d-flex justify-content-between">
         <div class="col">
-            <h5><b># <?php echo $order['productID'] ?></b></h5>
+            <h5><b># <?php echo $order['orderlineID'] ?></b></h5>
         </div>
         <div class="col-md-auto">
             <?php echo $order['orderDate'] ?>
@@ -31,35 +31,27 @@
         </div>
     </div>
     <hr>
-
-    <!-- Query each product order -->
     <div class="row d-flex justify-content-between">
         <div class="col">
-            $tradeName<br>
-            $ProductName
+            <?php echo $order['productID']; ?>#
+            <?php echo $order['tradeName']; ?>
         </div>
 
         <div class="col-md-auto d-flex justify-content-end">
-            x $Quantity
+            x <?php echo $order['quantity']; ?>
         </div>
         <div class="col-md-auto d-flex justify-content-end">
-            PHP $Price
-        </div>
-        <div class="col col-lg-3 d-flex justify-content-end">
-            PHP $total
+            ₱ <?php echo $order['price']; ?>
         </div>
     </div>
-    <br>
-
-
-    <!--  -->
+    
     <hr>
     <div class="row d-flex justify-content-between">
         <div class="col">
-            $TotalPrice
+            TotalPrice
         </div>
         <div class="col-4 d-flex justify-content-end">
-            <b>$PHP 25,600.00</b>
+            <b>₱ <?php echo $order['quantity'] * $order['price'] ?></b>
         </div>
     </div>
 </div>

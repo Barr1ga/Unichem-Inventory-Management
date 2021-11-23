@@ -6,6 +6,7 @@
     $getOrderInformation = "SELECT *
                                 FROM orders o
                                 JOIN order_line ol ON ol.orderID = o.orderID
+                                JOIN product p ON ol.productID = p.productID
                                 WHERE ol.orderID = $orderID";
 
     $result = mysqli_query($conn, $getOrderInformation);

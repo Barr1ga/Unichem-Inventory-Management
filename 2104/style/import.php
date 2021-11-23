@@ -311,6 +311,16 @@
     text-decoration: underline;
   }
 
+  .btn-preview{
+    color: green;
+    text-decoration: none;
+  }
+
+  .btn-preview:hover {
+    color: green;
+    text-decoration: underline;
+  }
+
   .btn-update{
     text-decoration: none;
   }

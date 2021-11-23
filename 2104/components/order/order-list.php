@@ -32,19 +32,20 @@ echo "
                             <div class=''>
                                     <form method='get' action=''>
                                         <input type='hidden' name='orderID' value='".$order['orderID']."'>
-                                        <button type='submit' class='btn btn-link btn-update'>Preview</button>
+                                        <button type='submit' class='btn btn-link btn-preview'>Preview</button>
                                     </form>
                             </div>
 
                             <div class=''>
-                            <form method='get' action=''>
-                                <input type='hidden' name='orderID' value='".$order['orderID']."'>
-                                <button type='submit' class='btn btn-link btn-update'>Update</button>
-                            </form>
+                                <form method='get' action=''>
+                                    <input type='hidden' name='orderID' value='".$order['orderID']."'>
+                                    <button type='submit' class='btn btn-link btn-update'>Update</button>
+                                </form>
                             </div>
 
                             <div class=''>
-                                    <form method='get' action=''>
+                                    <form method='get' action='../sections/delete.php'>
+                                        <input type='hidden' name='delete' value='order'>
                                         <input type='hidden' name='orderID' value='".$order['orderID']."'>
                                         <button type='submit' class='btn btn-link btn-delete'>Delete</button>
                                     </form>

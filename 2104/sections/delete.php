@@ -23,6 +23,12 @@
             mysqli_query($conn, $deleteproduct);
             header("Location: inventory.php");      
             break;
+         case "order":
+            $orderID = $_POST['orderID'];
+            $deleteOrder = "DELETE FROM orders WHERE orderID=$orderID";
+            mysqli_query($conn, $deleteOrder);
+            header("Location: orders.php");      
+            break;       
             
     }
     
