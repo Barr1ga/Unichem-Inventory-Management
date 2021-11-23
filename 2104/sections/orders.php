@@ -129,25 +129,30 @@ include('../style/import.php');
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-to-approve" role="tabpanel" aria-labelledby="pills-to-confirm-tab">
                             <?php
-                            include('../components/order/order-list.php');
+                            include('../components/order/order-header.php');
+                            include('../crud/order/order-list-approve.php');
+
                             ?>
                         </div>
 
                         <div class="tab-pane fade" id="pills-to-confirm" role="tabpanel" aria-labelledby="pills-to-ship-tab">
                             <?php
-                            include('../components/order/order-list.php');
+                            include('../components/order/order-header.php');
+                            include('../crud/order/order-list-confirm.php');
                             ?>
                         </div>
 
                         <div class="tab-pane fade" id="pills-to-receive" role="tabpanel" aria-labelledby="pills-to-receive-tab">
                             <?php
-                            include('../components/order/order-list.php');
+                            include('../components/order/order-header.php');
+                            include('../crud/order/order-list-receive.php');
                             ?>
                         </div>
 
                         <div class="tab-pane fade" id="pills-to-completed" role="tabpanel" aria-labelledby="pills-to-completed-tab">
                             <?php
-                            include('../components/order/order-list.php');
+                            include('../components/order/order-header.php');
+                            include('../crud/order/order-list-completed.php');
                             ?>
                         </div>
 

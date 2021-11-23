@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2021 at 01:08 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Generation Time: Nov 23, 2021 at 01:37 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -100,7 +99,6 @@ CREATE TABLE `inventory_users` (
 --
 
 INSERT INTO `inventory_users` (`userID`, `userType`, `userFirstName`, `userLastName`, `userName`, `email`, `password`) VALUES
-(0, 'Empty', 'Empty', 'Empty', 'Empty', 'Empty', 'Empty'),
 (1, 'Manager', 'Marjorie', 'Tumapon', 'marge123', 'marge.tumapon@gmail.com', 'margepassword'),
 (2, 'User', 'Luigi', 'Rixon', 'luirix21', 'luigirixon@yahoo.com', 'luigipassword'),
 (3, 'User', 'Luna', 'Lurege', 'lurluna7', 'luna_lurege7@gmail.com', 'lunapassword');
@@ -114,7 +112,6 @@ INSERT INTO `inventory_users` (`userID`, `userType`, `userFirstName`, `userLastN
 CREATE TABLE `orders` (
   `orderID` int(11) NOT NULL,
   `customerID` int(11) NOT NULL,
-  `approvedBy` int(11) NOT NULL DEFAULT '0',
   `createdBy` int(11) NOT NULL,
   `orderDate` date NOT NULL,
   `orderStatus` enum('To-Confirm','To-Ship','To-Receive','Completed','To-Approve') NOT NULL,
@@ -126,32 +123,29 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`orderID`, `customerID`, `approvedBy`, `createdBy`, `orderDate`, `orderStatus`, `shipRequiredDate`, `paidStatus`) VALUES
-(3, 4, 1, 3, '2021-11-15', 'Completed', '2021-11-20', 'unpaid'),
-(4, 2, 0, 3, '2021-11-17', 'To-Approve', '2021-11-22', 'unpaid'),
-(5, 4, 1, 3, '2021-11-18', 'To-Receive', '2021-11-23', 'paid'),
-(6, 5, 1, 2, '2021-11-20', 'Completed', '2021-11-25', 'unpaid'),
-(7, 7, 1, 3, '2021-11-22', 'To-Receive', '2021-11-27', 'paid'),
-(8, 6, 1, 2, '2021-11-23', 'To-Receive', '2021-11-28', 'paid'),
-(9, 3, 1, 2, '2021-11-24', 'To-Confirm', '2021-11-29', 'unpaid'),
-(10, 2, 1, 3, '2021-11-26', 'To-Ship', '2021-12-01', 'paid'),
-(11, 4, 1, 3, '2021-11-26', 'To-Receive', '2021-12-01', 'unpaid'),
-(12, 5, 1, 2, '2021-11-27', 'To-Ship', '2021-12-02', 'paid'),
-(13, 5, 0, 3, '2021-11-28', 'To-Approve', '2021-12-03', 'unpaid'),
-(14, 6, 1, 2, '2021-10-02', 'To-Ship', '2021-10-07', 'paid'),
-(15, 5, 1, 2, '2021-10-09', 'To-Ship', '2021-10-14', 'paid'),
-(16, 5, 1, 3, '2021-10-03', 'To-Receive', '2021-10-08', 'paid'),
-(17, 3, 1, 2, '2021-10-09', 'To-Ship', '2021-10-14', 'paid'),
-(18, 7, 0, 2, '2021-10-20', 'To-Approve', '2021-11-25', 'unpaid'),
-(19, 6, 1, 2, '2021-10-02', 'To-Ship', '2021-10-07', 'paid'),
-(20, 5, 0, 2, '2021-10-09', 'To-Approve', '2021-10-14', 'paid'),
-(21, 5, 0, 3, '2021-10-03', 'To-Approve', '2021-10-08', 'unpaid'),
-(22, 3, 1, 2, '2021-10-09', 'To-Ship', '2021-10-14', 'paid'),
-(23, 7, 1, 2, '2021-10-20', 'To-Ship', '2021-11-25', 'paid'),
-(24, 5, 1, 3, '2021-09-08', 'Completed', '2021-09-13', 'paid'),
-(25, 4, 1, 3, '2021-09-17', 'Completed', '2021-09-22', 'paid'),
-(26, 5, 1, 3, '2021-09-08', 'Completed', '2021-09-13', 'paid'),
-(27, 4, 1, 3, '2021-09-17', 'Completed', '2021-09-22', 'paid');
+INSERT INTO `orders` (`orderID`, `customerID`, `createdBy`, `orderDate`, `orderStatus`, `shipRequiredDate`, `paidStatus`) VALUES
+(3, 4, 3, '2021-11-15', 'Completed', '2021-11-20', 'unpaid'),
+(5, 4, 3, '2021-11-18', 'To-Receive', '2021-11-23', 'paid'),
+(6, 5, 2, '2021-11-20', 'Completed', '2021-11-25', 'unpaid'),
+(7, 7, 3, '2021-11-22', 'To-Receive', '2021-11-27', 'paid'),
+(8, 6, 2, '2021-11-23', 'To-Receive', '2021-11-28', 'paid'),
+(9, 3, 2, '2021-11-24', 'To-Confirm', '2021-11-29', 'unpaid'),
+(10, 2, 3, '2021-11-26', 'To-Ship', '2021-12-01', 'paid'),
+(11, 4, 3, '2021-11-26', 'To-Receive', '2021-12-01', 'unpaid'),
+(12, 5, 2, '2021-11-27', 'To-Ship', '2021-12-02', 'paid'),
+(14, 6, 2, '2021-10-02', 'To-Ship', '2021-10-07', 'paid'),
+(15, 5, 2, '2021-10-09', 'To-Ship', '2021-10-14', 'paid'),
+(16, 5, 3, '2021-10-03', 'To-Receive', '2021-10-08', 'paid'),
+(17, 3, 2, '2021-10-09', 'To-Ship', '2021-10-14', 'paid'),
+(19, 6, 2, '2021-10-02', 'To-Ship', '2021-10-07', 'paid'),
+(22, 3, 2, '2021-10-09', 'To-Ship', '2021-10-14', 'paid'),
+(23, 7, 2, '2021-10-20', 'To-Ship', '2021-11-25', 'paid'),
+(24, 5, 3, '2021-09-08', 'Completed', '2021-09-13', 'paid'),
+(25, 4, 3, '2021-09-17', 'Completed', '2021-09-22', 'paid'),
+(26, 5, 3, '2021-09-08', 'Completed', '2021-09-13', 'paid'),
+(27, 4, 3, '2021-09-17', 'Completed', '2021-09-22', 'paid'),
+(28, 4, 2, '2021-11-23', 'To-Approve', '2021-11-30', 'unpaid'),
+(29, 2, 3, '2021-11-30', 'To-Approve', '2021-12-23', 'unpaid');
 
 -- --------------------------------------------------------
 
@@ -172,8 +166,6 @@ CREATE TABLE `order_line` (
 
 INSERT INTO `order_line` (`orderlineID`, `orderID`, `productID`, `quantity`) VALUES
 (3, 3, 7, 35),
-(4, 4, 3, 20),
-(5, 4, 5, 10),
 (6, 5, 1, 25),
 (7, 6, 1, 35),
 (8, 7, 8, 15),
@@ -183,7 +175,6 @@ INSERT INTO `order_line` (`orderlineID`, `orderID`, `productID`, `quantity`) VAL
 (12, 10, 4, 30),
 (13, 11, 6, 50),
 (14, 12, 4, 10),
-(15, 13, 3, 5),
 (66, 27, 5, 120),
 (67, 24, 5, 50),
 (68, 27, 5, 120),
@@ -193,13 +184,8 @@ INSERT INTO `order_line` (`orderlineID`, `orderID`, `productID`, `quantity`) VAL
 (72, 6, 2, 80),
 (73, 3, 6, 100),
 (74, 26, 1, 150),
-(75, 25, 4, 200),
+(75, 28, 4, 200),
 (76, 3, 8, 100),
-(77, 13, 8, 50),
-(78, 4, 3, 100),
-(79, 18, 6, 130),
-(80, 21, 2, 80),
-(81, 20, 2, 50),
 (82, 9, 2, 50),
 (83, 11, 3, 100),
 (84, 16, 5, 20),
@@ -216,7 +202,6 @@ INSERT INTO `order_line` (`orderlineID`, `orderID`, `productID`, `quantity`) VAL
 (95, 22, 5, 50),
 (96, 14, 8, 50),
 (97, 25, 6, 80),
-(98, 20, 5, 50),
 (99, 3, 4, 130),
 (100, 27, 3, 120),
 (101, 24, 2, 50),
@@ -225,11 +210,6 @@ INSERT INTO `order_line` (`orderlineID`, `orderID`, `productID`, `quantity`) VAL
 (104, 26, 1, 150),
 (105, 25, 4, 200),
 (106, 3, 8, 100),
-(107, 13, 8, 50),
-(108, 4, 3, 100),
-(109, 18, 6, 130),
-(110, 21, 2, 80),
-(111, 20, 2, 50),
 (112, 9, 2, 50),
 (113, 11, 3, 100),
 (114, 16, 5, 20),
@@ -246,8 +226,11 @@ INSERT INTO `order_line` (`orderlineID`, `orderID`, `productID`, `quantity`) VAL
 (125, 22, 5, 50),
 (126, 14, 8, 50),
 (127, 25, 6, 80),
-(128, 20, 5, 50),
-(129, 3, 4, 130);
+(129, 3, 4, 130),
+(130, 28, 2, 50),
+(131, 28, 2, 20),
+(132, 29, 2, 30),
+(133, 29, 8, 80);
 
 -- --------------------------------------------------------
 
@@ -300,7 +283,6 @@ INSERT INTO `product` (`productID`, `tradeName`, `description`, `brandName`, `da
 CREATE TABLE `replenishment` (
   `repOrderID` int(11) NOT NULL,
   `supplierID` int(11) NOT NULL,
-  `approvedBy` int(11) NOT NULL DEFAULT '0',
   `createdBy` int(11) NOT NULL,
   `repOrderDate` date NOT NULL,
   `orderStatus` enum('To-Confirm','To-Ship','To-Receive','Completed','To-Approve') NOT NULL,
@@ -312,14 +294,15 @@ CREATE TABLE `replenishment` (
 -- Dumping data for table `replenishment`
 --
 
-INSERT INTO `replenishment` (`repOrderID`, `supplierID`, `approvedBy`, `createdBy`, `repOrderDate`, `orderStatus`, `shipRequiredDate`, `paidStatus`) VALUES
-(2, 3, 1, 2, '2021-11-16', 'To-Confirm', '2021-11-20', 'paid'),
-(3, 2, 1, 2, '2021-11-17', 'To-Confirm', '2021-11-25', 'paid'),
-(6, 3, 1, 3, '2021-11-21', 'Completed', '2021-11-28', 'paid'),
-(7, 2, 1, 2, '2021-11-22', 'Completed', '2021-11-30', 'paid'),
-(8, 3, 1, 2, '2021-11-28', 'Completed', '2021-12-04', 'paid'),
-(11, 2, 1, 2, '2021-12-06', 'Completed', '2021-12-12', 'paid'),
-(12, 3, 0, 3, '2021-12-10', 'To-Approve', '2021-12-20', 'unpaid');
+INSERT INTO `replenishment` (`repOrderID`, `supplierID`, `createdBy`, `repOrderDate`, `orderStatus`, `shipRequiredDate`, `paidStatus`) VALUES
+(2, 3, 2, '2021-11-16', 'To-Confirm', '2021-11-20', 'paid'),
+(3, 2, 2, '2021-11-17', 'To-Confirm', '2021-11-25', 'paid'),
+(6, 3, 3, '2021-11-21', 'Completed', '2021-11-28', 'paid'),
+(7, 2, 2, '2021-11-22', 'Completed', '2021-11-30', 'paid'),
+(8, 3, 2, '2021-11-28', 'Completed', '2021-12-04', 'paid'),
+(11, 2, 2, '2021-12-06', 'Completed', '2021-12-12', 'paid'),
+(13, 2, 2, '2021-11-23', 'To-Approve', '2021-11-19', 'unpaid'),
+(14, 3, 2, '2021-11-09', 'To-Approve', '2021-11-09', 'unpaid');
 
 -- --------------------------------------------------------
 
@@ -346,7 +329,8 @@ INSERT INTO `replenishment_line` (`replenishmentLineID`, `repOrderID`, `productI
 (9, 7, 7, 100),
 (10, 8, 1, 120),
 (13, 11, 6, 100),
-(14, 12, 2, 100);
+(15, 13, 8, 20),
+(16, 14, 8, 100);
 
 -- --------------------------------------------------------
 
@@ -425,7 +409,6 @@ ALTER TABLE `inventory_users`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`orderID`),
-  ADD KEY `orders_FK2` (`approvedBy`),
   ADD KEY `orders_FK3` (`createdBy`),
   ADD KEY `orders_FK1` (`customerID`);
 
@@ -449,7 +432,6 @@ ALTER TABLE `product`
 ALTER TABLE `replenishment`
   ADD PRIMARY KEY (`repOrderID`),
   ADD KEY `replenishment_FK1` (`supplierID`),
-  ADD KEY `replenishment_FK2` (`approvedBy`),
   ADD KEY `replenishment_FK3` (`createdBy`);
 
 --
@@ -499,13 +481,13 @@ ALTER TABLE `inventory_users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `order_line`
 --
 ALTER TABLE `order_line`
-  MODIFY `orderlineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `orderlineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -517,13 +499,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `replenishment`
 --
 ALTER TABLE `replenishment`
-  MODIFY `repOrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `repOrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `replenishment_line`
 --
 ALTER TABLE `replenishment_line`
-  MODIFY `replenishmentLineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `replenishmentLineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `supplier`
@@ -552,7 +534,6 @@ ALTER TABLE `customer_address`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_FK1` FOREIGN KEY (`customerID`) REFERENCES `customer` (`customerID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `orders_FK2` FOREIGN KEY (`approvedBy`) REFERENCES `inventory_users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `orders_FK3` FOREIGN KEY (`createdBy`) REFERENCES `inventory_users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -567,7 +548,6 @@ ALTER TABLE `order_line`
 --
 ALTER TABLE `replenishment`
   ADD CONSTRAINT `replenishment_FK1` FOREIGN KEY (`supplierID`) REFERENCES `supplier` (`supplierID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `replenishment_FK2` FOREIGN KEY (`approvedBy`) REFERENCES `inventory_users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `replenishment_FK3` FOREIGN KEY (`createdBy`) REFERENCES `inventory_users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --

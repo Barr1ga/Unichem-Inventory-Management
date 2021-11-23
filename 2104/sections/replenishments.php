@@ -103,75 +103,72 @@ include('../style/import.php');
             <div class="d-flex">
                 <div class="layout-column">
 
-
-
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-to-confirm-tab" data-bs-toggle="pill" data-bs-target="#pills-to-confirm" type="button" role="tab" aria-controls="pills-to-confirm" aria-selected="true">To Confirm</button>
+                            <button class="nav-link active" id="pills-to-approve-tab" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">To Approve</button>
                         </li>
+
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-to-ship-tab" data-bs-toggle="pill" data-bs-target="#pills-to-ship" type="button" role="tab" aria-controls="pills-to-ship" aria-selected="false">To Ship</button>
+                            <button class="nav-link" id="pills-to-confirm-tab" data-bs-toggle="pill" data-bs-target="#pills-to-confirm" type="button" role="tab" aria-controls="pills-to-confirm" aria-selected="false">To Confirm</button>
                         </li>
+
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-to-receive-tab" data-bs-toggle="pill" data-bs-target="#pills-to-receive" type="button" role="tab" aria-controls="pills-to-receive" aria-selected="false">To Receive</button>
+                            <button class="nav-link" id="pills-receive-tab" data-bs-toggle="pill" data-bs-target="#pills-to-receive" type="button" role="tab" aria-controls="pills-to-receive" aria-selected="false">To Receive</button>
                         </li>
+
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-completed-tab" data-bs-toggle="pill" data-bs-target="#pills-to-completed" type="button" role="tab" aria-controls="pills-to-completed" aria-selected="false">Completed</button>
+                            <button class="nav-link" id="pills-to-completed-tab" data-bs-toggle="pill" data-bs-target="#pills-to-completed" type="button" role="tab" aria-controls="pills-to-completed" aria-selected="false">Completed</button>
                         </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-to-approve-tab" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="false">To Approve</button>
+
+                        <li class="nav-item create-new-button" role="presentation">
+                            <button class="nav-link" id="pills-create-tab" data-bs-toggle="pill" data-bs-target="#pills-create" type="button" role="tab" aria-controls="pills-create" aria-selected="false">Create Order</button>
                         </li>
                     </ul>
 
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-to-confirm" role="tabpanel" aria-labelledby="pills-to-confirm-tab">
+                        <div class="tab-pane fade show active" id="pills-to-approve" role="tabpanel" aria-labelledby="pills-to-confirm-tab">
                             <?php
-                            include('../components/replenishments/rep-list.php');
+                            include('../components/replenishment/rep-header.php');
+                            include('../crud/replenishment/rep-list-approve.php');
+
                             ?>
                         </div>
-                        <div class="tab-pane fade" id="pills-to-ship" role="tabpanel" aria-labelledby="pills-to-ship-tab">
+
+                        <div class="tab-pane fade" id="pills-to-confirm" role="tabpanel" aria-labelledby="pills-to-ship-tab">
                             <?php
-                            include('../components/replenishments/rep-list.php');
+                            include('../components/replenishment/rep-header.php');
+                            include('../crud/replenishment/rep-list-confirm.php');
                             ?>
                         </div>
+
                         <div class="tab-pane fade" id="pills-to-receive" role="tabpanel" aria-labelledby="pills-to-receive-tab">
                             <?php
-                            include('../components/replenishments/rep-list.php');
+                            include('../components/replenishment/rep-header.php');
+                            include('../crud/replenishment/rep-list-receive.php');
                             ?>
                         </div>
+
                         <div class="tab-pane fade" id="pills-to-completed" role="tabpanel" aria-labelledby="pills-to-completed-tab">
                             <?php
-                            include('../components/replenishments/rep-list.php');
+                            include('../components/replenishment/rep-header.php');
+                            include('../crud/replenishment/rep-list-completed.php');
                             ?>
                         </div>
-                        <div class="tab-pane fade" id="pills-to-approve" role="tabpanel" aria-labelledby="pills-to-approve-tab">
+
+                        <div class="tab-pane fade" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
                             <?php
-                            include('../components/replenishments/rep-list.php');
+                            include('../components/order/create-order.php');
                             ?>
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-                   
                     
-
-
-
-
                 </div>
 
                 <div class="layout-column">
                     <br><br>
                     Order Information<br><br>
-                    <?php include('../components/replenishments/rep-information.php') ?>
+                    <?php include('../components/order/order-information.php') ?>
                 </div>
 
             </div>

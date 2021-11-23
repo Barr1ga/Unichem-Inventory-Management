@@ -332,8 +332,8 @@
 
   .create-new-button {
     display: flex;
-    margin-left: 82px;
     justify-content: end;
+    /* margin-left: 80px; */
     width: 470px;
   }
 
@@ -343,8 +343,6 @@
     overflow-x: hidden;
     overflow-y: hidden;
   }
-
-
 
 </style>
 
