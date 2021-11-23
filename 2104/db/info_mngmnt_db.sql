@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2021 at 01:37 AM
+-- Generation Time: Nov 23, 2021 at 03:05 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -302,7 +302,10 @@ INSERT INTO `replenishment` (`repOrderID`, `supplierID`, `createdBy`, `repOrderD
 (8, 3, 2, '2021-11-28', 'Completed', '2021-12-04', 'paid'),
 (11, 2, 2, '2021-12-06', 'Completed', '2021-12-12', 'paid'),
 (13, 2, 2, '2021-11-23', 'To-Approve', '2021-11-19', 'unpaid'),
-(14, 3, 2, '2021-11-09', 'To-Approve', '2021-11-09', 'unpaid');
+(14, 3, 2, '2021-11-09', 'To-Approve', '2021-11-09', 'unpaid'),
+(15, 3, 3, '2021-11-27', 'To-Receive', '2021-11-27', 'unpaid'),
+(16, 3, 2, '2021-11-10', 'To-Receive', '2021-12-10', 'paid'),
+(17, 2, 2, '2021-12-23', 'To-Receive', '2021-12-31', 'paid');
 
 -- --------------------------------------------------------
 
@@ -330,7 +333,10 @@ INSERT INTO `replenishment_line` (`replenishmentLineID`, `repOrderID`, `productI
 (10, 8, 1, 120),
 (13, 11, 6, 100),
 (15, 13, 8, 20),
-(16, 14, 8, 100);
+(16, 14, 8, 100),
+(17, 15, 5, 40),
+(20, 16, 8, 20),
+(21, 17, 4, 5);
 
 -- --------------------------------------------------------
 
@@ -499,13 +505,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `replenishment`
 --
 ALTER TABLE `replenishment`
-  MODIFY `repOrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `repOrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `replenishment_line`
 --
 ALTER TABLE `replenishment_line`
-  MODIFY `replenishmentLineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `replenishmentLineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `supplier`
