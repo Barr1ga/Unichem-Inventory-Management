@@ -317,7 +317,6 @@
   }
 
   .btn-preview:hover {
-    color: green;
     text-decoration: underline;
   }
 

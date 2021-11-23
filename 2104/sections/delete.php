@@ -1,9 +1,6 @@
 <?php 
     include('../crud/db_connect.php');
     
-    
-    
-
     switch($_POST['delete']){
         case "customer":
             $customerID = $_POST['customerID'];
@@ -28,15 +25,14 @@
             $deleteOrder = "DELETE FROM orders WHERE orderID=$orderID";
             mysqli_query($conn, $deleteOrder);
             header("Location: orders.php");      
-            break;       
-            
-    }
-    
-
-   
-    
-
-    
+            break;      
+        case "replenishment":
+            $repID = $_POST['repID'];
+            $deleteRep = "DELETE FROM replenishment WHERE repID=$repOrderID";
+            mysqli_query($conn, $deleteRep);
+            header("Location: replenishments.php");      
+            break;    
+    }    
 ?>
 
 

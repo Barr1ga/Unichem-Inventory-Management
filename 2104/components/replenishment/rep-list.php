@@ -3,7 +3,7 @@
 
 echo "
 
-                    <form method='get' action='customers.php'>
+                    <form method='get' action='replenishments.php'>
                         <div class='d-flex align-items-center justify-content-between white-box-container one-order-replenishment-list round-edge'>
                             <div class='list-cell'>
                                 <b>" . $rep['repOrderID'] . "</b>
@@ -31,21 +31,22 @@ echo "
 
                             <div class=''>
                                     <form method='get' action=''>
-                                        <input type='hidden' name='' value=''>
-                                        <button type='submit' class='btn btn-link btn-update'>Preview</button>
+                                        <input type='hidden' name='repID' value='".$rep['repOrderID']."'>
+                                        <button type='submit' class='btn btn-link btn-preview'>Preview</button>
                                     </form>
                             </div>
 
                             <div class=''>
                             <form method='get' action=''>
-                                <input type='hidden' name='' value=''>
+                                <input type='hidden' name='repID' value='".$rep['repOrderID']."'>
                                 <button type='submit' class='btn btn-link btn-update'>Update</button>
                             </form>
                             </div>
 
                             <div class=''>
-                                    <form method='get' action=''>
-                                        <input type='hidden' name='' value=''>
+                                    <form method='get' action='../sections/delete.php'>
+                                        <input type='hidden' name='delete' value='replenishment'>
+                                        <input type='hidden' name='repID' value='".$rep['repOrderID']."'>
                                         <button type='submit' class='btn btn-link btn-delete'>Delete</button>
                                     </form>
                             </div>

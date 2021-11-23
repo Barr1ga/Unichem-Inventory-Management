@@ -10,8 +10,7 @@ if(!isset($_GET['orderID'])){
 
     $result = mysqli_query($conn, $getOrderList);
        
-    $defaultproduct = mysqli_fetch_assoc($result);
+    $defaultOrder = mysqli_fetch_assoc($result);
             
-
-    $_GET['orderID'] = $defaultproduct['orderID'];
+    $_GET['orderID'] = $defaultOrder['orderID'];
 }

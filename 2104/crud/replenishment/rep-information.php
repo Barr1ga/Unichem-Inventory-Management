@@ -1,19 +1,19 @@
 <?php 
     include('../crud/db_connect.php');
 
-    $orderID = $_GET['orderID'];
+    $repID = $_GET['repID'];
     
-    $getOrderInformation = "SELECT *
-                                FROM orders o
-                                JOIN order_line ol ON ol.orderID = o.orderID
-                                JOIN product p ON ol.productID = p.productID
-                                WHERE ol.orderID = $orderID";
+    $getRepInformation = "SELECT *
+                                FROM replenishment r
+                                JOIN replenishment_line rl ON rl.repOrderID = r.repOrderID
+                                JOIN product p ON rl.productID = p.productID
+                                WHERE rl.repOrderID = $repID";
 
-    $result = mysqli_query($conn, $getOrderInformation);
+    $result = mysqli_query($conn, $getRepInformation);
     
     if (mysqli_num_rows($result) > 0) {
         echo "<div class='scroll-list-2'>";
-        while ($order = mysqli_fetch_assoc($result)) {
+        while ($rep = mysqli_fetch_assoc($result)) {
             
             // $createdByID = $order['createdBy'];
             // $approvedByID = $order['approvedBy'];
@@ -32,13 +32,13 @@
             // $CreatedBy = mysqli_fetch_assoc($createdByResult);
             // $ApprovedBy = mysqli_fetch_assoc($approvedByResult);
             
-            include('../components/order/order-information.php');
+            include('../components/replenishment/rep-information.php');
 
         }  
         echo "</div>";
         
     }
-    
+
 ?>
 
 

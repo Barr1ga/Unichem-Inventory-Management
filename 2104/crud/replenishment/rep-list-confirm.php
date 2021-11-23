@@ -1,7 +1,7 @@
 <?php 
     include('../crud/db_connect.php');
     
-    $getOrderList = "SELECT *
+    $getRepList = "SELECT *, SUM(rl.quantity * p.price) as 'Total' 
                     FROM
                     replenishment r
                     JOIN supplier s ON
@@ -13,9 +13,10 @@
                     JOIN product p ON
                         rl.productID = p.productID
                     WHERE
-                        r.orderStatus = 'To-Confirm'";
+                        r.orderStatus = 'To-Confirm'
+                    GROUP BY r.repOrderID";
 
-    $result = mysqli_query($conn, $getOrderList);
+    $result = mysqli_query($conn, $getRepList);
     
     if (mysqli_num_rows($result) > 0) {
         echo "

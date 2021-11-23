@@ -1,6 +1,6 @@
 <?php
 include('../style/import.php');
-
+include('../crud/replenishment/check-default.php');
 ?>
 
 <html lang="en">
@@ -167,8 +167,8 @@ include('../style/import.php');
 
                 <div class="layout-column">
                     <br><br>
-                    Order Information<br><br>
-                    <?php include('../components/order/order-information.php') ?>
+                    Replenishment Information<br><br>
+                    <?php include('../crud/replenishment/rep-information.php') ?>
                 </div>
 
             </div>

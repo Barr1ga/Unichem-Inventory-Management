@@ -1,45 +1,47 @@
-<div class="to-confirm white-box-container-details-card-status bg-secondary mt-1 ">Shipping</div>
+<div class="<?php echo $rep['orderStatus']; ?> white-box-container-details-card-status"><?php echo $rep['orderStatus']; ?></div>
 <div class="white-box-container-details-card-body rounded">
     <div class="row d-flex justify-content-between">
         <div class="col">
-            <h4><b>$ProductID</b></h3>
+            <h5><b># <?php echo $rep['replenishmentLineID'] ?></b></h5>
         </div>
         <div class="col-md-auto">
-            $OrderDate
+        <?php echo $rep['repOrderDate'] ?>
         </div>
     </div>
     <hr>
     <div class="row">
         <div class="col-6 col-md-4">
-            Supplier ID<br>
+            Supplier Name<br>
             Created By<br>
             Approved By<br>
             Date Shipped
         </div>
         <div class="col-12 col-sm-6 col-md-8">
             <b>
-                $Supplier ID<br>
-                $Created By<br>
-                $Approved By<br>
-                $Date Shipped
+            <?php
+                echo "Supplier Name" . "<br>";
+                // echo $CreatedBy['userFirstName']. $CreatedBy['userLastName'] ."<br>";
+                echo $rep['createdBy'] . "<br>";
+
+                // echo $ApprovedBy['userFirstName']."<br>";
+                echo $rep['approvedBy'] . "<br>";
+                echo $rep['shipRequiredDate'];
+                ?>
             </b>
         </div>
     </div>
     <hr>
     <div class="row d-flex justify-content-between">
         <div class="col">
-            $tradeName<br>
-            $ProductName
+            <?php echo $rep['productID']; ?>#
+            <?php echo $rep['tradeName']; ?>
         </div>
 
         <div class="col-md-auto d-flex justify-content-end">
-            x $Quantity
+            x <?php echo $rep['quantity']; ?>
         </div>
         <div class="col-md-auto d-flex justify-content-end">
-            PHP $Price
-        </div>
-        <div class="col col-lg-3 d-flex justify-content-end">
-            PHP $total
+            ₱ <?php echo $rep['price']; ?>
         </div>
     </div>
     <hr>
@@ -48,7 +50,7 @@
             $TotalPrice
         </div>
         <div class="col-4 d-flex justify-content-end">
-            <b>$PHP 25,600.00</b>
+            <b>₱ <?php echo $rep['quantity'] * $rep['price'] ?></b>
         </div>
     </div>
 </div>

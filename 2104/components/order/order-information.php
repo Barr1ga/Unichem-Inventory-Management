@@ -11,7 +11,7 @@
     <hr>
     <div class="row">
         <div class="col-6 col-md-4">
-            Supplier<br>
+            Supplier Name<br>
             Created By<br>
             Approved By<br>
             Date Shipped
