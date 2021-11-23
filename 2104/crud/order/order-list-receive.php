@@ -24,7 +24,7 @@
         </div>
     ";
     }else{
-        echo "<br>There are no order in the database";
+        echo "<div class ='empty-message'>There are no Receive Orders.</div>";
     }
 
 ?>

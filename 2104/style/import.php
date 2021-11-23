@@ -333,8 +333,7 @@
   .create-new-button {
     display: flex;
     justify-content: end;
-    /* margin-left: 80px; */
-    width: 470px;
+    width: 585px;
   }
 
   .list-name{
@@ -343,7 +342,12 @@
     overflow-x: hidden;
     overflow-y: hidden;
   }
-
+  .empty-message {
+    margin-top:25px;
+    padding-left: 20px;
+    color: red;
+    width: 1000px;
+  }
 </style>
 
 
