@@ -7,7 +7,8 @@
                     JOIN inventory_users iu ON o.createdBy = iu.userID 
                     JOIN order_line ol ON ol.orderID = o.orderID
                     JOIN product p on ol.productID = p.productID
-                    WHERE o.orderStatus = 'To-Confirm'";
+                    WHERE o.orderStatus = 'To-Confirm'
+                    GROUP BY o.orderID";
 
     $result = mysqli_query($conn, $getOrderList);
     

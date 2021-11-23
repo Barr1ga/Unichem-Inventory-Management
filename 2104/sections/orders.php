@@ -1,5 +1,6 @@
 <?php
 include('../style/import.php');
+include('../crud/order/check-default.php');
 
 ?>
 
@@ -168,7 +169,7 @@ include('../style/import.php');
                 <div class="layout-column">
                     <br><br>
                     Order Information<br><br>
-                    <?php include('../components/order/order-information.php') ?>
+                    <?php include('../crud/order/order-information.php') ?>
                 </div>
 
             </div>

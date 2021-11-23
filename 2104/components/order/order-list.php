@@ -3,7 +3,7 @@
 
 echo "
 
-                    <form method='get' action='customers.php'>
+                    <form method='get' action='orders.php'>
                         <div class='d-flex align-items-center justify-content-between white-box-container one-order-replenishment-list round-edge'>
                             <div class='list-cell'>
                                 <b>" . $order['orderID'] . "</b>
@@ -31,21 +31,21 @@ echo "
 
                             <div class=''>
                                     <form method='get' action=''>
-                                        <input type='hidden' name='' value=''>
+                                        <input type='hidden' name='orderID' value='".$order['orderID']."'>
                                         <button type='submit' class='btn btn-link btn-update'>Preview</button>
                                     </form>
                             </div>
 
                             <div class=''>
                             <form method='get' action=''>
-                                <input type='hidden' name='' value=''>
+                                <input type='hidden' name='orderID' value='".$order['orderID']."'>
                                 <button type='submit' class='btn btn-link btn-update'>Update</button>
                             </form>
                             </div>
 
                             <div class=''>
                                     <form method='get' action=''>
-                                        <input type='hidden' name='' value=''>
+                                        <input type='hidden' name='orderID' value='".$order['orderID']."'>
                                         <button type='submit' class='btn btn-link btn-delete'>Delete</button>
                                     </form>
                             </div>
