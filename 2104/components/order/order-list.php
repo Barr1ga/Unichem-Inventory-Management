@@ -44,7 +44,7 @@ echo "
                             </div>
 
                             <div class=''>
-                                    <form method='get' action='../sections/delete.php'>
+                                    <form method='post' action='../sections/delete.php'>
                                         <input type='hidden' name='delete' value='order'>
                                         <input type='hidden' name='orderID' value='".$order['orderID']."'>
                                         <button type='submit' class='btn btn-link btn-delete'>Delete</button>

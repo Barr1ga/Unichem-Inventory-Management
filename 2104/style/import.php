@@ -357,6 +357,16 @@
     color: red;
     width: 1000px;
   }
+  .add-more{
+    margin-top: -2px;
+  }
+  .paste-new-forms{
+    margin-top: -2px;
+    margin-bottom: 7px;
+  }
+  .remove-btn {
+    margin-top: 8px;
+  }
 </style>
 
 

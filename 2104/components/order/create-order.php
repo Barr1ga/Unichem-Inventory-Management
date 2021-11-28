@@ -7,46 +7,54 @@
             <hr>
             <b>Product Information</b>
             <br><br>
+
             <?php include "../crud/order/get-products.php" ?>
+
             <div class="col-md-4">
                 <label class="form-label">Select Product</label>
-                <select class="form-select form-select-md mb-3" name="productID">
+                <select class="form-select form-select-md mb-3" name="  []">
                     <option selected disabled>Products</option>";
                     <?php
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo "<option value=" . $row['productID'] . ">" . $row['tradeName'] . "</option>";
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value=" . $row['productID'] . ">" . $row['tradeName'] . "</option>";
+                            }
+                        } else {
+                            echo "No items are found in the database.";
                         }
-                    } else {
-                        echo "bad";
-                    }
                     ?>
                 </select>
             </div>
+
             <div class="col-md-4">
                 <label class="form-label">Quantity</label>
-                <input type="number" class="form-control" name="quantity">
+                <input type="number" class="form-control" name="quantity[]">
             </div>
 
-            <div class="new-form"></div>
+            <div class="col-md-4">
+                <label class="form-label">Ship Required Date</label>
+                <input type="date" class="form-control" name="shippingDate">
+            </div>
 
-            <div class="col-12">
-                <a href="javascript:void(0)" class="add-more-form btn btn-primary">Add More</a>
+            <div class="paste-new-forms"></div>
+
+            <div class="add-more col-12">
+                <a href="javascript:void(0)" class="add-more-form btn btn-success btn-sm">Add More</a>
             </div>
             <hr>
 
             <b>Customer Information</b>
             <br><br>
 
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label for="inputEmail4" class="form-label">First Name</label>
                 <input type="text" class="form-control" name="customerFname">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label for="inputPassword4" class="form-label">Last Name</label>
                 <input type="text" class="form-control" name="customerLname">
             </div>
-            <div class="mb-3">
+            <div class="col-md-4">
                 <label for="exampleFormControlInput1" class="form-label">Email</label>
                 <input type="email" class="form-control" name="emailAddress">
             </div>
@@ -109,17 +117,35 @@
 
 <script>
     <?php include "../crud/order/get-products.php" ?>
-    $(document).on('click', '.add-more-form', function() {
-        $('.new-form').append('<div class="col-md-4">\
-                <label class="form-label">Select Product</label>\
-                <select class="form-select form-select-md mb-3" name="productID">\
-                    <option selected disabled>Products</option>"\
-                    <?php if (mysqli_num_rows($result) > 0) {while ($row = mysqli_fetch_assoc($result)) { echo "<option value=" . $row['productID'] . ">" . $row['tradeName'] . "</option>"; } } else { echo "bad";}?>\
-                </select>\
-            </div>\
-            <div class="col-md-4">\
-                <label class="form-label">Quantity</label>\
-                <input type="number" class="form-control" name="quantity">\
-            </div>');
+    $(document).ready(function() {
+
+        $(document).on('click', '.remove-btn', function() {
+            $(this).closest('.new-form').remove();
+        });
+
+        $(document).on('click', '.add-more-form', function() {
+            $('.paste-new-forms').append('<div class="new-form">\
+                    <div class="row">\
+                        <div class="col-md-4">\
+                            <label class="form-label">Select Product</label>\
+                            <select class="form-select form-select-md mb-3" name="productID[]">\
+                                <option selected disabled>Products</option>";\
+                                <?php if (mysqli_num_rows($result) > 0) { while ($row = mysqli_fetch_assoc($result)) { echo "<option value=" . $row['productID'] . ">" . $row['tradeName'] . "</option>";}} else { echo "bad"; }?>\
+                            </select>\
+                        </div>\
+                        <div class="col-md-4">\
+                            <label class="form-label">Quantity</label>\
+                        <input type="number" class="form-control" name="quantity[]">\
+                        </div>\
+                        <div class="col-md-4">\
+                            <div class="form-group mb-2">\
+                                <br>\
+                                <button type="button" class="remove-btn btn btn-danger">Remove</button>\
+                            </div>\
+                        </div>\
+                    </div>\
+                </div>');
+        });
+
     });
 </script>
