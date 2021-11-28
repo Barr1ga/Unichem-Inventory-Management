@@ -3,11 +3,36 @@
         <h4>Create Order</h4>
         <br>
         <form method="post" action="../crud/order/create-order.php" class="row g-3">
-            
+
             <hr>
             <b>Product Information</b>
             <br><br>
-                <?php include "../crud/order/get-products.php" ?>
+            <?php include "../crud/order/get-products.php" ?>
+            <div class="col-md-4">
+                <label class="form-label">Select Product</label>
+                <select class="form-select form-select-md mb-3" name="productID">
+                    <option selected disabled>Products</option>";
+                    <?php
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<option value=" . $row['productID'] . ">" . $row['tradeName'] . "</option>";
+                        }
+                    } else {
+                        echo "bad";
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Quantity</label>
+                <input type="number" class="form-control" name="quantity">
+            </div>
+
+            <div class="new-form"></div>
+
+            <div class="col-12">
+                <a href="javascript:void(0)" class="add-more-form btn btn-primary">Add More</a>
+            </div>
             <hr>
 
             <b>Customer Information</b>
@@ -71,18 +96,6 @@
                 <input type="text" class="form-control" name="zip">
             </div>
 
-
-
-            <!-- <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Trade Name</label>
-                <input type="text" class="form-control" older="" name="">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Quantity</label>
-                <input type="text" class="form-control" older="" name="">
-            </div>
-            <br><br> -->
-
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">Create Order</button>
             </div>
@@ -91,3 +104,22 @@
 
 
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script>
+    <?php include "../crud/order/get-products.php" ?>
+    $(document).on('click', '.add-more-form', function() {
+        $('.new-form').append('<div class="col-md-4">\
+                <label class="form-label">Select Product</label>\
+                <select class="form-select form-select-md mb-3" name="productID">\
+                    <option selected disabled>Products</option>"\
+                    <?php if (mysqli_num_rows($result) > 0) {while ($row = mysqli_fetch_assoc($result)) { echo "<option value=" . $row['productID'] . ">" . $row['tradeName'] . "</option>"; } } else { echo "bad";}?>\
+                </select>\
+            </div>\
+            <div class="col-md-4">\
+                <label class="form-label">Quantity</label>\
+                <input type="number" class="form-control" name="quantity">\
+            </div>');
+    });
+</script>

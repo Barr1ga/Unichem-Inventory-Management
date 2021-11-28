@@ -15,6 +15,8 @@ $region = $_POST['region'];
 $country = $_POST['country'];
 $zip = $_POST['zip'];
 
+echo $_POST['productID'];
+
 $sql = "INSERT INTO customer (customerFName, CustomerLName, dateofBirth, gender, contactNo, email)
                      VALUES ('$customerFname', '$customerLname', '$dateOfBirth', '$gender', '$contactNo', '$emailAddress')";
 
@@ -26,6 +28,6 @@ $sql1 = "INSERT INTO customer_address (customerID, street, barangay, city, regio
                      
 mysqli_query($conn, $sql1);
 
-header('location: ../../sections/orders.php');
+// header('location: ../../sections/orders.php');
 
 ?>
