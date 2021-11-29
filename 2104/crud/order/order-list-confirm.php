@@ -14,14 +14,14 @@
     
     if (mysqli_num_rows($result) > 0) {
         echo "
-            <div class=''>
+        <div class=''>
             <div class='scroll-list'>
             ";
         while ($order = mysqli_fetch_assoc($result)) {
             include('../components/order/order-list.php');
         } 
         echo "
-        </div>
+            </div>
         </div>
     ";
     }else{

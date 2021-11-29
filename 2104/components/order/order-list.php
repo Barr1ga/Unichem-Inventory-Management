@@ -1,6 +1,9 @@
 <!-- QUERRY TO SELECT ALL CUSTOMERS/SUPPLIER -->
 <?php
 
+// $_SESSION['active'] = "#".$order['orderStatus']; 
+// print($_SESSION['active']);
+
 echo "
 
                     <form method='get' action='orders.php'>
@@ -30,10 +33,11 @@ echo "
                             </div>
 
                             <div class=''>
-                                    <form method='get' action=''>
-                                        <input type='hidden' name='orderID' value='".$order['orderID']."'>
-                                        <button type='submit' class='btn btn-link btn-preview'>Preview</button>
-                                    </form>
+                                <form method='get' action=''>
+                                    <input type='hidden' name='orderID' value='".$order['orderID']."'>
+                                    <input type='hidden' name='active' value='".$order['orderStatus']."'>
+                                    <button type='submit' class='btn btn-link btn-preview'>Preview</button>
+                                </form>
                             </div>
 
                             <div class=''>
@@ -44,11 +48,11 @@ echo "
                             </div>
 
                             <div class=''>
-                                    <form method='post' action='../sections/delete.php'>
-                                        <input type='hidden' name='delete' value='order'>
-                                        <input type='hidden' name='orderID' value='".$order['orderID']."'>
-                                        <button type='submit' class='btn btn-link btn-delete'>Delete</button>
-                                    </form>
+                                <form method='post' action='../sections/delete.php'>
+                                    <input type='hidden' name='delete' value='order'>
+                                    <input type='hidden' name='orderID' value='".$order['orderID']."'>
+                                    <button type='submit' class='btn btn-link btn-delete'>Delete</button>
+                                </form>
                             </div>
 
                         </div>

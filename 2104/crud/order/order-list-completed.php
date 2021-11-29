@@ -14,20 +14,20 @@
     
     if (mysqli_num_rows($result) > 0) {
         echo "
-            <div class=''>
+        <div class=''>
             <div class='scroll-list'>
             ";
         while ($order = mysqli_fetch_assoc($result)) {
             include('../components/order/order-list.php');
         } 
         echo "
-        </div>
+            </div>
         </div>
     ";
     }else{
         echo "<div class ='empty-message'>There are no Completed Orders.</div>";
     }
-
+    $active = "#pills-to-approve-tab";
 ?>
 
 

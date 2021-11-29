@@ -113,8 +113,6 @@
 
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
 <script>
     <?php include "../crud/order/get-products.php" ?>
     $(document).ready(function() {
@@ -140,7 +138,7 @@
                         <div class="col-md-4">\
                             <div class="form-group mb-2">\
                                 <br>\
-                                <button type="button" class="remove-btn btn btn-danger">Remove</button>\
+                                <button type="button" class="remove-btn btn btn-danger btn-sm">Remove</button>\
                             </div>\
                         </div>\
                     </div>\

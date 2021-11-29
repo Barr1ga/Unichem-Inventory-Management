@@ -1,7 +1,16 @@
 <?php
+session_start();
+
+if (empty($_SESSION['active'])) {
+    $_SESSION['active'] = '#To-Approve';
+    print($_SESSION['active'] );
+} else {
+    $_SESSION['active'] = "#".$_GET['active'];
+}
+
+
 include('../style/import.php');
 include('../crud/order/check-default.php');
-
 ?>
 
 <html lang="en">
@@ -107,28 +116,28 @@ include('../crud/order/check-default.php');
                     <ul class="nav nav-pills mb-3 orderNav" id="pills-tab" role="tablist">
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-to-approve-tab" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">To Approve</button>
+                            <button class="nav-link active" id="To-Approve" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">To Approve</button>
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-to-confirm-tab" data-bs-toggle="pill" data-bs-target="#pills-to-confirm" type="button" role="tab" aria-controls="pills-to-confirm" aria-selected="false">To Confirm</button>
+                            <button class="nav-link" id="To-Confirm" data-bs-toggle="pill" data-bs-target="#pills-to-confirm" type="button" role="tab" aria-controls="pills-to-confirm" aria-selected="false">To Confirm</button>
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-receive-tab" data-bs-toggle="pill" data-bs-target="#pills-to-receive" type="button" role="tab" aria-controls="pills-to-receive" aria-selected="false">To Receive</button>
+                            <button class="nav-link" id="To-Receive" data-bs-toggle="pill" data-bs-target="#pills-to-receive" type="button" role="tab" aria-controls="pills-to-receive" aria-selected="false">To Receive</button>
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-to-completed-tab" data-bs-toggle="pill" data-bs-target="#pills-to-completed" type="button" role="tab" aria-controls="pills-to-completed" aria-selected="false">Completed</button>
+                            <button class="nav-link" id="Completed" data-bs-toggle="pill" data-bs-target="#pills-completed" type="button" role="tab" aria-controls="pills-completed" aria-selected="false">Completed</button>
                         </li>
 
                         <li class="nav-item create-new-button" role="presentation">
-                            <button class="nav-link" id="pills-create-tab" data-bs-toggle="pill" data-bs-target="#pills-create" type="button" role="tab" aria-controls="pills-create" aria-selected="false">Create Order</button>
+                            <button class="nav-link"  id="Create" data-bs-toggle="pill" data-bs-target="#pills-create" type="button" role="tab" aria-controls="pills-create" aria-selected="false">Create Order</button>
                         </li>
                     </ul>
 
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-to-approve" role="tabpanel" aria-labelledby="pills-to-confirm-tab">
+                        <div class="tab-pane fade show active" id="pills-to-approve" role="tabpanel" aria-labelledby="pills-to-approve-tab">
                             <?php
                             include('../components/order/order-header.php');
                             include('../crud/order/order-list-approve.php');
@@ -136,7 +145,7 @@ include('../crud/order/check-default.php');
                             ?>
                         </div>
 
-                        <div class="tab-pane fade" id="pills-to-confirm" role="tabpanel" aria-labelledby="pills-to-ship-tab">
+                        <div class="tab-pane fade" id="pills-to-confirm" role="tabpanel" aria-labelledby="pills-to-cofirm-tab">
                             <?php
                             include('../components/order/order-header.php');
                             include('../crud/order/order-list-confirm.php');
@@ -150,7 +159,7 @@ include('../crud/order/check-default.php');
                             ?>
                         </div>
 
-                        <div class="tab-pane fade" id="pills-to-completed" role="tabpanel" aria-labelledby="pills-to-completed-tab">
+                        <div class="tab-pane fade" id="pills-completed" role="tabpanel" aria-labelledby="pills-complete-tab">
                             <?php
                             include('../components/order/order-header.php');
                             include('../crud/order/order-list-completed.php');
@@ -178,6 +187,11 @@ include('../crud/order/check-default.php');
 
     </main>
 
+    <script type="text/javascript">
+        var selectedTab = document.querySelector('<?php echo $_SESSION['active'] ?>')
+        var showTab = new bootstrap.Tab(selectedTab)
+        showTab.show()
+    </script>
 </body>
 
 </html>

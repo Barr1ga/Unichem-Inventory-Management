@@ -13,4 +13,5 @@ if(!isset($_GET['orderID'])){
     $defaultOrder = mysqli_fetch_assoc($result);
             
     $_GET['orderID'] = $defaultOrder['orderID'];
+
 }
