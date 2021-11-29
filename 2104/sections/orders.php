@@ -4,7 +4,7 @@ session_start();
 if (empty($_SESSION['active'])) {
     $_SESSION['active'] = '#To-Approve';
     print($_SESSION['active'] );
-} else {
+} else if (isset($_GET['active'])) {
     $_SESSION['active'] = "#".$_GET['active'];
 }
 
