@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2021 at 02:29 PM
+-- Generation Time: Nov 30, 2021 at 05:21 AM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -47,7 +47,8 @@ INSERT INTO `customer` (`customerID`, `customerFName`, `customerLName`, `dateofB
 (4, 'Dani', 'Ponder', '1986-10-16', 'F', '09178653211', 'daniponder65@gmail.com'),
 (5, 'Lola', 'Luciana', '1996-06-24', 'F', '09274852399', 'lola_luciana32@gmail.com'),
 (6, 'Carlos', 'Webber', '1984-11-09', 'M', '09272126349', 'carloswebbet@gmail.com'),
-(7, 'Maria', 'Reed', '1974-06-03', 'F', '09273205350', 'reed_maria@yahoo.com');
+(7, 'Maria', 'Reed', '1974-06-03', 'F', '09273205350', 'reed_maria@yahoo.com'),
+(25, 'Nikolai Franz', 'Tumapon', '2001-10-03', 'M', '09279547500', 'franztumapon13@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -76,7 +77,8 @@ INSERT INTO `customer_address` (`addressID`, `customerID`, `street`, `barangay`,
 (3, 4, 'Roosevelt Avenue', 'Taguig', 'Carmen', 'Central Visayas', 'Philippines', '6319'),
 (4, 5, 'Roxas Boulevard', 'Pasay', 'Quezon City', 'Metro Manila', 'Philippines', '1008'),
 (5, 6, 'Boni Avenue', 'Marikina', 'Cagayan de Oro', 'Northern Mindanao', 'Philippines', '9000'),
-(6, 7, 'De la Rosa Street', 'Pasig', 'Tagbilaran City', 'Central Visayas', 'Philippines', '6300');
+(6, 7, 'De la Rosa Street', 'Pasig', 'Tagbilaran City', 'Central Visayas', 'Philippines', '6300'),
+(21, 25, 'Sitio Dapdap', 'Catarman', ' Cebu', 'Cebu', 'Philippines', '6002');
 
 -- --------------------------------------------------------
 
@@ -146,7 +148,8 @@ INSERT INTO `orders` (`orderID`, `customerID`, `createdBy`, `approvedBy`, `order
 (26, 5, 3, 1, '2021-09-08', 'Completed', '2021-09-13', 'paid'),
 (27, 4, 3, 1, '2021-09-17', 'Completed', '2021-09-22', 'paid'),
 (28, 4, 2, NULL, '2021-11-23', 'To-Approve', '2021-11-30', 'unpaid'),
-(29, 2, 3, NULL, '2021-11-30', 'To-Approve', '2021-12-23', 'unpaid');
+(29, 2, 3, NULL, '2021-11-30', 'To-Approve', '2021-12-23', 'unpaid'),
+(30, 25, 1, NULL, '2030-11-21', 'To-Approve', '2021-12-09', 'unpaid');
 
 -- --------------------------------------------------------
 
@@ -231,7 +234,9 @@ INSERT INTO `order_line` (`orderlineID`, `orderID`, `productID`, `quantity`) VAL
 (130, 28, 2, 50),
 (131, 28, 2, 20),
 (132, 29, 2, 30),
-(133, 29, 8, 80);
+(133, 29, 8, 80),
+(134, 30, 5, 20),
+(135, 30, 4, 5);
 
 -- --------------------------------------------------------
 
@@ -245,7 +250,7 @@ CREATE TABLE `product` (
   `description` text NOT NULL,
   `brandName` varchar(255) NOT NULL,
   `dateContained` date NOT NULL,
-  `price` int(11) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
   `applicationType` varchar(255) NOT NULL,
   `cureTime` time NOT NULL,
   `color` varchar(255) NOT NULL,
@@ -266,14 +271,14 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`productID`, `tradeName`, `description`, `brandName`, `dateContained`, `price`, `applicationType`, `cureTime`, `color`, `form`, `packageType`, `packageSize`, `maxOperatingTemp`, `minOperatingTemp`, `viscosity`, `chemicalComposition`, `operatingTempRange`, `productImage`, `inStock`) VALUES
-(1, 'Loctite 243', 'A general purpose, medium strength threadlocker with improved oil tolerance. For fasteners between 1/4\" and 3/4\" (6 to 20 mm) diameters.', 'Loctite', '2021-10-01', 29, 'Thread locking', '02:00:00', 'Blue', 'Liquid', 'Bottle', '10 ml', '+180°C', '-55°C', 'Thixotropic', 'Dimethacrylate Ester', '-55°C -> +180°C', 'loctite 243.jpg', 978),
-(2, 'Loctite 271', 'The Loctite 135381 is a 271™ series high strength threadlocker that comes in a 50 ml bottle. This material is designed for the permanent locking and sealing of threaded fasteners.', 'Loctite', '2021-10-01', 38, 'Thread locking', '24:00:00', 'Red', 'Liquid', 'Bottle', '50 ml', '+300°F', '>+50°F', 'Thixotropic', 'Methacrylate Ester', '-50°C -> +300°C', 'Loctite 271.jpg', 1789),
-(3, 'Loctite 242', 'The Loctite 135355 is a blue threadlocker that comes in a 50 ml bottle. This medium strength, mil spec threadlocker is designed for general purpose applications on fasteners between ¼\" and ¾\" diameters.', 'Loctite', '2021-10-01', 38, 'Thread locking', '24:00:00', 'Blue', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 242.jpg', 1452),
-(4, 'Loctite 545', 'The Loctite 135486 is a thread sealant that comes in a 50 ml bottle. This material is designed for the locking and sealing of small, fine threaded fittings particularly those used in hydraulic and pneumatic installations.', 'Loctite', '2021-10-02', 38, 'Thread Sealing', '168:00:00', 'Purple', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Polyglycoldioctanoate, Polyglycol Dimethacrylate, 2-Hydroxyethyl Methacrylate, Silica, Amorphous, Fumed, Crystal-Free, Cumene Hydroperoxide, 1-Acetyl-2-Phenylhydrazine, Cumene, Methacrylic Acid', '-65°F -> +300°F', 'Loctite 545.jpg', 789),
-(5, 'Loctite 262', 'The Loctite 135374 is a high strength product that is applied to fasteners up to 3/4\" (20mm) in size before assembly. Localized heat and hand tools are required to separate parts;solvents will not weaken the adhesive bond. Approved for use in or around food processing areas.', 'Loctite', '2021-10-01', 38, 'Thread locking', '24:00:00', 'Red', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 262.jpg', 973),
-(6, 'Loctite 290', 'The Loctite 135392 is a medium-strength wicking grade threadlocker for pre-assembled bolts up to 1/2\" (12 mm). This material\'s capillary action allows it to wick between engaged threads elliminating the need to disassemble parts prior to application.', 'Loctite', '2021-10-01', 39, 'Thread locking', '24:00:00', 'Green', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 290.jpg', 1234),
-(7, 'Loctite 220', 'The Loctite 645093 is a wicking grade, medium strength threadlocker that comes in a 50 ml bottle. The low viscosity adhesive is designed for use on preassembled fasteners.', 'Loctite', '2021-10-01', 37, 'Thread locking', '24:00:00', 'Blue', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 220.jpg', 1324),
-(8, 'Loctite 263', 'The Loctite 1330585 is a high strength, permanent threadlocker for heavy duty applications. This material only works on both active metals such as brass and copper as well as passive substrates such as stainless steel.', 'Loctite', '2021-10-01', 36, 'Thread locking', '24:00:00', 'Red', 'Liquid', 'Liquid', '50 ml', '+360°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +360°F', 'Loctite 263.jpg', 876);
+(1, 'Loctite 243', 'A general purpose, medium strength threadlocker with improved oil tolerance. For fasteners between 1/4\" and 3/4\" (6 to 20 mm) diameters.', 'Loctite', '2021-10-01', '652.40', 'Thread locking', '02:00:00', 'Blue', 'Liquid', 'Bottle', '10 ml', '+180°C', '-55°C', 'Thixotropic', 'Dimethacrylate Ester', '-55°C -> +180°C', 'loctite 243.jpg', 978),
+(2, 'Loctite 271', 'The Loctite 135381 is a 271™ series high strength threadlocker that comes in a 50 ml bottle. This material is designed for the permanent locking and sealing of threaded fasteners.', 'Loctite', '2021-10-01', '597.60', 'Thread locking', '24:00:00', 'Red', 'Liquid', 'Bottle', '50 ml', '+300°F', '>+50°F', 'Thixotropic', 'Methacrylate Ester', '-50°C -> +300°C', 'Loctite 271.jpg', 1789),
+(3, 'Loctite 242', 'The Loctite 135355 is a blue threadlocker that comes in a 50 ml bottle. This medium strength, mil spec threadlocker is designed for general purpose applications on fasteners between ¼\" and ¾\" diameters.', 'Loctite', '2021-10-01', '816.90', 'Thread locking', '24:00:00', 'Blue', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 242.jpg', 1452),
+(4, 'Loctite 545', 'The Loctite 135486 is a thread sealant that comes in a 50 ml bottle. This material is designed for the locking and sealing of small, fine threaded fittings particularly those used in hydraulic and pneumatic installations.', 'Loctite', '2021-10-02', '1343.20', 'Thread Sealing', '168:00:00', 'Purple', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Polyglycoldioctanoate, Polyglycol Dimethacrylate, 2-Hydroxyethyl Methacrylate, Silica, Amorphous, Fumed, Crystal-Free, Cumene Hydroperoxide, 1-Acetyl-2-Phenylhydrazine, Cumene, Methacrylic Acid', '-65°F -> +300°F', 'Loctite 545.jpg', 789),
+(5, 'Loctite 262', 'The Loctite 135374 is a high strength product that is applied to fasteners up to 3/4\" (20mm) in size before assembly. Localized heat and hand tools are required to separate parts;solvents will not weaken the adhesive bond. Approved for use in or around food processing areas.', 'Loctite', '2021-10-01', '422.20', 'Thread locking', '24:00:00', 'Red', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 262.jpg', 973),
+(6, 'Loctite 290', 'The Loctite 135392 is a medium-strength wicking grade threadlocker for pre-assembled bolts up to 1/2\" (12 mm). This material\'s capillary action allows it to wick between engaged threads elliminating the need to disassemble parts prior to application.', 'Loctite', '2021-10-01', '378.30', 'Thread locking', '24:00:00', 'Green', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 290.jpg', 1234),
+(7, 'Loctite 220', 'The Loctite 645093 is a wicking grade, medium strength threadlocker that comes in a 50 ml bottle. The low viscosity adhesive is designed for use on preassembled fasteners.', 'Loctite', '2021-10-01', '844.30', 'Thread locking', '24:00:00', 'Blue', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 220.jpg', 1324),
+(8, 'Loctite 263', 'The Loctite 1330585 is a high strength, permanent threadlocker for heavy duty applications. This material only works on both active metals such as brass and copper as well as passive substrates such as stainless steel.', 'Loctite', '2021-10-01', '756.60', 'Thread locking', '24:00:00', 'Red', 'Liquid', 'Liquid', '50 ml', '+360°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +360°F', 'Loctite 263.jpg', 876);
 
 -- --------------------------------------------------------
 
@@ -372,7 +377,7 @@ INSERT INTO `supplier` (`supplierID`, `companyName`, `contactFName`, `contactLNa
 --
 
 CREATE TABLE `supplier_address` (
-  `addressNo` int(11) NOT NULL,
+  `addressID` int(11) NOT NULL,
   `supplierID` int(11) NOT NULL,
   `street` varchar(35) DEFAULT NULL,
   `barangay` varchar(35) DEFAULT NULL,
@@ -386,7 +391,7 @@ CREATE TABLE `supplier_address` (
 -- Dumping data for table `supplier_address`
 --
 
-INSERT INTO `supplier_address` (`addressNo`, `supplierID`, `street`, `barangay`, `city`, `region`, `country`, `zip`) VALUES
+INSERT INTO `supplier_address` (`addressID`, `supplierID`, `street`, `barangay`, `city`, `region`, `country`, `zip`) VALUES
 (5, 2, 'A. Soriano Avenue', 'Apas', 'Cebu City', 'Central Visayas', 'Philippines', '6000'),
 (6, 3, '5th Main Avenue', 'Aguinaldo', 'Iloilo City', 'Western Visayas', 'Philippines', '5000');
 
@@ -463,7 +468,7 @@ ALTER TABLE `supplier`
 -- Indexes for table `supplier_address`
 --
 ALTER TABLE `supplier_address`
-  ADD PRIMARY KEY (`addressNo`),
+  ADD PRIMARY KEY (`addressID`),
   ADD KEY `supplier_address_FK` (`supplierID`);
 
 --
@@ -474,13 +479,13 @@ ALTER TABLE `supplier_address`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `customer_address`
 --
 ALTER TABLE `customer_address`
-  MODIFY `addressID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `addressID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `inventory_users`
@@ -492,13 +497,13 @@ ALTER TABLE `inventory_users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `order_line`
 --
 ALTER TABLE `order_line`
-  MODIFY `orderlineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+  MODIFY `orderlineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -528,7 +533,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT for table `supplier_address`
 --
 ALTER TABLE `supplier_address`
-  MODIFY `addressNo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `addressID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
