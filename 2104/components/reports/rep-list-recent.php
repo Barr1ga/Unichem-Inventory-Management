@@ -14,6 +14,11 @@ include('../crud/db_connect.php');
             <?php
 
             if(mysqli_num_rows($recentRepsQuery)>0){
+                ?>
+                Replenishments<br>
+                <br>
+                <br>
+                <?php
                 while($row = mysqli_fetch_array($recentRepsQuery)){
 
                     $getSupplierInfo = "SELECT * FROM supplier s WHERE s.supplierID = '$row[supplierID]'";

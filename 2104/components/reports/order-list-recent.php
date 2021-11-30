@@ -16,6 +16,11 @@ include('../crud/db_connect.php');
             <?php
 
             if(mysqli_num_rows($recentOrderQuery)>0){
+                ?>
+                Orders<br>
+                <br>
+                <br>
+                <?php
                 while($row = mysqli_fetch_array($recentOrderQuery)){
 
                     $getCustomerInfo = "SELECT * FROM customer c WHERE c.customerID = '$row[customerID]'";
