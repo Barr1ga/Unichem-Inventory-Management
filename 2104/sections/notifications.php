@@ -73,13 +73,7 @@ include('../crud/db_connect.php');
             <div class="row align-items-end">
                 <div class="col d-flex justify-content-center">
                     <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
-                        <strong>Settings</strong>
-                    </a>
-                </div>
-
-                <div class="col d-flex justify-content-center">
-                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
-                        <strong>Support</strong>
+                        <strong>Logout</strong>
                     </a>
                 </div>
             </div>
