@@ -8,7 +8,7 @@ echo "
             </div>
 
             <div class='list-cell'>
-            " . $order['customerFName'] . " " . $order['customerLName'] . "
+            " . $order['customerLName'] . " " . $order['customerFName'] . "
             </div>
             
             <div class='list-cell'>
