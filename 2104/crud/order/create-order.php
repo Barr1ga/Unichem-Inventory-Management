@@ -1,7 +1,7 @@
 <?php
 include('../db_connect.php');
 
-$sessionID = 1; // SESSION VARIABLE FOR CREATED BY
+$sessionID = 2; // SESSION VARIABLE FOR CREATED BY
 $customerFname = $_POST['customerFname'];
 $customerLname = $_POST['customerLname'];
 $emailAddress = $_POST['emailAddress'];

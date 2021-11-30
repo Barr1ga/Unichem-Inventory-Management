@@ -12,7 +12,7 @@ echo "
             </div>
             
             <div class='list-cell'>
-                " . $order['userFirstName'] . " " . $order['userLastName'] . "
+                " . $order['userLastName'] . ", " . $order['userFirstName'] . "
             </div>
 
             <div class='list-cell'>
@@ -62,7 +62,7 @@ echo "
             </div>
             <div class="modal-body">
                 <b>Product Information</b>
-                <form class="row g-3">
+                <form class="row g-3" method="post" action="">
                     <?php
                     include("../crud/order/order-created.php")
                     ?>
@@ -124,20 +124,21 @@ echo "
                     </div>
 
                     <div class="col-md-4">
-                        <label class="col-form-label">Country (M/F)</label>
-                        <input type="text" class="form-control" name="gender" value="<?php echo $order['country'] ?>" />
+                        <label class="col-form-label">Country</label>
+                        <input type="text" class="form-control" name="country" value="<?php echo $order['country'] ?>" />
                     </div>
 
                     <div class="col-md-4">
                         <label class="col-form-label">Zip</label>
-                        <input type="email" class="form-control" name="contactNo" value="<?php echo $order['zip'] ?>" />
+                        <input type="email" class="form-control" name="zip" value="<?php echo $order['zip'] ?>" />
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
