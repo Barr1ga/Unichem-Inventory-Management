@@ -41,7 +41,7 @@
             Street<br>
             Barangay<br>
             City<br>
-            State<br>
+            Region<br>
             Zip<br>
             Country
         </div>
@@ -52,7 +52,7 @@
                 $customer['street']."<br>".
                 $customer['barangay']."<br>".
                 $customer['city']."<br>".
-                $customer['state']."<br>".
+                $customer['region']."<br>".
                 $customer['zip']."<br>".
                 $customer['country'];
                 ?>

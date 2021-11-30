@@ -8,7 +8,7 @@ include('../crud/db_connect.php');
 <main>
     <!-- NAV -->
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <a href="notifications.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
             
             <div class="row justify-content-md-center">
                 <img class="unichem-logo-login" src="../assets/images/Unichem-Logo-Text.svg">
