@@ -6,7 +6,7 @@ include('../crud/db_connect.php');
 
             <!-- QUERRY TO SELECT ALL RECENT REPLENISHMENTS -->
             <!-- <?php
-                   $getRecentReps = "SELECT * FROM replenishment r WHERE DATEDIFF(r.repOrderDate, CURDATE()) <= 1 AND DATEDIFF(r.repOrderDate, CURDATE()) > 0";
+                   $getRecentReps = "SELECT * FROM replenishment r WHERE DATEDIFF(r.repOrderDate, CURDATE()) <= 1 AND DATEDIFF(r.repOrderDate, CURDATE()) > -1";
 
                    $recentRepsQuery = mysqli_query($conn,$getRecentReps);
                     ?> -->
@@ -25,13 +25,14 @@ include('../crud/db_connect.php');
                     $supplierInfoQuery = mysqli_query($conn,$getSupplierInfo);
                     $row2 = mysqli_fetch_array($supplierInfoQuery);
 
-                    $getProductID = "SELECT productID FROM replenishment_line rl WHERE rl.repOrderID = '$row[repOrderID]'";
+                    $getProductID = "SELECT * FROM replenishment_line rl WHERE rl.repOrderID = '$row[repOrderID]'";
                     $productIDQuery = mysqli_query($conn,$getProductID);
-                    $row3 = mysqli_fetch_array($productIDQuery);
+                    while($row3 = mysqli_fetch_array($productIDQuery)){
 
-                    $getTradeName = "SELECT tradeName FROM product p WHERE p.productID = '$row3[productID]'";
-                    $tradeNameQuery = mysqli_query($conn,$getTradeName);
-                    $row4 = mysqli_fetch_array($tradeNameQuery);
+                    $getProdInfo = "SELECT * FROM product p WHERE p.productID = '$row3[productID]'";
+                    $prodInfoQuery = mysqli_query($conn,$getProdInfo);
+                    $row4 = mysqli_fetch_array($prodInfoQuery);
+
 
                 echo "
                     <form method='get' action='customers.php'>
@@ -48,11 +49,12 @@ include('../crud/db_connect.php');
                                     ".$row4['tradeName']."
                                 </div>
                                 <div class='column reports-right-data'>
-                                    P".$row['totalPrice']."
+                                    P".$row3['quantity']*$row4['price']."
                                 </div>
                         </div>
                     </form>
                 ";
+                    }
                 }
             }
             
