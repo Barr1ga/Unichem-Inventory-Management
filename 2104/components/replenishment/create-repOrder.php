@@ -2,7 +2,7 @@
     <div class="white-box-container rounded form-create-order">
         <h4>Create Replenishment Order</h4>
         <br>
-        <form method="post" action="../crud/order/create-order.php" class="row g-3">
+        <form method="post" action="../crud/replenishment/create-repOrder.php" class="row g-3">
 
             <hr>
             <b>Product Information</b>
@@ -48,7 +48,7 @@
             <?php include "../crud/replenishment/get-suppliers.php" ?>
             <div class="col-md-4">
                 <label class="form-label">Supplier</label>
-                <select class="form-select form-select-md mb-3" name="customer">
+                <select class="form-select form-select-md mb-3" name="supplier" required>
                     <option value="">Select Supplier</option>
                     <?php
                         if (mysqli_num_rows($result) > 0) {
@@ -60,6 +60,11 @@
                         }
                     ?>
                 </select>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Ship Required Date</label>
+                <input type="date" class="form-control" name="shippingDate" required>
             </div>
 
             <div class="col-12">
