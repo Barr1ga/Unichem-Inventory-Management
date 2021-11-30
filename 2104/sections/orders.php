@@ -1,10 +1,11 @@
 <?php
 session_start();
+unset($_SESSION['repActive']);
 
-if (empty($_SESSION['active'])) {
-    $_SESSION['active'] = '#To-Approve';
-} else if (isset($_GET['active'])) {
-    $_SESSION['active'] = "#".$_GET['active'];
+if (empty($_SESSION['orderActive'])) {
+    $_SESSION['orderActive'] = '#To-Approve';
+} else if (isset($_GET['orderActive'])) {
+    $_SESSION['orderActive'] = "#".$_GET['orderActive'];
 }
 
 include('../style/import.php');
@@ -181,7 +182,7 @@ include('../crud/order/check-default.php');
     </main>
 
     <script type="text/javascript">
-        var selectedTab = document.querySelector('<?php echo $_SESSION['active'] ?>')
+        var selectedTab = document.querySelector('<?php echo $_SESSION['orderActive'] ?>')
         var showTab = new bootstrap.Tab(selectedTab)
         showTab.show()
     </script>

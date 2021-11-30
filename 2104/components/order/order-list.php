@@ -32,7 +32,7 @@ echo "
             <div class=''>
                 <form method='get' action=''>
                     <input type='hidden' name='orderID' value='" . $order['orderID'] . "'>
-                    <input type='hidden' name='active' value='" . $order['orderStatus'] . "'>
+                    <input type='hidden' name='orderActive' value='" . $order['orderStatus'] . "'>
                     <button type='submit' class='btn btn-link btn-preview'>Preview</button>
                 </form>
             </div>
@@ -57,15 +57,25 @@ echo "
 
 <!-- Update Modal -->
 
+<?php
+    $class = "";
+
+    if ($order['orderStatus'] == "Completed") {
+        $class = "invisible";
+    }
+?>
+
 <div class="modal fade" id="<?php echo $modal ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Update Information</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <a type="button" class="btn btn-outline-primary btn-sm <?php echo $class ?>" data-bs-dismiss="modal" aria-label="Close">
+                    <?php  echo substr($order['orderStatus'], 3); ?>
+                </a>
             </div>
             <div class="modal-body">
-                
+            
                 <form class="row g-3" method="post" action="../crud/order/update-order.php">
                     <b>Product Information</b>
                     <?php
