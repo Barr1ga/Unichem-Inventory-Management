@@ -1,3 +1,5 @@
+<!-- Order List -->
+
 <?php
 $modal = $order['orderStatus'] . $order['orderID'];
 echo "
@@ -8,7 +10,7 @@ echo "
             </div>
 
             <div class='list-cell'>
-            " . $order['customerLName'] . " " . $order['customerFName'] . "
+            " . $order['customerLName'] . ", " . $order['customerFName'] . "
             </div>
             
             <div class='list-cell'>
@@ -53,6 +55,8 @@ echo "
 ";
 ?>
 
+<!-- Update Modal -->
+
 <div class="modal fade" id="<?php echo $modal ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -61,18 +65,29 @@ echo "
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <b>Product Information</b>
-                <form class="row g-3" method="post" action="">
+                
+                <form class="row g-3" method="post" action="../crud/order/update-order.php">
+                    <b>Product Information</b>
                     <?php
-                    include("../crud/order/order-created.php")
+                        include("../crud/order/get-orders.php")
                     ?>
+
+                    <div class="col-md-6">
+                        <label class="col-form-label">Order Date</label>
+                        <input type="date" class="form-control" name="orderDate" value="<?php echo $order['orderDate'] ?>" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="col-form-label">Ship Required Date</label>
+                        <input type="date" class="form-control" name="shippingDate" value="<?php echo $order['shipRequiredDate'] ?>" />
+                    </div>
 
                     <hr>
                     <b>Customer Information</b>
 
                     <div class="col-md-4">
                         <label class="col-form-label">First Name</label>
-                        <input class="form-control" name="fname" value="<?php echo $order['customerFName'] ?>" />
+                        <input type="text" class="form-control" name="fname" value="<?php echo $order['customerFName'] ?>" />
                     </div>
 
                     <div class="col-md-4">
@@ -82,12 +97,12 @@ echo "
 
                     <div class="col-md-4">
                         <label class="col-form-label">Email</label>
-                        <input type="email" class="form-control" name="lname" value="<?php echo $order['email'] ?>" />
+                        <input type="email" class="form-control" name="email" value="<?php echo $order['email'] ?>" />
                     </div>
 
                     <div class="col-md-4">
                         <label class="col-form-label">Date of Birth</label>
-                        <input class="form-control" name="dateofBirth" value="<?php echo $order['dateofBirth'] ?>" />
+                        <input type="date" class="form-control" name="dob" value="<?php echo $order['dateofBirth'] ?>" />
                     </div>
 
                     <div class="col-md-4">
@@ -97,7 +112,7 @@ echo "
 
                     <div class="col-md-4">
                         <label class="col-form-label">Contact Number</label>
-                        <input type="email" class="form-control" name="contactNo" value="<?php echo $order['contactNo'] ?>" />
+                        <input type="text" class="form-control" name="contactNo" value="<?php echo $order['contactNo'] ?>" />
                     </div>
 
                     <hr>
@@ -115,7 +130,7 @@ echo "
 
                     <div class="col-md-4">
                         <label class="col-form-label">City</label>
-                        <input type="email" class="form-control" name="city" value="<?php echo $order['city'] ?>" />
+                        <input type="text" class="form-control" name="city" value="<?php echo $order['city'] ?>" />
                     </div>
 
                     <div class="col-md-4">
@@ -130,11 +145,16 @@ echo "
 
                     <div class="col-md-4">
                         <label class="col-form-label">Zip</label>
-                        <input type="email" class="form-control" name="zip" value="<?php echo $order['zip'] ?>" />
+                        <input type="text" class="form-control" name="zip" value="<?php echo $order['zip'] ?>" />
                     </div>
                 
                 </div>
+
                 <div class="modal-footer">
+                    <input type='hidden' name='orderID' value=" <?php echo $order['orderID'] ?>">
+                    <input type='hidden' name='customerID' value=" <?php echo $order['customerID'] ?>">
+                    <input type='hidden' name='addressID' value=" <?php echo $order['addressID'] ?>">
+
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>

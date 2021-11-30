@@ -156,11 +156,11 @@ include('../crud/order/check-default.php');
                             include('../components/order/order-header.php');
                             include('../crud/order/order-list-completed.php');
                             ?>
-                        </div>
+                        </div>  
 
                         <div class="tab-pane fade" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
                             <?php
-                            include('../components/order/order-create.php');
+                            include('../components/order/create-order.php');
                             ?>
                         </div>
                         
