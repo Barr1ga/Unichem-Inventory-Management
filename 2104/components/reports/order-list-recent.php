@@ -29,7 +29,7 @@ include('../crud/db_connect.php');
 
                     $getProductID = "SELECT * FROM order_line ol WHERE ol.orderID = '$row[orderID]'";
                     $productIDQuery = mysqli_query($conn,$getProductID);
-                    $row3 = mysqli_fetch_array($productIDQuery);
+                    while($row3 = mysqli_fetch_array($productIDQuery)){
 
                     $getProdInfo = "SELECT * FROM product p WHERE p.productID = '$row3[productID]'";
                     $prodInfoQuery = mysqli_query($conn,$getProdInfo);
@@ -50,11 +50,15 @@ include('../crud/db_connect.php');
                                     ".$row4['tradeName']."
                                 </div>
                                 <div class='column reports-right-data'>
+                                    Qty: ".$row3['quantity']."
+                                </div>
+                                <div class='column reports-right-data'>
                                     P".$row3['quantity']*$row4['price']."
                                 </div>
                         </div>
                     </form>
                 ";
+                    }
                 }
             }
             

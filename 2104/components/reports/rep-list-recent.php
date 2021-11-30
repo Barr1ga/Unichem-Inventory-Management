@@ -49,6 +49,9 @@ include('../crud/db_connect.php');
                                     ".$row4['tradeName']."
                                 </div>
                                 <div class='column reports-right-data'>
+                                    Qty: ".$row3['quantity']."
+                                </div>
+                                <div class='column reports-right-data'>
                                     P".$row3['quantity']*$row4['price']."
                                 </div>
                         </div>
