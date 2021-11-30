@@ -313,20 +313,22 @@
   }
 
   .btn-preview{
-    color: green;
+    color: #0d6efd;
     text-decoration: none;
   }
 
   .btn-preview:hover {
-    color: green;
+    color: #0d6efd;
     text-decoration: underline;
   }
 
   .btn-update{
+    color: #198754;
     text-decoration: none;
   }
 
   .btn-update:hover {
+    color: #198754;
     text-decoration: underline;
   }
 
