@@ -16,6 +16,11 @@ include('../crud/db_connect.php');
                 -->
                 <?php
                    if(mysqli_num_rows($lowStockQuery)>0){
+                    ?>
+                    Inventory<br>
+                    <br>
+                    <br>
+                    <?php
                        while($row = mysqli_fetch_array($lowStockQuery)){
                         echo "
                             <div class='d-flex align-items-center justify-content-between white-box-container one-supplier-customer-list-long round-edge'>
