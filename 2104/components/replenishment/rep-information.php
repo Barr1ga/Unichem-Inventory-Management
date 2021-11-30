@@ -19,12 +19,13 @@
         <div class="col-12 col-sm-6 col-md-8">
             <b>
             <?php
-                echo "Supplier Name" . "<br>";
-                // echo $CreatedBy['userFirstName']. $CreatedBy['userLastName'] ."<br>";
-                echo $rep['createdBy'] . "<br>";
-
-                // echo $ApprovedBy['userFirstName']."<br>";
-                echo $rep['approvedBy'] . "<br>";
+                echo $rep['companyName']. "<br>";
+                echo $createdBy['userFirstName']. " ". $createdBy['userLastName']. "<br>";
+                if ($approvedByResult) {
+                    echo $approvedBy['userFirstName'] . " ". $approvedBy['userLastName']."<br>";
+                } else {
+                    echo "To-Approve". "<br>";
+                }
                 echo $rep['shipRequiredDate'];
                 ?>
             </b>
@@ -47,7 +48,7 @@
     <hr>
     <div class="row d-flex justify-content-between">
         <div class="col">
-            $TotalPrice
+            TotalPrice
         </div>
         <div class="col-4 d-flex justify-content-end">
             <b>₱ <?php echo $rep['quantity'] * $rep['price'] ?></b>

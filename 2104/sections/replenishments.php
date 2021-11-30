@@ -160,7 +160,7 @@ include('../crud/replenishment/check-default.php');
 
                         <div class="tab-pane fade" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
                             <?php
-                            include('../components/order/create-order.php');
+                            include('../components/replenishment/create-repOrder.php');
                             ?>
                         </div>
                     </div>
