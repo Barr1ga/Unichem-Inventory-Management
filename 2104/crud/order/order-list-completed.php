@@ -27,7 +27,6 @@
     }else{
         echo "<div class ='empty-message'>There are no Completed Orders.</div>";
     }
-    $active = "#pills-to-approve-tab";
 ?>
 
 

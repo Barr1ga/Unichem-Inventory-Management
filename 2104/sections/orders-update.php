@@ -1,14 +1,7 @@
 <?php
 session_start();
 
-if (empty($_SESSION['active'])) {
-    $_SESSION['active'] = '#To-Approve';
-} else if (isset($_GET['active'])) {
-    $_SESSION['active'] = "#".$_GET['active'];
-}
-
 include('../style/import.php');
-include('../crud/order/check-default.php');
 ?>
 
 <html lang="en">
@@ -100,15 +93,15 @@ include('../crud/order/check-default.php');
         </div>
 
         <div class="father-container">
-            <h4>Orders</h4>
+            <h4>Orders Update</h4>
             <br>
-            <div class="layout-column">
+            <!-- <div class="layout-column">
                 <form method="post" action="">
                     <input type="text" class="form-control search-input" placeholder="Search">
                 </form>
-            </div>
+            </div> -->
             <br>
-            <div class="d-flex">
+            <!-- <div class="d-flex">
                 <div class="layout-column">
 
                     <ul class="nav nav-pills mb-3 orderNav" id="pills-tab" role="tablist">
@@ -166,10 +159,9 @@ include('../crud/order/check-default.php');
 
                         <div class="tab-pane fade" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
                             <?php
-                            include('../components/order/order-create.php');
+                            include('../components/order/create-order.php');
                             ?>
                         </div>
-                        
                     </div>
 
                 </div>
@@ -180,17 +172,12 @@ include('../crud/order/check-default.php');
                     <?php include('../crud/order/order-information.php') ?>
                 </div>
 
-            </div>
+            </div> -->
 
         </div>
 
     </main>
 
-    <script type="text/javascript">
-        var selectedTab = document.querySelector('<?php echo $_SESSION['active'] ?>')
-        var showTab = new bootstrap.Tab(selectedTab)
-        showTab.show()
-    </script>
 </body>
 
 </html>

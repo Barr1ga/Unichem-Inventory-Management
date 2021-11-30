@@ -32,7 +32,7 @@ echo "
                             <div class=''>
                                     <form method='get' action=''>
                                         <input type='hidden' name='repID' value='".$rep['repOrderID']."'>
-                                        <button type='submit' class='btn btn-link btn-preview'>Preview</button>
+                                        <button type='submit' class='btn btn-link btn-preview text-success'>Preview</button>
                                     </form>
                             </div>
 

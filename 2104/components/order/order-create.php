@@ -12,8 +12,8 @@
 
             <div class="col-md-4">
                 <label class="form-label">Select Product</label>
-                <select class="form-select form-select-md mb-3" name="  []">
-                    <option selected disabled>Products</option>";
+                <select class="form-select form-select-md mb-3" name="productID[]">
+                    <option selected disabled>Products</option>
                     <?php
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
@@ -127,7 +127,7 @@
                         <div class="col-md-4">\
                             <label class="form-label">Select Product</label>\
                             <select class="form-select form-select-md mb-3" name="productID[]">\
-                                <option selected disabled>Products</option>";\
+                                <option selected disabled>Products</option>\
                                 <?php if (mysqli_num_rows($result) > 0) { while ($row = mysqli_fetch_assoc($result)) { echo "<option value=" . $row['productID'] . ">" . $row['tradeName'] . "</option>";}} else { echo "bad"; }?>\
                             </select>\
                         </div>\
