@@ -1,16 +1,19 @@
 <?php
     include('../db_connect.php');
 
-    $sessionID = 2; // SESSION VARIABLE FOR CREATED BY
-    $orderDate = date('d-m-y h:i:s');
+    /* Order Information */
+    $createdBy = 2; // Change this to Session Variable
+    $orderDate = date('Y-m-d');
     $shippingDate = date('Y-m-d', strtotime($_POST['shippingDate']));
+
+    /* Orderline Information */
     $productID = $_POST['productID'];
     $quantity = $_POST['quantity'];
 
     if(isset($_POST['old'])) {
         $customerID =  $_POST['customer'];
         $sql1 = "INSERT INTO orders (customerID, createdBy, orderDate, orderStatus, shipRequiredDate, paidStatus) 
-                    VALUES ('$customerID', '$sessionID', '$orderDate', 'To-Approve', '$shippingDate', 'unpaid')";
+                    VALUES ('$customerID', '$createdBy', '$orderDate', 'To-Approve', '$shippingDate', 'unpaid')";
         if (mysqli_query($conn, $sql1)) {
             echo '<br /> Order Information is successfully added.';
         }else {
@@ -31,12 +34,16 @@
             }
         }
     } else {
+
+        /* Customer Information */
         $customerFname = $_POST['customerFname'];
         $customerLname = $_POST['customerLname'];
-        $emailAddress = $_POST['emailAddress'];
+        $email = $_POST['emailAddress'];
         $dateOfBirth = date('Y-m-d', strtotime($_POST['dateOfBirth']));
         $gender = $_POST['gender'];
         $contactNo = $_POST['contactNo'];
+
+        /* Customer Address */
         $street = $_POST['street'];
         $barangay = $_POST['barangay'];
         $city = $_POST['city'];
@@ -45,7 +52,7 @@
         $zip = $_POST['zip'];
 
         $sql1 = "INSERT INTO customer (customerFName, CustomerLName, dateofBirth, gender, contactNo, email)
-                    VALUES ('$customerFname', '$customerLname', '$dateOfBirth', '$gender', '$contactNo', '$emailAddress')";
+                    VALUES ('$customerFname', '$customerLname', '$dateOfBirth', '$gender', '$contactNo', '$email')";
         if (mysqli_query($conn, $sql1)) {
             echo '<br /> Customer Information is successfully added.';
         } else {
@@ -62,7 +69,7 @@
         }
 
         $sql3 = "INSERT INTO orders (customerID, createdBy, orderDate, orderStatus, shipRequiredDate, paidStatus) 
-                    VALUES ('$customerID', '$sessionID', '$orderDate', 'To-Approve', '$shippingDate', 'unpaid')";
+                    VALUES ('$customerID', '$createdBy', '$orderDate', 'To-Approve', '$shippingDate', 'unpaid')";
         if (mysqli_query($conn, $sql3)) {
             echo '<br /> Order Information is successfully added.';
         }else {
