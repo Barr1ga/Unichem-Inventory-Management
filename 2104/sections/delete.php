@@ -20,18 +20,6 @@
             mysqli_query($conn, $deleteproduct);
             header("Location: inventory.php");      
             break;
-         case "order":
-            $orderID = $_POST['orderID'];
-            $deleteOrder = "DELETE FROM orders WHERE orderID=$orderID";
-            mysqli_query($conn, $deleteOrder);
-            header("Location: orders.php");      
-            break;      
-        case "replenishment":
-            $repID = $_POST['repID'];
-            $deleteRep = "DELETE FROM replenishment WHERE repOrderID=$repID";
-            mysqli_query($conn, $deleteRep);
-            header("Location: replenishments.php");      
-            break;    
     }    
 ?>
 
