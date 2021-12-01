@@ -102,7 +102,7 @@ echo "
                     </div>
 
                     <div class="col-md-4">
-                        <label class="col-form-label">Email</label>
+                        <label class="col-form-label">Email Address</label>
                         <input type="email" class="form-control" name="email" value="<?php echo $order['email'] ?>" />
                     </div>
 
