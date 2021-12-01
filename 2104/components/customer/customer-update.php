@@ -1,5 +1,7 @@
+<div class="container white-box-container round-edge">
                     <form method="post" action="../sections/update.php" class="row g-3">
                         <input type="hidden" name="update" value="customer">
+                        <h4>Update Customer <?php echo $customer['customerID']; ?></h4>
                         <input type="hidden" name="customerID" value="<?php echo $customer['customerID']; ?>">
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">First Name</label>
@@ -57,4 +59,9 @@
                             <input type="text" class="form-control" id="inputZip" name="zip" required value="<?php echo $customer['zip']; ?>">
                             
                         </div>
+                        <div class="col-md-4"><br>
+                            <button type="submit" class="btn btn-primary" value="submit">Update</button>
+                        </div>
                         
+                    </form>
+                </div>

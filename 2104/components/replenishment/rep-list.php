@@ -40,7 +40,7 @@
             </div>
 
             <div>
-                <form method='post' action='../sections/delete.php'>
+                <form method='post' action='../crud/delete.php'>
                     <input type='hidden' name='delete' value='replenishment'>
                     <input type='hidden' name='repID' value='".$rep['repOrderID']."'>
                     <button type='submit' class='btn btn-link btn-delete'>Delete</button>

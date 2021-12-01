@@ -8,7 +8,7 @@ include('../crud/db_connect.php');
             <!-- QUERRY TO SELECT ALL PRODUCTS ON LOW STOCKS-->
             <!-- <?php
 
-                   $getLowStock = "SELECT * FROM product p WHERE p.inStock <= 60"; 
+                   $getLowStock = "SELECT * FROM product p WHERE p.inStock <= p.minimumStock"; 
 
                    $lowStockQuery = mysqli_query($conn,$getLowStock);
 
@@ -36,12 +36,14 @@ include('../crud/db_connect.php');
 
                                         <div>";
                                             
-                                        if($row['inStock'] <= 60 && $row['inStock'] >= 30){
-                                            echo  "".$row['tradeName']." needs replenishment";
+                                        if($row['inStock'] == $row['minimumStock']){
+                                            echo  "".$row['tradeName']." is at minimum stock";
                                             }
-                                         elseif($row['inStock'] <= 30 && $row['inStock'] >= 10){
-                                            echo  "".$row['tradeName']." needs replenishment immediately!";
-    
+                                        elseif($row['inStock'] < $row['minimumStock'] AND $row['inStock'] > 0){
+                                            echo  "".$row['tradeName']." is below minimum stock";
+                                            }
+                                        elseif($row['inStock'] == 0){
+                                            echo  "".$row['tradeName']." stock is at 0!";
                                         }
                             echo "      </div>
                                     </div>

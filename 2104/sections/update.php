@@ -14,7 +14,7 @@
             $street = $_POST['street'];
             $barangay = $_POST['barangay'];
             $city = $_POST['city'];
-            $state = $_POST['state'];
+            $region = $_POST['region'];
             $country = $_POST['country'];
             $zip = $_POST['zip'];
 

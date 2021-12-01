@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2021 at 04:18 PM
+-- Generation Time: Dec 01, 2021 at 10:19 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -42,10 +42,10 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customerID`, `customerFName`, `customerLName`, `dateofBirth`, `gender`, `contactNo`, `email`) VALUES
-(2, 'Joes', 'Wilson', '1994-03-13', 'F', '09279428400', 'joewilson21@gmail.com'),
+(2, 'Joe', 'Wilson', '1994-03-13', 'M', '09279428400', 'joewilson21@gmail.com'),
 (3, 'Jan', 'Grey', '1993-01-27', 'M', '09959227500', 'jongrey@yahoo.com'),
 (4, 'Dani', 'Ponder', '1986-10-16', 'F', '09178653211', 'daniponder65@gmail.com'),
-(5, 'Lola', 'Luciana', '1996-06-24', 'F', '09274852399', 'lola_luciana32@gmail.com'),
+(5, 'Lola', 'Luciana', '1996-06-24', 'F', '09274852399', 'luigirixon@yahoo.com'),
 (6, 'Carlos', 'Webber', '1984-11-09', 'M', '09272126349', 'carloswebbet@gmail.com'),
 (7, 'Maria', 'Reed', '1974-06-03', 'F', '09273205350', 'reed_maria@yahoo.com');
 
@@ -99,9 +99,12 @@ CREATE TABLE `inventory_users` (
 --
 
 INSERT INTO `inventory_users` (`userID`, `userType`, `userFirstName`, `userLastName`, `userName`, `email`, `password`) VALUES
-(1, 'Manager', 'Marjorie', 'Tumapon', 'marge123', 'marge.tumapon@gmail.com', 'margepassword'),
+(1, 'Manager', 'Marjoriee', 'Tumapon', 'marge123', 'marge.tumapon@gmail.com', 'margepassword'),
 (2, 'User', 'Luigi', 'Rixon', 'luirix21', 'luigirixon@yahoo.com', 'luigipassword'),
-(3, 'User', 'Luna', 'Lurege', 'lurluna7', 'luna_lurege7@gmail.com', 'lunapassword');
+(3, 'User', 'Luna', 'Lurege', 'lurluna7', 'luna_lurege7@gmail.com', 'lunapassword'),
+(8, 'Manager', 'Marge', 'Tumapon', 'marge', 'marge.tumapon@gmail.com', '$2y$10$fcoYdF3o6SwkK7CXGkf.Gu4CpvvSEndRWtMp6P3Jwhm67HGRSYCMe'),
+(9, 'User', 'Van AJ', 'Vanguardia', 'vanaj', 'van@gmail.com', '$2y$10$a937SG2aEB8NrQuKumKY2.aVHxUEP3sWcKjW8xbErH.XvZ0swur/.'),
+(10, 'User', 'CJ', 'Caburnay', 'cj123', 'cj@gmail.com', '$2y$10$kj4UW2oKB0tcTwVtVjpurOXsNk6khFMwEYT8psSb53C3mG1Kq5Hg.');
 
 -- --------------------------------------------------------
 
@@ -115,7 +118,7 @@ CREATE TABLE `orders` (
   `createdBy` int(11) NOT NULL,
   `approvedBy` int(11) DEFAULT NULL,
   `orderDate` date NOT NULL,
-  `orderStatus` enum('To-Confirm','To-Ship','To-Receive','Completed','To-Approve') NOT NULL,
+  `orderStatus` enum('To-Receive','Completed','To-Approve') NOT NULL,
   `shipRequiredDate` date NOT NULL,
   `paidStatus` enum('paid','unpaid') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -126,26 +129,16 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`orderID`, `customerID`, `createdBy`, `approvedBy`, `orderDate`, `orderStatus`, `shipRequiredDate`, `paidStatus`) VALUES
 (3, 4, 3, 1, '2021-11-15', 'Completed', '2021-11-20', 'paid'),
-(5, 4, 3, 1, '2021-11-18', 'To-Receive', '2021-11-23', 'paid'),
+(5, 4, 3, 1, '2021-11-18', 'Completed', '2021-11-23', 'paid'),
 (6, 5, 2, 1, '2021-11-20', 'Completed', '2021-11-25', 'paid'),
 (7, 7, 3, 1, '2021-11-22', 'To-Receive', '2021-11-27', 'paid'),
 (8, 6, 2, 1, '2021-11-23', 'To-Receive', '2021-11-28', 'paid'),
-(9, 3, 2, 1, '2021-11-24', 'To-Confirm', '2021-11-29', 'unpaid'),
-(10, 2, 3, 1, '2021-11-26', 'To-Ship', '2021-12-01', 'paid'),
 (11, 4, 3, 1, '2021-11-26', 'To-Receive', '2021-12-01', 'paid'),
-(12, 5, 2, 1, '2021-11-27', 'To-Ship', '2021-12-02', 'paid'),
-(14, 6, 2, 1, '2021-10-02', 'To-Ship', '2021-10-07', 'paid'),
-(15, 5, 2, 1, '2021-10-09', 'To-Ship', '2021-10-14', 'paid'),
 (16, 5, 3, 1, '2021-10-03', 'To-Receive', '2021-10-08', 'paid'),
-(17, 3, 2, 1, '2021-10-09', 'To-Ship', '2021-10-14', 'paid'),
-(19, 6, 2, 1, '2021-10-02', 'To-Ship', '2021-10-07', 'paid'),
-(22, 3, 2, 1, '2021-10-09', 'To-Ship', '2021-10-14', 'paid'),
-(23, 7, 2, 1, '2021-10-20', 'To-Ship', '2021-11-25', 'paid'),
 (24, 5, 3, 1, '2021-09-08', 'Completed', '2021-09-13', 'paid'),
 (25, 4, 3, 1, '2021-09-17', 'Completed', '2021-09-22', 'paid'),
 (26, 5, 3, 1, '2021-09-08', 'Completed', '2021-09-13', 'paid'),
 (27, 4, 3, 1, '2021-09-17', 'Completed', '2021-09-22', 'paid'),
-(28, 4, 2, NULL, '2021-11-23', 'To-Approve', '2021-11-30', 'unpaid'),
 (29, 2, 3, NULL, '2021-11-30', 'To-Approve', '2021-12-23', 'unpaid'),
 (31, 2, 3, 1, '2021-01-03', 'Completed', '2021-01-10', 'paid'),
 (32, 5, 3, 1, '2021-01-04', 'Completed', '2021-01-12', 'paid'),
@@ -296,7 +289,7 @@ INSERT INTO `orders` (`orderID`, `customerID`, `createdBy`, `approvedBy`, `order
 (177, 6, 2, 1, '2021-11-27', 'Completed', '2021-11-30', 'paid'),
 (178, 4, 3, 1, '2021-11-30', 'Completed', '2021-12-06', 'paid'),
 (180, 3, 2, NULL, '2021-11-30', 'To-Approve', '2021-12-06', 'unpaid'),
-(181, 7, 2, NULL, '2021-11-30', 'To-Approve', '2021-12-10', 'unpaid');
+(182, 2, 2, NULL, '2021-12-01', 'Completed', '2021-12-08', 'unpaid');
 
 -- --------------------------------------------------------
 
@@ -322,10 +315,7 @@ INSERT INTO `order_line` (`orderlineID`, `orderID`, `productID`, `quantity`) VAL
 (8, 7, 8, 15),
 (9, 7, 2, 5),
 (10, 8, 5, 25),
-(11, 9, 4, 20),
-(12, 10, 4, 30),
 (13, 11, 6, 50),
-(14, 12, 4, 10),
 (66, 27, 5, 120),
 (67, 24, 5, 50),
 (68, 27, 5, 120),
@@ -335,23 +325,12 @@ INSERT INTO `order_line` (`orderlineID`, `orderID`, `productID`, `quantity`) VAL
 (72, 6, 2, 80),
 (73, 3, 6, 100),
 (74, 26, 1, 150),
-(75, 28, 4, 200),
 (76, 3, 8, 100),
-(82, 9, 2, 50),
 (83, 11, 3, 100),
 (84, 16, 5, 20),
 (85, 7, 8, 50),
 (86, 8, 5, 100),
 (87, 5, 6, 120),
-(88, 15, 8, 150),
-(89, 10, 3, 80),
-(90, 19, 6, 100),
-(91, 12, 5, 50),
-(92, 14, 2, 80),
-(93, 23, 5, 100),
-(94, 17, 3, 50),
-(95, 22, 5, 50),
-(96, 14, 8, 50),
 (97, 25, 6, 80),
 (99, 3, 4, 130),
 (100, 27, 3, 120),
@@ -361,25 +340,13 @@ INSERT INTO `order_line` (`orderlineID`, `orderID`, `productID`, `quantity`) VAL
 (104, 26, 1, 150),
 (105, 25, 4, 200),
 (106, 3, 8, 100),
-(112, 9, 2, 50),
 (113, 11, 3, 100),
 (114, 16, 5, 20),
 (115, 7, 8, 50),
 (116, 8, 5, 100),
 (117, 5, 6, 120),
-(118, 15, 8, 150),
-(119, 10, 3, 80),
-(120, 19, 6, 100),
-(121, 12, 5, 50),
-(122, 14, 2, 80),
-(123, 23, 5, 100),
-(124, 17, 3, 50),
-(125, 22, 5, 50),
-(126, 14, 8, 50),
 (127, 25, 6, 80),
 (129, 3, 4, 130),
-(130, 28, 2, 50),
-(131, 28, 2, 20),
 (132, 29, 2, 30),
 (133, 29, 8, 80),
 (136, 116, 4, 30),
@@ -389,7 +356,6 @@ INSERT INTO `order_line` (`orderlineID`, `orderID`, `productID`, `quantity`) VAL
 (140, 29, 7, 30),
 (141, 180, 1, 10),
 (142, 180, 5, 15),
-(143, 181, 5, 30),
 (309, 31, 1, 10),
 (310, 31, 8, 25),
 (311, 32, 7, 30),
@@ -553,7 +519,8 @@ INSERT INTO `order_line` (`orderlineID`, `orderID`, `productID`, `quantity`) VAL
 (469, 175, 4, 5),
 (470, 176, 2, 2),
 (471, 177, 1, 1),
-(472, 178, 8, 8);
+(472, 178, 8, 8),
+(473, 182, 6, 10);
 
 -- --------------------------------------------------------
 
@@ -580,22 +547,23 @@ CREATE TABLE `product` (
   `chemicalComposition` text NOT NULL,
   `operatingTempRange` varchar(255) NOT NULL,
   `productImage` varchar(255) NOT NULL,
-  `inStock` int(11) NOT NULL
+  `inStock` int(11) NOT NULL,
+  `minimumStock` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`productID`, `tradeName`, `description`, `brandName`, `dateContained`, `price`, `applicationType`, `cureTime`, `color`, `form`, `packageType`, `packageSize`, `maxOperatingTemp`, `minOperatingTemp`, `viscosity`, `chemicalComposition`, `operatingTempRange`, `productImage`, `inStock`) VALUES
-(1, 'Loctite 243', 'A general purpose, medium strength threadlocker with improved oil tolerance. For fasteners between 1/4\" and 3/4\" (6 to 20 mm) diameters.', 'Loctite', '2021-10-01', '652.40', 'Thread locking', '02:00:00', 'Blue', 'Liquid', 'Bottle', '10 ml', '+180°C', '-55°C', 'Thixotropic', 'Dimethacrylate Ester', '-55°C -> +180°C', 'loctite 243.jpg', 968),
-(2, 'Loctite 271', 'The Loctite 135381 is a 271™ series high strength threadlocker that comes in a 50 ml bottle. This material is designed for the permanent locking and sealing of threaded fasteners.', 'Loctite', '2021-10-01', '597.60', 'Thread locking', '24:00:00', 'Red', 'Liquid', 'Bottle', '50 ml', '+300°F', '>+50°F', 'Thixotropic', 'Methacrylate Ester', '-50°C -> +300°C', 'Loctite 271.jpg', 1789),
-(3, 'Loctite 242', 'The Loctite 135355 is a blue threadlocker that comes in a 50 ml bottle. This medium strength, mil spec threadlocker is designed for general purpose applications on fasteners between ¼\" and ¾\" diameters.', 'Loctite', '2021-10-01', '816.90', 'Thread locking', '24:00:00', 'Blue', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 242.jpg', 1452),
-(4, 'Loctite 545', 'The Loctite 135486 is a thread sealant that comes in a 50 ml bottle. This material is designed for the locking and sealing of small, fine threaded fittings particularly those used in hydraulic and pneumatic installations.', 'Loctite', '2021-10-02', '1343.20', 'Thread Sealing', '168:00:00', 'Purple', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Polyglycoldioctanoate, Polyglycol Dimethacrylate, 2-Hydroxyethyl Methacrylate, Silica, Amorphous, Fumed, Crystal-Free, Cumene Hydroperoxide, 1-Acetyl-2-Phenylhydrazine, Cumene, Methacrylic Acid', '-65°F -> +300°F', 'Loctite 545.jpg', 789),
-(5, 'Loctite 262', 'The Loctite 135374 is a high strength product that is applied to fasteners up to 3/4\" (20mm) in size before assembly. Localized heat and hand tools are required to separate parts;solvents will not weaken the adhesive bond. Approved for use in or around food processing areas.', 'Loctite', '2021-10-01', '422.20', 'Thread locking', '24:00:00', 'Red', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 262.jpg', 928),
-(6, 'Loctite 290', 'The Loctite 135392 is a medium-strength wicking grade threadlocker for pre-assembled bolts up to 1/2\" (12 mm). This material\'s capillary action allows it to wick between engaged threads elliminating the need to disassemble parts prior to application.', 'Loctite', '2021-10-01', '378.30', 'Thread locking', '24:00:00', 'Green', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 290.jpg', 1234),
-(7, 'Loctite 220', 'The Loctite 645093 is a wicking grade, medium strength threadlocker that comes in a 50 ml bottle. The low viscosity adhesive is designed for use on preassembled fasteners.', 'Loctite', '2021-10-01', '844.30', 'Thread locking', '24:00:00', 'Blue', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 220.jpg', 1324),
-(8, 'Loctite 263', 'The Loctite 1330585 is a high strength, permanent threadlocker for heavy duty applications. This material only works on both active metals such as brass and copper as well as passive substrates such as stainless steel.', 'Loctite', '2021-10-01', '756.60', 'Thread locking', '24:00:00', 'Red', 'Liquid', 'Liquid', '50 ml', '+360°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +360°F', 'Loctite 263.jpg', 876);
+INSERT INTO `product` (`productID`, `tradeName`, `description`, `brandName`, `dateContained`, `price`, `applicationType`, `cureTime`, `color`, `form`, `packageType`, `packageSize`, `maxOperatingTemp`, `minOperatingTemp`, `viscosity`, `chemicalComposition`, `operatingTempRange`, `productImage`, `inStock`, `minimumStock`) VALUES
+(1, 'Loctite 243', 'A general purpose, medium strength threadlocker with improved oil tolerance. For fasteners between 1/4\" and 3/4\" (6 to 20 mm) diameters.', 'Loctite', '2021-10-01', '652.40', 'Thread locking', '02:00:00', 'Blue', 'Liquid', 'Bottle', '10 ml', '+180°C', '-55°C', 'Thixotropic', 'Dimethacrylate Ester', '-55°C -> +180°C', 'loctite 243.jpg', 968, 100),
+(2, 'Loctite 271', 'The Loctite 135381 is a 271™ series high strength threadlocker that comes in a 50 ml bottle. This material is designed for the permanent locking and sealing of threaded fasteners.', 'Loctite', '2021-10-01', '597.60', 'Thread locking', '24:00:00', 'Red', 'Liquid', 'Bottle', '50 ml', '+300°F', '>+50°F', 'Thixotropic', 'Methacrylate Ester', '-50°C -> +300°C', 'Loctite 271.jpg', 1789, 50),
+(3, 'Loctite 242', 'The Loctite 135355 is a blue threadlocker that comes in a 50 ml bottle. This medium strength, mil spec threadlocker is designed for general purpose applications on fasteners between ¼\" and ¾\" diameters.', 'Loctite', '2021-10-01', '816.90', 'Thread locking', '24:00:00', 'Blue', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 242.jpg', 1452, 20),
+(4, 'Loctite 545', 'The Loctite 135486 is a thread sealant that comes in a 50 ml bottle. This material is designed for the locking and sealing of small, fine threaded fittings particularly those used in hydraulic and pneumatic installations.', 'Loctite', '2021-10-02', '1343.20', 'Thread Sealing', '168:00:00', 'Purple', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Polyglycoldioctanoate, Polyglycol Dimethacrylate, 2-Hydroxyethyl Methacrylate, Silica, Amorphous, Fumed, Crystal-Free, Cumene Hydroperoxide, 1-Acetyl-2-Phenylhydrazine, Cumene, Methacrylic Acid', '-65°F -> +300°F', 'Loctite 545.jpg', 789, 80),
+(5, 'Loctite 262', 'The Loctite 135374 is a high strength product that is applied to fasteners up to 3/4\" (20mm) in size before assembly. Localized heat and hand tools are required to separate parts;solvents will not weaken the adhesive bond. Approved for use in or around food processing areas.', 'Loctite', '2021-10-01', '422.20', 'Thread locking', '24:00:00', 'Red', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 262.jpg', 928, 50),
+(6, 'Loctite 290', 'The Loctite 135392 is a medium-strength wicking grade threadlocker for pre-assembled bolts up to 1/2\" (12 mm). This material\'s capillary action allows it to wick between engaged threads elliminating the need to disassemble parts prior to application.', 'Loctite', '2021-10-01', '378.30', 'Thread locking', '24:00:00', 'Green', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 290.jpg', 1224, 20),
+(7, 'Loctite 220', 'The Loctite 645093 is a wicking grade, medium strength threadlocker that comes in a 50 ml bottle. The low viscosity adhesive is designed for use on preassembled fasteners.', 'Loctite', '2021-10-01', '844.30', 'Thread locking', '24:00:00', 'Blue', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 220.jpg', 1324, 50),
+(8, 'Loctite 263', 'The Loctite 1330585 is a high strength, permanent threadlocker for heavy duty applications. This material only works on both active metals such as brass and copper as well as passive substrates such as stainless steel.', 'Loctite', '2021-10-01', '756.60', 'Thread locking', '24:00:00', 'Red', 'Liquid', 'Liquid', '50 ml', '+360°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +360°F', 'Loctite 263.jpg', 15, 15);
 
 -- --------------------------------------------------------
 
@@ -609,7 +577,7 @@ CREATE TABLE `replenishment` (
   `createdBy` int(11) NOT NULL,
   `approvedBy` int(11) DEFAULT NULL,
   `repOrderDate` date NOT NULL,
-  `orderStatus` enum('To-Confirm','To-Ship','To-Receive','Completed','To-Approve') NOT NULL,
+  `orderStatus` enum('To-Receive','Completed','To-Approve') NOT NULL,
   `shipRequiredDate` date NOT NULL,
   `paidStatus` enum('paid','unpaid') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -619,8 +587,6 @@ CREATE TABLE `replenishment` (
 --
 
 INSERT INTO `replenishment` (`repOrderID`, `supplierID`, `createdBy`, `approvedBy`, `repOrderDate`, `orderStatus`, `shipRequiredDate`, `paidStatus`) VALUES
-(2, 3, 2, 1, '2021-11-16', 'To-Confirm', '2021-11-20', 'unpaid'),
-(3, 2, 2, 1, '2021-11-17', 'To-Confirm', '2021-11-25', 'unpaid'),
 (6, 3, 3, 1, '2021-11-21', 'Completed', '2021-11-28', 'paid'),
 (7, 2, 2, 1, '2021-11-22', 'Completed', '2021-11-30', 'paid'),
 (8, 3, 2, 1, '2021-11-28', 'Completed', '2021-12-04', 'paid'),
@@ -675,7 +641,8 @@ INSERT INTO `replenishment` (`repOrderID`, `supplierID`, `createdBy`, `approvedB
 (62, 3, 2, 1, '2021-11-01', 'Completed', '2022-02-01', 'paid'),
 (63, 2, 3, 1, '2021-11-12', 'Completed', '2022-02-12', 'paid'),
 (64, 3, 3, 1, '2021-11-21', 'Completed', '2022-02-21', 'paid'),
-(65, 2, 2, 1, '2021-11-30', 'Completed', '0000-00-00', 'paid');
+(65, 2, 2, 1, '2021-11-30', 'Completed', '0000-00-00', 'paid'),
+(66, 2, 2, NULL, '2021-12-01', 'Completed', '2022-02-01', 'unpaid');
 
 -- --------------------------------------------------------
 
@@ -696,9 +663,6 @@ CREATE TABLE `replenishment_line` (
 --
 
 INSERT INTO `replenishment_line` (`replenishmentLineID`, `repOrderID`, `productID`, `quantity`, `priceEach`) VALUES
-(2, 2, 1, 100, '0.00'),
-(3, 3, 6, 80, '0.00'),
-(4, 2, 3, 50, '0.00'),
 (8, 6, 8, 50, '0.00'),
 (9, 7, 7, 100, '0.00'),
 (10, 8, 1, 120, '0.00'),
@@ -757,7 +721,8 @@ INSERT INTO `replenishment_line` (`replenishmentLineID`, `repOrderID`, `productI
 (68, 62, 5, 60, '0.00'),
 (69, 63, 3, 80, '0.00'),
 (70, 64, 4, 90, '0.00'),
-(71, 65, 2, 120, '0.00');
+(71, 65, 2, 120, '0.00'),
+(72, 66, 8, 50, '543.32');
 
 -- --------------------------------------------------------
 
@@ -904,37 +869,37 @@ ALTER TABLE `customer_address`
 -- AUTO_INCREMENT for table `inventory_users`
 --
 ALTER TABLE `inventory_users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 
 --
 -- AUTO_INCREMENT for table `order_line`
 --
 ALTER TABLE `order_line`
-  MODIFY `orderlineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=473;
+  MODIFY `orderlineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=474;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `replenishment`
 --
 ALTER TABLE `replenishment`
-  MODIFY `repOrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `repOrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `replenishment_line`
 --
 ALTER TABLE `replenishment_line`
-  MODIFY `replenishmentLineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `replenishmentLineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `supplier`

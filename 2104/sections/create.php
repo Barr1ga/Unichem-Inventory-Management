@@ -91,13 +91,14 @@
             $chemicalComposition = $_POST['chemicalComposition'];
             $operatingTempRange = $_POST['operatingTempRange'];
             $inStock = $_POST['inStock'];
+            $minimumStock = $_POST['minimumStock'];
 
             $insertProduct = "INSERT INTO `product` (`tradeName`, `brandName`, `description`, `dateContained`, `price`, `applicationType`,
             `cureTime`, `color`, `form`, `packageType`, `packageSize`, `minOperatingTemp`,`maxOperatingTemp`, `viscosity`, `chemicalComposition`,
-            `operatingTempRange`, `inStock`)
+            `operatingTempRange`, `inStock`, `minimumStock`)
             VALUES ('$tradeName', '$brandName', '$description', '$dateContained', '$price', '$applicationType',
             '$cureTime', '$color', '$form', '$packageType', '$packageSize', '$minOperatingTemp','$maxOperatingTemp', '$viscosity', '$chemicalComposition',
-            '$operatingTempRange', '$inStock')";
+            '$operatingTempRange', '$inStock', '$minimumStock')";
     
 
             if (mysqli_query($conn, $insertProduct)) {
@@ -116,7 +117,7 @@
             $email = $_POST['email'];
             $userType = $_POST['userType'];
             $userName = $_POST['userName'];
-            $password = $_POST['password'];
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         
 
             $insertEmployee = "INSERT INTO `inventory_users`(`userID`, `userType`, `userFirstName`, `userLastName`, `userName`, `email`, `password`)

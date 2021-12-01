@@ -10,23 +10,24 @@
                 $checkuser = "SELECT * FROM `inventory_users` 
                                 WHERE `userName`='$username'
                                 AND `email`='$email'
-                                AND `password`='$password'
                                 LIMIT 1";
 
                 $result = mysqli_query($conn, $checkuser);
 
+                $user = mysqli_fetch_assoc($result);
 
-                if (mysqli_num_rows($result) != 0) {
-                    
-                    $user = mysqli_fetch_assoc($result);
+                if (password_verify($password,$user['password'])){
+
+
                        echo "succh";
                        session_start();
                     
-                        $_SESSION['userType'] = $user['userType'];
-                        $_SESSION['userFirstName'] = $user['userFirstName'];
-                        $_SESSION['userLastName'] = $user['userLastName'];
-                        $_SESSION['userName'] = $user['userName'];
-                        $_SESSION['email'] = $user['email'];
+                        $SESSION['userType'] = $user['userType'];
+                        $SESSION['userFirstName'] = $user['userFirstName'];
+                        $SESSION['userLastName'] = $user['userLastName'];
+                        $SESSION['userName'] = $user['userName'];
+                        $SESSION['email'] = $user['email'];
+                        $SESSION['password'] = $user['password'];
 
                         echo $SESSION['email'];
 
@@ -35,8 +36,6 @@
 
                     
                 }else{
-                    echo "bogo";
-                    echo $user['userName'];
                     header("Location: login.php");
                 }
                     
@@ -48,9 +47,10 @@
                 $userFirstName = $_POST['userFirstName'];
                 $userLastName = $_POST['userLastName'];
                 $email = $_POST['email'];
-                $password = $_POST['password'];
+                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 $userType = $_POST['userType'];
                 
+
 
                 $checkuser = "SELECT * FROM `inventory_users` 
                                 WHERE `userName`='$userName'
@@ -69,7 +69,6 @@
                         header("Location: login.php");
                     } else {
                         echo "Error creating user: " . mysqli_error($conn);
-                        header("Location: register.php");
                     } 
                 }else{
                     header("Location: register.php");
