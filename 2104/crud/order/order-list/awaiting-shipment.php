@@ -8,7 +8,7 @@
                     JOIN order_line ol ON ol.orderID = o.orderID
                     JOIN product p on ol.productID = p.productID
                     JOIN customer_address ca ON ca.customerID = c.customerID
-                    WHERE o.orderStatus = 'To-Receive'
+                    WHERE o.orderStatus = 'Awaiting Shipment'
                     GROUP BY o.orderID";
 
     $result = mysqli_query($conn, $getOrderList);
@@ -26,7 +26,7 @@
         </div>
     ";
     }else{
-        echo "<div class ='empty-message'>There are no Receive Orders.</div>";
+        echo "<div class ='empty-message'>There are no Awaiting Shipments.</div>";
     }
 
 ?>

@@ -443,6 +443,9 @@
   .create-order {
     margin-right: 20px;
   }
+  .custom-nav-pills {
+    width: 1000px;
+  }
 </style>
 
 

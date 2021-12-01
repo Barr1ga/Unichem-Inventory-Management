@@ -8,7 +8,7 @@
                     JOIN order_line ol ON ol.orderID = o.orderID
                     JOIN product p on ol.productID = p.productID
                     JOIN customer_address ca ON ca.customerID = c.customerID
-                    WHERE o.orderStatus = 'Awaiting Payment'
+                    WHERE o.orderStatus = 'Manual Verification Required'
                     GROUP BY o.orderID";
 
     $result = mysqli_query($conn, $getOrderList);
@@ -26,7 +26,7 @@
         </div>
     ";
     }else{
-        echo "<div class ='empty-message'>There are no Awaiting Payments.</div>";
+        echo "<div class ='empty-message'>There are no Manual Verification Required Orders.</div>";
     }
 ?>
 

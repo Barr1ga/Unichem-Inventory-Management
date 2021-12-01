@@ -3,7 +3,7 @@
 
     if (isset($_GET['orderID'])){
         $orderID = $_GET['orderID'];
-        
+        $total = 0;
         $getOrderInformation = "SELECT *
                                     FROM orders o
                                     JOIN order_line ol ON ol.orderID = o.orderID
@@ -12,10 +12,11 @@
                                     WHERE ol.orderID = $orderID";
 
         $result = mysqli_query($conn, $getOrderInformation);
+        $orders = mysqli_query($conn, $getOrderInformation);
         
         if (mysqli_num_rows($result) > 0) {
             echo "<div class='scroll-list-2'>";
-            while ($order = mysqli_fetch_assoc($result)) {
+            if ($order = mysqli_fetch_assoc($result)) {
                 
                 $createdByID = $order['createdBy'];
                 $approvedByID = $order['approvedBy'];
@@ -34,9 +35,9 @@
                 $createdBy = mysqli_fetch_assoc($createdByResult);
                 if ($approvedByResult)
                     $approvedBy = mysqli_fetch_assoc($approvedByResult);
-
-                include('../components/order/order-information.php');
+                
             }  
+            include('../components/order/order-information.php');
             echo "</div>"; 
         }
     }
