@@ -67,8 +67,24 @@ echo "
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Update Information</h5>
+                <a type="button" class="btn btn-outline-primary btn-sm <?php echo $class ?>" data-bs-dismiss="modal" aria-label="Close">
+                    <?php  echo substr($rep['orderStatus'], 3); ?>
+                </a>
             </div>
             <div class="modal-body">
+
+                <form class="row g-3" method="post" action="../crud/replenishment/update-repOrder.php">
+                    <b>Product Information</b>
+
+                        <div class="modal-footer">
+                        <input type='hidden' name='orderID' value=" <?php echo $order['orderID'] ?>">
+                        <input type='hidden' name='customerID' value=" <?php echo $order['customerID'] ?>">
+                        <input type='hidden' name='addressID' value=" <?php echo $order['addressID'] ?>">
+
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
             
             </div>
         </div>
