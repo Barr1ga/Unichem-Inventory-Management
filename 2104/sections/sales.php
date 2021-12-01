@@ -1,7 +1,5 @@
 <?php
 include('../style/import.php');
-include('../crud/supplier/check-default.php');
-session_start();
 ?>
 
 <html lang="en">
@@ -13,9 +11,10 @@ session_start();
     <title>Unichem</title>
 </head>
 
+<body>
     <main>
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light nav-container shadow-md bg-body rounded" style="width: 280px;">
-            <a href="notifications.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 
                 <div class="row justify-content-md-center">
                     <img class="unichem-logo-login" src="../assets/images/Unichem-Logo-Text.svg">
@@ -33,7 +32,7 @@ session_start();
                     </a>
                 </li>
                 <li>
-                    <a href="suppliers.php" class="nav-link link-dark active">
+                    <a href="suppliers.php" class="nav-link link-dark ">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#supplier" />
                         </svg>
@@ -41,7 +40,7 @@ session_start();
                     </a>
                 </li>
                 <li>
-                    <a href="customers.php" class="nav-link link-dark">
+                    <a href="customers.php" class="nav-link link-dark ">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#customer" />
                         </svg>
@@ -57,7 +56,7 @@ session_start();
                     </a>
                 </li>
                 <li>
-                    <a href="orders.php" class="nav-link link-dark" active>
+                    <a href="orders.php" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#order" />
                         </svg>
@@ -70,6 +69,14 @@ session_start();
                             <use xlink:href="#rep" />
                         </svg>
                         Replenishments
+                    </a>
+                </li>
+                <li>
+                    <a href="sales.php" class="nav-link link-dark  active">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#sale" />
+                        </svg>
+                        Sales
                     </a>
                 </li>
             </ul>
@@ -92,9 +99,9 @@ session_start();
 
             </div>
         </div>
-
+        
         <div class="father-container">
-            <h4>Suppliers</h4>
+            <h4>Sales</h4>
             <br>
             <div class="layout-column">
                 <form method="post" action="">
@@ -103,27 +110,21 @@ session_start();
             </div>
             <br>
             <div class="d-flex">
-                
-
-                <?php include('../crud/supplier/supplier-information.php'); ?>
-
-                <div class="layout-column">
-                    Supplier Information<br><br>
-                    <?php include('../components/supplier/supplier-update.php'); ?>
-                </div>
-
-                <div class="layout-column">
-                    Supplier Orders<br><br>
-                    <div class="scroll-list">
-                        <?php include('../crud/supplier/supplier-replenishment.php'); ?>
+            <div class="layout-column">
+                    
                         
-                    </div>
-                </div>
+                        <?php
+                        
+                        include('../components/sales/chart.php');
+                        ?>
+ 
             </div>
-
+                
+                
+            </div>
         </div>
-
     </main>
-
+   
 </body>
+
 </html>

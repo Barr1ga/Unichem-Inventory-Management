@@ -7,6 +7,7 @@
                     JOIN inventory_users iu ON o.createdBy = iu.userID 
                     JOIN order_line ol ON ol.orderID = o.orderID
                     JOIN product p on ol.productID = p.productID
+                    JOIN customer_address ca ON ca.customerID = c.customerID
                     WHERE o.orderStatus = 'Completed'
                     GROUP BY o.orderID";
 
@@ -27,7 +28,6 @@
     }else{
         echo "<div class ='empty-message'>There are no Completed Orders.</div>";
     }
-    $active = "#pills-to-approve-tab";
 ?>
 
 

@@ -7,6 +7,7 @@
                                 FROM replenishment r
                                 JOIN replenishment_line rl ON rl.repOrderID = r.repOrderID
                                 JOIN product p ON rl.productID = p.productID
+                                JOIN supplier s ON s.supplierID = r.supplierID
                                 WHERE rl.repOrderID = $repID";
 
     $result = mysqli_query($conn, $getRepInformation);
@@ -15,22 +16,23 @@
         echo "<div class='scroll-list-2'>";
         while ($rep = mysqli_fetch_assoc($result)) {
             
-            // $createdByID = $order['createdBy'];
-            // $approvedByID = $order['approvedBy'];
+            $createdByID = $rep['createdBy'];
+            $approvedByID = $rep['approvedBy'];
 
-            // $createdByquery = "SELECT * 
-            //             FROM inventory_users
-            //             WHERE userID=$createdByID LIMIT 1";
+            $createdByquery = "SELECT * 
+                        FROM inventory_users
+                        WHERE userID=$createdByID LIMIT 1";
 
-            // $approvedByquery = "SELECT * 
-            //             FROM inventory_users
-            //             WHERE userID=$approvedByID LIMIT 1";
+            $approvedByquery = "SELECT * 
+                        FROM inventory_users
+                        WHERE userID=$approvedByID LIMIT 1";
 
-            // $createdByResult = mysqli_query($conn, $createdByquery);
-            // $approvedByResult = mysqli_query($conn, $approvedByquery);
+            $createdByResult = mysqli_query($conn, $createdByquery);
+            $approvedByResult = mysqli_query($conn, $approvedByquery);
 
-            // $CreatedBy = mysqli_fetch_assoc($createdByResult);
-            // $ApprovedBy = mysqli_fetch_assoc($approvedByResult);
+            $createdBy = mysqli_fetch_assoc($createdByResult);
+            if ($approvedByResult)
+                $approvedBy = mysqli_fetch_assoc($approvedByResult);
             
             include('../components/replenishment/rep-information.php');
 

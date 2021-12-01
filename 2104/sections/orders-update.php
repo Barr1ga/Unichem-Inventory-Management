@@ -1,15 +1,7 @@
 <?php
 session_start();
-unset($_SESSION['repActive']);
-
-if (empty($_SESSION['orderActive'])) {
-    $_SESSION['orderActive'] = '#To-Approve';
-} else if (isset($_GET['orderActive'])) {
-    $_SESSION['orderActive'] = "#".$_GET['orderActive'];
-}
 
 include('../style/import.php');
-include('../crud/order/check-default.php');
 ?>
 
 <html lang="en">
@@ -87,7 +79,13 @@ include('../crud/order/check-default.php');
                 <div class="row align-items-end">
                     <div class="col d-flex justify-content-center">
                         <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
-                            <strong>Logout</strong>
+                            <strong>Settings</strong>
+                        </a>
+                    </div>
+
+                    <div class="col d-flex justify-content-center">
+                        <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
+                            <strong>Support</strong>
                         </a>
                     </div>
                 </div>
@@ -95,15 +93,15 @@ include('../crud/order/check-default.php');
         </div>
 
         <div class="father-container">
-            <h4>Orders</h4>
+            <h4>Orders Update</h4>
             <br>
-            <div class="layout-column">
+            <!-- <div class="layout-column">
                 <form method="post" action="">
                     <input type="text" class="form-control search-input" placeholder="Search">
                 </form>
-            </div>
+            </div> -->
             <br>
-            <div class="d-flex">
+            <!-- <div class="d-flex">
                 <div class="layout-column">
 
                     <ul class="nav nav-pills mb-3 orderNav" id="pills-tab" role="tablist">
@@ -157,14 +155,13 @@ include('../crud/order/check-default.php');
                             include('../components/order/order-header.php');
                             include('../crud/order/order-list-completed.php');
                             ?>
-                        </div>  
+                        </div>
 
                         <div class="tab-pane fade" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
                             <?php
                             include('../components/order/create-order.php');
                             ?>
                         </div>
-                        
                     </div>
 
                 </div>
@@ -175,17 +172,12 @@ include('../crud/order/check-default.php');
                     <?php include('../crud/order/order-information.php') ?>
                 </div>
 
-            </div>
+            </div> -->
 
         </div>
 
     </main>
 
-    <script type="text/javascript">
-        var selectedTab = document.querySelector('<?php echo $_SESSION['orderActive'] ?>')
-        var showTab = new bootstrap.Tab(selectedTab)
-        showTab.show()
-    </script>
 </body>
 
 </html>

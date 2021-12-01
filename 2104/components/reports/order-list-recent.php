@@ -6,7 +6,7 @@ include('../crud/db_connect.php');
 
             <!-- QUERRY TO SELECT ALL RECENT ORDERS -->
             <!-- <?php
-                   $getRecentOrders = "SELECT * FROM orders o WHERE DATEDIFF(o.orderDate, CURDATE()) <= 1 AND DATEDIFF(o.orderDate, CURDATE()) > 0";
+                   $getRecentOrders = "SELECT * FROM orders o WHERE DATEDIFF(o.orderDate, CURDATE()) <= 0 AND DATEDIFF(o.orderDate, CURDATE()) > -1";
 
                    $recentOrderQuery = mysqli_query($conn,$getRecentOrders);
 
@@ -16,19 +16,24 @@ include('../crud/db_connect.php');
             <?php
 
             if(mysqli_num_rows($recentOrderQuery)>0){
+                ?>
+                Orders<br>
+                <br>
+                <br>
+                <?php
                 while($row = mysqli_fetch_array($recentOrderQuery)){
 
                     $getCustomerInfo = "SELECT * FROM customer c WHERE c.customerID = '$row[customerID]'";
                     $customerInfoQuery = mysqli_query($conn,$getCustomerInfo);
                     $row2 = mysqli_fetch_array($customerInfoQuery);
 
-                    $getProductID = "SELECT productID FROM order_line ol WHERE ol.orderID = '$row[orderID]'";
+                    $getProductID = "SELECT * FROM order_line ol WHERE ol.orderID = '$row[orderID]'";
                     $productIDQuery = mysqli_query($conn,$getProductID);
-                    $row3 = mysqli_fetch_array($productIDQuery);
+                    while($row3 = mysqli_fetch_array($productIDQuery)){
 
-                    $getTradeName = "SELECT tradeName FROM product p WHERE p.productID = '$row3[productID]'";
-                    $tradeNameQuery = mysqli_query($conn,$getTradeName);
-                    $row4 = mysqli_fetch_array($tradeNameQuery);
+                    $getProdInfo = "SELECT * FROM product p WHERE p.productID = '$row3[productID]'";
+                    $prodInfoQuery = mysqli_query($conn,$getProdInfo);
+                    $row4 = mysqli_fetch_array($prodInfoQuery);
 
                 echo "
                     <form method='get' action='customers.php'>
@@ -45,11 +50,15 @@ include('../crud/db_connect.php');
                                     ".$row4['tradeName']."
                                 </div>
                                 <div class='column reports-right-data'>
-                                    P".$row['totalPrice']."
+                                    Qty: ".$row3['quantity']."
+                                </div>
+                                <div class='column reports-right-data'>
+                                    P".$row3['quantity']*$row4['price']."
                                 </div>
                         </div>
                     </form>
                 ";
+                    }
                 }
             }
             

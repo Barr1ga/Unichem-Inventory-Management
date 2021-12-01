@@ -11,7 +11,7 @@
     <hr>
     <div class="row">
         <div class="col-6 col-md-4">
-            Supplier Name<br>
+            Customer Name <br>
             Created By<br>
             Approved By<br>
             Date Shipped
@@ -19,12 +19,13 @@
         <div class="col-12 col-sm-6 col-md-8">
             <b>
                 <?php
-                echo "Supplier Name" . "<br>";
-                // echo $CreatedBy['userFirstName']. $CreatedBy['userLastName'] ."<br>";
-                echo $order['createdBy'] . "<br>";
-
-                // echo $ApprovedBy['userFirstName']."<br>";
-                echo $order['approvedBy'] . "<br>";
+                echo $order['customerFName']. " ". $order['customerLName']. "<br>";
+                echo $createdBy['userFirstName']. " ". $createdBy['userLastName']. "<br>";
+                if ($approvedByResult) {
+                    echo $approvedBy['userFirstName'] . " ". $approvedBy['userLastName']."<br>";
+                } else {
+                    echo "To-Approve". "<br>";
+                }
                 echo $order['shipRequiredDate'];
                 ?>
             </b>

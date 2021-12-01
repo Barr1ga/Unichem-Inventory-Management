@@ -44,7 +44,7 @@
             Street<br>
             Barangay<br>
             City<br>
-            State<br>
+            Region<br>
             Zip<br>
             Country
         </div>

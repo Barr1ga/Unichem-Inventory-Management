@@ -1,4 +1,12 @@
 <?php
+session_start();
+unset($_SESSION['orderActive']);
+
+if (empty($_SESSION['repActive'])) {
+    $_SESSION['repActive'] = '#To-Approve';
+} else if (isset($_GET['repActive'])) {
+    $_SESSION['repActive'] = "#".$_GET['repActive'];
+}
 include('../style/import.php');
 include('../crud/replenishment/check-default.php');
 
@@ -17,7 +25,7 @@ include('../crud/replenishment/check-default.php');
 <body>
     <main>
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light nav-container shadow-md bg-body rounded" style="width: 280px;">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <a href="notifications.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                 <div class="row justify-content-md-center">
                     <img class="unichem-logo-login" src="../assets/images/Unichem-Logo-Text.svg">
                 </div>
@@ -80,13 +88,7 @@ include('../crud/replenishment/check-default.php');
                 <div class="row align-items-end">
                     <div class="col d-flex justify-content-center">
                         <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
-                            <strong>Settings</strong>
-                        </a>
-                    </div>
-
-                    <div class="col d-flex justify-content-center">
-                        <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
-                            <strong>Support</strong>
+                            <strong>Logout</strong>
                         </a>
                     </div>
                 </div>
@@ -105,26 +107,26 @@ include('../crud/replenishment/check-default.php');
             <div class="d-flex">
                 <div class="layout-column">
 
-                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <ul class="nav nav-pills mb-3 orderNav" id="pills-tab" role="tablist">
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-to-approve-tab" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">To Approve</button>
+                            <button class="nav-link active" id="To-Approve" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">To Approve</button>
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-to-confirm-tab" data-bs-toggle="pill" data-bs-target="#pills-to-confirm" type="button" role="tab" aria-controls="pills-to-confirm" aria-selected="false">To Confirm</button>
+                            <button class="nav-link" id="To-Confirm" data-bs-toggle="pill" data-bs-target="#pills-to-confirm" type="button" role="tab" aria-controls="pills-to-confirm" aria-selected="false">To Confirm</button>
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-receive-tab" data-bs-toggle="pill" data-bs-target="#pills-to-receive" type="button" role="tab" aria-controls="pills-to-receive" aria-selected="false">To Receive</button>
+                            <button class="nav-link" id="To-Receive" data-bs-toggle="pill" data-bs-target="#pills-to-receive" type="button" role="tab" aria-controls="pills-to-receive" aria-selected="false">To Receive</button>
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-to-completed-tab" data-bs-toggle="pill" data-bs-target="#pills-to-completed" type="button" role="tab" aria-controls="pills-to-completed" aria-selected="false">Completed</button>
+                            <button class="nav-link" id="Completed" data-bs-toggle="pill" data-bs-target="#pills-completed" type="button" role="tab" aria-controls="pills-completed" aria-selected="false">Completed</button>
                         </li>
 
                         <li class="nav-item create-new-button" role="presentation">
-                            <button class="nav-link" id="pills-create-tab" data-bs-toggle="pill" data-bs-target="#pills-create" type="button" role="tab" aria-controls="pills-create" aria-selected="false">Create Order</button>
+                            <button class="nav-link"  id="Create" data-bs-toggle="pill" data-bs-target="#pills-create" type="button" role="tab" aria-controls="pills-create" aria-selected="false">Create Order</button>
                         </li>
                     </ul>
 
@@ -151,7 +153,7 @@ include('../crud/replenishment/check-default.php');
                             ?>
                         </div>
 
-                        <div class="tab-pane fade" id="pills-to-completed" role="tabpanel" aria-labelledby="pills-to-completed-tab">
+                        <div class="tab-pane fade" id="pills-completed" role="tabpanel" aria-labelledby="pills-to-completed-tab">
                             <?php
                             include('../components/replenishment/rep-header.php');
                             include('../crud/replenishment/rep-list-completed.php');
@@ -160,7 +162,7 @@ include('../crud/replenishment/check-default.php');
 
                         <div class="tab-pane fade" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
                             <?php
-                            include('../components/order/create-order.php');
+                            include('../components/replenishment/create-repOrder.php');
                             ?>
                         </div>
                     </div>
@@ -178,7 +180,11 @@ include('../crud/replenishment/check-default.php');
         </div>
 
     </main>
-
+    <script type="text/javascript">
+        var selectedTab = document.querySelector('<?php echo $_SESSION['repActive'] ?>')
+        var showTab = new bootstrap.Tab(selectedTab)
+        showTab.show()
+    </script>
 </body>
 
 </html>

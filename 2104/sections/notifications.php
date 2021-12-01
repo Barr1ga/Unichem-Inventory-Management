@@ -8,7 +8,7 @@ include('../crud/db_connect.php');
 <main>
     <!-- NAV -->
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <a href="notifications.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
             
             <div class="row justify-content-md-center">
                 <img class="unichem-logo-login" src="../assets/images/Unichem-Logo-Text.svg">
@@ -73,13 +73,7 @@ include('../crud/db_connect.php');
             <div class="row align-items-end">
                 <div class="col d-flex justify-content-center">
                     <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
-                        <strong>Settings</strong>
-                    </a>
-                </div>
-
-                <div class="col d-flex justify-content-center">
-                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
-                        <strong>Support</strong>
+                        <strong>Logout</strong>
                     </a>
                 </div>
             </div>
@@ -93,38 +87,23 @@ include('../crud/db_connect.php');
 
         <!-- START ADDING CODE HERE -->
         <div class="d-flex">
-            <h3>Reports</h3>
-        </div>
-
-        <div class="layout-column">
-            <form method="post" action="">
-                <input type="text" class="form-control search-input" placeholder="Search">
-            </form>
+            <h3>Notifications</h3>
         </div>
         <br>
         <div class="d-flex">
             <div class="layout-column">
-                Replenishments<br>
-                <br>
-                <br>
                 <?php include('../components/reports/rep-list-recent.php'); ?>
             </div>
         </div>
         <br/>
         <div class="d-flex">
             <div class="layout-column">
-                Orders<br>
-                <br>
-                <br>
                 <?php include('../components/reports/order-list-recent.php'); ?>
             </div>
         </div>
         <br/>
         <div class="d-flex">
             <div class="layout-column">
-                Inventory<br>
-                <br>
-                <br>
                 <?php include('../components/reports/low-stock.php'); ?>
             </div>
         </div>
