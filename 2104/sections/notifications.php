@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../style/import.php'); 
+include('../style/import.php');
 include('../crud/db_connect.php');
 
 ?>
@@ -8,11 +8,11 @@ include('../crud/db_connect.php');
 <main>
     <!-- NAV -->
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light nav-container shadow-md bg-body rounded" style="width: 280px;">
-            <a href="notifications.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <div class="row justify-content-md-center">
-                    <img class="unichem-logo-login" src="../assets/images/Unichem-Logo-Text.svg">
-                </div>
-            </a>
+        <a href="notifications.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <div class="row justify-content-md-center">
+                <img class="unichem-logo-login" src="../assets/images/Unichem-Logo-Text.svg">
+            </div>
+        </a>
 
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
@@ -65,23 +65,21 @@ include('../crud/db_connect.php');
                 </a>
             </li>
             <li>
-<<<<<<< Updated upstream
                 <a href="employees.php" class="nav-link link-dark">
                     <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#employee" />
+                        <use xlink:href="#employee  " />
                     </svg>
                     Employees
                 </a>
             </li>
-=======
-                    <a href="sales.php" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#rep" />
-                        </svg>
-                        Sales
-                    </a>
-                </li>
->>>>>>> Stashed changes
+            <li>
+                <a href="sales.php" class="nav-link link-dark">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#sales" />
+                    </svg>
+                    Sales
+                </a>
+            </li>
         </ul>
         <hr>
 
@@ -99,7 +97,7 @@ include('../crud/db_connect.php');
     </div>
 
 
-    
+
     <div class="father-container">
 
         <!-- START ADDING CODE HERE -->
@@ -112,13 +110,13 @@ include('../crud/db_connect.php');
                 <?php include('../components/reports/rep-list-recent.php'); ?>
             </div>
         </div>
-        <br/>
+        <br />
         <div class="d-flex">
             <div class="layout-column">
                 <?php include('../components/reports/order-list-recent.php'); ?>
             </div>
         </div>
-        <br/>
+        <br />
         <div class="d-flex">
             <div class="layout-column">
                 <?php include('../components/reports/low-stock.php'); ?>
@@ -126,7 +124,7 @@ include('../crud/db_connect.php');
         </div>
 
 
-        
+
 
     </div>
 

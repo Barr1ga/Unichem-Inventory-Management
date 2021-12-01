@@ -13,6 +13,7 @@ include('../crud/employee/check-default.php');
     <title>Unichem</title>
 </head>
 <!-- bayor -->
+
 <body>
     <main>
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light nav-container shadow-md bg-body rounded" style="width: 280px;">
@@ -81,6 +82,14 @@ include('../crud/employee/check-default.php');
                         Employees
                     </a>
                 </li>
+                <li>
+                    <a href="sales.php" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#sales" />
+                        </svg>
+                        Sales
+                    </a>
+                </li>
             </ul>
             <hr>
 
@@ -95,7 +104,7 @@ include('../crud/employee/check-default.php');
 
             </div>
         </div>
-        
+
         <div class="father-container">
             <h4>Employees</h4>
             <br>
@@ -104,7 +113,7 @@ include('../crud/employee/check-default.php');
                     <input type="text" class="form-control search-input" placeholder="Search">
                 </form>
             </div>
-            <br>    
+            <br>
 
 
 
@@ -116,39 +125,40 @@ include('../crud/employee/check-default.php');
 
 
             <ul class="nav nav-pills mb-3 orderNav" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="To-Approve" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">Employees</button>
-                    </li>
-        
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="To-Confirm" data-bs-toggle="pill" data-bs-target="#pills-to-confirm" type="button" role="tab" aria-controls="pills-to-confirm" aria-selected="false">Create Employee</button>
-                    </li>
-                
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="To-Approve" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">Employees</button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="To-Confirm" data-bs-toggle="pill" data-bs-target="#pills-to-confirm" type="button" role="tab" aria-controls="pills-to-confirm" aria-selected="false">Create Employee</button>
+                </li>
+
             </ul>
 
             <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-to-approve" role="tabpanel" aria-labelledby="pills-to-approve-tab">
-                <div class="d-flex">
-                    <div class="layout-column">
-                        <?php include('../crud/employee/employee-list.php'); ?>
+                <div class="tab-pane fade show active" id="pills-to-approve" role="tabpanel" aria-labelledby="pills-to-approve-tab">
+                    <div class="d-flex">
+                        <div class="layout-column">
+                            <?php include('../crud/employee/employee-list.php'); ?>
+                        </div>
+
+                        <?php include('../crud/employee/employee-information.php'); ?>
+
+                        <div class="layout-column">
+                            Employee Information<br><br>
+                            <?php include('../components/employee/employee-information.php'); ?>
+                        </div>
+
+
                     </div>
-
-                    <?php include('../crud/employee/employee-information.php'); ?>
-
-                    <div class="layout-column">
-                        Employee Information<br><br>
-                        <?php include('../components/employee/employee-information.php'); ?>
-                    </div>
-
-                    
                 </div>
+
+                <div class="tab-pane fade" id="pills-to-confirm" role="tabpanel" aria-labelledby="pills-to-cofirm-tab">
+                    <?php include('../components/employee/employee-create.php'); ?>
+                </div>
+
             </div>
 
-            <div class="tab-pane fade" id="pills-to-confirm" role="tabpanel" aria-labelledby="pills-to-cofirm-tab">
-                <?php include('../components/employee/employee-create.php'); ?>
-            </div>
-
-            </div>
 
 
 
@@ -181,7 +191,6 @@ include('../crud/employee/check-default.php');
 
 
 
-            
         </div>
     </main>
 </body>

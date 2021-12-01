@@ -73,21 +73,21 @@ include('../crud/supplier/check-default.php');
                     </a>
                 </li>
                 <li>
-<<<<<<< Updated upstream
                     <a href="employees.php" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#employee" />
+                            <use xlink:href="#employee  " />
                         </svg>
                         Employees
-=======
-                    <a href="sales.php" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#rep" />
-                        </svg>
-                        Sales
->>>>>>> Stashed changes
                     </a>
                 </li>
+                <li>
+                    <a href="sales.php" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#sales" />
+                        </svg>
+                        Sales
+                    </a>
+                </li>  
             </ul>
             <hr>
 

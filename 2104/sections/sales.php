@@ -72,9 +72,17 @@ include('../style/import.php');
                     </a>
                 </li>
                 <li>
-                    <a href="sales.php" class="nav-link link-dark  active">
+                    <a href="employees.php" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#sale" />
+                            <use xlink:href="#employee" />
+                        </svg>
+                        Employees
+                    </a>
+                </li>
+                <li>
+                    <a href="sales.php" class="nav-link link-dark active">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use class="active-color" xlink:href="#sales" />
                         </svg>
                         Sales
                     </a>
