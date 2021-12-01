@@ -48,11 +48,14 @@ include('../style/import.php');
                     <label for="password" class="form-label">Password</label>
                     <input class="form-control" type="password" name="password" required>
                 </div> 
-                <div class="">
+                <div class="mb-3">
                     <br>
-                    <button class="btn btn-primary btn-block" type="submit" value="submit">Register </button>
+                    <button class="btn btn-primary btn-block" style="width: 100%;" type="submit" value="submit">Register </button>
                 </div> 
             </form>
+            <div class="d-flex justify-content-center">
+                Already have an account? <a href="login.php"><b>Log In</b></a>
+            </div>
         </div>
             
     </div>

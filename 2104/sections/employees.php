@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('../style/import.php');
 include('../crud/employee/check-default.php');
 
@@ -87,7 +88,7 @@ include('../crud/employee/check-default.php');
             <div class="container">
                 <div class="row align-items-end">
                     <div class="col d-flex justify-content-center">
-                        <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
+                        <a href="login.php" class="d-flex align-items-center link-dark text-decoration-none">
                             <strong>Logout</strong>
                         </a>
                     </div>
@@ -120,9 +121,15 @@ include('../crud/employee/check-default.php');
                         <button class="nav-link active" id="To-Approve" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">Employees</button>
                     </li>
         
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="To-Confirm" data-bs-toggle="pill" data-bs-target="#pills-to-confirm" type="button" role="tab" aria-controls="pills-to-confirm" aria-selected="false">Create Employee</button>
+                    <?php
+                    if($_SESSION['userType']=='Manager'){
+                        echo "
+                    
+                    <li class='nav-item' role='presentation'>
+                        <button class='nav-link' id='To-Confirm' data-bs-toggle='pill' data-bs-target='#pills-to-confirm' type='button' role='tab' aria-controls='pills-to-confirm' aria-selected='false'>Create Employee</button>
                     </li>
+                    ";
+                    }?>
                 
             </ul>
 

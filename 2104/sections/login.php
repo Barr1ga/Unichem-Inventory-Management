@@ -37,11 +37,14 @@ include('../style/import.php');
                 </div> 
                 <div class="mb-3">
                     <br>
-                    <button class="btn btn-primary btn-block" type="submit" value="submit">Log In </button>
+                    <button class="btn btn-primary btn-block" style="width: 100%;" type="submit" value="submit">Log In </button>
                 </div> 
             </form>
+            <div class="d-flex justify-content-center">
+                Dont have an account? <a href="register.php"><b>Sign in</b></a>
+            </div>
         </div>
-            
+        
     </div>
     
 </body>

@@ -22,12 +22,11 @@
                        echo "succh";
                        session_start();
                     
-                        $SESSION['userType'] = $user['userType'];
-                        $SESSION['userFirstName'] = $user['userFirstName'];
-                        $SESSION['userLastName'] = $user['userLastName'];
-                        $SESSION['userName'] = $user['userName'];
-                        $SESSION['email'] = $user['email'];
-                        $SESSION['password'] = $user['password'];
+                        $_SESSION['userType'] = $user['userType'];
+                        $_SESSION['userFirstName'] = $user['userFirstName'];
+                        $_SESSION['userLastName'] = $user['userLastName'];
+                        $_SESSION['userName'] = $user['userName'];
+                        $_SESSION['email'] = $user['email'];
 
                         echo $SESSION['email'];
 
@@ -36,6 +35,8 @@
 
                     
                 }else{
+                    echo "bogo";
+                    echo $user['userName'];
                     header("Location: login.php");
                 }
                     
@@ -68,6 +69,7 @@
                         header("Location: login.php");
                     } else {
                         echo "Error creating user: " . mysqli_error($conn);
+                        header("Location: register.php");
                     } 
                 }else{
                     header("Location: register.php");
