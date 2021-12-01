@@ -91,13 +91,14 @@
             $chemicalComposition = $_POST['chemicalComposition'];
             $operatingTempRange = $_POST['operatingTempRange'];
             $inStock = $_POST['inStock'];
+            $minimumStock = $_POST['minimumStock'];
 
             $insertProduct = "INSERT INTO `product` (`tradeName`, `brandName`, `description`, `dateContained`, `price`, `applicationType`,
             `cureTime`, `color`, `form`, `packageType`, `packageSize`, `minOperatingTemp`,`maxOperatingTemp`, `viscosity`, `chemicalComposition`,
-            `operatingTempRange`, `inStock`)
+            `operatingTempRange`, `inStock`, `minimumStock`)
             VALUES ('$tradeName', '$brandName', '$description', '$dateContained', '$price', '$applicationType',
             '$cureTime', '$color', '$form', '$packageType', '$packageSize', '$minOperatingTemp','$maxOperatingTemp', '$viscosity', '$chemicalComposition',
-            '$operatingTempRange', '$inStock')";
+            '$operatingTempRange', '$inStock', '$minimumStock')";
     
 
             if (mysqli_query($conn, $insertProduct)) {

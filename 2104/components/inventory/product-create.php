@@ -65,13 +65,17 @@
                             <label for="inputZip" class="form-label">Chemical Composition</label>
                             <input type="text" class="form-control" id="inputZip" name="chemicalComposition" required>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label for="inputZip" class="form-label">Operating Temperature Range</label>
                             <input type="text" class="form-control" id="inputZip" name="operatingTempRange" required>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label for="inputZip" class="form-label">In Stock</label>
                             <input type="number" class="form-control" id="inputZip" name="inStock" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputZip" class="form-label">Minimum Stock</label>
+                            <input type="number" class="form-control" id="inputZip" name="minimumStock" required>
                         </div>
                         <div class="col-md-4"><br>
                             <button type="submit" class="btn btn-primary" value="submit">Create</button>
