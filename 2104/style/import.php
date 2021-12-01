@@ -102,7 +102,7 @@
   .nav-container {
     border-right: 1px solid #D5DBE4;
   }
-  
+
 
   /* STRICTLY USE THIS CLASS FOR GENERIC CUSTOMER/SUPPLIER DETAIL CONTAINERS */
   .white-box-container-details-card-status {
@@ -142,7 +142,7 @@
   .Completed {
     background-color: #53C06B;
   }
-  
+
   /* STRICTLY USE THIS CLASS FOR TO COMPLETE ORDER/REPLENISHMENT STATUS */
   .To-Approve {
     background-color: #ff2b2b;
@@ -193,21 +193,22 @@
     width: 437.22px;
     margin: 0 0 5px 0;
   }
-  .one-supplier-customer-list-long { 
+
+  .one-supplier-customer-list-long {
     height: 52.31px;
     width: 1214.69px;
     margin: 0 0 5px 0;
     padding: 20px;
   }
-  
+
   .reports-left-data {
     width: 800px;
   }
-  
-  .reports-right-data{
+
+  .reports-right-data {
     width: 150px;
   }
-  
+
   .one-order-replenishment-list {
     height: 52.31px;
     width: 961.44px;
@@ -301,7 +302,7 @@
     padding: 12px;
   }
 
-  .btn-delete{
+  .btn-delete {
     color: red;
     text-decoration: none;
   }
@@ -311,7 +312,7 @@
     text-decoration: underline;
   }
 
-  .btn-preview{
+  .btn-preview {
     color: #0d6efd;
     text-decoration: none;
   }
@@ -321,7 +322,7 @@
     text-decoration: underline;
   }
 
-  .btn-update{
+  .btn-update {
     color: #198754;
     text-decoration: none;
   }
@@ -331,13 +332,13 @@
     text-decoration: underline;
   }
 
-  .list-cell{
+  .list-cell {
     width: 115px;
     height: 20px;
     overflow-x: hidden;
     overflow-y: hidden;
   }
-  
+
   .form-create-order {
     width: 961.44px;
   }
@@ -348,25 +349,29 @@
     width: 585px;
   }
 
-  .list-name{
+  .list-name {
     width: 220px;
     height: 20px;
     overflow-x: hidden;
     overflow-y: hidden;
   }
+
   .empty-message {
-    margin-top:25px;
+    margin-top: 25px;
     padding-left: 20px;
     color: red;
     width: 1000px;
   }
-  .add-more{
+
+  .add-more {
     margin-top: -2px;
   }
-  .paste-new-forms{
+
+  .paste-new-forms {
     margin-top: -2px;
     margin-bottom: 7px;
   }
+
   .remove-btn {
     margin-top: 10px;
   }
@@ -374,6 +379,62 @@
   .reg-log-form {
     width: 400px;
     margin-top: 100px;
+  }
+
+  .fadediv{
+    animation: fadein 0.6s;
+    -moz-animation: fadein 0.6s;
+    /* Firefox */
+    -webkit-animation: fadein 0.6s;
+    /* Safari and Chrome */
+    -o-animation: fadein 0.6s;
+    /* Opera */
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-moz-keyframes fadein {
+
+    /* Firefox */
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes fadein {
+
+    /* Safari and Chrome */
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-o-keyframes fadein {
+
+    /* Opera */
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 </style>
 

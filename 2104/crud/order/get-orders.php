@@ -12,12 +12,14 @@ $sql = "SELECT *
             p.productID = ol.productID
         WHERE o.orderID = $id;";
 
-$rs = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($rs) > 0) {
-    while ($prod = mysqli_fetch_assoc($rs)) {
-        include('../components/order/get-orders.php');
-    } 
+if ($rs = mysqli_query($conn, $sql)) {
+    if (mysqli_num_rows($rs) > 0) {
+        while ($prod = mysqli_fetch_assoc($rs)) {
+            include('../components/order/get-orders.php');
+        } 
+    }
+} else {
+    echo 'Error: '. mysqli_error($conn);
 }
 
 ?>
