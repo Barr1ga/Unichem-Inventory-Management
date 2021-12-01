@@ -378,7 +378,7 @@
 
   .reg-log-form {
     width: 400px;
-    margin-top: 100px;
+    margin-top: 70px;
   }
 
   .fadediv {

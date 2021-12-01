@@ -6,19 +6,18 @@
 
     <div class="row d-flex justify-content-between">
         <div class="col-md-auto">
-        <img src="../assets/<?php echo $inventory["productImage"]; ?>" width="105.78" height="102.54" alt="..." style="border-radius: 10px 10px 10px 10px;">
-
-        </div>
+        <img src="../assets/images/<?php echo $inventory["productImage"]; ?>" width="105.78" height="102.54" alt="..." style="border-radius: 10px 10px 10px 10px;">
+        </div><br>
         <div class="col align-self-center">
-                <h4><b><?php echo $inventory["productID"];?></b></h3>
-                <div class="Trade-Name"><?php echo $inventory["tradeName"];?></div>
+                <h4><b>
+                <div class="Trade-Name"><?php echo $inventory["tradeName"];?></div></b></h3>
         </div>
         
-        <div class="col-md-auto">
-            <button class="update">Update</button>
-        </div>
-        <div class="col-md-auto">
-            <button class="delete">Delete</button>
+        <div class="col d-flex justify-content-end">
+            <form method="get" action="../sections/customer-update.php">
+                <input type="hidden" name="productID" value="<?php echo $customer['customerID']; ?>">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
         </div>
     </div>
     <br>
