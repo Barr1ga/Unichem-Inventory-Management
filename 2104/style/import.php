@@ -440,6 +440,9 @@
   .active-color {
     fill: white;
   }
+  .create-order {
+    margin-right: 20px;
+  }
 </style>
 
 
