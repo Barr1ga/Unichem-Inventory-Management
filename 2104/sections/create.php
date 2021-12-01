@@ -101,13 +101,33 @@
     
 
             if (mysqli_query($conn, $insertProduct)) {
-                echo "Record updated successfully";
+                echo "Record created successfully";
                 header("Location: inventory.php");
             } else {
                 echo "Error creating user: " . mysqli_error($conn);
             } 
 
             break;
+
+        case "user":
+            $userID = $_POST['userID'];
+            $userFirstName = $_POST['userFirstName'];
+            $userLastName = $_POST['userLastName'];
+            $email = $_POST['email'];
+            $userType = $_POST['userType'];
+            $userName = $_POST['userName'];
+            $password = $_POST['password'];
+        
+
+            $insertEmployee = "INSERT INTO `inventory_users`(`userID`, `userType`, `userFirstName`, `userLastName`, `userName`, `email`, `password`)
+            VALUES ('$userID','$userType','$userFirstName','$userLastName','$userName','$email','$password')";
+     
+            if (mysqli_query($conn, $insertEmployee)) {
+                echo "Record created successfully";
+                header("Location: employees.php");
+            } else {
+                echo "Error updating record: " . mysqli_error($conn);
+            } 
     }
     
 
