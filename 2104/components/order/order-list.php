@@ -50,7 +50,7 @@
     ";
 
     // Update Modal
-    include("../components/order/order-update.php")
+    include("../components/order/update-order.php");
 ?>
 
 

@@ -2,6 +2,15 @@
     include('../db_connect.php');
 
     /* Order Information */
+    if (!isset($_POST['orderStatus']))
+        $orderStatus = $_POST['defaultOrderStatus'];
+    else 
+        $orderStatus = $_POST['orderStatus'];
+
+    $paidStatus = "paid";
+    if ($orderStatus == "Awaiting-Payment" || $orderStatus == "Awaiting-Approval" || $orderStatus = "Manual-Verification-Required") 
+        $paidStatus = "unpaid";
+
     $orderID = $_POST['orderID'];
     $createdBy = 2; // Change this to Session Variable
     $orderDate = $_POST['orderDate'];
@@ -27,7 +36,7 @@
 
     /* Query to update order information */
     $sql1 = "UPDATE orders 
-                SET orderDate = '$orderDate', shipRequiredDate = '$shippingDate'
+                SET orderDate = '$orderDate', shipRequiredDate = '$shippingDate', orderStatus = '$orderStatus', paidStatus = '$paidStatus'
                 WHERE orderID = '$orderID' ";
 
     if (mysqli_query($conn, $sql1)) {

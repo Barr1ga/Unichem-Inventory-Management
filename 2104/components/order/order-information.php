@@ -6,7 +6,7 @@
     <div class="white-box-container-details-card-body rounded">
         <div class="row d-flex justify-content-between">
             <div class="col">
-                <h5><b># <?php echo $order['orderlineID'] ?></b></h5>
+                <h5><b># <?php echo $order['orderID'] ?></b></h5>
             </div>
             <div class="col-md-auto">
                 <?php echo $order['orderDate'] ?>
