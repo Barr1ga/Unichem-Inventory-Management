@@ -1,8 +1,6 @@
-<!-- Order List -->
-
 <?php
     $modal = $order['orderStatus'] . $order['orderID'];
-    
+
     echo "
         <div class='d-flex align-items-center justify-content-between white-box-container one-order-replenishment-list round-edge'>
             <div class='list-cell'>

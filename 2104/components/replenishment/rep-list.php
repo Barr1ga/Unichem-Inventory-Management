@@ -1,6 +1,6 @@
-<!-- Rep List -->
 <?php
     $modal = $rep['orderStatus'] . $rep['repOrderID'];
+
     echo "
         <div class='d-flex align-items-center justify-content-between white-box-container one-order-replenishment-list round-edge'>
             <div class='list-cell'>
@@ -50,6 +50,7 @@
         </div>
 
     ";
+
     // Update Modal
     include("../components/replenishment/rep-update.php")
 ?>
