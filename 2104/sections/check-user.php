@@ -10,14 +10,15 @@
                 $checkuser = "SELECT * FROM `inventory_users` 
                                 WHERE `userName`='$username'
                                 AND `email`='$email'
+                                AND `password`='$password'
                                 LIMIT 1";
 
                 $result = mysqli_query($conn, $checkuser);
 
-                $user = mysqli_fetch_assoc($result);
 
-                if (password_verify($password,$user['password'])){
+                if (mysqli_num_rows($result) != 0) {
                     
+                    $user = mysqli_fetch_assoc($result);
                        echo "succh";
                        session_start();
                     
@@ -46,10 +47,9 @@
                 $userFirstName = $_POST['userFirstName'];
                 $userLastName = $_POST['userLastName'];
                 $email = $_POST['email'];
-                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                $password = $_POST['password'];
                 $userType = $_POST['userType'];
                 
-
 
                 $checkuser = "SELECT * FROM `inventory_users` 
                                 WHERE `userName`='$userName'
