@@ -19,7 +19,7 @@ include('../crud/db_connect.php');
             <li class="nav-item">
                 <a href="notifications.php" class="nav-link link-dark active" aria-current="page">
                     <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#report" />
+                        <use class="active-color" xlink:href="#notif" />
                     </svg>
                     Notifications
                 </a>
@@ -67,7 +67,7 @@ include('../crud/db_connect.php');
             <li>
                 <a href="employees.php" class="nav-link link-dark">
                     <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#emp" />
+                        <use xlink:href="#employee" />
                     </svg>
                     Employees
                 </a>

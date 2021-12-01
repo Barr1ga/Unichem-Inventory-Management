@@ -27,7 +27,7 @@ include('../crud/supplier/check-default.php');
                 <li class="nav-item">
                     <a href="notifications.php" class="nav-link link-dark " aria-current="page">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#report" />
+                            <use xlink:href="#notif" />
                         </svg>
                         Notifications
                     </a>
@@ -35,7 +35,7 @@ include('../crud/supplier/check-default.php');
                 <li>
                     <a href="suppliers.php" class="nav-link link-dark active">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#supplier" />
+                            <use class="active-color" xlink:href="#supplier" />
                         </svg>
                         Suppliers
                     </a>
@@ -75,7 +75,7 @@ include('../crud/supplier/check-default.php');
                 <li>
                     <a href="employees.php" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#emp" />
+                            <use xlink:href="#employee" />
                         </svg>
                         Employees
                     </a>
