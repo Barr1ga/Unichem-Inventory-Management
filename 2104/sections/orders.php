@@ -122,60 +122,79 @@ include('../crud/order/check-default.php');
             <div class="d-flex">
                 <div class="layout-column">
 
-                    <ul class="nav nav-pills mb-3 orderNav" id="pills-tab" role="tablist">
+                    <ul class="nav nav-pills nav-justified mb-3 orderNav" id="pills-tab" role="tablist">
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="To-Approve" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">To Approve</button>
+                            <button class="nav-link active" id="pill1" data-bs-toggle="pill" data-bs-target="#div1" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">Awaiting Approval</button>
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="To-Confirm" data-bs-toggle="pill" data-bs-target="#pills-to-confirm" type="button" role="tab" aria-controls="pills-to-confirm" aria-selected="false">To Confirm</button>
+                            <button class="nav-link" id="pill2" data-bs-toggle="pill" data-bs-target="#div2" type="button" role="tab" aria-controls="pills-to-confirm" aria-selected="false">Awaiting Payment</button>
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="To-Receive" data-bs-toggle="pill" data-bs-target="#pills-to-receive" type="button" role="tab" aria-controls="pills-to-receive" aria-selected="false">To Receive</button>
+                            <button class="nav-link" id="pill3" data-bs-toggle="pill" data-bs-target="#div3" type="button" role="tab" aria-controls="pills-to-receive" aria-selected="false">Processing Order</button>
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="Completed" data-bs-toggle="pill" data-bs-target="#pills-completed" type="button" role="tab" aria-controls="pills-completed" aria-selected="false">Completed</button>
+                            <button class="nav-link" id="pill4" data-bs-toggle="pill" data-bs-target="#div4" type="button" role="tab" aria-controls="pills-completed" aria-selected="false">Awaiting Shipment</button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pill5" data-bs-toggle="pill" data-bs-target="#div5" type="button" role="tab" aria-controls="pills-completed" aria-selected="false">Awaiting Pickup</button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pill6" data-bs-toggle="pill" data-bs-target="#div6" type="button" role="tab" aria-controls="pills-completed" aria-selected="false">Completed Order</button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pill7" data-bs-toggle="pill" data-bs-target="#div7" type="button" role="tab" aria-controls="pills-completed" aria-selected="false">Cancelled Order</button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pill8" data-bs-toggle="pill" data-bs-target="#div8" type="button" role="tab" aria-controls="pills-completed" aria-selected="false">Manual Verification</button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pill9" data-bs-toggle="pill" data-bs-target="#div9" type="button" role="tab" aria-controls="pills-completed" aria-selected="false">Refunded Order</button>
                         </li>
 
                         <li class="nav-item create-new-button" role="presentation">
-                            <button class="nav-link"  id="Create" data-bs-toggle="pill" data-bs-target="#pills-create" type="button" role="tab" aria-controls="pills-create" aria-selected="false">Create Order</button>
+                            <button class="nav-link"  id="pill10" data-bs-toggle="pill" data-bs-target="#div10" type="button" role="tab" aria-controls="pills-create" aria-selected="false">Create Order</button>
                         </li>
                     </ul>
 
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-to-approve" role="tabpanel" aria-labelledby="pills-to-approve-tab">
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="div1" role="tabpanel" aria-labelledby="pills-to-approve-tab">
                             <?php
                             include('../components/order/order-header.php');
-                            include('../crud/order/order-list-approve.php');
-
+                            include('../crud/order/order-list/order-list-approve.php');
                             ?>
                         </div>
 
-                        <div class="tab-pane fade" id="pills-to-confirm" role="tabpanel" aria-labelledby="pills-to-cofirm-tab">
+                        <div class="tab-pane fade" id="div2" role="tabpanel" aria-labelledby="pills-to-cofirm-tab">
                             <?php
                             include('../components/order/order-header.php');
-                            include('../crud/order/order-list-confirm.php');
+                            include('../crud/order/order-list/order-list-confirm.php');
                             ?>
                         </div>
 
-                        <div class="tab-pane fade" id="pills-to-receive" role="tabpanel" aria-labelledby="pills-to-receive-tab">
+                        <div class="tab-pane fade" id="div3" role="tabpanel" aria-labelledby="pills-to-receive-tab">
                             <?php
                             include('../components/order/order-header.php');
-                            include('../crud/order/order-list-receive.php');
+                            include('../crud/order/order-list/order-list-receive.php');
                             ?>
                         </div>
 
-                        <div class="tab-pane fade" id="pills-completed" role="tabpanel" aria-labelledby="pills-complete-tab">
+                        <div class="tab-pane fade" id="div4" role="tabpanel" aria-labelledby="pills-complete-tab">
                             <?php
                             include('../components/order/order-header.php');
-                            include('../crud/order/order-list-completed.php');
+                            include('../crud/order/order-list/order-list-completed.php');
                             ?>
                         </div>  
 
-                        <div class="tab-pane fade" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
+                        <div class="tab-pane fade" id="div10" role="tabpanel" aria-labelledby="pills-create-tab">
                             <?php
                             include('../components/order/create-order.php');
                             ?>
