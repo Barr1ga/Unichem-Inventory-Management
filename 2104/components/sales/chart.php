@@ -1,9 +1,6 @@
 <?php
 include('../crud/db_connect.php');
-$result = mysqli_query($conn, "SELECT *
-FROM (SELECT COUNT(orderID) AS orderCount, orderDate FROM orders GROUP BY EXTRACT(month FROM orderDate) ORDER BY orderDate ASC)A
-CROSS JOIN (SELECT COUNT(repOrderID) AS repOrderCount, repOrderDate FROM replenishment GROUP BY EXTRACT(month FROM repOrderDate) ORDER BY repOrderCount)B
-ORDER BY orderDate")
+include('../crud/sales/sales.php');
 ?>
 
 
