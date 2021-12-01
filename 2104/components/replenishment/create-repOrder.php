@@ -32,7 +32,7 @@
             </div>
 
             <div class="col-md-3">
-                <label class="form-label">Price</label>
+                <label class="form-label">Price Each</label>
                 <input type="number" min="1" step="any" class="form-control" name="price[]" required>
             </div>
 
@@ -100,8 +100,8 @@
                         <input type="number" class="form-control" name="quantity[]" required>\
                         </div>\
                         <div class="col-md-3">\
-                            <label class="form-label">Price</label>\
-                            <input type="number" class="form-control" name="price[]" required>\
+                            <label class="form-label">Price Each</label>\
+                            <input type="number" min="1" step="any" class="form-control" name="price[]" required>\
                         </div>\
                         <div class="col-md-3">\
                             <div class="form-group mb-2">\

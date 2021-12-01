@@ -14,8 +14,7 @@ include('../style/import.php');
 <body>
     <main>
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light nav-container shadow-md bg-body rounded" style="width: 280px;">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-
+            <a href="notifications.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                 <div class="row justify-content-md-center">
                     <img class="unichem-logo-login" src="../assets/images/Unichem-Logo-Text.svg">
                 </div>
@@ -26,7 +25,7 @@ include('../style/import.php');
                 <li class="nav-item">
                     <a href="notifications.php" class="nav-link link-dark " aria-current="page">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#report" />
+                            <use xlink:href="#notif" />
                         </svg>
                         Notifications
                     </a>
@@ -72,9 +71,17 @@ include('../style/import.php');
                     </a>
                 </li>
                 <li>
-                    <a href="sales.php" class="nav-link link-dark  active">
+                    <a href="employees.php" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#sale" />
+                            <use xlink:href="#employee" />
+                        </svg>
+                        Employees
+                    </a>
+                </li>
+                <li>
+                    <a href="sales.php" class="nav-link link-dark active">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use class="active-color" xlink:href="#sales" />
                         </svg>
                         Sales
                     </a>

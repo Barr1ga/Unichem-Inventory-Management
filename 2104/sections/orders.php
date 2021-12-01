@@ -35,7 +35,7 @@ include('../crud/order/check-default.php');
                 <li class="nav-item">
                     <a href="notifications.php" class="nav-link link-dark " aria-current="page">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#report" />
+                            <use xlink:href="#notif" />
                         </svg>
                         Notifications
                     </a>
@@ -67,7 +67,7 @@ include('../crud/order/check-default.php');
                 <li>
                     <a href="orders.php" class="nav-link link-dark active">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#order" />
+                            <use class="active-color" xlink:href="#order" />
                         </svg>
                         Orders
                     </a>
@@ -83,11 +83,19 @@ include('../crud/order/check-default.php');
                 <li>
                     <a href="employees.php" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#emp" />
+                            <use xlink:href="#employee  " />
                         </svg>
                         Employees
                     </a>
                 </li>
+                <li>
+                    <a href="sales.php" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#sales" />
+                        </svg>
+                        Sales
+                    </a>
+                </li>  
             </ul>
             <hr>
 

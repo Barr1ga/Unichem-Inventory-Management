@@ -23,7 +23,7 @@ include "style/import.php";
             </div>
 
             <div class="form-floating">
-                <input type="password" class="form-control" name="password" placeholder="Pin" required>
+                <input type="password" class="form-control" name="password" placeholder="Password" required>
                 <label>Password</label>
             </div>
 

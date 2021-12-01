@@ -8,9 +8,10 @@ if(!isset($_GET['repID'])){
                     WHERE r.orderStatus = 'To-Approve'
                     LIMIT 1";
 
-    $result = mysqli_query($conn, $getRepList);
-       
-    $defaultRep = mysqli_fetch_assoc($result);
-            
-    $_GET['repID'] = $defaultRep['repOrderID'];
+    if ($result = mysqli_query($conn, $getRepList)) {
+        if ($defaultRep = mysqli_fetch_assoc($result)) {
+            $_GET['repID'] = $defaultRep['repOrderID'];
+        }
+    }
+    
 }

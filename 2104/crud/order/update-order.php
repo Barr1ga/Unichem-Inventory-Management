@@ -25,7 +25,7 @@
     $country = $_POST['country'];
     $zip = $_POST['zip'];
 
-
+    /* Query to update order information */
     $sql1 = "UPDATE orders 
                 SET orderDate = '$orderDate', shipRequiredDate = '$shippingDate'
                 WHERE orderID = '$orderID' ";
@@ -33,9 +33,10 @@
     if (mysqli_query($conn, $sql1)) {
         echo '<br /> Order Information is successfully updated.';
     } else {
-        echo '<br /> Order Information is not successfully updated.' . mysqli_error($conn);
+        echo '<br /> Order Information is not successfully updated. ' . mysqli_error($conn);
     }
 
+    /* Query to update customer information */
     $sql2 = "UPDATE customer
                 SET customerFName = '$customerFname', customerLName = '$customerLname', dateofBirth = '$dateOfBirth', gender = '$gender', 
                     contactNo = '$contactNo', email = '$email'
@@ -44,9 +45,10 @@
     if (mysqli_query($conn, $sql2)) {
         echo '<br /> Customer Address is successfully updated.';
     } else {
-        echo '<br /> Customer Address is not successfully updated.' . mysqli_error($conn);
+        echo '<br /> Customer Address is not successfully updated. ' . mysqli_error($conn);
     }
 
+    /* Query to update customer address */
     $sql3 = "UPDATE customer_address 
                 SET street = '$street', barangay = '$barangay', city = '$city', region = '$region', country = '$country', zip = '$zip'
                 WHERE addressID = '$addressID'";
@@ -54,7 +56,7 @@
     if (mysqli_query($conn, $sql3)) {
         echo '<br /> Customer Address is successfully updated.';
     } else {
-        echo '<br /> Customer Address is not successfully updated.' . mysqli_error($conn);
+        echo '<br /> Customer Address is not successfully updated. ' . mysqli_error($conn);
     }
 
     header('location: ../../sections/orders.php');

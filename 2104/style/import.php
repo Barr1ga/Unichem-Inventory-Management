@@ -102,7 +102,7 @@
   .nav-container {
     border-right: 1px solid #D5DBE4;
   }
-  
+
 
   /* STRICTLY USE THIS CLASS FOR GENERIC CUSTOMER/SUPPLIER DETAIL CONTAINERS */
   .white-box-container-details-card-status {
@@ -142,7 +142,7 @@
   .Completed {
     background-color: #53C06B;
   }
-  
+
   /* STRICTLY USE THIS CLASS FOR TO COMPLETE ORDER/REPLENISHMENT STATUS */
   .To-Approve {
     background-color: #ff2b2b;
@@ -193,21 +193,22 @@
     width: 437.22px;
     margin: 0 0 5px 0;
   }
-  .one-supplier-customer-list-long { 
+
+  .one-supplier-customer-list-long {
     height: 52.31px;
     width: 1214.69px;
     margin: 0 0 5px 0;
     padding: 20px;
   }
-  
+
   .reports-left-data {
     width: 800px;
   }
-  
-  .reports-right-data{
+
+  .reports-right-data {
     width: 150px;
   }
-  
+
   .one-order-replenishment-list {
     height: 52.31px;
     width: 961.44px;
@@ -301,7 +302,7 @@
     padding: 12px;
   }
 
-  .btn-delete{
+  .btn-delete {
     color: red;
     text-decoration: none;
   }
@@ -311,7 +312,7 @@
     text-decoration: underline;
   }
 
-  .btn-preview{
+  .btn-preview {
     color: #0d6efd;
     text-decoration: none;
   }
@@ -321,7 +322,7 @@
     text-decoration: underline;
   }
 
-  .btn-update{
+  .btn-update {
     color: #198754;
     text-decoration: none;
   }
@@ -331,13 +332,13 @@
     text-decoration: underline;
   }
 
-  .list-cell{
+  .list-cell {
     width: 115px;
     height: 20px;
     overflow-x: hidden;
     overflow-y: hidden;
   }
-  
+
   .form-create-order {
     width: 961.44px;
   }
@@ -348,25 +349,29 @@
     width: 585px;
   }
 
-  .list-name{
+  .list-name {
     width: 220px;
     height: 20px;
     overflow-x: hidden;
     overflow-y: hidden;
   }
+
   .empty-message {
-    margin-top:25px;
+    margin-top: 25px;
     padding-left: 20px;
     color: red;
     width: 1000px;
   }
-  .add-more{
+
+  .add-more {
     margin-top: -2px;
   }
-  .paste-new-forms{
+
+  .paste-new-forms {
     margin-top: -2px;
     margin-bottom: 7px;
   }
+
   .remove-btn {
     margin-top: 10px;
   }
@@ -375,15 +380,74 @@
     width: 400px;
     margin-top: 70px;
   }
+
+  .fadediv {
+    animation: fadein 0.6s;
+    -moz-animation: fadein 0.6s;
+    /* Firefox */
+    -webkit-animation: fadein 0.6s;
+    /* Safari and Chrome */
+    -o-animation: fadein 0.6s;
+    /* Opera */
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-moz-keyframes fadein {
+
+    /* Firefox */
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes fadein {
+
+    /* Safari and Chrome */
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-o-keyframes fadein {
+
+    /* Opera */
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .active-color {
+    fill: white;
+  }
 </style>
 
 
 <!-- SIDEBAR IMG HERE -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
-  <symbol id="report" viewBox="0 0 16 16">
-    <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z" />
-    <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z" />
+  <symbol id="notif" viewBox="0 0 16 16">
+    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
   </symbol>
   <symbol id="supplier" viewBox="0 0 16 16">
     <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
@@ -401,6 +465,16 @@
   <symbol id="rep" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0 0 10 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z" />
     <path fill-rule="evenodd" d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z" />
+  </symbol>
+  <symbol id="employee" viewBox="0 0 16 16">
+    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+    <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+  </symbol>
+  <symbol id="sales" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0z" />
+    <path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1h-.003zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195l.054.012z" />
+    <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z" />
+    <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z" />
   </symbol>
 </svg>
 
