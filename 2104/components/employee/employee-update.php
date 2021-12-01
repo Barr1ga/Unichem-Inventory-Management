@@ -1,7 +1,5 @@
-<div class="container white-box-container round-edge">
                     <form method="post" action="../sections/update.php" class="row g-3">
                         <input type="hidden" name="update" value="user">
-                        <h4>Update Employee <?php echo $user['userID']; ?></h4>
                         <input type="hidden" name="userID" value="<?php echo $user['userID']; ?>">
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">First Name</label>
@@ -30,9 +28,4 @@
                             <label for="inputPassword4" class="form-label">Password</label>
                             <input type="text" class="form-control" id="inputPassword4" name="password" required value="<?php echo $user['password']; ?>">
                         </div>
-                        <div class="col-md-4"><br>
-                            <button type="submit" class="btn btn-primary" value="submit">Update</button>
-                        </div>
                         
-                    </form>
-                </div>
