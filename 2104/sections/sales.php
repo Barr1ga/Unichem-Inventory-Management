@@ -26,7 +26,7 @@ include('../style/import.php');
                 <li class="nav-item">
                     <a href="notifications.php" class="nav-link link-dark " aria-current="page">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#report" />
+                            <use xlink:href="#notif" />
                         </svg>
                         Notifications
                     </a>
