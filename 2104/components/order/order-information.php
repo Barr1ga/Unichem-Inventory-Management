@@ -49,7 +49,7 @@
     <hr>
     <div class="row d-flex justify-content-between">
         <div class="col">
-            TotalPrice
+            Total Price
         </div>
         <div class="col-4 d-flex justify-content-end">
             <b>₱ <?php echo $order['quantity'] * $order['price'] ?></b>
