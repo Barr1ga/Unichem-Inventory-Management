@@ -77,11 +77,19 @@ include('../crud/employee/check-default.php');
                 <li>
                     <a href="employees.php" class="nav-link link-dark active">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#rep" />
+                            <use xlink:href="#employee  " />
                         </svg>
                         Employees
                     </a>
                 </li>
+                <li>
+                    <a href="sales.php" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#sales" />
+                        </svg>
+                        Sales
+                    </a>
+                </li> 
             </ul>
             <hr>
 
