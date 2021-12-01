@@ -116,7 +116,7 @@
             $email = $_POST['email'];
             $userType = $_POST['userType'];
             $userName = $_POST['userName'];
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $password = $_POST['password'];
         
 
             $insertEmployee = "INSERT INTO `inventory_users`(`userID`, `userType`, `userFirstName`, `userLastName`, `userName`, `email`, `password`)
