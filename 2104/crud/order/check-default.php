@@ -5,7 +5,7 @@ include('../crud/db_connect.php');
 if(!isset($_GET['orderID'])){
 
     $getOrderList = "SELECT * FROM orders o
-                    WHERE o.orderStatus = 'To-Approve'
+                    WHERE o.orderStatus = 'Awaiting-Approval'
                     LIMIT 1";
 
     if ($result = mysqli_query($conn, $getOrderList)) {

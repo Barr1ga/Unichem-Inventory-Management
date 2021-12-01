@@ -51,7 +51,7 @@
 
     /* Query to insert order information */
     $sql3 = "INSERT INTO orders (customerID, createdBy, orderDate, orderStatus, shipRequiredDate, paidStatus) 
-                VALUES ('$customerID', '$createdBy', '$orderDate', 'To-Approve', '$shippingDate', 'unpaid')";
+                VALUES ('$customerID', '$createdBy', '$orderDate', 'Awaiting-Approval', '$shippingDate', 'unpaid')";
     if (mysqli_query($conn, $sql3)) {
         echo '<br /> Order Information is successfully added.';
         $orderID = mysqli_insert_id($conn);

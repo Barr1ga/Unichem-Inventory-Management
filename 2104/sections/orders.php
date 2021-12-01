@@ -153,7 +153,7 @@ include('../crud/order/check-default.php');
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="Manual-Verification-Requirement" data-bs-toggle="pill" data-bs-target="#div8" type="button" role="tab">Manual Verification</button>
+                            <button class="nav-link" id="Manual-Verification-Required" data-bs-toggle="pill" data-bs-target="#div8" type="button" role="tab">Manual Verification</button>
                         </li>
 
                         <li class="nav-item" role="presentation">

@@ -1,30 +1,75 @@
 <?php
-    $class = "";
+$class1 = "";
+$class2 = "";
+$btnText = "";
 
-    if ($order['orderStatus'] == "Completed") {
-        $class = "invisible";
-    }
+// if ($order['orderStatus'] == "Awaiting-Approval" && $_SESSION['usertype'] != 'Manager') {
+//     $class = "invisible";
+// } 
 
-    // if ($order['orderStatus'] == "To-Approve" && $_SESSION['usertype'] != 'Manager') {
-    //     $class = "invisible";
-    // } 
+switch ($order['orderStatus']) {
+    case "Awaiting-Approval":
+        $btnText = "Approve";
+        break;
+    case "Awaiting-Payment":
+        $btnText = "Process Order";
+        break;
+    case "Processing-Order":
+        $btnText = "Ship Order";
+        break;
+    case "Awaiting-Shipment":
+        $btnText = "Pickup Order";
+        break;
+    case "Awaiting-Pickup":
+        $btnText = "Complete";
+        break;
+    case "Completed":
+        $class1 = "invisible";
+        $class2 = "invisible";
+        break;
+    case "Cancelled":
+        $btnText = "Refund";
+        $class2 = "invisible";
+        break;
+    case "Refunded":
+        $class1 = "invisible";
+        $class2 = "invisible";
+        break;
+
+}
+
+
 ?>
 
 <div class="modal fade" id="<?php echo $modal ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update Information</h5>
-                <a href="../crud/order/order-process.php?ID=<?php echo $order['orderID']?>&status=<?php echo $order['orderStatus']?>" class="btn btn-outline-primary btn-sm <?php echo $class ?>">
-                    <?php echo substr($order['orderStatus'], 3); ?>
-                </a>
+                <div class="d-flex flex-row">
+                    <div class="p-2">
+                        <h5 class="modal-title" id="exampleModalLabel">Update Information</h5>
+                    </div>
+                </div>
+                <div class="d-flex flex-row-reverse">
+                    <div class="p-2">
+                        <a href="../crud/order/order-process.php?ID=<?php echo $order['orderID'] ?>&status=<?php echo $order['orderStatus'] ?>" class="btn-process btn btn-outline-primary btn-sm <?php echo $class1 ?>">
+                            <?php echo $btnText ?>
+                        </a>
+                    </div>
+
+                    <div class="p-2">
+                        <a href="../crud/order/order-process.php?ID=<?php echo $order['orderID'] ?>&status=<?php echo $order['orderStatus'] ?>" class="btn btn-outline-danger btn-sm <?php echo $class2 ?>">
+                            Cancel
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="modal-body">
-            
+
                 <form class="row g-3" method="post" action="../crud/order/update-order.php">
                     <b>Product Information</b>
                     <?php
-                        include("../crud/order/get-orders.php")
+                    include("../crud/order/get-orders.php")
                     ?>
 
                     <div class="col-md-6">
@@ -102,17 +147,17 @@
                         <label class="col-form-label">Zip</label>
                         <input type="text" class="form-control" name="zip" value="<?php echo $order['zip'] ?>" />
                     </div>
-                
-                </div>
 
-                <div class="modal-footer">
-                    <input type='hidden' name='orderID' value=" <?php echo $order['orderID'] ?>">
-                    <input type='hidden' name='customerID' value=" <?php echo $order['customerID'] ?>">
-                    <input type='hidden' name='addressID' value=" <?php echo $order['addressID'] ?>">
+            </div>
 
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
+            <div class="modal-footer">
+                <input type='hidden' name='orderID' value=" <?php echo $order['orderID'] ?>">
+                <input type='hidden' name='customerID' value=" <?php echo $order['customerID'] ?>">
+                <input type='hidden' name='addressID' value=" <?php echo $order['addressID'] ?>">
+
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
             </form>
         </div>
     </div>

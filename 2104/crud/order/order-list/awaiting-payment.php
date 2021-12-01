@@ -8,7 +8,7 @@
                     JOIN order_line ol ON ol.orderID = o.orderID
                     JOIN product p on ol.productID = p.productID
                     JOIN customer_address ca ON ca.customerID = c.customerID
-                    WHERE o.orderStatus = 'Awaiting Payment'
+                    WHERE o.orderStatus = 'Awaiting-Payment'
                     GROUP BY o.orderID";
 
     $result = mysqli_query($conn, $getOrderList);

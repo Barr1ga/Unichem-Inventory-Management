@@ -103,7 +103,6 @@
     border-right: 1px solid #D5DBE4;
   }
 
-
   /* STRICTLY USE THIS CLASS FOR GENERIC CUSTOMER/SUPPLIER DETAIL CONTAINERS */
   .white-box-container-details-card-status {
     color: white;
@@ -124,17 +123,17 @@
   }
 
   /* STRICTLY USE THIS CLASS FOR TO CONFIRM ORDER/REPLENISHMENT STATUS */
-  .To-Confirm {
+  .Awaiting-Approval {
     background-color: #898989;
   }
 
   /* STRICTLY USE THIS CLASS FOR TO SHIP ORDER/REPLENISHMENT STATUS */
-  .To-Ship {
+  .Awaiting-Payment {
     background-color: #1D92FF;
   }
 
   /* STRICTLY USE THIS CLASS FOR TO RECEIVE ORDER/REPLENISHMENT STATUS */
-  .To-Receive {
+  .Processing-Order {
     background-color: #9554FF;
   }
 
@@ -144,8 +143,24 @@
   }
 
   /* STRICTLY USE THIS CLASS FOR TO COMPLETE ORDER/REPLENISHMENT STATUS */
-  .To-Approve {
+  .Cancelled {
     background-color: #ff2b2b;
+  }
+
+  .Awaiting-Shipment {
+    background-color: #fd7e14;
+  }
+
+  .Awaiting-Pickup {
+    background-color: #d63384;
+  }
+
+  .Manual-Verification-Required {
+    background-color: #000;
+  }
+
+  .Refunded {
+    background-color: #ffc107;
   }
 
   /* STRICTLY USE THIS CLASS FOR ORDER ROWS */
@@ -445,6 +460,7 @@
   }
   .custom-nav-pills {
     width: 1000px;
+    font-size: 13px;
   }
 </style>
 
