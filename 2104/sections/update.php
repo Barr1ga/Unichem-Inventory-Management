@@ -84,6 +84,32 @@
             } 
 
             break;
+
+        case "user":
+            $userID = $_POST['userID'];
+            $userFirstName = $_POST['userFirstName'];
+            $userLastName = $_POST['userLastName'];
+            $email = $_POST['email'];
+            $userType = $_POST['userType'];
+            $userName = $_POST['userName'];
+            $password = $_POST['password'];
+        
+
+            $updateEmployee = "UPDATE `inventory_users`
+                                        SET `userFirstName`='$userFirstName', 
+                                        `userLastName`='$userLastName',
+                                        `email`='$email',
+                                        `userType`='$userType',
+                                        `userName`='$userName',
+                                        `password`='$password'
+                                        WHERE userID='$userID'";
+     
+            if (mysqli_query($conn, $updateEmployee)) {
+                echo "Record updated successfully";
+                header("Location: employees.php");
+            } else {
+                echo "Error updating record: " . mysqli_error($conn);
+            } 
     }
     
 

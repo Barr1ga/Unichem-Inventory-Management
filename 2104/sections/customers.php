@@ -73,6 +73,14 @@ include('../crud/customer/check-default.php');
                         Replenishments
                     </a>
                 </li>
+                <li>
+                    <a href="employees.php" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#emp" />
+                        </svg>
+                        Employees
+                    </a>
+                </li>
             </ul>
             <hr>
 

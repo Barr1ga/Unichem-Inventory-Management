@@ -22,6 +22,7 @@
                         <div class="col-md-4">
                             <label for="gender" class="form-label">Gender</label>
                             <select name="gender" id="inputState" class="form-select">
+                                <option value=""></option>
                                 <option value="M">M</option>
                                 <option value="F">F</option>
                             </select>
