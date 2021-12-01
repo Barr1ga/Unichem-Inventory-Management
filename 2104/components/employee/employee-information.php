@@ -2,7 +2,7 @@
 <div class="container white-box-container customer-supplier-information round-edge">
     <div class="row">
         <div class="col">
-            <h4><b><?php echo $user['userID']; ?></b></h3>
+            <h4><b>#<?php echo $user['userID']; ?></b></h3>
         </div>
         <div class="col d-flex justify-content-end">
             <form method="get" action="../sections/employee-update.php">
@@ -24,7 +24,6 @@
             First Name<br>
             Last Name<br>
             Email Address<br>
-            Password
             
         </div>
         <div class="col-8">
@@ -34,8 +33,7 @@
                 $user['userName']."<br>".
                 $user['userFirstName']."<br>".
                 $user['userLastName']."<br>".
-                $user['email']."<br>".
-                $user['password'];
+                $user['email']."<br>";
                 ?>
             </b>
         </div>
