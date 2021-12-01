@@ -460,7 +460,6 @@
   }
   .custom-nav-pills {
     width: 1000px;
-    font-size: 13px;
   }
 </style>
 
