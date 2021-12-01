@@ -6,7 +6,7 @@
                 $password = $_POST['password'];
 
         
-                $checkuser = "SELECT * FROM `inventory_users` 
+                $checkuser = "SELECT * FROM `inventory_users`
                                 WHERE `email`='$email'
                                 LIMIT 1";
 
