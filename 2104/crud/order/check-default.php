@@ -8,9 +8,10 @@ if(!isset($_GET['orderID'])){
                     WHERE o.orderStatus = 'To-Approve'
                     LIMIT 1";
 
-    if ($result = mysqli_query($conn, $getOrderList)) {
-        if ($defaultOrder = mysqli_fetch_assoc($result)) {
-            $_GET['orderID'] = $defaultOrder['orderID'];
-        }
-    }
+    $result = mysqli_query($conn, $getOrderList);
+       
+    $defaultOrder = mysqli_fetch_assoc($result);
+            
+    $_GET['orderID'] = $defaultOrder['orderID'];
+
 }

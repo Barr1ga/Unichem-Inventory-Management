@@ -51,7 +51,7 @@
         <div class="col-8">
             <b>
                 <?php echo
-                $supplier['addressID']."<br>".
+                $supplier['addressNo']."<br>".
                 $supplier['street']."<br>".
                 $supplier['barangay']."<br>".
                 $supplier['city']."<br>".

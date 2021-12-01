@@ -1,6 +1,9 @@
 <?php
-  include("../crud/sales/sales.php");
+include('../crud/db_connect.php');
+include('../crud/sales/sales.php');
 ?>
+
+
 
 <html>
   <head>
