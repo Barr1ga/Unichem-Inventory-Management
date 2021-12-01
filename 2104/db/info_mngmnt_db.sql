@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2021 at 02:17 PM
+-- Generation Time: Dec 01, 2021 at 02:33 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -118,7 +118,7 @@ CREATE TABLE `orders` (
   `createdBy` int(11) NOT NULL,
   `approvedBy` int(11) DEFAULT NULL,
   `orderDate` date NOT NULL,
-  `orderStatus` enum('Awaiting Approval','Awaiting Payment','Processing Order','Awaiting Shipment','Awaiting Pickup','Completed','Cancelled','Refunded','Manual Verification Required') NOT NULL,
+  `orderStatus` enum('Awaiting-Approval','Awaiting-Payment','Processing-Order','Awaiting-Shipment','Awaiting-Pickup','Completed','Cancelled','Refunded','Manual-Verification-Required') NOT NULL,
   `shipRequiredDate` date NOT NULL,
   `paidStatus` enum('paid','unpaid') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -128,18 +128,18 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`orderID`, `customerID`, `createdBy`, `approvedBy`, `orderDate`, `orderStatus`, `shipRequiredDate`, `paidStatus`) VALUES
-(3, 4, 3, 1, '2021-11-15', 'Processing Order', '2021-11-20', 'paid'),
-(5, 4, 3, 1, '2021-11-18', 'Awaiting Shipment', '2021-11-23', 'paid'),
+(3, 4, 3, 1, '2021-11-15', 'Awaiting-Pickup', '2021-11-20', 'paid'),
+(5, 4, 3, 1, '2021-11-18', 'Awaiting-Shipment', '2021-11-23', 'paid'),
 (6, 5, 2, 1, '2021-11-20', 'Completed', '2021-11-25', 'paid'),
-(7, 7, 3, 1, '2021-11-22', 'Awaiting Approval', '2021-11-27', 'paid'),
-(8, 6, 2, 1, '2021-11-23', 'Awaiting Payment', '2021-11-28', 'paid'),
-(11, 4, 3, 1, '2021-11-26', 'Processing Order', '2021-12-01', 'paid'),
-(16, 5, 3, 1, '2021-10-03', 'Awaiting Shipment', '2021-10-08', 'paid'),
+(7, 7, 3, 1, '2021-11-22', 'Processing-Order', '2021-11-27', 'paid'),
+(8, 6, 2, 1, '2021-11-23', 'Awaiting-Shipment', '2021-11-28', 'paid'),
+(11, 4, 3, 1, '2021-11-26', 'Manual-Verification-Required', '2021-12-01', 'paid'),
+(16, 5, 3, 1, '2021-10-03', 'Completed', '2021-10-08', 'paid'),
 (24, 5, 3, 1, '2021-09-08', 'Completed', '2021-09-13', 'paid'),
 (25, 4, 3, 1, '2021-09-17', 'Completed', '2021-09-22', 'paid'),
 (26, 5, 3, 1, '2021-09-08', 'Completed', '2021-09-13', 'paid'),
 (27, 4, 3, 1, '2021-09-17', 'Completed', '2021-09-22', 'paid'),
-(29, 2, 3, NULL, '2021-12-01', 'Awaiting Approval', '2021-12-23', 'unpaid'),
+(29, 2, 3, NULL, '2021-12-01', 'Awaiting-Approval', '2021-12-23', 'unpaid'),
 (31, 2, 3, 1, '2021-01-03', 'Completed', '2021-01-10', 'paid'),
 (32, 5, 3, 1, '2021-01-04', 'Completed', '2021-01-12', 'paid'),
 (33, 3, 2, 1, '2021-01-06', 'Completed', '2021-01-15', 'paid'),
@@ -225,7 +225,7 @@ INSERT INTO `orders` (`orderID`, `customerID`, `createdBy`, `approvedBy`, `order
 (113, 6, 3, 1, '2021-06-24', 'Completed', '2021-06-29', 'paid'),
 (114, 3, 2, 1, '2021-06-27', 'Completed', '2021-07-08', 'paid'),
 (115, 7, 3, 1, '2021-06-27', 'Completed', '2021-07-07', 'paid'),
-(116, 5, 2, NULL, '2030-11-21', 'Awaiting Approval', '2021-12-02', 'unpaid'),
+(116, 5, 2, NULL, '2030-11-21', 'Awaiting-Approval', '2021-12-02', 'unpaid'),
 (117, 2, 3, 1, '2021-07-01', 'Completed', '2021-07-10', 'paid'),
 (118, 3, 3, 1, '2021-07-12', 'Completed', '2021-07-17', 'paid'),
 (119, 6, 2, 1, '2021-07-17', 'Completed', '2021-07-24', 'paid'),
@@ -277,20 +277,20 @@ INSERT INTO `orders` (`orderID`, `customerID`, `createdBy`, `approvedBy`, `order
 (165, 3, 2, 1, '2021-11-10', 'Completed', '2021-11-16', 'paid'),
 (166, 2, 3, 1, '2021-11-11', 'Completed', '2021-11-17', 'paid'),
 (167, 6, 3, 1, '2021-11-12', 'Completed', '2021-11-17', 'paid'),
-(168, 5, 2, 1, '2021-11-12', 'Processing Order', '2021-11-16', 'paid'),
+(168, 5, 2, 1, '2021-11-12', 'Manual-Verification-Required', '2021-11-16', 'paid'),
 (169, 2, 2, 1, '2021-11-14', 'Completed', '2021-11-18', 'paid'),
 (170, 4, 3, 1, '2021-11-15', 'Completed', '2021-11-19', 'paid'),
 (171, 3, 3, 1, '2021-11-15', 'Completed', '2021-11-20', 'paid'),
 (172, 2, 2, 1, '2021-11-16', 'Cancelled', '2021-11-22', 'paid'),
-(173, 2, 2, 1, '2021-11-18', 'Awaiting Pickup', '2021-11-24', 'paid'),
-(174, 5, 2, 1, '2021-11-20', 'Manual Verification Required', '2021-11-26', 'paid'),
+(173, 2, 2, 1, '2021-11-18', 'Awaiting-Shipment', '2021-11-24', 'paid'),
+(174, 5, 2, 1, '2021-11-20', 'Awaiting-Pickup', '2021-11-26', 'paid'),
 (175, 6, 3, 1, '2021-11-22', 'Refunded', '2021-11-28', 'paid'),
-(176, 4, 3, 1, '2021-11-23', 'Manual Verification Required', '2021-11-29', 'paid'),
-(177, 6, 2, 1, '2021-11-27', 'Awaiting Pickup', '2021-11-30', 'paid'),
-(178, 4, 3, 1, '2021-11-30', 'Awaiting Shipment', '2021-12-06', 'paid'),
-(180, 3, 2, NULL, '2021-11-30', 'Awaiting Approval', '2021-12-06', 'unpaid'),
-(182, 2, 2, NULL, '2021-12-01', 'Awaiting Approval', '2021-12-08', 'unpaid'),
-(184, 3, 2, NULL, '2021-12-01', 'Awaiting Approval', '2021-12-08', 'unpaid');
+(176, 4, 3, 1, '2021-11-23', 'Processing-Order', '2021-11-29', 'paid'),
+(177, 6, 2, 1, '2021-11-27', 'Processing-Order', '2021-11-30', 'paid'),
+(178, 4, 3, 1, '2021-11-30', 'Awaiting-Payment', '2021-12-06', 'unpaid'),
+(180, 3, 2, NULL, '2021-11-30', 'Awaiting-Approval', '2021-12-06', 'unpaid'),
+(182, 2, 2, NULL, '2021-12-01', 'Awaiting-Approval', '2021-12-08', 'unpaid'),
+(184, 3, 2, NULL, '2021-12-01', 'Awaiting-Approval', '2021-12-08', 'unpaid');
 
 -- --------------------------------------------------------
 
@@ -580,7 +580,7 @@ CREATE TABLE `replenishment` (
   `createdBy` int(11) NOT NULL,
   `approvedBy` int(11) DEFAULT NULL,
   `repOrderDate` date NOT NULL,
-  `orderStatus` enum('Awaiting Approval','Awaiting Payment','Processing Order','Awaiting Shipment','Awaiting Pickup','Completed','Cancelled','Refunded','Manual Verification Required') NOT NULL,
+  `orderStatus` enum('Awaiting-Approval','Awaiting-Payment','Processing-Order','Awaiting-Shipment','Awaiting-Pickup','Completed','Cancelled','Refunded','Manual-Verification-Required') NOT NULL,
   `shipRequiredDate` date NOT NULL,
   `paidStatus` enum('paid','unpaid') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -593,14 +593,14 @@ INSERT INTO `replenishment` (`repOrderID`, `supplierID`, `createdBy`, `approvedB
 (6, 3, 3, 1, '2021-11-21', 'Completed', '2021-11-28', 'paid'),
 (7, 2, 2, 1, '2021-11-22', 'Completed', '2021-11-30', 'paid'),
 (8, 3, 2, 1, '2021-11-28', 'Completed', '2021-12-04', 'paid'),
-(11, 2, 2, NULL, '2021-12-06', 'Awaiting Approval', '2021-12-12', 'unpaid'),
-(13, 2, 2, NULL, '2021-11-23', 'Awaiting Approval', '2021-11-19', 'unpaid'),
+(11, 2, 2, NULL, '2021-12-06', 'Awaiting-Approval', '2021-12-12', 'unpaid'),
+(13, 2, 2, NULL, '2021-11-23', 'Awaiting-Approval', '2021-11-19', 'unpaid'),
 (15, 3, 3, 1, '2021-11-27', 'Refunded', '2021-11-27', 'paid'),
 (16, 3, 2, 1, '2021-11-10', 'Completed', '2021-12-10', 'paid'),
-(17, 2, 2, 1, '2021-12-23', 'Awaiting Pickup', '2021-12-31', 'paid'),
-(19, 3, 2, NULL, '2021-11-09', 'Awaiting Approval', '2021-11-27', 'unpaid'),
+(17, 2, 2, 1, '2021-12-23', 'Refunded', '2021-12-31', 'paid'),
+(19, 3, 2, NULL, '2021-11-09', 'Awaiting-Approval', '2021-11-27', 'unpaid'),
 (20, 3, 2, 1, '2021-01-03', 'Completed', '2021-04-03', 'paid'),
-(21, 3, 2, 1, '2021-01-12', 'Awaiting Shipment', '2021-04-12', 'paid'),
+(21, 3, 2, 1, '2021-01-12', 'Awaiting-Shipment', '2021-04-12', 'paid'),
 (22, 3, 2, 1, '2021-01-18', 'Completed', '2021-04-18', 'paid'),
 (23, 3, 2, 1, '2021-01-23', 'Completed', '2021-04-23', 'paid'),
 (24, 3, 2, 1, '2021-01-30', 'Completed', '2021-04-30', 'paid'),
@@ -632,20 +632,20 @@ INSERT INTO `replenishment` (`repOrderID`, `supplierID`, `createdBy`, `approvedB
 (50, 2, 2, 1, '2021-08-09', 'Completed', '2021-11-09', 'paid'),
 (51, 2, 3, 1, '2021-08-15', 'Completed', '2021-11-15', 'paid'),
 (52, 2, 3, 1, '2021-08-24', 'Completed', '2021-11-24', 'paid'),
-(53, 2, 2, 1, '2021-08-29', 'Awaiting Payment', '2021-11-29', 'unpaid'),
-(54, 3, 2, 1, '2021-09-01', 'Completed', '2021-12-01', 'paid'),
+(53, 2, 2, 1, '2021-08-29', 'Awaiting-Payment', '2021-11-29', 'unpaid'),
+(54, 3, 2, 1, '2021-09-01', 'Manual-Verification-Required', '2021-12-01', 'paid'),
 (55, 2, 2, 1, '2021-09-07', 'Cancelled', '2021-12-07', 'paid'),
 (56, 2, 3, 1, '2021-09-14', 'Refunded', '2021-12-14', 'paid'),
-(57, 3, 3, 1, '2021-09-21', 'Awaiting Payment', '2021-12-21', 'unpaid'),
+(57, 3, 3, 1, '2021-09-21', 'Awaiting-Payment', '2021-12-21', 'unpaid'),
 (58, 2, 2, 1, '2021-09-26', 'Completed', '2021-12-26', 'paid'),
-(59, 3, 3, 1, '2021-09-30', 'Processing Order', '2021-12-30', 'paid'),
+(59, 3, 3, 1, '2021-09-30', 'Processing-Order', '2021-12-30', 'paid'),
 (60, 3, 2, 1, '2021-10-01', 'Cancelled', '2022-01-01', 'unpaid'),
-(61, 2, 2, 1, '2021-10-28', 'Manual Verification Required', '2022-01-28', 'paid'),
-(62, 3, 2, 1, '2021-11-01', 'Processing Order', '2022-02-01', 'paid'),
-(63, 2, 3, 1, '2021-11-12', 'Awaiting Pickup', '2022-02-12', 'paid'),
-(64, 3, 3, 1, '2021-11-21', 'Awaiting Pickup', '2022-02-21', 'paid'),
-(65, 2, 2, 1, '2021-11-30', 'Awaiting Payment', '0000-00-00', 'unpaid'),
-(66, 2, 2, NULL, '2021-12-01', 'Awaiting Approval', '2022-02-01', 'unpaid');
+(61, 2, 2, 1, '2021-10-28', 'Awaiting-Shipment', '2022-01-28', 'paid'),
+(62, 3, 2, 1, '2021-11-01', 'Awaiting-Shipment', '2022-02-01', 'paid'),
+(63, 2, 3, 1, '2021-11-12', 'Awaiting-Pickup', '2022-02-12', 'paid'),
+(64, 3, 3, 1, '2021-11-21', 'Awaiting-Pickup', '2022-02-21', 'paid'),
+(65, 2, 2, 1, '2021-11-30', 'Processing-Order', '0000-00-00', 'paid'),
+(66, 2, 2, NULL, '2021-12-01', 'Awaiting-Approval', '2022-02-01', 'unpaid');
 
 -- --------------------------------------------------------
 
