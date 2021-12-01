@@ -1,6 +1,7 @@
 <?php
 include('../style/import.php');
 include('../crud/customer/check-default.php');
+
 ?>
 
 <html lang="en">
@@ -101,27 +102,90 @@ include('../crud/customer/check-default.php');
                     <input type="text" class="form-control search-input" placeholder="Search">
                 </form>
             </div>
-            <br>
-            <div class="d-flex">
-                <div class="layout-column">
-                    <?php include('../crud/customer/customer-list.php'); ?>
-                </div>
+            <br>    
 
-                <?php include('../crud/customer/customer-information.php'); ?>
 
-                <div class="layout-column">
-                    Customer Information<br><br>
-                    <?php include('../components/customer/customer-information.php'); ?>
-                </div>
 
-                <div class="layout-column">
-                    Customer Orders<br><br>
-                    <div class="scroll-list">
-                        <?php include('../crud/customer/customer-orders.php'); ?>
-                        
+
+
+
+
+
+
+
+            <ul class="nav nav-pills mb-3 orderNav" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="To-Approve" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">Customers</button>
+                    </li>
+        
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="To-Confirm" data-bs-toggle="pill" data-bs-target="#pills-to-confirm" type="button" role="tab" aria-controls="pills-to-confirm" aria-selected="false">Create Customer</button>
+                    </li>
+                
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-to-approve" role="tabpanel" aria-labelledby="pills-to-approve-tab">
+                <div class="d-flex">
+                    <div class="layout-column">
+                        <?php include('../crud/customer/customer-list.php'); ?>
+                    </div>
+
+                    <?php include('../crud/customer/customer-information.php'); ?>
+
+                    <div class="layout-column">
+                        Customer Information<br><br>
+                        <?php include('../components/customer/customer-information.php'); ?>
+                    </div>
+
+                    <div class="layout-column">
+                        Customer Orders<br><br>
+                        <div class="scroll-list-2">
+                            <?php include('../crud/customer/customer-orders.php'); ?>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="tab-pane fade" id="pills-to-confirm" role="tabpanel" aria-labelledby="pills-to-cofirm-tab">
+                <?php include('../components/customer/customer-create.php'); ?>
+            </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         </div>
     </main>
 </body>

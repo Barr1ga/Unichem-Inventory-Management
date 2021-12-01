@@ -15,7 +15,7 @@
                             <div class=''>
                                     <form method='get' action='../sections/customers.php'>
                                         <input type='hidden' name='customerID' value='".$CustomerID."'>
-                                        <button type='submit' class='btn btn-link btn-update'>Preview</button>
+                                        <button type='submit' class='btn btn-link btn-preview'>Preview</button>
                                     </form>
                             </div>
 

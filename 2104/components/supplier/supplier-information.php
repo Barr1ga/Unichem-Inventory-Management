@@ -55,7 +55,7 @@
                 $supplier['street']."<br>".
                 $supplier['barangay']."<br>".
                 $supplier['city']."<br>".
-                $supplier['state']."<br>".
+                $supplier['region']."<br>".
                 $supplier['zip']."<br>".
                 $supplier['country'];
                 ?>

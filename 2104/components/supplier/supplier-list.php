@@ -15,7 +15,7 @@
                             <div class=''>
                                     <form method='get' action='../sections/suppliers.php'>
                                         <input type='hidden' name='supplierID' value='".$supplierID."'>
-                                        <button type='submit' class='btn btn-link btn-update'>Preview</button>
+                                        <button type='submit' class='btn btn-link btn-preview'>Preview</button>
                                     </form>
                             </div>
 

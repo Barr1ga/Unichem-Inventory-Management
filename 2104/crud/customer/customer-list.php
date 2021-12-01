@@ -9,7 +9,7 @@
         echo "
             <div class=''>
             Customer List<br><br>
-            <div class='scroll-list'>
+            <div class='scroll-list-2'>
             ";
         while ($customer = mysqli_fetch_assoc($result)) {
             

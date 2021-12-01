@@ -38,19 +38,25 @@
                             </div>
 
                             <div class='list-cell'>
-                                    
+                        
                             </div>
+                            
 
                             <div class='list-cell'>
-                                
+                                    
                             </div>
+                            <div class='list-cell'>
+                                    
+                            </div>
+                           
 
                             <div class=''>
                             <form method='get' action='../sections/inventory.php'>
                             <input type='hidden' name='productID' value='".$productID."'>
-                            <button type='submit' class='btn btn-link btn-update'>Preview</button>
-                        </form>
+                            <button type='submit' class='btn btn-link btn-preview'>Preview</button>
+                            </form>
                             </div>
+                            
 
                             <div class=''>
                             <form method='post' action='../sections/delete.php'>

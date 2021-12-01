@@ -6,7 +6,7 @@
 
     <div class="row d-flex justify-content-between">
         <div class="col-md-auto">
-        <img src="<?php echo $inventory["productImage"]; ?>" width="105.78" height="102.54" alt="..." style="border-radius: 10px 10px 10px 10px;">
+        <img src="../assets/<?php echo $inventory["productImage"]; ?>" width="105.78" height="102.54" alt="..." style="border-radius: 10px 10px 10px 10px;">
 
         </div>
         <div class="col align-self-center">
@@ -29,41 +29,48 @@
     </div>
     <br>
     <div class="row d-flex justify-content-between">
-        <div class="col">
-        
-        BrandName<br>
-        Date Contained<br>
-        Price<br>
-        Application Type<br>
-        Cure Time<br>
-        color<br>
-        form<br>
-        packageType<br>
-        MaxOperatingTemp<br>
-        MinOperatingTemp<br>
-        Viscosity<br>
-        ChemicalComposition<br>
-        OperatingTempRange<br>
-        
+        <div class="row">
+            <div class="col">Date Contained</div>    <div class="col"><b><?php echo $inventory["dateContained"];?></b></div><br>
         </div>
-        <div class="col">
-        <b>
-        
-        <?php echo $inventory["brandName"];?><br>
-        <?php echo $inventory["dateContained"];?><br>
-        <?php echo $inventory["price"];?><br>
-        <?php echo $inventory["productID"];?><br>
-        <?php echo $inventory["applicationType"];?><br>
-        <?php echo $inventory["color"];?><br>
-        <?php echo $inventory["form"];?><br>
-        <?php echo $inventory["packageType"];?><br>
-        <?php echo $inventory["maxOperatingTemp"];?><br>
-        <?php echo $inventory["minOperatingTemp"];?><br>
-        <?php echo $inventory["viscosity"];?><br>
-        <?php echo $inventory["chemicalComposition"];?><br>
-        <?php echo $inventory["operatingTempRange"];?>
-        
-        </b>
+        <div class="row">
+            <div class="col">Price</div>    <div class="col"><b><?php echo $inventory["price"];?></b></div><br>
         </div>
+        <div class="row">
+            <div class="col">Application Type</div>    <div class="col"><b><?php echo $inventory["applicationType"];?></b></div><br>
+        </div>
+        <div class="row">
+            <div class="col">Cure Time</div>    <div class="col"><b><?php echo $inventory["cureTime"];?></b></div><br>
+        </div>
+        <div class="row">
+            <div class="col">Color</div>    <div class="col"><b><?php echo $inventory["color"];?></b></div><br>
+        </div>
+        <div class="row">
+            <div class="col">Form</div>    <div class="col"><b><?php echo $inventory["form"];?></b></div><br>
+        </div>
+        <div class="row">
+            <div class="col">Package Type</div>    <div class="col"><b><?php echo $inventory["packageType"];?></b></div><br>
+        </div>
+        <div class="row">
+            <div class="col">Package Size</div>    <div class="col"><b><?php echo $inventory["packageSize"];?></b></div><br>
+        </div>
+        <div class="row">
+            <div class="col">Min Operating Temp</div>    <div class="col"><b><?php echo $inventory["minOperatingTemp"];?></b></div><br>
+        </div>
+        <div class="row">
+            <div class="col">Max Operating Temp</div>    <div class="col"><b><?php echo $inventory["maxOperatingTemp"];?></b></div><br>
+        </div>
+        <div class="row">
+            <div class="col">Viscosity</div>    <div class="col"><b><?php echo $inventory["viscosity"];?></b></div><br>
+        </div>
+        <div class="row">
+            <div class="col">Chemical Composition</div>    <div class="col"><b><?php echo $inventory["chemicalComposition"];?></b></div><br>
+        </div>
+        <div class="row">
+            <div class="col">Operating Temp Range</div>    <div class="col"><b><?php echo $inventory["operatingTempRange"];?></b></div><br>
+        </div>
+        <div class="row">
+            <div class="col">In Stock</div>    <div class="col"><b><?php echo $inventory["inStock"];?></b></div><br>
+        </div>
+
     </div>
 </div>

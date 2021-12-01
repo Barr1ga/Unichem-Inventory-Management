@@ -19,7 +19,14 @@
             <b>
                 <?php echo $Replenishment['supplierID']."# ".$supplier['contactFName']." ".$supplier['contactLName']; ?><br>
                 <?php echo $createdBy['userType']."#".$Replenishment['createdBy']." ".$createdBy['userFirstName']." ".$createdBy['userLastName']; ?><br>
-                <?php echo $createdBy['userType']."#".$Replenishment['approvedBy']." ".$approvedBy['userFirstName']." ".$approvedBy['userLastName']; ?><br>
+
+                <?php 
+                if($Replenishment['approvedBy'] != NULL){
+                    echo $approvedBy['userType']."#".$Replenishment['approvedBy']." ".$approvedBy['userFirstName']." ".$approvedBy['userLastName']; 
+                }else{
+                    echo "To-Approve";
+                }
+                ?><br>
                 
                 
 

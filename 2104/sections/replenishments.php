@@ -1,7 +1,9 @@
 <?php
 include('../style/import.php');
 include('../crud/replenishment/check-default.php');
+
 ?>
+
 
 <html lang="en">
 

@@ -1,5 +1,6 @@
 <?php 
     include('../crud/db_connect.php');
+    session_start();
 
     switch($_POST['update']){
         case "customer":

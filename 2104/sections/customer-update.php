@@ -1,6 +1,7 @@
 <?php
 include('../style/import.php');
 include('../crud/customer/check-default.php');
+session_start();
 ?>
 
 <html lang="en">
@@ -113,7 +114,7 @@ include('../crud/customer/check-default.php');
 
                 <div class="layout-column">
                     Customer Orders<br><br>
-                    <div class="scroll-list">
+                    <div class="scroll-list-2">
                         <?php include('../crud/customer/customer-orders.php'); ?>
                         
                     </div>
