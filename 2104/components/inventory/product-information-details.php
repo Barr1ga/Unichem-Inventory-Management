@@ -6,7 +6,7 @@
 
     <div class="row d-flex justify-content-between">
         <div class="col-md-auto">
-        <img src="../assets/<?php echo $inventory["productImage"]; ?>" width="105.78" height="102.54" alt="..." style="border-radius: 10px 10px 10px 10px;">
+        <img src="../assets/images/<?php echo $inventory["productImage"]; ?>" width="105.78" height="102.54" alt="..." style="border-radius: 10px 10px 10px 10px;">
 
         </div>
         <div class="col align-self-center">

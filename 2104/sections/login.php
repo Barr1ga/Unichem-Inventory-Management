@@ -23,10 +23,7 @@ include('../style/import.php');
             <br><br>
             <form method="post" action="check-user.php">
                 <input type="hidden" name="user" value="login">
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input class="form-control" type="text" name="username" required>
-                </div>  
+                
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
                     <input class="form-control" type="email" name="email" required>

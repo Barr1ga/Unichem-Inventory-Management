@@ -1,7 +1,6 @@
-<div class="container white-box-container round-edge">
                     <form method="post" action="../sections/update.php" class="row g-3">
                         <input type="hidden" name="update" value="supplier">
-                        <h4>Update Supplier <?php echo $supplier['supplierID']; ?></h4>
+                        
                         <input type="hidden" name="supplierID" value="<?php echo $supplier['supplierID']; ?>">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Company Name</label>
@@ -53,9 +52,4 @@
                             <input type="text" class="form-control" id="inputZip" name="zip" required value="<?php echo $supplier['zip']; ?>">
                             
                         </div>
-                        <div class="col-md-4"><br>
-                            <button type="submit" class="btn btn-primary" value="submit">Update</button>
-                        </div>
                         
-                    </form>
-                </div>

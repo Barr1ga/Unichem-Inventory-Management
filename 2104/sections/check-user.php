@@ -2,14 +2,12 @@
     include('../crud/db_connect.php');
     switch($_POST['user']){
         case "login":
-                $username = $_POST['username'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
 
         
-                $checkuser = "SELECT * FROM `inventory_users` 
-                                WHERE `userName`='$username'
-                                AND `email`='$email'
+                $checkuser = "SELECT * FROM `inventory_users`
+                                WHERE `email`='$email'
                                 LIMIT 1";
 
                 $result = mysqli_query($conn, $checkuser);
@@ -22,14 +20,14 @@
                        echo "succh";
                        session_start();
                     
-                        $SESSION['userType'] = $user['userType'];
-                        $SESSION['userFirstName'] = $user['userFirstName'];
-                        $SESSION['userLastName'] = $user['userLastName'];
-                        $SESSION['userName'] = $user['userName'];
-                        $SESSION['email'] = $user['email'];
-                        $SESSION['password'] = $user['password'];
+                        $_SESSION['userType'] = $user['userType'];
+                        $_SESSION['userFirstName'] = $user['userFirstName'];
+                        $_SESSION['userLastName'] = $user['userLastName'];
+                        $_SESSION['userName'] = $user['userName'];
+                        $_SESSION['email'] = $user['email'];
+                        $_SESSION['password'] = $user['password'];
 
-                        echo $SESSION['email'];
+                        echo $_SESSION['email'];
 
                         header("Location: notifications.php");
                     

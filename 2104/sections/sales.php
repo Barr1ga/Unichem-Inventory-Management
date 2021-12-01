@@ -92,18 +92,11 @@ include('../style/import.php');
             <div class="container">
                 <div class="row align-items-end">
                     <div class="col d-flex justify-content-center">
-                        <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
-                            <strong>Settings</strong>
-                        </a>
-                    </div>
-
-                    <div class="col d-flex justify-content-center">
-                        <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
-                            <strong>Support</strong>
+                        <a href="login.php" class="d-flex align-items-center link-dark text-decoration-none">
+                            <strong>Logout</strong>
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
         

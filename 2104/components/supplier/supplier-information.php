@@ -7,10 +7,40 @@
         </div>
         <div class="col d-flex justify-content-end">
             
-            <form method="get" action="../sections/supplier-update.php">
+            <!-- <form method="get" action="../sections/supplier-update.php">
                 <input type="hidden" name="productID" value="<?php echo $supplier['supplierID']; ?>">
                 <button type="submit" class="btn btn-primary">Update</button>
-            </form>
+            </form> -->
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Update
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4>Update Supplier <?php echo $supplier['supplierID']; ?></h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <?php include('supplier-update.php'); ?>
+                        </div>
+                        <div class="modal-footer">
+                                <div class="">
+                                    <button type="submit" class="btn btn-primary" value="submit">Update</button>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
         </div>
     </div>
     <br>
