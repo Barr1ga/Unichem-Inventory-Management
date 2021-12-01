@@ -9,7 +9,9 @@ if (empty($_SESSION['repActive'])) {
 }
 include('../style/import.php');
 include('../crud/replenishment/check-default.php');
+
 ?>
+
 
 <html lang="en">
 

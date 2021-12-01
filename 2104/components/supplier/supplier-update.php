@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="inputCity" class="form-label">State</label>
-                            <input type="text" class="form-control" id="inputCity" name="state" required value="<?php echo $supplier['state']; ?>">
+                            <input type="text" class="form-control" id="inputCity" name="region" required value="<?php echo $supplier['region']; ?>">
                         </div>
                         <div class="col-md-4">
                             <label for="inputState" class="form-label">Country</label>

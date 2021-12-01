@@ -1,6 +1,7 @@
 <?php
 include('../style/import.php');
 include('../crud/supplier/check-default.php');
+session_start();
 ?>
 
 <html lang="en">

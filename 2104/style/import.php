@@ -76,7 +76,6 @@
     padding: 20px;
     border-radius: 7px 7px 7px 7px;
     width: 489.66px;
-    height: 579.57px;
     margin: 0 0 6px 0;
   }
 
@@ -370,6 +369,11 @@
   }
   .remove-btn {
     margin-top: 10px;
+  }
+
+  .reg-log-form {
+    width: 400px;
+    margin-top: 100px;
   }
 </style>
 

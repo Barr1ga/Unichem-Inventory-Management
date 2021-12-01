@@ -19,8 +19,13 @@
             <b>
                 <?php echo $Order['customerID']."# ".$customer['customerFName']." ". $customer['customerLName'];; ?><br>
                 <?php echo $createdBy['userType']."#".$Order['createdBy']." ".$createdBy['userFirstName']." ".$createdBy['userLastName']; ?><br>
-                <?php echo $createdBy['userType']."#".$Order['approvedBy']." ".$approvedBy['userFirstName']." ".$approvedBy['userLastName']; ?><br>
-                
+                <?php
+                    if($Order['approvedBy'] != NULL){
+                        echo $approvedBy['userType']."#".$Order['approvedBy']." ".$approvedBy['userFirstName']." ".$approvedBy['userLastName']; 
+                    }else{
+                        echo "To-Approve";
+                    }
+                ?>
 
             </b>
         </div>

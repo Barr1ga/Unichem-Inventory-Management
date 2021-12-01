@@ -1,6 +1,7 @@
 <?php
 include('../style/import.php');
 include('../crud/inventory/check-default.php');
+
 ?>
 
 <html lang="en">
@@ -96,20 +97,71 @@ include('../crud/inventory/check-default.php');
                 </form>
             </div>
             <br>
-            <div class="d-flex">
-                <div class="layout-column">
-                    <?php include('../crud/inventory/inventory-list.php'); ?>
-                </div>
+            
 
-                <div class="layout-column">
-                    Production Information<br><br>
-                    <div class="scroll-list">
-                        <?php include('../crud/inventory/product-information-details.php'); ?>
-                        <?php include('../components/inventory/product-information-details.php'); ?>
-                        
+
+
+
+            <ul class="nav nav-pills mb-3 orderNav" id="pills-tab" role="tablist">
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="To-Approve" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">Products</button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="To-Confirm" data-bs-toggle="pill" data-bs-target="#pills-to-confirm" type="button" role="tab" aria-controls="pills-to-confirm" aria-selected="false">Create Product</button>
+                </li>
+
+
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-to-approve" role="tabpanel" aria-labelledby="pills-to-approve-tab">
+                    <div class="d-flex">
+                        <div class="layout-column">
+                            <?php include('../crud/inventory/inventory-list.php'); ?>
+                        </div>
+
+                        <div class="layout-column">
+                            Production Information<br><br>
+                            <div class="scroll-list-2">
+                                <?php include('../crud/inventory/product-information-details.php'); ?>
+                                <?php include('../components/inventory/product-information-details.php'); ?>
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="tab-pane fade" id="pills-to-confirm" role="tabpanel" aria-labelledby="pills-to-cofirm-tab">
+                    <?php include('../components/inventory/product-create.php'); ?>
+                </div>
+
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         </div>
     </main>
 </body>
