@@ -13,15 +13,15 @@ include('../crud/chart_db_connect.php');
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Orders & Replenishment', 'Orders', 'Replenishment'],
+          ['Orders & Replenishment', 'Replenishment', 'Order'],
           <?php
                 if(mysqli_num_rows($result)> 0){
                     while($row = mysqli_fetch_array($result)){
-                        echo "['".$row['orderDate'].
+                        echo "['".$row['repOrderDate'].'||'.$row['orderDate'].
                                  "', 
-                                '".$row['orderCount'].
+                                '".$row['repOrderCount'].
                                 "', 
-                                '".$row['repOrderCount']."'
+                                '".$row['orderCount']."'
                                 ],";
                         }
                     }
