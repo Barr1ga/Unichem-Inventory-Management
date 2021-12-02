@@ -23,8 +23,7 @@
   body {
     min-height: 100vh;
     min-height: -webkit-fill-available;
-    background-color: whitesmoke;
-    /* display: flex;  login needs to be flex */
+    background-color: #fff;
   }
 
   html {

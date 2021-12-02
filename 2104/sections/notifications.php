@@ -105,7 +105,7 @@ include('../crud/db_connect.php');
 
         <!-- START ADDING CODE HERE -->
         <div class="d-flex">
-            <h3>Notifications</h3>
+            <h4>Notifications</h4>
         </div>
         <br>
         <div class="d-flex">
