@@ -31,6 +31,8 @@
                     include('../components/supplier/supplier-replenishment-details.php');
                 }  
                 
+                echo "<div class ='empty-list empty-message'></div>";
+                
             }
     }else{
         echo "<div class ='empty-list empty-message'>There are no Suppliers.</div>";

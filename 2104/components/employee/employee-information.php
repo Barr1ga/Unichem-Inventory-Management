@@ -1,74 +1,80 @@
+<?php
+if(isset($userID)){
+    echo "
 
-<div class="container white-box-container customer-supplier-information round-edge">
-    <div class="row">
-        <div class="col">
-            <h4><b><?php echo $user['userID']; ?></b></h3>
-        </div>
-        <div class="col d-flex justify-content-end">
-            <!-- <form method="get" action="../sections/employee-update.php">
-                <input type="hidden" name="userID" value="<?php echo $user['userID']; ?>">
-                <button type="submit" class="btn btn-primary">Update</button>
-            </form> -->
+    <div class='container white-box-container customer-supplier-information round-edge'>
+        <div class='row'>
+            <div class='col'>
+                <h4><b>".$user['userID']."</b></h3>
+            </div>
+            <div class='col d-flex justify-content-end'>
+                <!-- <form method='get' action='../sections/employee-update.php'>
+                    <input type='hidden' name='userID' value='".$user['userID']."'>
+                    <button type='submit' class='btn btn-primary'>Update</button>
+                </form> -->
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Update
-            </button>
+                <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'>
+                Update
+                </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4>Update Employee <?php echo $user['userID']; ?></h4>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <?php include('employee-update.php'); ?>
-                        </div>
-                        <div class="modal-footer">
-                                <div class="">
-                                    <button type="submit" class="btn btn-primary" value="submit">Update</button>
-                                </div>
-                                
-                            </form>
+                <!-- Modal -->
+                <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                    <div class='modal-dialog'>
+                        <div class='modal-content'>
+                            <div class='modal-header'>
+                                <h4>Update Employee ".$user['userID']."</h4>
+                                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                            </div>
+                            <div class='modal-body'>
+                                ".include('employee-update.php')."
+                            </div>
+                            <div class='modal-footer'>
+                                    <div class=''>
+                                        <button type='submit' class='btn btn-primary' value='submit'>Update</button>
+                                    </div>
+                                    
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
+            </div>
+        </div>
+        <br>
+        <div class='row'>
+            <div class='col'>
+            </div>
+        </div>
+        <br>
+        <div class='row'>
+            <div class='col'>
+                User Type<br>
+                Username<br>
+                First Name<br>
+                Last Name<br>
+                Email Address<br>
+                
+            </div>
+            <div class='col-8'>
+                <b>
+                    ".
+                    $user['userType']."<br>".
+                    $user['userName']."<br>".
+                    $user['userFirstName']."<br>".
+                    $user['userLastName']."<br>".
+                    $user['email']."
+                    ?>
+                </b>
             </div>
 
+        </div>
+    
 
         </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col">
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col">
-            User Type<br>
-            Username<br>
-            First Name<br>
-            Last Name<br>
-            Email Address<br>
-            Password
-            
-        </div>
-        <div class="col-8">
-            <b>
-                <?php echo
-                $user['userType']."<br>".
-                $user['userName']."<br>".
-                $user['userFirstName']."<br>".
-                $user['userLastName']."<br>".
-                $user['email']."<br>".
-                $user['password'];
-                ?>
-            </b>
-        </div>
-
-    </div>
-   
-
-</div>
+    ";
+    }else{
+        echo "<div class ='empty-information empty-message'>There are no employees.</div>";
+    }
+?>

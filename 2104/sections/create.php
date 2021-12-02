@@ -68,7 +68,7 @@
                 $insertAddress = "INSERT INTO `customer_address` (`supplierID`, `street`, `barangay`, `city`, `region`, `country`, `zip`)
                                         VALUES ('$last_id', '$street', '$barangay', '$city', '$region', '$country', '$zip')";
 
-                mysqli_query($conn, $insertAddress)
+                mysqli_query($conn, $insertAddress);
                 echo "Record updated successfully";
                 header("Location: customers.php");
             } else {

@@ -32,9 +32,8 @@
                 include('../components/customer/customer-order-details.php');
 
             }
+            echo "<div class ='empty-list empty-message'></div>";
             
-        }else {
-            echo "<div class ='empty-list empty-message'>This customer has no orders</div>";
         }
     }else{
         echo "<div class ='empty-list empty-message'>There are no Suppliers.</div>";

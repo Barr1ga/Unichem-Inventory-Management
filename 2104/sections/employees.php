@@ -9,7 +9,7 @@ include('../crud/employee/check-default.php');
 ?>
 
 <html lang="en">
-z
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
