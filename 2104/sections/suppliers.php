@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(empty($_SESSION['userType'])){
+if (empty($_SESSION['userType'])) {
     header('Location: ../index.php');
 }
 
@@ -18,108 +18,105 @@ include('../crud/supplier/check-default.php');
     <title>Unichem</title>
 </head>
 
-    <main>
-        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light nav-container shadow-md bg-body rounded" style="width: 280px;">
-            <a href="notifications.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+<main>
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light nav-container shadow-md bg-body rounded" style="width: 280px;">
+        <a href="notifications.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 
-                <div class="row justify-content-md-center">
-                    <img class="unichem-logo-login" src="../assets/images/Unichem-Logo-Text.svg">
-                </div>
-            </a>
-
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a href="notifications.php" class="nav-link link-dark " aria-current="page">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#notif" />
-                        </svg>
-                        Notifications
-                    </a>
-                </li>
-                <li>
-                    <a href="suppliers.php" class="nav-link link-dark active">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use class="active-color" xlink:href="#supplier" />
-                        </svg>
-                        Suppliers
-                    </a>
-                </li>
-                <li>
-                    <a href="customers.php" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#customer" />
-                        </svg>
-                        Customers
-                    </a>
-                </li>
-                <li>
-                    <a href="inventory.php" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#inventory" />
-                        </svg>
-                        Inventory
-                    </a>
-                </li>
-                <li>
-                    <a href="orders.php" class="nav-link link-dark" active>
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#order" />
-                        </svg>
-                        Orders
-                    </a>
-                </li>
-                <li>
-                    <a href="replenishments.php" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#rep" />
-                        </svg>
-                        Replenishments
-                    </a>
-                </li>
-                <li>
-                    <a href="employees.php" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#employee  " />
-                        </svg>
-                        Employees
-                    </a>
-                </li>
-                <li>
-                    <a href="reports.php" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#sales" />
-                        </svg>
-                        Reports
-                    </a>
-                </li>  
-            </ul>
-            <hr>
-
-            <div class="container">
-                <div class="row align-items-end">
-                    <div class="col d-flex justify-content-center">
-                        <a href="../index.php" class="d-flex align-items-center link-dark text-decoration-none">
-                            <strong>Logout</strong>
-                        </a>
-                    </div>
-                </div>
-
+            <div class="row justify-content-md-center">
+                <img class="unichem-logo-login" src="../assets/images/Unichem-Logo-Text.svg">
             </div>
+        </a>
+
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="notifications.php" class="nav-link link-dark " aria-current="page">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#notif" />
+                    </svg>
+                    Notifications
+                </a>
+            </li>
+            <li>
+                <a href="suppliers.php" class="nav-link link-dark active">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use class="active-color" xlink:href="#supplier" />
+                    </svg>
+                    Suppliers
+                </a>
+            </li>
+            <li>
+                <a href="customers.php" class="nav-link link-dark">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#customer" />
+                    </svg>
+                    Customers
+                </a>
+            </li>
+            <li>
+                <a href="inventory.php" class="nav-link link-dark">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#inventory" />
+                    </svg>
+                    Inventory
+                </a>
+            </li>
+            <li>
+                <a href="orders.php" class="nav-link link-dark" active>
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#order" />
+                    </svg>
+                    Orders
+                </a>
+            </li>
+            <li>
+                <a href="replenishments.php" class="nav-link link-dark">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#rep" />
+                    </svg>
+                    Replenishments
+                </a>
+            </li>
+            <li>
+                <a href="employees.php" class="nav-link link-dark">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#employee  " />
+                    </svg>
+                    Employees
+                </a>
+            </li>
+            <li>
+                <a href="reports.php" class="nav-link link-dark">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#sales" />
+                    </svg>
+                    Reports
+                </a>
+            </li>
+        </ul>
+        <hr>
+
+        <div class="container">
+            <div class="row align-items-end">
+                <div class="col d-flex justify-content-center">
+                    <a href="../index.php" class="d-flex align-items-center link-dark text-decoration-none">
+                        <strong>Logout</strong>
+                    </a>
+                </div>
+            </div>
+
         </div>
+    </div>
 
-        <div class="father-container">
-            <h4>Suppliers</h4>
-            <br>
-            <div class="layout-column">
-                <form method="post" action="">
-                    <input type="text" class="form-control search-input" placeholder="Search">
-                </form>
-            </div>
-            <br>
-
-
-
+    <div class="father-container">
+        <h4>Suppliers</h4>
+        <br>
+        <div class="layout-column">
+            <form method="post" action="">
+                <input type="text" class="form-control search-input" placeholder="Search">
+            </form>
+        </div>
+        <br>
 
 
 
@@ -127,89 +124,94 @@ include('../crud/supplier/check-default.php');
 
 
 
-            <ul class="nav nav-pills mb-3 orderNav" id="pills-tab" role="tablist">
 
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="To-Approve" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">Suppliers</button>
-                </li>
-                <?php if($_SESSION['userType']=="Manager"){
-                    echo "
+
+
+        <ul class="nav nav-pills mb-3 orderNav" id="pills-tab" role="tablist">
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="To-Approve" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">Suppliers</button>
+            </li>
+            <?php echo $_SESSION['userType']; ?>
+            <?php if ($_SESSION['userType'] == "Manager") {
+                echo "
                     <li class='nav-item' role='presentation'>
                         <button class='nav-link' id='To-Confirm' data-bs-toggle='pill' data-bs-target='#pills-to-confirm' type='button' role='tab' aria-controls='pills-to-confirm' aria-selected='false'>Create Supplier</button>
                     </li>";
-                } 
-                ?>
+            }
+            ?>
 
 
-            </ul>
+        </ul>
 
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-to-approve" role="tabpanel" aria-labelledby="pills-to-approve-tab">
-                    <div class="d-flex">
-                        <div class="layout-column">
-                            <?php include('../crud/supplier/supplier-list.php'); ?>
-                        </div>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-to-approve" role="tabpanel" aria-labelledby="pills-to-approve-tab">
+                <div class="d-flex">
+                    <div class="layout-column">
+                        <?php include('../crud/supplier/supplier-list.php'); ?>
+                    </div>
 
-                        <?php include('../crud/supplier/supplier-information.php'); ?>
+                    <?php include('../crud/supplier/supplier-information.php'); ?>
 
-                        <div class="layout-column">
-                            Supplier Information<br><br>
-                            <?php include('../components/supplier/supplier-information.php'); ?>
-                        </div>
+                    <div class="layout-column">
+                        Supplier Information<br><br>
+                        <?php include('../components/supplier/supplier-information.php'); ?>
+                    </div>
 
-                        <div class="layout-column">
-                            Supplier Orders<br><br>
-                            <div class="scroll-list-2">
-                                <?php include('../crud/supplier/supplier-replenishment.php'); ?>
-                                
-                            </div>
+                    <div class="layout-column">
+                        Supplier Orders<br><br>
+                        <div class="scroll-list-2">
+                            <?php include('../crud/supplier/supplier-replenishment.php'); ?>
+
                         </div>
                     </div>
                 </div>
-
-                <div class="tab-pane fade" id="pills-to-confirm" role="tabpanel" aria-labelledby="pills-to-cofirm-tab">
-                    <?php include('../components/supplier/supplier-create.php'); ?>
-                </div>
-
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
+            <div class="tab-pane fade" id="pills-to-confirm" role="tabpanel" aria-labelledby="pills-to-cofirm-tab">
+                <?php include('../components/supplier/supplier-create.php'); ?>
+            </div>
 
         </div>
 
-    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+</main>
 
 </body>
+
 </html>

@@ -40,17 +40,4 @@
             header("Location: employees.php");      
             break;    
 
-    }    
-?>
-
-
-
-
-
-
-
-
-
-
-
-
+    }

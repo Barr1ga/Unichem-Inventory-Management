@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(empty($_SESSION['userType'])){
+if (empty($_SESSION['userType'])) {
     header('Location: ../index.php');
 }
 include('../style/import.php');
@@ -92,7 +92,7 @@ include('../crud/inventory/check-default.php');
                         </svg>
                         Reports
                     </a>
-                </li>  
+                </li>
             </ul>
             <hr>
 
@@ -107,7 +107,7 @@ include('../crud/inventory/check-default.php');
 
             </div>
         </div>
-        
+
         <div class="father-container">
             <h4>Inventory</h4>
             <br>
@@ -117,7 +117,7 @@ include('../crud/inventory/check-default.php');
                 </form>
             </div>
             <br>
-            
+
 
 
 
@@ -147,7 +147,7 @@ include('../crud/inventory/check-default.php');
                             <div class="scroll-list-2">
                                 <?php include('../crud/inventory/product-information-details.php'); ?>
                                 <?php include('../components/inventory/product-information-details.php'); ?>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -181,7 +181,7 @@ include('../crud/inventory/check-default.php');
 
 
 
-            
+
         </div>
     </main>
 </body>

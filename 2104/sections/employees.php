@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(empty($_SESSION['userType'])){
+if (empty($_SESSION['userType'])) {
     header('Location: ../index.php');
 }
 include('../style/import.php');
@@ -93,7 +93,7 @@ include('../crud/employee/check-default.php');
                         </svg>
                         Reports
                     </a>
-                </li> 
+                </li>
             </ul>
             <hr>
 
@@ -132,12 +132,12 @@ include('../crud/employee/check-default.php');
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="To-Approve" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">Employees</button>
                 </li>
-                <?php if($_SESSION['userType']=="Manager"){
+                <?php if ($_SESSION['userType'] == "Manager") {
                     echo "<li class='nav-item' role='presentation'>
                         <button class='nav-link' id='To-Confirm' data-bs-toggle='pill' data-bs-target='#pills-to-confirm' type='button' role='tab' aria-controls='pills-to-confirm' aria-selected='false'>Create Employee</button>
                     </li>";
-                }?>
-                
+                } ?>
+
 
             </ul>
 
