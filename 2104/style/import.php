@@ -186,6 +186,7 @@
 
   .unichem-logo-login {
     height: 50px;
+    width: 190px;
   }
 
   .notification-number {
