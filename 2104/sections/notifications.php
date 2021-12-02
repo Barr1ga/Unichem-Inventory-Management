@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(empty($_SESSION['userType'])){
+if (empty($_SESSION['userType'])) {
     header('Location: ../index.php');
 }
 include('../style/import.php');

@@ -11,6 +11,7 @@ include('../style/import.php');
     <title>Unichem</title>
 </head>
 <!-- bayor -->
+
 <body>
     <div class="d-flex justify-content-center align-item-center">
         <div class="container white-box-container round-edge reg-log-form">
@@ -24,15 +25,15 @@ include('../style/import.php');
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input class="form-control" type="text" name="userName" required>
-                </div>  
+                </div>
                 <div class="mb-3">
                     <label for="username" class="form-label">First Name</label>
                     <input class="form-control" type="text" name="userFirstName" required>
-                </div>  
+                </div>
                 <div class="mb-3">
                     <label for="username" class="form-label">Last Name</label>
                     <input class="form-control" type="text" name="userLastName" required>
-                </div>  
+                </div>
                 <div class="mb-3">
                     <label for="userType" class="form-label">UserType</label>
                     <select name="userType" id="inputState" class="form-select">
@@ -43,20 +44,20 @@ include('../style/import.php');
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
                     <input class="form-control" type="email" name="email" required>
-                </div> 
+                </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input class="form-control" type="password" name="password" required>
-                </div> 
+                </div>
                 <div class="">
                     <br>
                     <button class="btn btn-primary btn-block" type="submit" value="submit">Register </button>
-                </div> 
+                </div>
             </form>
         </div>
-            
+
     </div>
-    
+
 </body>
 
 </html>
