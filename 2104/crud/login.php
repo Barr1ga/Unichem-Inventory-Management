@@ -20,6 +20,7 @@
                        echo "succh";
                        session_start();
                     
+                        $_SESSION['userID'] = $user['userID'];
                         $_SESSION['userType'] = $user['userType'];
                         $_SESSION['userFirstName'] = $user['userFirstName'];
                         $_SESSION['userLastName'] = $user['userLastName'];
@@ -31,10 +32,9 @@
 
                         header("Location: ../sections/notifications.php");
                     
-
                     
                 }else{
-                    header("Location: index.php");
+                    header("Location: ../index.php");
                 }
                     
                break;
@@ -69,7 +69,7 @@
                         echo "Error creating user: " . mysqli_error($conn);
                     } 
                 }else{
-                    header("Location: register.php");
+                    header("Location: sections/register.php");
                 }
     }
     

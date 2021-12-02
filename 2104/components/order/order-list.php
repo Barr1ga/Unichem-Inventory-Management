@@ -39,13 +39,6 @@
                 <a type='button' class='btn btn-link btn-update' data-bs-toggle='modal' data-bs-target='" . "#" . $modal . "'>Update</a>
             </div>
 
-            <div>
-                <form method='post' action='../crud/delete.php'>
-                    <input type='hidden' name='delete' value='order'>
-                    <input type='hidden' name='orderID' value='" . $order['orderID'] . "'>
-                    <button type='submit' class='btn btn-link btn-delete'>Delete</button>
-                </form>
-            </div>
         </div>
     ";
 
@@ -54,3 +47,10 @@
 ?>
 
 
+            <!-- <div>
+                <form method='post' action='../crud/delete.php'>
+                    <input type='hidden' name='delete' value='order'>
+                    <input type='hidden' name='orderID' value='" . $order['orderID'] . "'>
+                    <button type='submit' class='btn btn-link btn-delete'>Delete</button>
+                </form>
+            </div> -->

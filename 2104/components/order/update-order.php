@@ -10,9 +10,9 @@
                         </div>
                     </div>
                     <div class="d-flex flex-row-reverse">
-                        <div class="p-2">
-                            <input type="hidden" name="defaultOrderStatus" value="<?php echo $order['orderStatus'] ?>">
-                            <?php if ($order['orderStatus'] != "Awaiting-Approval") { ?>
+                        <input type="hidden" name="defaultOrderStatus" value="<?php echo $order['orderStatus'] ?>">
+                        <?php if ($order['orderStatus'] != "Awaiting-Approval") { ?>
+                            <div class="p-2">
                                 <select class="form-select <?php echo $hide1 ?>" name="orderStatus">
                                     <option value="<?php echo $order['orderStatus'] ?>" selected disabled><?php echo $order['orderStatus'] ?></option>
                                     <option value="Awaiting-Payment">Awaiting Payment</option>
@@ -26,9 +26,14 @@
                                 </select>
                                 <!-- ELSE IF USER TYPE = MANAGER -->
                             <?php } else if ($_SESSION['userType'] == "Manager") { ?>
-                                <a href="../crud/order/approve-order.php?id=<?php echo $order['orderID'] ?>" type="submit" class="btn btn-outline-primary">Approve</a>
+                                <div class="p-2">
+                                    <a href="../crud/order/approve-order.php?id=<?php echo $order['orderID'] ?>" type="submit" class="btn btn-outline-primary">Approve</a>
+                                </div>
+                                <div class="p-2">
+                                    <a href="../crud/order/cancel-order.php?id=<?php echo $order['orderID'] ?>" type="submit" class="btn btn-outline-danger">Cancel</a>
+                                </div>
                             <?php } ?>
-                        </div>
+                            </div>
                     </div>
                 </div>
 

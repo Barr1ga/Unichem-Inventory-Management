@@ -2,7 +2,7 @@
    include('../db_connect.php');
 
     /* Rep Information */
-    $createdBy = 2; // NOTE: Change this to Session Variable
+    $createdBy = $_SESSION['userType']; 
     $supplier = $_POST['supplier'];
     $orderDate = date('Y-m-d');
     $shippingdate = date('Y-m-d', strtotime($_POST['shippingDate']));
