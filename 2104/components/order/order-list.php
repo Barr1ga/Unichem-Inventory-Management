@@ -11,9 +11,7 @@
             " . $order['customerLName'] . ", " . $order['customerFName'] . "
             </div>
             
-            <div class='list-cell'>
-                " . $order['userLastName'] . ", " . $order['userFirstName'] . "
-            </div>
+
 
             <div class='list-cell'>
                 " . $order['orderDate'] . "

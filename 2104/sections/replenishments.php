@@ -158,11 +158,11 @@ include('../components/popup-msg.php');
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="Manual-Verification-Required" data-bs-toggle="pill" data-bs-target="#div8" type="button" role="tab">Manual Verification</button>
+                            <button class="nav-link" id="Refunded" data-bs-toggle="pill" data-bs-target="#div8" type="button" role="tab">Refunded Order</button>
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="Refunded" data-bs-toggle="pill" data-bs-target="#div9" type="button" role="tab">Refunded Order</button>
+                            <button class="nav-link" id="Manual-Verification-Required" data-bs-toggle="pill" data-bs-target="#div9" type="button" role="tab">Manual Verification</button>
                         </li>
 
                         <li class="nav-item create-new-button" role="presentation">
@@ -224,14 +224,14 @@ include('../components/popup-msg.php');
                         <div class="tab-pane fade" id="div8" role="tabpanel" aria-labelledby="pills-complete-tab">
                             <?php
                             include('../components/replenishment/rep-header.php');
-                            include('../crud/replenishment/replenishment-list/manual-verification.php');
+                            include('../crud/replenishment/replenishment-list/refunded.php');
                             ?>
                         </div>
 
                         <div class="tab-pane fade" id="div9" role="tabpanel" aria-labelledby="pills-complete-tab">
                             <?php
                             include('../components/replenishment/rep-header.php');
-                            include('../crud/replenishment/replenishment-list/refunded.php');
+                            include('../crud/replenishment/replenishment-list/manual-verification.php');
                             ?>
                         </div>
 

@@ -118,8 +118,8 @@
                 echo '<br /> Deleted successfully';
             }else {
                 echo '<br /> Deletion is unsuccessful ' . mysqli_error($conn);
-                $bool = false;
             }
+            $bool = false;
         }
     }
     if ($bool)

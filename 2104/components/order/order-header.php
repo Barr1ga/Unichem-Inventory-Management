@@ -1,34 +1,30 @@
-<div class='container-header d-flex mb-4'>
+<div class='d-flex align-items-center justify-content-between white-box-container-none one-order-replenishment-list round-edge'>
     <div class='list-cell'>
-        Order ID
+        <b> OrderID</b>
     </div>
 
     <div class='list-cell'>
-        Customer
+        <b> Customer</b>
     </div>
 
     <div class='list-cell'>
-        Created By
+        <b> Order Date</b>
     </div>
 
     <div class='list-cell'>
-        Order Date
+        <b>Contact Number</b>
     </div>
 
     <div class='list-cell'>
-        Contact No
+        <b> Total Price</b>
     </div>
 
-    <div class='list-cell'>
-        Total Price
+    <div class="invisible">
+        <button type='submit' class='btn btn-link btn-preview'>Preview</button>
     </div>
 
-    <div class='list-cell'>
-
-    </div>
-
-    <div class='list-cell'>
-
+    <div class="invisible">
+        <a type='button' class='btn btn-link btn-update' data-bs-toggle='modal' data-bs-target='" . "#" . $modal . "'>Update</a>
     </div>
 
 </div>

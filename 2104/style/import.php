@@ -14,8 +14,6 @@
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    overflow-x: hidden;
-    overflow-y: hidden;
   }
 
   body:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
@@ -99,6 +97,11 @@
     padding: 20px;
   }
 
+  .white-box-container-none {
+    background-color: white;
+    padding: 20px;
+  }
+
   /* STRICTLY USE THIS CLASS FOR NAV CONTAINER */
   .nav-container {
     border-right: 1px solid #D5DBE4;
@@ -173,7 +176,6 @@
 
   /* STRICTLY USE THIS CLASS FOR CONTAINER HEADER */
   .container-header {
-    background-color: whitesmoke;
     border: none;
     width: 941.44px;
     padding-left: 20px;
@@ -434,10 +436,6 @@
 
   .active-color {
     fill: white;
-  }
-
-  .create-order {
-    margin-right: 20px;
   }
 
   .custom-nav-pills {

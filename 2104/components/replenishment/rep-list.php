@@ -11,9 +11,6 @@
             " . $rep['companyName'] ."
             </div>
             
-            <div class='list-cell'>
-                ". $rep['userFirstName'] ." ". $rep['userLastName']. "
-            </div>
 
             <div class='list-cell'>
                 ". $rep['repOrderDate'] ."
