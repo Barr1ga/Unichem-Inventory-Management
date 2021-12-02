@@ -65,7 +65,6 @@ if(isset($userID)){
                     $user['userFirstName']."<br>".
                     $user['userLastName']."<br>".
                     $user['email']."
-                    ?>
                 </b>
             </div>
 

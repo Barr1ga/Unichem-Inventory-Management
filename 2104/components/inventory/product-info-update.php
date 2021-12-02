@@ -1,5 +1,5 @@
 <form method="post" action="../sections/update.php" class="row g-3">
-                        <input type="hidden" name="update" value="inventory">
+                        <input type="hidden" name="update" value="product">
                         <input type="hidden" name="productID" value="<?php echo $product['productID']; ?>">
                         <div class="col-md-6">
                             <label for="inputProdName" class="form-label">Product Name</label>

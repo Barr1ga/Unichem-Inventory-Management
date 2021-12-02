@@ -6,7 +6,7 @@
                 $productID = $inventory["productID"];
                 $tradeName =  $inventory["tradeName"];
                 $price = $inventory["price"];
-                $quantity = $inventory["price"];
+                $quantity = $inventory["inStock"];
 
 
                 ?> -->
