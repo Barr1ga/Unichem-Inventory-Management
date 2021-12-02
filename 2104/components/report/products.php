@@ -16,7 +16,7 @@
 
         var options = {
           title: 'Chess opening moves',
-          width: 1475,
+          width: 1435,
           legend: { position: 'none' },
           chart: { title: 'Chess opening moves',
                    subtitle: 'popularity by percentage' },
@@ -35,6 +35,6 @@
     </script>
   </head>
   <body>
-    <div id="top_x_div" class="white-box-container round-edge" style="width: 1530px; height: 500px;
+    <div id="top_x_div" class="white-box-container round-edge" style="width: 1495px; height: 500px;
     "></div>
   </body>
