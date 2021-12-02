@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(empty($_SESSION['userType'])){
-    header('Location: login.php');
+    header('Location: ../index.php');
 }
 unset($_SESSION['orderActive']);
 
@@ -94,7 +94,7 @@ include('../crud/replenishment/check-default.php');
                     </a>
                 </li>
                 <li>
-                    <a href="sales.php" class="nav-link link-dark">
+                    <a href="reports.php" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#sales" />
                         </svg>
@@ -107,7 +107,7 @@ include('../crud/replenishment/check-default.php');
             <div class="container">
                 <div class="row align-items-end">
                     <div class="col d-flex justify-content-center">
-                        <a href="login.php" class="d-flex align-items-center link-dark text-decoration-none">
+                        <a href="../index.php" class="d-flex align-items-center link-dark text-decoration-none">
                             <strong>Logout</strong>
                         </a>
                     </div>
