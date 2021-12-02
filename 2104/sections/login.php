@@ -21,7 +21,7 @@ marge123
 
     <title>Unichem</title>
 </head>
-<!-- bayor -->
+
 <body>
     <div class="d-flex justify-content-center align-item-center">
         <div class="container white-box-container round-edge reg-log-form">
