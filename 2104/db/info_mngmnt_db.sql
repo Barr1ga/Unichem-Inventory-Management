@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2021 at 02:33 PM
+-- Generation Time: Dec 02, 2021 at 02:08 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -42,12 +42,12 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customerID`, `customerFName`, `customerLName`, `dateofBirth`, `gender`, `contactNo`, `email`) VALUES
-(2, 'Joes', 'Wilson', '1994-03-13', 'M', '09279428400', 'joewilson21@gmail.com'),
-(3, 'Jan', 'Grey', '1993-01-27', 'M', '09959227500', 'jongrey@yahoo.com'),
-(4, 'Dani', 'Ponder', '1986-10-16', 'F', '09178653211', 'daniponder65@gmail.com'),
+(2, 'Joes', 'Wilson', '1994-03-13', 'M', '09279428400', 'luigirixon@yahoo.com'),
+(3, 'Jan', 'Grey', '1993-01-27', 'M', '09959227500', 'luigirixon@yahoo.com'),
+(4, 'Dani', 'Ponder', '1986-10-16', 'F', '09178653211', 'luna_lurege7@gmail.com'),
 (5, 'Lola', 'Luciana', '1996-06-24', 'F', '09274852399', 'luigirixon@yahoo.com'),
 (6, 'Carlos', 'Webber', '1984-11-09', 'M', '09272126349', 'carloswebbet@gmail.com'),
-(7, 'Maria', 'Reed', '1974-06-03', 'F', '09273205350', 'reed_maria@yahoo.com');
+(7, 'Maria', 'Reed', '1974-06-03', 'F', '09273205350', 'luigirixon@yahoo.com');
 
 -- --------------------------------------------------------
 
@@ -102,9 +102,9 @@ INSERT INTO `inventory_users` (`userID`, `userType`, `userFirstName`, `userLastN
 (1, 'Manager', 'Marjorie', 'Tumapon', 'marge123', 'marge.tumapon@gmail.com', 'margepassword'),
 (2, 'User', 'Luigi', 'Rixon', 'luirix21', 'luigirixon@yahoo.com', 'luigipassword'),
 (3, 'User', 'Luna', 'Lurege', 'lurluna7', 'luna_lurege7@gmail.com', 'lunapassword'),
-(8, 'Manager', 'Marge', 'Tumapon', 'marge', 'marge.tumapon@gmail.com', '$2y$10$fcoYdF3o6SwkK7CXGkf.Gu4CpvvSEndRWtMp6P3Jwhm67HGRSYCMe'),
 (9, 'User', 'Van AJ', 'Vanguardia', 'vanaj', 'van@gmail.com', '$2y$10$a937SG2aEB8NrQuKumKY2.aVHxUEP3sWcKjW8xbErH.XvZ0swur/.'),
-(10, 'User', 'CJ', 'Caburnay', 'cj123', 'cj@gmail.com', '$2y$10$kj4UW2oKB0tcTwVtVjpurOXsNk6khFMwEYT8psSb53C3mG1Kq5Hg.');
+(10, 'User', 'CJ', 'Caburnay', 'cj123', 'cj@gmail.com', '$2y$10$kj4UW2oKB0tcTwVtVjpurOXsNk6khFMwEYT8psSb53C3mG1Kq5Hg.'),
+(11, 'Manager', 'marge', 'Tumapon', 'marge123', 'marge@gmail.com', '$2y$10$iU3VRBWisi6HQ3nQAVbrk.nISGZmVIkLl6fhZM1J.4BhneNVfGZ/2');
 
 -- --------------------------------------------------------
 
@@ -287,10 +287,13 @@ INSERT INTO `orders` (`orderID`, `customerID`, `createdBy`, `approvedBy`, `order
 (175, 6, 3, 1, '2021-11-22', 'Refunded', '2021-11-28', 'paid'),
 (176, 4, 3, 1, '2021-11-23', 'Processing-Order', '2021-11-29', 'paid'),
 (177, 6, 2, 1, '2021-11-27', 'Processing-Order', '2021-11-30', 'paid'),
-(178, 4, 3, 1, '2021-11-30', 'Awaiting-Payment', '2021-12-06', 'unpaid'),
+(178, 4, 3, 1, '2021-11-30', 'Awaiting-Shipment', '2021-12-06', 'unpaid'),
 (180, 3, 2, NULL, '2021-11-30', 'Awaiting-Approval', '2021-12-06', 'unpaid'),
-(182, 2, 2, NULL, '2021-12-01', 'Awaiting-Approval', '2021-12-08', 'unpaid'),
-(184, 3, 2, NULL, '2021-12-01', 'Awaiting-Approval', '2021-12-08', 'unpaid');
+(182, 2, 2, NULL, '2021-12-01', 'Awaiting-Payment', '2021-12-08', 'unpaid'),
+(184, 3, 2, NULL, '2021-12-01', 'Completed', '2021-12-08', 'unpaid'),
+(185, 5, 2, NULL, '2021-12-02', 'Completed', '2021-12-16', 'paid'),
+(186, 7, 2, NULL, '2021-12-02', 'Completed', '2021-12-09', 'paid'),
+(187, 2, 2, NULL, '2021-12-02', 'Cancelled', '2021-12-09', 'paid');
 
 -- --------------------------------------------------------
 
@@ -523,7 +526,11 @@ INSERT INTO `order_line` (`orderlineID`, `orderID`, `productID`, `quantity`) VAL
 (472, 178, 8, 8),
 (473, 182, 6, 10),
 (476, 184, 1, 5),
-(477, 184, 3, 5);
+(477, 184, 3, 5),
+(478, 185, 1, 5),
+(479, 185, 2, 5),
+(480, 186, 1, 5),
+(481, 187, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -559,8 +566,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`productID`, `tradeName`, `description`, `brandName`, `dateContained`, `price`, `applicationType`, `cureTime`, `color`, `form`, `packageType`, `packageSize`, `maxOperatingTemp`, `minOperatingTemp`, `viscosity`, `chemicalComposition`, `operatingTempRange`, `productImage`, `inStock`, `minimumStock`) VALUES
-(1, 'Loctite 243', 'A general purpose, medium strength threadlocker with improved oil tolerance. For fasteners between 1/4\" and 3/4\" (6 to 20 mm) diameters.', 'Loctite', '2021-10-01', '652.40', 'Thread locking', '02:00:00', 'Blue', 'Liquid', 'Bottle', '10 ml', '+180°C', '-55°C', 'Thixotropic', 'Dimethacrylate Ester', '-55°C -> +180°C', 'loctite 243.jpg', 943, 100),
-(2, 'Loctite 271', 'The Loctite 135381 is a 271™ series high strength threadlocker that comes in a 50 ml bottle. This material is designed for the permanent locking and sealing of threaded fasteners.', 'Loctite', '2021-10-01', '597.60', 'Thread locking', '24:00:00', 'Red', 'Liquid', 'Bottle', '50 ml', '+300°F', '>+50°F', 'Thixotropic', 'Methacrylate Ester', '-50°C -> +300°C', 'Loctite 271.jpg', 1789, 50),
+(1, 'Loctite 243', 'A general purpose, medium strength threadlocker with improved oil tolerance. For fasteners between 1/4\" and 3/4\" (6 to 20 mm) diameters.', 'Loctite', '2021-10-01', '652.40', 'Thread locking', '02:00:00', 'Blue', 'Liquid', 'Bottle', '10 ml', '+180°C', '-55°C', 'Thixotropic', 'Dimethacrylate Ester', '-55°C -> +180°C', 'loctite 243.jpg', 933, 100),
+(2, 'Loctite 271', 'The Loctite 135381 is a 271™ series high strength threadlocker that comes in a 50 ml bottle. This material is designed for the permanent locking and sealing of threaded fasteners.', 'Loctite', '2021-10-01', '597.60', 'Thread locking', '24:00:00', 'Red', 'Liquid', 'Bottle', '50 ml', '+300°F', '>+50°F', 'Thixotropic', 'Methacrylate Ester', '-50°C -> +300°C', 'Loctite 271.jpg', 1784, 50),
 (3, 'Loctite 242', 'The Loctite 135355 is a blue threadlocker that comes in a 50 ml bottle. This medium strength, mil spec threadlocker is designed for general purpose applications on fasteners between ¼\" and ¾\" diameters.', 'Loctite', '2021-10-01', '816.90', 'Thread locking', '24:00:00', 'Blue', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 242.jpg', 1447, 20),
 (4, 'Loctite 545', 'The Loctite 135486 is a thread sealant that comes in a 50 ml bottle. This material is designed for the locking and sealing of small, fine threaded fittings particularly those used in hydraulic and pneumatic installations.', 'Loctite', '2021-10-02', '1343.20', 'Thread Sealing', '168:00:00', 'Purple', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Polyglycoldioctanoate, Polyglycol Dimethacrylate, 2-Hydroxyethyl Methacrylate, Silica, Amorphous, Fumed, Crystal-Free, Cumene Hydroperoxide, 1-Acetyl-2-Phenylhydrazine, Cumene, Methacrylic Acid', '-65°F -> +300°F', 'Loctite 545.jpg', 789, 80),
 (5, 'Loctite 262', 'The Loctite 135374 is a high strength product that is applied to fasteners up to 3/4\" (20mm) in size before assembly. Localized heat and hand tools are required to separate parts;solvents will not weaken the adhesive bond. Approved for use in or around food processing areas.', 'Loctite', '2021-10-01', '422.20', 'Thread locking', '24:00:00', 'Red', 'Liquid', 'Bottle', '50 ml', '+300°F', '-65°F', 'Thixotropic', 'Dimethacrylate Ester', '-65°F -> +300°F', 'Loctite 262.jpg', 923, 50),
@@ -872,19 +879,19 @@ ALTER TABLE `customer_address`
 -- AUTO_INCREMENT for table `inventory_users`
 --
 ALTER TABLE `inventory_users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
 
 --
 -- AUTO_INCREMENT for table `order_line`
 --
 ALTER TABLE `order_line`
-  MODIFY `orderlineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=478;
+  MODIFY `orderlineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=482;
 
 --
 -- AUTO_INCREMENT for table `product`
