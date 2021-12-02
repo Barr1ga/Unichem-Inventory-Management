@@ -101,7 +101,7 @@ include('../style/import.php');
             <div class="container">
                 <div class="row align-items-end">
                     <div class="col d-flex justify-content-center">
-                        <a href="../index.php" class="d-flex align-items-center link-dark text-decoration-none">
+                        <a href="../index.php" class="text-decoration-none btn btn-danger btn-logout">
                             <strong>Logout</strong>
                         </a>
                     </div>

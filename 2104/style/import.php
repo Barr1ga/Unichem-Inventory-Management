@@ -450,6 +450,10 @@
   .empty-information {
     width: 429.27px;
   }
+
+  .btn-logout {
+    width: 20rem;
+  }
 </style>
 
 
