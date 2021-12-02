@@ -24,16 +24,16 @@
                                     <option value="Manaul-Verification-Required">Manual-Verification-Required</option>
                                     <option value="Refunded">Refunded</option>
                                 </select>
-                                <!-- ELSE IF USER TYPE = MANAGER -->
-                            <?php } else if ($_SESSION['userType'] == "Manager") { ?>
-                                <div class="p-2">
-                                    <a href="../crud/replenishment/approve-repOrder.php?id=<?php echo $rep['repOrderID'] ?>" type="submit" class="btn btn-outline-primary">Approve</a>
-                                </div>
-                                <div class="p-2">
-                                    <a href="../crud/replenishment/cancel-repOrder.php?id=<?php echo $rep['repOrderID'] ?>" type="submit" class="btn btn-outline-danger">Cancel</a>
-                                </div>
-                            <?php } ?>
                             </div>
+                            <!-- ELSE IF USER TYPE = MANAGER -->
+                        <?php } else if ($_SESSION['userType'] == "Manager") { ?>
+                            <div class="p-2">
+                                <a href="../crud/replenishment/approve-repOrder.php?id=<?php echo $rep['repOrderID'] ?>" type="submit" class="btn btn-outline-primary">Approve</a>
+                            </div>
+                            <div class="p-2">
+                                <a href="../crud/replenishment/cancel-repOrder.php?id=<?php echo $rep['repOrderID'] ?>" type="submit" class="btn btn-outline-danger">Cancel</a>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
 
