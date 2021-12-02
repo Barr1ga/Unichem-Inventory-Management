@@ -83,7 +83,7 @@ include('../style/import.php');
                     </a>
                 </li>
                 <li>
-                    <a href="sales.php" class="nav-link link-dark active">
+                    <a href="reports.php" class="nav-link link-dark active">
                         <svg class="bi me-2" width="16" height="16">
                             <use class="active-color" xlink:href="#sales" />
                         </svg>
@@ -114,45 +114,36 @@ include('../style/import.php');
             </div>
             <br>
                     
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <a href="customers.php" class="nav-link">Contact</a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a href="customers.php" class="nav-link">Products</a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a href="customers.php" class="nav-link">Contact</a>
-            </li>
-            </ul>
+            <div class="scroll-list-3">
+                <?php
+                include('../components/report/chart.php');
+                ?>
+             
             
-
+                <br>
             
-
-
-
-
-
-
-
-
-
-
+                <?php
+                    // include('../crud/charts/products.php');
+                    include('../components/report/products.php');
+                ?>  
+            </div>
 
 
             
-            <?php
-                        
-            include('../components/report/chart.php');
-            ?>
- 
 
-            <br>
 
-            <?php
-                // include('../crud/charts/products.php');
-                include('../components/report/products.php');
-            ?>        
+
+
+
+
+
+
+
+
+
+
+            
+                  
                         
                 
                 
