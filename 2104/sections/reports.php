@@ -4,8 +4,6 @@ if(empty($_SESSION['userType'])){
     header('Location: ../index.php');
 }
 include('../style/import.php');
-include('../crud/employee/check-default.php');
-
 ?>
 
 <html lang="en">
@@ -16,13 +14,11 @@ include('../crud/employee/check-default.php');
 
     <title>Unichem</title>
 </head>
-<!-- bayor -->
 
 <body>
     <main>
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light nav-container shadow-md bg-body rounded" style="width: 280px;">
             <a href="notifications.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-
                 <div class="row justify-content-md-center">
                     <img class="unichem-logo-login" src="../assets/images/Unichem-Logo-Text.svg">
                 </div>
@@ -79,21 +75,21 @@ include('../crud/employee/check-default.php');
                     </a>
                 </li>
                 <li>
-                    <a href="employees.php" class="nav-link link-dark active">
+                    <a href="employees.php" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#employee  " />
+                            <use xlink:href="#employee" />
                         </svg>
                         Employees
                     </a>
                 </li>
                 <li>
-                    <a href="reports.php" class="nav-link link-dark">
+                    <a href="sales.php" class="nav-link link-dark active">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#sales" />
+                            <use class="active-color" xlink:href="#sales" />
                         </svg>
                         Reports
                     </a>
-                </li> 
+                </li>
             </ul>
             <hr>
 
@@ -105,12 +101,11 @@ include('../crud/employee/check-default.php');
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
-
+        
         <div class="father-container">
-            <h4>Employees</h4>
+            <h4>Reports</h4>
             <br>
             <div class="layout-column">
                 <form method="post" action="">
@@ -118,52 +113,21 @@ include('../crud/employee/check-default.php');
                 </form>
             </div>
             <br>
-
-
-
-
-
-
-
-
-
-
-            <ul class="nav nav-pills mb-3 orderNav" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="To-Approve" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">Employees</button>
-                </li>
-                <?php if($_SESSION['userType']=="Manager"){
-                    echo "<li class='nav-item' role='presentation'>
-                        <button class='nav-link' id='To-Confirm' data-bs-toggle='pill' data-bs-target='#pills-to-confirm' type='button' role='tab' aria-controls='pills-to-confirm' aria-selected='false'>Create Employee</button>
-                    </li>";
-                }?>
-                
-
+                    
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a href="customers.php" class="nav-link">Contact</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a href="customers.php" class="nav-link">Products</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a href="customers.php" class="nav-link">Contact</a>
+            </li>
             </ul>
+            
 
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-to-approve" role="tabpanel" aria-labelledby="pills-to-approve-tab">
-                    <div class="d-flex">
-                        <div class="layout-column">
-                            <?php include('../crud/employee/employee-list.php'); ?>
-                        </div>
-
-                        <?php include('../crud/employee/employee-information.php'); ?>
-
-                        <div class="layout-column">
-                            Employee Information<br><br>
-                            <?php include('../components/employee/employee-information.php'); ?>
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <div class="tab-pane fade" id="pills-to-confirm" role="tabpanel" aria-labelledby="pills-to-cofirm-tab">
-                    <?php include('../components/employee/employee-create.php'); ?>
-                </div>
-
-            </div>
+            
 
 
 
@@ -176,29 +140,25 @@ include('../crud/employee/check-default.php');
 
 
 
+            
+            <?php
+                        
+            include('../components/report/chart.php');
+            ?>
+ 
 
+            <br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <?php
+                // include('../crud/charts/products.php');
+                include('../components/report/products.php');
+            ?>        
+                        
+                
+                
         </div>
     </main>
+   
 </body>
 
 </html>

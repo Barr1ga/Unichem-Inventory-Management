@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(empty($_SESSION['userType'])){
-    header('Location: login.php');
+    header('Location: ../index.php');
 }
 
 include('../style/import.php');
@@ -86,11 +86,11 @@ include('../crud/supplier/check-default.php');
                     </a>
                 </li>
                 <li>
-                    <a href="sales.php" class="nav-link link-dark">
+                    <a href="reports.php" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#sales" />
                         </svg>
-                        Sales
+                        Reports
                     </a>
                 </li>  
             </ul>
@@ -99,7 +99,7 @@ include('../crud/supplier/check-default.php');
             <div class="container">
                 <div class="row align-items-end">
                     <div class="col d-flex justify-content-center">
-                        <a href="login.php" class="d-flex align-items-center link-dark text-decoration-none">
+                        <a href="../index.php" class="d-flex align-items-center link-dark text-decoration-none">
                             <strong>Logout</strong>
                         </a>
                     </div>
@@ -132,7 +132,6 @@ include('../crud/supplier/check-default.php');
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="To-Approve" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">Suppliers</button>
                 </li>
-                <?php echo $_SESSION['userType'];?>
                 <?php if($_SESSION['userType']=="Manager"){
                     echo "
                     <li class='nav-item' role='presentation'>

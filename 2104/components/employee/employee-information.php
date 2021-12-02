@@ -26,7 +26,7 @@ if(isset($userID)){
                                 <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                             </div>
                             <div class='modal-body'>
-                                ".include('employee-update.php')."
+                                <?php include('employee-update.php');?>
                             </div>
                             <div class='modal-footer'>
                                     <div class=''>
