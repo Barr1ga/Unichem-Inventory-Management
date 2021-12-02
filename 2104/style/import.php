@@ -251,6 +251,13 @@
     padding: 0 20px 0 0;
   }
 
+  .scroll-list-3 {
+    height: 750.43px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0 20px 0 0;
+  }
+
   .search-input {
     width: 477.22px;
   }
