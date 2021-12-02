@@ -84,9 +84,9 @@
                     
                     ".$supplier['addressID']."<br>
                     ".$supplier['street']."<br>
-                    ".$supplier['barangay']."'<br>
+                    ".$supplier['barangay']."<br>
                     ".$supplier['city']."<br>
-                    ".$supplier['region']."'<br>
+                    ".$supplier['region']."<br>
                     ".$supplier['zip']."<br>
                     ".$supplier['country']."
                     

@@ -11,6 +11,16 @@ include('../style/import.php');
 
 ?>
 
+<!-- USER ACCOUNT 
+van@gmail.com
+van123
+-->
+
+<!-- MANAGER ACCOUNT
+marge@gmail.com
+marge123
+-->
+
 <html lang="en">
 
 <head>
@@ -19,7 +29,7 @@ include('../style/import.php');
 
     <title>Unichem</title>
 </head>
-<!-- bayor -->
+
 <body>
     <div class="d-flex justify-content-center align-item-center">
         <div class="container white-box-container round-edge reg-log-form">
