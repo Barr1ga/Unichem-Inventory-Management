@@ -102,7 +102,7 @@ include('../style/import.php');
                 <div class="row align-items-end">
                     <div class="col d-flex justify-content-center">
                         <a href="../index.php" class="text-decoration-none btn btn-danger btn-logout">
-                            <strong>Logout</strong>
+                            Log Out
                         </a>
                     </div>
                 </div>
