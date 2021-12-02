@@ -86,11 +86,11 @@ include('../crud/supplier/check-default.php');
                     </a>
                 </li>
                 <li>
-                    <a href="sales.php" class="nav-link link-dark">
+                    <a href="reports.php" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#sales" />
                         </svg>
-                        Sales
+                        Reports
                     </a>
                 </li>  
             </ul>
@@ -132,7 +132,6 @@ include('../crud/supplier/check-default.php');
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="To-Approve" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">Suppliers</button>
                 </li>
-                <?php echo $_SESSION['userType'];?>
                 <?php if($_SESSION['userType']=="Manager"){
                     echo "
                     <li class='nav-item' role='presentation'>

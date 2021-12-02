@@ -86,11 +86,11 @@ include('../crud/customer/check-default.php');
                     </a>
                 </li>
                 <li>
-                    <a href="sales.php" class="nav-link link-dark">
+                    <a href="reports.php" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#sales" />
                         </svg>
-                        Sales
+                        Reports
                     </a>
                 </li>  
             </ul>
