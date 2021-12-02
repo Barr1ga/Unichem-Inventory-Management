@@ -87,7 +87,7 @@
                 <?php include('product-info-update.php'); ?>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary">Sumit</button>
+                <button class="btn btn-primary">Submit</button>
             </div>
         </div>
     </div>

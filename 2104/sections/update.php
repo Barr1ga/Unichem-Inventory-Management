@@ -135,13 +135,26 @@
                 $inStock = $_POST['inStock'];
             
     
-                $updateEmployee = "UPDATE `product`
-                                            SET `tradeName`='$tradeName', 
-                                            `productID`='$productID',
+                $updateProductInfo = "UPDATE `product`
+                                            SET `productID`='$productID', 
+                                            `tradeName`='$tradeName',
                                             `description`='$description',
-                                            `userType`='$userType',
-                                            `userName`='$userName',
-                                            `password`='$password'
+                                            `brandName`='$brandName',
+                                            `dateContained`='$dateContained',
+                                            `price`='$price',
+                                            `applicationType`='$applicationType',
+                                            `cureTime`='$cureTime',
+                                            `color`='$color',
+                                            `form`='$form',
+                                            `packageType`='$packageType',
+                                            `packageSize`='$packageSize',
+                                            `maxOperatingTemp`='$maxOperatingTemp',
+                                            `minOperatingTemp`='$minOperatingTemp',
+                                            `viscosity`='$viscosity',
+                                            `chemicalComposition`='$chemicalComposition',
+                                            `operatingTempRange`='$operatingTempRange',
+                                            `productImage`='$productImage',
+                                            `inStock`='$inStock',
                                             WHERE product='$productID'";
          
                 if (mysqli_query($conn, $updateEmployee)) {

@@ -1,6 +1,22 @@
 <?php
+session_start();
 include "style/import.php";
+
+if(isset($_SESSION)){
+    session_destroy();
+}
+
 ?>
+
+<!-- USER ACCOUNT 
+van@gmail.com
+van123
+-->
+
+<!-- MANAGER ACCOUNT
+marge@gmail.com
+marge123
+-->
 
 <html lang="en">
 
@@ -14,11 +30,12 @@ include "style/import.php";
 <body style="display:flex">
 
     <div class="form-signin border shadow bg-white rounded-lg">
-        <form method="post">
+        <form method="post" action="crud/login.php">
             <h1 class="h4 mb-4 fw-normal text-center">UniChem</h1>
+            <input type="hidden" name="user" value="login">
 
             <div class="form-floating">
-                <input type="text" class="form-control" name="username" placeholder="Username" required>
+                <input type="text" class="form-control" name="email" placeholder="Email Address" required>
                 <label>Username</label>
             </div>
 
@@ -27,7 +44,7 @@ include "style/import.php";
                 <label>Password</label>
             </div>
 
-            <button type="submit" class="w-100 mt-2 btn btn-lg btn-primary" name="submit">Log in</button>
+            <button type="submit" class="w-100 mt-2 btn btn-lg btn-primary">Log in</button>
 
             <!-- optional for error message -->
             <?php

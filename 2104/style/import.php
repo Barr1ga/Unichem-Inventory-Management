@@ -41,6 +41,9 @@
     overflow-y: hidden;
   }
 
+  
+ 
+
   /*product information CARD-IMAGE*/
   .img-thumbnail {
     width: 105.78;

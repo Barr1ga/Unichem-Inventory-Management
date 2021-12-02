@@ -29,12 +29,12 @@
 
                         echo $_SESSION['email'];
 
-                        header("Location: notifications.php");
+                        header("Location: ../sections/notifications.php");
                     
 
                     
                 }else{
-                    header("Location: login.php");
+                    header("Location: index.php");
                 }
                     
                break;
