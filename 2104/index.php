@@ -1,13 +1,10 @@
 <?php
 session_start();
-
 include "style/import.php";
-// echo $_SESSION['userType'];
+
 if(isset($_SESSION)){
     session_destroy();
 }
-// session_start();
-// echo $_SESSION['userType'];
 
 ?>
 
@@ -20,7 +17,6 @@ van123
 marge@gmail.com
 marge123
 -->
-
 
 <html lang="en">
 
