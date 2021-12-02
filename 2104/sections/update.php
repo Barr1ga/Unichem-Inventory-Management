@@ -113,7 +113,7 @@
 
             break;
 
-            case "inventory":
+            case "product":
                 $productID = $_POST['productID'];
                 $tradeName = $_POST['tradeName'];
                 $description = $_POST['description'];
