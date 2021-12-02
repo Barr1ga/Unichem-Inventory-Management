@@ -1,5 +1,6 @@
 <?php
     // print($_GET['id']);
+    session_start();
     include('../db_connect.php');
     $repOrderID = $_GET['id'];
     $approvedBy = $_SESSION['userID'];
@@ -14,5 +15,5 @@
         echo "Error: " . mysqli_error($conn);
     }
 
-    header('location: ../../sections/orders.php');
+    header('location: ../../sections/replenishments.php');
 ?>

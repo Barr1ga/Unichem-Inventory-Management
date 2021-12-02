@@ -1,5 +1,6 @@
 <?php
     // print($_GET['id']);
+    session_start();
     include('../db_connect.php');
     $orderID = $_GET['id'];
     $approvedBy = $_SESSION['userID'];
