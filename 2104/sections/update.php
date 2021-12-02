@@ -154,7 +154,7 @@
                                             `chemicalComposition`='$chemicalComposition',
                                             `operatingTempRange`='$operatingTempRange',
                                             `productImage`='$productImage',
-                                            `inStock`='$inStock'
+                                            `inStock`='$inStock',
                                             WHERE product='$productID'";
          
                 if (mysqli_query($conn, $updateEmployee)) {
