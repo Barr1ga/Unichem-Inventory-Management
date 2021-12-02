@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     include('../crud/db_connect.php');
     switch($_POST['user']){
         case "login":
@@ -16,10 +17,6 @@
 
                 if (password_verify($password,$user['password'])){
 
-
-                       echo "succh";
-                       session_start();
-                    
                         $_SESSION['userID'] = $user['userID'];
                         $_SESSION['userType'] = $user['userType'];
                         $_SESSION['userFirstName'] = $user['userFirstName'];
@@ -32,9 +29,9 @@
 
                         header("Location: ../sections/notifications.php");
                     
-                    
                 }else{
                     header("Location: ../index.php");
+                    $_SESSION['msg'] = "Invalid Email or Password";
                 }
                     
                break;

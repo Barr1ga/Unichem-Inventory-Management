@@ -13,6 +13,7 @@ if (empty($_SESSION['orderActive'])) {
 
 include('../style/import.php');
 include('../crud/order/check-default.php');
+include('../components/popup-msg.php');
 ?>
 
 <html lang="en">

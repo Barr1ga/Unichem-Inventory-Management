@@ -13,7 +13,7 @@ if (empty($_SESSION['repActive'])) {
 
 include('../style/import.php');
 include('../crud/replenishment/check-default.php');
-
+include('../components/popup-msg.php');
 ?>
 
 

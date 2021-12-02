@@ -1,6 +1,7 @@
 <?php
     include('../db_connect.php');
     session_start();
+    $bool = true;
 
     /* Order Information */
     $createdBy = $_SESSION['userID'];
@@ -38,6 +39,7 @@
             $customerID = mysqli_insert_id($conn);
         } else {
             echo '<br /> Customer Information is not successfully added. ' . mysqli_error($conn);
+            $bool = false;
         }
 
         /* Query to insert customer address */
@@ -47,6 +49,7 @@
             echo '<br /> Customer Address is successfully added.';
         }  else {
             echo '<br /> Customer Address is not successfully added. ' . mysqli_error($conn);
+            $bool = false;
         }
     }
 
@@ -58,6 +61,7 @@
         $orderID = mysqli_insert_id($conn);
     }else {
         echo '<br /> Order Information is not successfully added. ' . mysqli_error($conn);
+        $bool = false;
     }
 
     /* Loop through the array of products and quantity */
@@ -79,6 +83,7 @@
             echo '<br /> In Stock is fetched successfully.';
         }else {
             echo '<br /> In Stock is not fetched successfully. ' . mysqli_error($conn);
+            $bool = false;
         }
 
         /* Check if InStock is greater or equal to given quantity */
@@ -90,6 +95,7 @@
                 echo '<br /> An Order Line is successfully added.';
             }else {
                 echo '<br /> An Order Line is not successfully added. ' . mysqli_error($conn);
+                $bool = false;
             }
 
             /* Query to update InStock */
@@ -100,6 +106,7 @@
                 echo '<br /> Product In Stock is successfully updated';
             }else {
                 echo '<br /> Product In Stock is not successfully updated ' . mysqli_error($conn);
+                $bool = false;
             }
         } else {
             
@@ -111,8 +118,14 @@
                 echo '<br /> Deleted successfully';
             }else {
                 echo '<br /> Deletion is unsuccessful ' . mysqli_error($conn);
+                $bool = false;
             }
         }
     }
+    if ($bool)
+        $_SESSION['msg'] = "Order is successfully created.";
+    else 
+        $_SESSION['msg'] = "Order is not successfully created.";
+
     header('location: ../../sections/orders.php');
 ?>  

@@ -1,6 +1,7 @@
 <?php
    include('../db_connect.php');
    session_start();
+   $bool = true;
 
     /* Rep Information */
     $createdBy = $_SESSION['userID']; 
@@ -22,6 +23,7 @@
         $repOrderID = mysqli_insert_id($conn);
     }  else {
         echo '<br /> Replenishment Information is not successfully added. ' . mysqli_error($conn);
+        $bool = false;
     }
 
     /* Loop through the array of products and quantity */
@@ -38,8 +40,14 @@
             echo '<br /> A Replenishment Line is successfully added.';
         }  else {
             echo '<br /> A Replenishment Line is not successfully added. ' . mysqli_error($conn);
+            $bool = false;
         }
     }
+
+    if ($bool)
+        $_SESSION['msg'] = "Replenishment Order is successfully created.";
+    else 
+        $_SESSION['msg'] = "Replenishment Order is not successfully created.";
 
     header('location: ../../sections/replenishments.php');
 ?>

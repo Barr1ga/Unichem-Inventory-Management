@@ -41,9 +41,6 @@
     overflow-y: hidden;
   }
 
-  
- 
-
   /*product information CARD-IMAGE*/
   .img-thumbnail {
     width: 105.78;
@@ -266,35 +263,6 @@
     margin-right: 50px;
   }
 
-  .border {
-    border-radius: 20px;
-    width: 100%;
-    max-width: 700px;
-    padding: 100px;
-    margin: auto;
-  }
-
-  .form-signin {
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
-  }
-
-  .form-signin .form-floating {
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-
-  .form-signin .form-floating:focus-within {
-    z-index: 2;
-  }
-
-  .form-signin input {
-    margin-bottom: 7px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-
   .msg-container {
     margin-top: 10px;
     color: red;
@@ -465,14 +433,16 @@
   .active-color {
     fill: white;
   }
+
   .create-order {
     margin-right: 20px;
   }
+
   .custom-nav-pills {
     width: 1000px;
   }
 
-  .empty-list{
+  .empty-list {
     width: 437.22px;
   }
 
