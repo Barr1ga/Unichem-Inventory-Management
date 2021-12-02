@@ -14,8 +14,8 @@
     
     /* Query to insert replenishment information */
     $sql1 = "INSERT INTO replenishment
-                (supplierID, createdBy, repOrderDate, orderStatus, shipRequiredDate, paidStatus)
-            VALUES ('$supplier', '$createdBy', '$orderDate', 'Awaiting-Approval', '$shippingdate', 'unpaid')";
+                (supplierID, createdBy, repOrderDate, orderStatus, shipRequiredDate)
+            VALUES ('$supplier', '$createdBy', '$orderDate', 'Awaiting-Approval', '$shippingdate')";
     if (mysqli_query($conn, $sql1)) {
         echo '<br /> Replenishment Information is successfully added.';
         $repOrderID = mysqli_insert_id($conn);

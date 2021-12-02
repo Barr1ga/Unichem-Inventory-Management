@@ -167,7 +167,7 @@ include('../crud/replenishment/check-default.php');
                         </li>
                     </ul>
 
-                    <div class="tab-content">
+                    <div class="tab-content mt-4">
 
                         <div class="tab-pane fade show active" id="div1" role="tabpanel" aria-labelledby="pills-to-approve-tab">
                             <?php

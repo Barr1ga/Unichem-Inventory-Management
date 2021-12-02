@@ -7,15 +7,12 @@
     else 
         $orderStatus = $_POST['orderStatus'];
 
-    // To confirm pa ni
-    // $paidStatus = "paid";
-    // if ($orderStatus == "Awaiting-Payment" || $orderStatus == "Awaiting-Approval") 
-    //     $paidStatus = "unpaid";
-
     $orderID = $_POST['orderID'];
     $createdBy = 2; // Change this to Session Variable
     $orderDate = $_POST['orderDate'];
     $shippingDate = date('Y-m-d', strtotime($_POST['shippingDate']));
+    $product = $_POST['product'];
+    $quantity = $_POST['quantity'];
 
     /* Customer Information */
     $customerID = $_POST['customerID']; 
@@ -34,6 +31,23 @@
     $region = $_POST['region'];
     $country = $_POST['country'];
     $zip = $_POST['zip'];
+
+    if ($orderStatus == "Cancelled") {
+        foreach($product as $index => $name) {
+            $tradeName = $name;
+            $qty = $quantity[$index];
+
+            /* Query to update InStock */
+            $query = "UPDATE product
+                        SET inStock = inStock + '$qty'
+                        WHERE tradeName = '$tradeName' ";
+            if (mysqli_query($conn, $query)) {
+                echo '<br /> Product In Stock is successfully updated';
+            }else {
+                echo '<br /> Product In Stock is not successfully updated ' . mysqli_error($conn);
+            }
+        }
+    }
 
     /* Query to update order information */
     $sql1 = "UPDATE orders 
@@ -70,4 +84,5 @@
     }
 
     header('location: ../../sections/orders.php');
+
 ?>

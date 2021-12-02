@@ -2,6 +2,7 @@
     <div class="<?php echo $rep['orderStatus']; ?> white-box-container-details-card-status">
         <?php echo $rep['orderStatus']; ?>
     </div>
+
     <div class="white-box-container-details-card-body rounded">
         <div class="row d-flex justify-content-between">
             <div class="col">

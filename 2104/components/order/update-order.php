@@ -12,22 +12,22 @@
                     <div class="d-flex flex-row-reverse">
                         <div class="p-2">
                             <input type="hidden" name="defaultOrderStatus" value="<?php echo $order['orderStatus'] ?>">
-                            <?php if($order['orderStatus'] != "Awaiting-Approval") {?>
-                            <select class="form-select <?php echo $hide1 ?>" name="orderStatus">
-                                <option value="<?php echo $order['orderStatus'] ?>" selected disabled><?php echo $order['orderStatus'] ?></option>
-                                <option value="Awaiting-Payment">Awaiting Payment</option>
-                                <option value="Processing-Order">Processing Order</option>
-                                <option value="Awaiting-Shipment">Awaiting Shipment</option>
-                                <option value="Awaiting-Pickup">Awaiting Pickup</option>
-                                <option value="Completed">Completed</option>
-                                <option value="Cancelled">Cancelled</option>
-                                <option value="Manual-Verification-Required">Manual Verification Required</option>
-                                <option value="Refunded">Refunded</option>
-                            </select>
-                            <!-- ELSE IF USER TYPE = MANAGER -->
+                            <?php if ($order['orderStatus'] != "Awaiting-Approval") { ?>
+                                <select class="form-select <?php echo $hide1 ?>" name="orderStatus">
+                                    <option value="<?php echo $order['orderStatus'] ?>" selected disabled><?php echo $order['orderStatus'] ?></option>
+                                    <option value="Awaiting-Payment">Awaiting Payment</option>
+                                    <option value="Processing-Order">Processing Order</option>
+                                    <option value="Awaiting-Shipment">Awaiting Shipment</option>
+                                    <option value="Awaiting-Pickup">Awaiting Pickup</option>
+                                    <option value="Completed">Completed</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                    <option value="Manual-Verification-Required">Manual Verification Required</option>
+                                    <option value="Refunded">Refunded</option>
+                                </select>
+                                <!-- ELSE IF USER TYPE = MANAGER -->
                             <?php } else { ?>
-                            <a href="../crud/order/approve-order.php?id=<?php echo $order['orderID'] ?>" type="submit" class="btn btn-outline-primary">Approve</a>
-                            <?php }?>
+                                <a href="../crud/order/approve-order.php?id=<?php echo $order['orderID'] ?>" type="submit" class="btn btn-outline-primary">Approve</a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
-                
+
             </div>
         </div>
     </div>

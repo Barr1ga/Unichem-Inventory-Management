@@ -4,7 +4,6 @@ include('../crud/db_connect.php');
 if (isset($_GET['orderID'])) {
     $orderID = $_GET['orderID'];
     $total = 0;
-
     $getOrderInformation = "SELECT *, SUM(ol.quantity * p.price) as 'Total' 
                                 FROM orders o
                                 JOIN order_line ol ON ol.orderID = o.orderID

@@ -7,9 +7,10 @@
     else 
         $orderStatus = $_POST['orderStatus'];
 
-    $paidStatus = "paid";
-    if ($orderStatus == "Awaiting-Payment" || $orderStatus == "Awaiting-Approval") 
-        $paidStatus = "unpaid";
+    // To Confirm pa ni
+    // $paidStatus = "paid";
+    // if ($orderStatus == "Awaiting-Payment" || $orderStatus == "Awaiting-Approval") 
+    //     $paidStatus = "unpaid";
 
     $orderDate = $_POST['orderDate'];
     $shippingDate = $_POST['shippingDate'];
@@ -17,7 +18,7 @@
 
      /* Query to update repOrder information */
      $sql = "UPDATE replenishment
-                SET repOrderDate = '$orderDate', shipRequiredDate = '$shippingDate', orderStatus = '$orderStatus', paidStatus = '$paidStatus'
+                SET repOrderDate = '$orderDate', shipRequiredDate = '$shippingDate', orderStatus = '$orderStatus'
                 WHERE repOrderID = '$repOrderID' ";
 
     if (mysqli_query($conn, $sql)) {

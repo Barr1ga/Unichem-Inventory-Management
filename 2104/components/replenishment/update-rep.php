@@ -1,10 +1,3 @@
-<?php
-
-// if ($order['orderStatus'] == "Awaiting-Approval" && $_SESSION['usertype'] != 'Manager') {
-//     $class = "invisible";
-// } 
-
-?>
 <form method="post" action="../crud/replenishment/update-repOrder.php">
     <div class="modal fade" id="<?php echo $modal ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -18,19 +11,23 @@
                     </div>
                     <div class="d-flex flex-row-reverse">
                         <div class="p-2">
-                            <select class="form-select" name="orderStatus">
-                                <option value="<?php echo $rep['orderStatus'] ?>" selected disabled><?php echo $rep['orderStatus'] ?></option>
-                                <option value="Awaiting-Approval">Awaiting-Approval</option>
-                                <option value="Awaiting-Payment">Awaiting-Payment</option>
-                                <option value="Processing-Order">Processing-Order</option>
-                                <option value="Awaiting-Shipment">Awaiting-Shipment</option>
-                                <option value="Awaiting-Pickup">Awaiting-Pickup</option>
-                                <option value="Completed">Completed</option>
-                                <option value="Cancelled">Cancelled</option>
-                                <option value="Manaul-Verification-Required">Manual-Verification-Required</option>
-                                <option value="Refunded">Refunded</option>
-                            </select>
                             <input type="hidden" name="defaultOrderStatus" value="<?php echo $rep['orderStatus'] ?>">
+                            <?php if ($rep['orderStatus'] != "Awaiting-Approval") { ?>
+                                <select class="form-select" name="orderStatus">
+                                    <option value="<?php echo $rep['orderStatus'] ?>" selected disabled><?php echo $rep['orderStatus'] ?></option>
+                                    <option value="Awaiting-Payment">Awaiting-Payment</option>
+                                    <option value="Processing-Order">Processing-Order</option>
+                                    <option value="Awaiting-Shipment">Awaiting-Shipment</option>
+                                    <option value="Awaiting-Pickup">Awaiting-Pickup</option>
+                                    <option value="Completed">Completed</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                    <option value="Manaul-Verification-Required">Manual-Verification-Required</option>
+                                    <option value="Refunded">Refunded</option>
+                                </select>
+                                <!-- ELSE IF USER TYPE = MANAGER -->
+                            <?php } else { ?>
+                                <a href="../crud/rep/approve-repOrder.php?id=<?php echo $rep['repOrderID'] ?>" type="submit" class="btn btn-outline-primary">Approve</a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

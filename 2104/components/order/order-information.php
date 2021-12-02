@@ -2,7 +2,7 @@
     <div class="<?php echo $order['orderStatus']; ?> white-box-container-details-card-status">
         <?php echo $order['orderStatus']; ?>
     </div>
-    
+
     <div class="white-box-container-details-card-body rounded">
         <div class="row d-flex justify-content-between">
             <div class="col">
@@ -23,12 +23,12 @@
             <div class="col-12 col-sm-6 col-md-8">
                 <b>
                     <?php
-                    echo $order['customerFName']. " ". $order['customerLName']. "<br>";
-                    echo $createdBy['userFirstName']. " ". $createdBy['userLastName']. "<br>";
+                    echo $order['customerFName'] . " " . $order['customerLName'] . "<br>";
+                    echo $createdBy['userFirstName'] . " " . $createdBy['userLastName'] . "<br>";
                     if ($approvedByResult) {
-                        echo $approvedBy['userFirstName'] . " ". $approvedBy['userLastName']."<br>";
+                        echo $approvedBy['userFirstName'] . " " . $approvedBy['userLastName'] . "<br>";
                     } else {
-                        echo "To-Approve". "<br>";
+                        echo "To-Approve" . "<br>";
                     }
                     echo $order['shipRequiredDate'];
                     ?>
@@ -36,26 +36,26 @@
             </div>
         </div>
         <hr>
-        <?php while ($row = mysqli_fetch_assoc($result2)){ ?>
-        <div class="row d-flex justify-content-between">
-            <div class="col">
-                <?php echo $row['productID']; ?>#
-                <?php echo $row['tradeName']; ?>
-            </div>
+        <?php while ($row = mysqli_fetch_assoc($result2)) { ?>
+            <div class="row d-flex justify-content-between">
+                <div class="col">
+                    <?php echo $row['productID']; ?>#
+                    <?php echo $row['tradeName']; ?>
+                </div>
 
-            <div class="col-md-auto d-flex justify-content-start">
-                x <?php echo $row['quantity']; ?>
-            </div>
+                <div class="col-md-auto d-flex justify-content-start">
+                    x <?php echo $row['quantity']; ?>
+                </div>
 
-            <div class="col-md-auto d-flex justify-content-end">
-                ₱ <?php echo $row['price']; ?>
-            </div>
+                <div class="col-md-auto d-flex justify-content-end">
+                    ₱ <?php echo $row['price']; ?>
+                </div>
 
-            <div class="col-md-auto d-flex justify-content-end">
-                ₱ <?php echo $row['price'] * $row['quantity']; ?>
+                <div class="col-md-auto d-flex justify-content-end">
+                    ₱ <?php echo $row['price'] * $row['quantity']; ?>
+                </div>
             </div>
-        </div>
-        <?php }?>
+        <?php } ?>
         <hr>
         <div class="row d-flex justify-content-between">
             <div class="col">
