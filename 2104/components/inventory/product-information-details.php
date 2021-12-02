@@ -79,13 +79,12 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modal-title">Product Information</h5>
+                <h5 class="modal-title" id="modal-title">Product Information <?php echo $inventory["productID"];?> </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Jasdasd IIpasdpm amd asdeq Moasdl Howka teas kamsd</p>
-                <label for="modal-email" class="form-label">wa ragud email</label>
-                <input type="email" class="form-control" id="modal-email" placeholder="e.g. waragud@mail.com">
+                <!-- insert body and info to be change -->
+                <?php include('product-info-update.php'); ?>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary">Sumit</button>
