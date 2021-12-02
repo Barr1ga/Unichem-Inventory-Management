@@ -8,14 +8,7 @@
         </div>
         <div class='col d-flex justify-content-end'>
             
-            
-        <!-- <form method='get' action='../sections/supplier-update.php'>
-            <input type='hidden' name='productID' value='".$supplier['supplierID']."'>
-            <button type='submit' class='btn btn-primary'>Update</button>
-        </form> -->
-
-
-        <!-- Button trigger modal -->
+        
             ";
             if($_SESSION['userType']=="Manager"){
                echo" <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(empty($_SESSION['userType'])){
+if (empty($_SESSION['userType'])) {
     header('Location: ../index.php');
 }
 include('../style/import.php');
@@ -11,9 +11,14 @@ include('../style/import.php');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Unichem</title>
 </head>
+
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['bar', 'corechart']
+    });
+</script>
 
 <body>
     <main>
@@ -103,7 +108,7 @@ include('../style/import.php');
                 </div>
             </div>
         </div>
-        
+
         <div class="father-container">
             <h4>Reports</h4>
             <br>
@@ -113,23 +118,78 @@ include('../style/import.php');
                 </form>
             </div>
             <br>
-                    
+
+            <!-- =
+
+            CUSTOMER/SUPPLIER
+
+            number of customers graph (by month) 
+
+            number of supplier graph (by month)
+
+            =
+
+            REPLENISHMENT
+
+                number of Replenishments graph (by month) 
+
+                number of products replenished graph (by month) 
+
+                total cost of replenishments graph (by month)
+
+            =
+
+            ORDER
+
+                number of Orders graph (by month)
+
+                number of products ordered graph (by month) 
+
+                total cost of Orders graph (by month)
+
+            =
+
+            RATIO OF ORDER STATUS
+
+                ratio of order statuses on orders (pie chart) 
+
+                ratio of order statuses on replenishment (pie chart)
+                
+            =
+
+            INVENTORY
+                
+                products in stock graph (bar chart) (DONE) -->
+
+
+
+
+
             <div class="scroll-list-3">
                 <?php
-                include('../components/report/chart.php');
+                include('../components/report/general/order-rep-count.php');
                 ?>
-             
-            
+
+
                 <br>
-            
+
                 <?php
-                    // include('../crud/charts/products.php');
-                    include('../components/report/products.php');
-                ?>  
+                include('../components/report/inventory/products.php');
+                ?>
+                <br>
+
+                <?php
+                include('../components/report/order/ratio.php');
+                ?>
+
+                <br>
+
+                <?php
+                include('../components/report/replenishment/ratio.php');
+                ?>
             </div>
 
 
-            
 
 
 
@@ -142,15 +202,15 @@ include('../style/import.php');
 
 
 
-            
-                  
-                        
-                
-                
+
+
+
+
+
+
         </div>
     </main>
-   
+
 </body>
 
 </html>
-
