@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(empty($_SESSION['userType'])){
+    header('Location: login.php');
+}
 unset($_SESSION['repActive']);
 
 if (empty($_SESSION['orderActive'])) {

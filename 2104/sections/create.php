@@ -3,73 +3,77 @@
     session_start();
     switch($_POST['create']){
         case "customer":
-            // $customerID = $_POST['customerID'];
-            // $customerFName = $_POST['customerFName'];
-            // $customerLName = $_POST['customerLName'];
-            // $dateofBirth = $_POST['dateofBirth'];
-            // $email = $_POST['email'];
-            // $gender = $_POST['gender'];
-            // $contactNo = $_POST['contactNo'];
-            // $street = $_POST['street'];
-            // $barangay = $_POST['barangay'];
-            // $city = $_POST['city'];
-            // $region = $_POST['region'];
-            // $country = $_POST['country'];
-            // $zip = $_POST['zip'];
+            $customerFName = $_POST['customerFName'];
+            $customerLName = $_POST['customerLName'];
+            $dateofBirth = $_POST['dateofBirth'];
+            $email = $_POST['email'];
+            $gender = $_POST['gender'];
+            $contactNo = $_POST['contactNo'];
+            $street = $_POST['street'];
+            $barangay = $_POST['barangay'];
+            $city = $_POST['city'];
+            $region = $_POST['region'];
+            $country = $_POST['country'];
+            $zip = $_POST['zip'];
 
 
-            // $insertCustomer = "SELECT *
-            //                     FROM customer
-            //                     JOIN customer_address
-            //                     ON customer.customerID=customer_address.customerID
-            //                     "
+            $insertCustomer = "SELECT *
+                                FROM customer
+                                JOIN customer_address
+                                ON customer.customerID=customer_address.customerID
+                                ";
 
-            // $insertInformation = "INSERT INTO `customer` (`customerFName`, `customerLName`, `dateofBirth`, `email`, `gender`, `contactNo`)
-            //                             VALUES ('$customerFName', '$customerLName', '$dateofBirth', '$email', '$gender', '$contactNo')";
+            $insertInformation = "INSERT INTO `customer` (`customerFName`, `customerLName`, `dateofBirth`, `email`, `gender`, `contactNo`)
+                                        VALUES ('$customerFName', '$customerLName', '$dateofBirth', '$email', '$gender', '$contactNo')";
     
-        
-            // $insertAddress = "INSERT INTO `customer_address` (`street`, `barangay`, `city`, `region`, `country`, `zip`)
-            //                             VALUES ('$street', '$barangay', '$city', '$region', '$country', '$zip')";
+            
+            if (mysqli_query($conn, $insertInformation)) {
+                $last_id = mysqli_insert_id($conn);
 
+                $insertAddress = "INSERT INTO `customer_address` (`customerID`, `street`, `barangay`, `city`, `region`, `country`, `zip`)
+                                        VALUES ('$last_id', '$street', '$barangay', '$city', '$region', '$country', '$zip')";
 
-            // if (mysqli_query($conn, $insertInformation) && mysqli_query($conn, $insertAddress)) {
-            //     echo "Record updated successfully";
-            //     header("Location: customers.php");
-            // } else {
-            //     echo "Error creating user: " . mysqli_error($conn);
-            // } 
+                mysqli_query($conn, $insertAddress);
+
+                echo "Record updated successfully";
+                header("Location: customers.php");
+            } else {
+                echo "Error creating user: " . mysqli_error($conn);
+            } 
 
             break;
 
         case "supplier":
-            // $customerID = $_POST['customerID'];
-            // $customerFName = $_POST['customerFName'];
-            // $customerLName = $_POST['customerLName'];
-            // $dateofBirth = $_POST['dateofBirth'];
-            // $email = $_POST['email'];
-            // $gender = $_POST['gender'];
-            // $contactNo = $_POST['contactNo'];
-            // $street = $_POST['street'];
-            // $barangay = $_POST['barangay'];
-            // $city = $_POST['city'];
-            // $region = $_POST['region'];
-            // $country = $_POST['country'];
-            // $zip = $_POST['zip'];
+            $companyName = $_POST['companyName'];
+            $contactFName = $_POST['contactFName'];
+            $contactLName = $_POST['contactLName'];
+            $email = $_POST['email'];
+            $contactNo = $_POST['contactNo'];
+            $street = $_POST['street'];
+            $barangay = $_POST['barangay'];
+            $city = $_POST['city'];
+            $region = $_POST['region'];
+            $country = $_POST['country'];
+            $zip = $_POST['zip'];
 
-            // $insertInformation = "INSERT INTO `customer` (`customerFName`, `customerLName`, `dateofBirth`, `email`, `gender`, `contactNo`)
-            //                             VALUES ('$customerFName', '$customerLName', '$dateofBirth', '$email', '$gender', '$contactNo')";
+            $insertInformation = "INSERT INTO `customer` (`customerFName`, `customerLName`, `dateofBirth`, `email`, `gender`, `contactNo`)
+                                        VALUES ('$customerFName', '$customerLName', '$dateofBirth', '$email', '$gender', '$contactNo')";
     
-        
-            // $insertAddress = "INSERT INTO `customer_address` (`street`, `barangay`, `city`, `region`, `country`, `zip`)
-            //                             VALUES ('$street', '$barangay', '$city', '$region', '$country', '$zip')";
+            
 
+            if (mysqli_query($conn, $insertInformation)) {
 
-            // if (mysqli_query($conn, $insertInformation) && mysqli_query($conn, $insertAddress)) {
-            //     echo "Record updated successfully";
-            //     header("Location: customers.php");
-            // } else {
-            //     echo "Error creating user: " . mysqli_error($conn);
-            // } 
+                $last_id = mysqli_insert_id($conn);
+
+                $insertAddress = "INSERT INTO `customer_address` (`supplierID`, `street`, `barangay`, `city`, `region`, `country`, `zip`)
+                                        VALUES ('$last_id', '$street', '$barangay', '$city', '$region', '$country', '$zip')";
+
+                mysqli_query($conn, $insertAddress)
+                echo "Record updated successfully";
+                header("Location: customers.php");
+            } else {
+                echo "Error creating user: " . mysqli_error($conn);
+            } 
 
             break;
 

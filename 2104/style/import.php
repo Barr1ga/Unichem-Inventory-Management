@@ -465,6 +465,10 @@
   .empty-list{
     width: 437.22px;
   }
+
+  .empty-information {
+    width: 429.27px;
+  }
 </style>
 
 

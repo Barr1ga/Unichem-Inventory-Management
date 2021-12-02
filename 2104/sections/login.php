@@ -1,4 +1,12 @@
 <?php
+session_start();
+// echo $_SESSION['userType'];
+if(isset($_SESSION)){
+    // echo "truE";
+    session_destroy();
+}
+session_start();
+// echo $_SESSION['userType'];
 include('../style/import.php');
 
 ?>

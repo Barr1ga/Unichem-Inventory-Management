@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(empty($_SESSION['userType'])){
+    header('Location: login.php');
+}
 include('../style/import.php');
 include('../crud/customer/check-default.php');
 
