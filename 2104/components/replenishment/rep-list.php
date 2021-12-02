@@ -52,7 +52,7 @@
     ";
 
     // Update Modal
-    include("../components/replenishment/update-rep.php")
+    include("../components/replenishment/update-repOrder.php")
 ?>
 
 

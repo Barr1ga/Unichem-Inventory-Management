@@ -26,7 +26,7 @@
                                 </select>
                                 <!-- ELSE IF USER TYPE = MANAGER -->
                             <?php } else { ?>
-                                <a href="../crud/rep/approve-repOrder.php?id=<?php echo $rep['repOrderID'] ?>" type="submit" class="btn btn-outline-primary">Approve</a>
+                                <a href="../crud/replenishment/approve-repOrder.php?id=<?php echo $rep['repOrderID'] ?>" type="submit" class="btn btn-outline-primary">Approve</a>
                             <?php } ?>
                         </div>
                     </div>

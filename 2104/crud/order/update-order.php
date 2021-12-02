@@ -1,18 +1,15 @@
 <?php
     include('../db_connect.php');
 
-    /* Order Information */
-    if (!isset($_POST['orderStatus']))
-        $orderStatus = $_POST['defaultOrderStatus'];
-    else 
-        $orderStatus = $_POST['orderStatus'];
+    $active = "../../sections/orders.php?orderActive=".$_POST['defaultOrderStatus'];
 
+    /* Order Information */
+    $product = $_POST['product'];
+    $quantity = $_POST['quantity'];
     $orderID = $_POST['orderID'];
     $createdBy = 2; // Change this to Session Variable
     $orderDate = $_POST['orderDate'];
     $shippingDate = date('Y-m-d', strtotime($_POST['shippingDate']));
-    $product = $_POST['product'];
-    $quantity = $_POST['quantity'];
 
     /* Customer Information */
     $customerID = $_POST['customerID']; 
@@ -32,19 +29,27 @@
     $country = $_POST['country'];
     $zip = $_POST['zip'];
 
-    if ($orderStatus == "Cancelled") {
-        foreach($product as $index => $name) {
-            $tradeName = $name;
-            $qty = $quantity[$index];
 
-            /* Query to update InStock */
-            $query = "UPDATE product
-                        SET inStock = inStock + '$qty'
-                        WHERE tradeName = '$tradeName' ";
-            if (mysqli_query($conn, $query)) {
-                echo '<br /> Product In Stock is successfully updated';
-            }else {
-                echo '<br /> Product In Stock is not successfully updated ' . mysqli_error($conn);
+    /* Update Order quantity if status is changed to cancelled*/
+    if (!isset($_POST['orderStatus'])) {
+        $orderStatus = $_POST['defaultOrderStatus'];
+    }
+    else {
+        $orderStatus = $_POST['orderStatus'];
+        if ($orderStatus == "Cancelled") {
+            foreach($product as $index => $name) {
+                $tradeName = $name;
+                $qty = $quantity[$index];
+    
+                /* Query to update InStock */
+                $query = "UPDATE product
+                            SET inStock = inStock + '$qty'
+                            WHERE tradeName = '$tradeName' ";
+                if (mysqli_query($conn, $query)) {
+                    echo '<br /> Product In Stock is successfully updated';
+                }else {
+                    echo '<br /> Product In Stock is not successfully updated ' . mysqli_error($conn);
+                }
             }
         }
     }
@@ -83,6 +88,4 @@
         echo '<br /> Customer Address is not successfully updated. ' . mysqli_error($conn);
     }
 
-    header('location: ../../sections/orders.php');
-
-?>
+    header("location: $active");
