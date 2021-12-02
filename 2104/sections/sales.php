@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(empty($_SESSION['userType'])){
+    header('Location: login.php');
+}
 include('../style/import.php');
 ?>
 
@@ -134,7 +138,7 @@ include('../style/import.php');
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <?php
                             
-                    include('../crud/charts/products.php');
+                    // include('../crud/charts/products.php');
                     include('../components/charts/products.php');
                 ?>
             </div>

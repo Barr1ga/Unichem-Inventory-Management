@@ -1,12 +1,15 @@
 <?php
 session_start();
+if(empty($_SESSION['userType'])){
+    header('Location: login.php');
+}
 include('../style/import.php');
 include('../crud/employee/check-default.php');
 
 ?>
 
 <html lang="en">
-z
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

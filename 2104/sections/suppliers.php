@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(empty($_SESSION['userType'])){
+    header('Location: login.php');
+}
+
 include('../style/import.php');
 include('../crud/supplier/check-default.php');
 
@@ -128,7 +132,7 @@ include('../crud/supplier/check-default.php');
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="To-Approve" data-bs-toggle="pill" data-bs-target="#pills-to-approve" type="button" role="tab" aria-controls="pills-to-approve" aria-selected="true">Suppliers</button>
                 </li>
-
+                <?php echo $_SESSION['userType'];?>
                 <?php if($_SESSION['userType']=="Manager"){
                     echo "
                     <li class='nav-item' role='presentation'>

@@ -2,7 +2,6 @@
                     <form method="post" action="../sections/create.php" class="row g-3">
                     <input type="hidden" name="create" value="supplier">
                         <h4>Create Supplier</h4>
-                        <input type="hidden" name="supplierID">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Company Name</label>
                             <input type="text" class="form-control" id="" placeholder="" name="companyName" required>

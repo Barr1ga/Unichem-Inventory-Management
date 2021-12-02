@@ -2,7 +2,6 @@
                     <form method="post" action="../sections/create.php" class="row g-3">
                         <input type="hidden" name="create" value="customer">
                         <h4>Create Customer</h4>
-                        <input type="hidden" name="customerID">
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">First Name</label>
                             <input type="text" class="form-control" id="inputEmail4" name="customerFName" required?>

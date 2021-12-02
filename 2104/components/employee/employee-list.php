@@ -21,7 +21,7 @@
 
                             <div class=''>
                                     <form method='post' action='../sections/delete.php'>
-                                        <input type='hidden' name='delete' value='user'>
+                                        <input type='hidden' name='delete' value='employee'>
                                         <input type='hidden' name='userID' value='".$userID."'>
                                         <button type='submit' class='btn btn-link btn-delete'>Delete</button>
                                     </form>
