@@ -6,7 +6,7 @@
             <hr>
             <b>Product Information</b>
 
-            <?php include "../crud/order/get-products.php" ?>
+            <?php include "../crud/get/get-products.php" ?>
 
             <div class="col-md-4">
                 <label class="form-label">Product</label>
@@ -52,7 +52,7 @@
                     Add Customer
                 </button>
 
-                <?php include "../crud/order/get-customers.php" ?>
+                <?php include "../crud/get/get-customers.php" ?>
                 <div id="flush-collapseOne" class="accordion-collapse collapse mt-4" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="row g-3">
                         <div class="col-md-4">
@@ -161,7 +161,7 @@
 </div>
 
 <script>
-    <?php include "../crud/order/get-products.php" ?>
+    <?php include "../crud/get/get-products.php" ?>
     $(document).ready(function() {
 
         $(document).on('click', '.remove-btn', function() {

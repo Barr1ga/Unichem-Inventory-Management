@@ -5,7 +5,7 @@ unset($_SESSION['repActive']);
 if (empty($_SESSION['orderActive'])) {
     $_SESSION['orderActive'] = '#Awaiting-Approval';
 } else if (isset($_GET['orderActive'])) {
-    $_SESSION['orderActive'] = "#".$_GET['orderActive'];
+    $_SESSION['orderActive'] = "#" . $_GET['orderActive'];
 }
 
 include('../style/import.php');
@@ -95,7 +95,7 @@ include('../crud/order/check-default.php');
                         </svg>
                         Sales
                     </a>
-                </li>  
+                </li>
             </ul>
             <hr>
 
@@ -153,11 +153,11 @@ include('../crud/order/check-default.php');
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="Manual-Verification-Required" data-bs-toggle="pill" data-bs-target="#div8" type="button" role="tab">Manual Verification</button>
+                            <button class="nav-link" id="Refunded" data-bs-toggle="pill" data-bs-target="#div8" type="button" role="tab">Refunded Order</button>
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="Refunded" data-bs-toggle="pill" data-bs-target="#div9" type="button" role="tab">Refunded Order</button>
+                            <button class="nav-link" id="Manual-Verification-Required" data-bs-toggle="pill" data-bs-target="#div9" type="button" role="tab">Manual Verification</button>
                         </li>
 
                         <li class="nav-item create-new-button" role="presentation">
@@ -193,7 +193,7 @@ include('../crud/order/check-default.php');
                             include('../components/order/order-header.php');
                             include('../crud/order/order-list/awaiting-shipment.php');
                             ?>
-                        </div>  
+                        </div>
 
                         <div class="tab-pane fade" id="div5" role="tabpanel" aria-labelledby="pills-to-approve-tab">
                             <?php
@@ -219,23 +219,23 @@ include('../crud/order/check-default.php');
                         <div class="tab-pane fade" id="div8" role="tabpanel" aria-labelledby="pills-complete-tab">
                             <?php
                             include('../components/order/order-header.php');
-                            include('../crud/order/order-list/manual-verification.php');
+                            include('../crud/order/order-list/refunded.php');
                             ?>
-                        </div>  
+                        </div>
 
                         <div class="tab-pane fade" id="div9" role="tabpanel" aria-labelledby="pills-complete-tab">
                             <?php
                             include('../components/order/order-header.php');
-                            include('../crud/order/order-list/refunded.php');
+                            include('../crud/order/order-list/manual-verification.php');
                             ?>
-                        </div> 
+                        </div>
 
                         <div class="tab-pane fade" id="div10" role="tabpanel" aria-labelledby="pills-create-tab">
                             <?php
                             include('../components/order/create-order.php');
                             ?>
                         </div>
-                        
+
                     </div>
 
                 </div>

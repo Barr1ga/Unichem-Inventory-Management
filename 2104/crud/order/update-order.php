@@ -7,9 +7,10 @@
     else 
         $orderStatus = $_POST['orderStatus'];
 
-    $paidStatus = "paid";
-    if ($orderStatus == "Awaiting-Payment" || $orderStatus == "Awaiting-Approval" || $orderStatus = "Manual-Verification-Required") 
-        $paidStatus = "unpaid";
+    // To confirm pa ni
+    // $paidStatus = "paid";
+    // if ($orderStatus == "Awaiting-Payment" || $orderStatus == "Awaiting-Approval") 
+    //     $paidStatus = "unpaid";
 
     $orderID = $_POST['orderID'];
     $createdBy = 2; // Change this to Session Variable
@@ -36,7 +37,7 @@
 
     /* Query to update order information */
     $sql1 = "UPDATE orders 
-                SET orderDate = '$orderDate', shipRequiredDate = '$shippingDate', orderStatus = '$orderStatus', paidStatus = '$paidStatus'
+                SET orderDate = '$orderDate', shipRequiredDate = '$shippingDate', orderStatus = '$orderStatus'
                 WHERE orderID = '$orderID' ";
 
     if (mysqli_query($conn, $sql1)) {

@@ -1,4 +1,4 @@
-<div class="fadediv">    
+<div class="fadediv">
     <div class="<?php echo $rep['orderStatus']; ?> white-box-container-details-card-status">
         <?php echo $rep['orderStatus']; ?>
     </div>
@@ -8,7 +8,7 @@
                 <h5><b># <?php echo $rep['replenishmentLineID'] ?></b></h5>
             </div>
             <div class="col-md-auto">
-            <?php echo $rep['repOrderDate'] ?>
+                <?php echo $rep['repOrderDate'] ?>
             </div>
         </div>
         <hr>
@@ -21,13 +21,13 @@
             </div>
             <div class="col-12 col-sm-6 col-md-8">
                 <b>
-                <?php
-                    echo $rep['companyName']. "<br>";
-                    echo $createdBy['userFirstName']. " ". $createdBy['userLastName']. "<br>";
+                    <?php
+                    echo $rep['companyName'] . "<br>";
+                    echo $createdBy['userFirstName'] . " " . $createdBy['userLastName'] . "<br>";
                     if ($approvedByResult) {
-                        echo $approvedBy['userFirstName'] . " ". $approvedBy['userLastName']."<br>";
+                        echo $approvedBy['userFirstName'] . " " . $approvedBy['userLastName'] . "<br>";
                     } else {
-                        echo "To-Approve". "<br>";
+                        echo "To-Approve" . "<br>";
                     }
                     echo $rep['shipRequiredDate'];
                     ?>
@@ -35,26 +35,34 @@
             </div>
         </div>
         <hr>
-        <div class="row d-flex justify-content-between">
-            <div class="col">
-                <?php echo $rep['productID']; ?>#
-                <?php echo $rep['tradeName']; ?>
-            </div>
+        <?php while ($row = mysqli_fetch_assoc($result2)) { ?>
+            <div class="row d-flex justify-content-between">
+                <div class="col">
+                    <?php echo $row['productID']; ?>#
+                    <?php echo $row['tradeName']; ?>
+                </div>
 
-            <div class="col-md-auto d-flex justify-content-end">
-                x <?php echo $rep['quantity']; ?>
+                <div class="col-md-auto d-flex justify-content-start">
+                    x <?php echo $row['quantity']; ?>
+                </div>
+
+                <div class="col-md-auto d-flex justify-content-end">
+                    ₱ <?php echo $row['priceEach']; ?>
+                </div>
+
+
+                <div class="col-md-auto d-flex justify-content-end">
+                    ₱ <?php echo $row['priceEach'] * $row['quantity']; ?>
+                </div>
             </div>
-            <div class="col-md-auto d-flex justify-content-end">
-                ₱ <?php echo $rep['priceEach']; ?>
-            </div>
-        </div>
+        <?php } ?>
         <hr>
         <div class="row d-flex justify-content-between">
             <div class="col">
                 Total Price
             </div>
             <div class="col-4 d-flex justify-content-end">
-                <b>₱ <?php echo $rep['quantity'] * $rep['priceEach'] ?></b>
+                <b>₱ <?php echo $rep['Total'] ?></b>
             </div>
         </div>
     </div>

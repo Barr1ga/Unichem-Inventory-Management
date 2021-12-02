@@ -8,7 +8,7 @@
             <b>Product Information</b>
             <br><br>
 
-            <?php include "../crud/order/get-products.php" ?>
+            <?php include "../crud/get/get-products.php" ?>
 
             <div class="col-md-3">
                 <label class="form-label">Product</label>
@@ -45,7 +45,7 @@
 
             <b>Supplier Information</b>
 
-            <?php include "../crud/replenishment/get-suppliers.php" ?>
+            <?php include "../crud/get/get-suppliers.php" ?>
             <div class="col-md-4">
                 <label class="form-label">Supplier</label>
                 <select class="form-select form-select-md mb-3" name="supplier" required>
@@ -78,7 +78,7 @@
 </div>
 
 <script>
-    <?php include "../crud/order/get-products.php" ?>
+    <?php include "../crud/get/get-products.php" ?>
     $(document).ready(function() {
 
         $(document).on('click', '.remove-btn', function() {

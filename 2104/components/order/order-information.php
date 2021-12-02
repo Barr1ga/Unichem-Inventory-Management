@@ -36,7 +36,7 @@
             </div>
         </div>
         <hr>
-        <?php while ($row = mysqli_fetch_assoc($orders)){ ?>
+        <?php while ($row = mysqli_fetch_assoc($result2)){ ?>
         <div class="row d-flex justify-content-between">
             <div class="col">
                 <?php echo $row['productID']; ?>#
@@ -51,11 +51,8 @@
                 ₱ <?php echo $row['price']; ?>
             </div>
 
-
             <div class="col-md-auto d-flex justify-content-end">
-                ₱ <?php echo $row['price'] * $row['quantity']; 
-                        $total += $row['price'] * $row['quantity'];
-                ?>
+                ₱ <?php echo $row['price'] * $row['quantity']; ?>
             </div>
         </div>
         <?php }?>
@@ -65,7 +62,7 @@
                 Total Price
             </div>
             <div class="col-4 d-flex justify-content-end">
-                <b>₱ <?php echo $total ?></b>
+                <b>₱ <?php echo $order['Total'] ?></b>
             </div>
         </div>
     </div>

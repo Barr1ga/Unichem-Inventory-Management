@@ -235,7 +235,7 @@
   }
 
   .scroll-list {
-    height: 700.43px;
+    height: 650.43px;
     overflow-x: hidden;
     overflow-y: scroll;
     padding: 0 20px 0 0;

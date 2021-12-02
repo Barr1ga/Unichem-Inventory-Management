@@ -1,14 +1,8 @@
-<?php
-
-// if ($order['orderStatus'] == "Awaiting-Approval" && $_SESSION['usertype'] != 'Manager') {
-//     $class = "invisible";
-// } 
-
-?>
 <form method="post" action="../crud/order/update-order.php">
     <div class="modal fade" id="<?php echo $modal ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
+
                 <div class="modal-header">
                     <div class="d-flex flex-row">
                         <div class="p-2">
@@ -17,28 +11,33 @@
                     </div>
                     <div class="d-flex flex-row-reverse">
                         <div class="p-2">
-                            <select class="form-select" name="orderStatus">
+                            <input type="hidden" name="defaultOrderStatus" value="<?php echo $order['orderStatus'] ?>">
+                            <?php if($order['orderStatus'] != "Awaiting-Approval") {?>
+                            <select class="form-select <?php echo $hide1 ?>" name="orderStatus">
                                 <option value="<?php echo $order['orderStatus'] ?>" selected disabled><?php echo $order['orderStatus'] ?></option>
-                                <option value="Awaiting-Approval">Awaiting-Approval</option>
-                                <option value="Awaiting-Payment">Awaiting-Payment</option>
-                                <option value="Processing-Order">Processing-Order</option>
-                                <option value="Awaiting-Shipment">Awaiting-Shipment</option>
-                                <option value="Awaiting-Pickup">Awaiting-Pickup</option>
+                                <option value="Awaiting-Payment">Awaiting Payment</option>
+                                <option value="Processing-Order">Processing Order</option>
+                                <option value="Awaiting-Shipment">Awaiting Shipment</option>
+                                <option value="Awaiting-Pickup">Awaiting Pickup</option>
                                 <option value="Completed">Completed</option>
                                 <option value="Cancelled">Cancelled</option>
-                                <option value="Manaul-Verification-Required">Manual-Verification-Required</option>
+                                <option value="Manual-Verification-Required">Manual Verification Required</option>
                                 <option value="Refunded">Refunded</option>
                             </select>
-                            <input type="hidden" name="defaultOrderStatus" value="<?php echo $order['orderStatus'] ?>">
+                            <!-- ELSE IF USER TYPE = MANAGER -->
+                            <?php } else { ?>
+                            <a href="../crud/order/approve-order.php?id=<?php echo $order['orderID'] ?>" type="submit" class="btn btn-outline-primary">Approve</a>
+                            <?php }?>
                         </div>
                     </div>
                 </div>
+
                 <div class="modal-body">
 
                     <div class="row g-3">
                         <b>Product Information</b>
                         <?php
-                        include("../crud/order/get-orders.php")
+                        include("../crud/get/get-orders.php")
                         ?>
 
                         <div class="col-md-6">
@@ -129,6 +128,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
+                
             </div>
         </div>
     </div>

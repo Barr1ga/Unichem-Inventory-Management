@@ -24,7 +24,7 @@
             </div>
                 
             <div class='list-cell'>
-            ". "₱ " . $rep['price'] * $rep['quantity'] ."
+            ". "₱ " . $rep['Total'] ."
             </div>
 
             <div>
@@ -52,7 +52,7 @@
     ";
 
     // Update Modal
-    include("../components/replenishment/rep-update.php")
+    include("../components/replenishment/update-rep.php")
 ?>
 
 

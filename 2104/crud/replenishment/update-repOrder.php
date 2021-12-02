@@ -1,19 +1,23 @@
 <?php
     include('../db_connect.php');
 
-    /* Product Information */
+    /* Replenishment Information */
+    if (!isset($_POST['orderStatus']))
+        $orderStatus = $_POST['defaultOrderStatus'];
+    else 
+        $orderStatus = $_POST['orderStatus'];
+
+    $paidStatus = "paid";
+    if ($orderStatus == "Awaiting-Payment" || $orderStatus == "Awaiting-Approval") 
+        $paidStatus = "unpaid";
+
     $orderDate = $_POST['orderDate'];
     $shippingDate = $_POST['shippingDate'];
     $repOrderID = $_POST['repOrderID'];
 
-    /* For Testing */
-    print($orderDate."<br>");
-    print($shippingDate."<br>");
-    print($repOrderID."<br>");
-
      /* Query to update repOrder information */
      $sql = "UPDATE replenishment
-                SET repOrderDate = '$orderDate', shipRequiredDate = '$shippingDate'
+                SET repOrderDate = '$orderDate', shipRequiredDate = '$shippingDate', orderStatus = '$orderStatus', paidStatus = '$paidStatus'
                 WHERE repOrderID = '$repOrderID' ";
 
     if (mysqli_query($conn, $sql)) {

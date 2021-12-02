@@ -1,7 +1,7 @@
 <?php 
     include('../crud/db_connect.php');
     
-    $getRepList = "SELECT *, SUM(rl.quantity * p.price) as 'Total' 
+    $getRepList = "SELECT *, SUM(rl.quantity * rl.priceEach) as 'Total' 
                     FROM
                     replenishment r
                     JOIN supplier s ON
@@ -13,7 +13,7 @@
                     JOIN product p ON
                         rl.productID = p.productID
                     WHERE
-                        r.orderStatus = 'To-Confirm'
+                        r.orderStatus = 'Awaiting-Approval'
                     GROUP BY r.repOrderID";
 
     $result = mysqli_query($conn, $getRepList);
@@ -31,20 +31,7 @@
         </div>
     ";
     }else{
-        echo "<div class ='empty-message'>There are no To-Confirm Replenishments.</div>";
+        echo "<div class ='empty-message'>There are no To-Approve Replenishments.</div>";
     }
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
