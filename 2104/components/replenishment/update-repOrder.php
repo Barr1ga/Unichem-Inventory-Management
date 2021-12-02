@@ -25,7 +25,7 @@
                                     <option value="Refunded">Refunded</option>
                                 </select>
                                 <!-- ELSE IF USER TYPE = MANAGER -->
-                            <?php } else { ?>
+                            <?php } else if ($_SESSION['userType'] == "Manager") { ?>
                                 <a href="../crud/replenishment/approve-repOrder.php?id=<?php echo $rep['repOrderID'] ?>" type="submit" class="btn btn-outline-primary">Approve</a>
                             <?php } ?>
                         </div>
