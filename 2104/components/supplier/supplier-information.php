@@ -8,12 +8,23 @@
         </div>
         <div class='col d-flex justify-content-end'>
             
-           
+            
+        <!-- <form method='get' action='../sections/supplier-update.php'>
+            <input type='hidden' name='productID' value='".$supplier['supplierID']."'>
+            <button type='submit' class='btn btn-primary'>Update</button>
+        </form> -->
 
-            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'>
-            Update
-            </button>
 
+        <!-- Button trigger modal -->
+            ";
+            if($_SESSION['userType']=="Manager"){
+               echo" <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'>
+                Update
+                </button>";
+            }
+            
+        echo"
+            <!-- Modal -->
             <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
                 <div class='modal-dialog'>
                     <div class='modal-content'>
@@ -57,7 +68,7 @@
             <div class='col-8'>
                 <b>
                     
-                    ".$supplier['contactFName'].$supplier['contactLName']."<br>
+                    ".$supplier['contactFName']." ".$supplier['contactLName']."<br>
                     ".$supplier['contactNo']."<br>
                     ".$supplier['email']."
                     

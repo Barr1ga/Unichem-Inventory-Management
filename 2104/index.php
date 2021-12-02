@@ -31,12 +31,15 @@ marge123
 
     <div class="form-signin border shadow bg-white rounded-lg">
         <form method="post" action="crud/login.php">
-            <h1 class="h4 mb-4 fw-normal text-center">UniChem</h1>
+            <div class="row justify-content-md-center">
+                <img class="unichem-logo-login" src="assets/images/Unichem-Logo-Text.svg">
+            </div>
+            &nbsp
             <input type="hidden" name="user" value="login">
 
             <div class="form-floating">
                 <input type="text" class="form-control" name="email" placeholder="Email Address" required>
-                <label>Username</label>
+                <label>Email</label>
             </div>
 
             <div class="form-floating">
