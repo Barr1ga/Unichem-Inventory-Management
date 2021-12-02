@@ -461,6 +461,10 @@
   .custom-nav-pills {
     width: 1000px;
   }
+
+  .empty-list{
+    width: 437.22px;
+  }
 </style>
 
 
