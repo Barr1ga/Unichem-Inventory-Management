@@ -60,8 +60,8 @@
             <div class='col-8'>
                 <b>
                     
-                    ".$supplier['contactFName'].$supplier['contactLName']."'<br>'.
-                    ".$supplier['contactNo']."'<br>'.
+                    ".$supplier['contactFName'].$supplier['contactLName']."<br>
+                    ".$supplier['contactNo']."<br>
                     ".$supplier['email']."
                     
                 </b>
@@ -82,12 +82,12 @@
             <div class='col-8'>
                 <b>
                     
-                    ".$supplier['addressID']."'<br>'.
-                    ".$supplier['street']."'<br>'.
-                    ".$supplier['barangay']."'<br>'.
-                    ".$supplier['city']."'<br>'.
-                    ".$supplier['region']."'<br>'.
-                    ".$supplier['zip']."'<br>'.
+                    ".$supplier['addressID']."<br>
+                    ".$supplier['street']."<br>
+                    ".$supplier['barangay']."<br>
+                    ".$supplier['city']."<br>
+                    ".$supplier['region']."<br>
+                    ".$supplier['zip']."<br>
                     ".$supplier['country']."
                     
                     

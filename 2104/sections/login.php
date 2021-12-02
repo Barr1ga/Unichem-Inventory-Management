@@ -3,6 +3,16 @@ include('../style/import.php');
 
 ?>
 
+<!-- USER ACCOUNT 
+van@gmail.com
+van123
+-->
+
+<!-- MANAGER ACCOUNT
+marge@gmail.com
+marge123
+-->
+
 <html lang="en">
 
 <head>
