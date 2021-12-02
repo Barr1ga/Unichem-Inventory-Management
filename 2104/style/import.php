@@ -14,6 +14,8 @@
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    overflow-y: hidden;
   }
 
   body:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
