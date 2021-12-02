@@ -80,7 +80,7 @@ include('../crud/db_connect.php');
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#sales" />
                     </svg>
-                    Sales
+                    Reports
                 </a>
             </li>
         </ul>
@@ -110,19 +110,19 @@ include('../crud/db_connect.php');
         <br>
         <div class="d-flex">
             <div class="layout-column">
-                <?php include('../components/reports/rep-list-recent.php'); ?>
+                <?php include('../components/notifications/rep-list-recent.php'); ?>
             </div>
         </div>
         <br />
         <div class="d-flex">
             <div class="layout-column">
-                <?php include('../components/reports/order-list-recent.php'); ?>
+                <?php include('../components/notifications/order-list-recent.php'); ?>
             </div>
         </div>
         <br />
         <div class="d-flex">
             <div class="layout-column">
-                <?php include('../components/reports/low-stock.php'); ?>
+                <?php include('../components/notifications/low-stock.php'); ?>
             </div>
         </div>
 
