@@ -4,27 +4,27 @@
     $getSupplierList = "SELECT * FROM supplier";
 
     $result = mysqli_query($conn, $getSupplierList);
-    
-    if (mysqli_num_rows($result) > 0) {
-        echo "
+    echo "
             <div class=''>
             Supplier List<br><br>
             <div class='scroll-list'>
             ";
+    if (mysqli_num_rows($result) > 0) {
+        
         while ($Supplier = mysqli_fetch_assoc($result)) {
             
                 include('../components/supplier/supplier-list.php');
             
             
         }  
-        echo "
-            </div>
-            </div>
-        ";
+        
     }else{
-        echo "There are no suppliers in the database";
+        echo "<div class ='empty-list empty-message'>There are no Suppliers.</div>";
     }
-
+    echo "
+    </div>
+    </div>
+";
 
     
 ?>
