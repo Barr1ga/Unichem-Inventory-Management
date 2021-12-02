@@ -114,5 +114,5 @@
             }
         }
     }
-    // header('location: ../../sections/orders.php');
+    header('location: ../../sections/orders.php');
 ?>  
