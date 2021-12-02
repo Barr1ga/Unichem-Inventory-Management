@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(empty($_SESSION['userType'])){
-    header('Location: login.php');
+    header('Location: ../index.php');
 }
 include('../style/import.php');
 include('../crud/db_connect.php');
@@ -90,7 +90,7 @@ include('../crud/db_connect.php');
         <div class="container">
             <div class="row align-items-end">
                 <div class="col d-flex justify-content-center">
-                    <a href="login.php" class="d-flex align-items-center link-dark text-decoration-none">
+                    <a href="../index.php" class="d-flex align-items-center link-dark text-decoration-none">
                         <strong>Logout</strong>
                     </a>
                 </div>
