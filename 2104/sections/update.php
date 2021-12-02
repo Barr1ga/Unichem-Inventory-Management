@@ -110,6 +110,48 @@
             } else {
                 echo "Error updating record: " . mysqli_error($conn);
             } 
+
+            break;
+
+            case "inventory":
+                $productID = $_POST['productID'];
+                $tradeName = $_POST['tradeName'];
+                $description = $_POST['description'];
+                $brandName = $_POST['brandName'];
+                $dateContained = $_POST['dateContained'];
+                $price = $_POST['price'];
+                $applicationType = $_POST['applicationType'];
+                $cureTime = $_POST['cureTime'];
+                $color = $_POST['color'];
+                $form = $_POST['form'];
+                $packageType = $_POST['packageType'];
+                $packageSize = $_POST['packageSize'];
+                $maxOperatingTemp = $_POST['maxOperatingTemp'];
+                $minOperatingTemp = $_POST['minOperatingTemp'];
+                $viscosity = $_POST['viscosity'];
+                $chemicalComposition = $_POST['chemicalComposition'];
+                $operatingTempRange = $_POST['operatingTempRange'];
+                $productImage = $_POST['productImage'];
+                $inStock = $_POST['inStock'];
+            
+    
+                $updateEmployee = "UPDATE `product`
+                                            SET `tradeName`='$tradeName', 
+                                            `productID`='$productID',
+                                            `description`='$description',
+                                            `userType`='$userType',
+                                            `userName`='$userName',
+                                            `password`='$password'
+                                            WHERE product='$productID'";
+         
+                if (mysqli_query($conn, $updateEmployee)) {
+                    echo "Record updated successfully";
+                    header("Location: inventory.php");
+                } else {
+                    echo "Error updating record: " . mysqli_error($conn);
+                } 
+    
+                break;
     }
     
 
