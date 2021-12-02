@@ -36,7 +36,7 @@ marge123
 
             <div class="form-floating">
                 <input type="text" class="form-control" name="email" placeholder="Email Address" required>
-                <label>Username</label>
+                <label>Email</label>
             </div>
 
             <div class="form-floating">
