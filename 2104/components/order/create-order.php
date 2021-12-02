@@ -184,6 +184,7 @@
                         </div>\
                         <div class="col-md-4">\
                             <div class="form-group mb-2">\
+                                <br>\
                                 <button type="button" class="remove-btn btn btn-danger btn-sm">Remove</button>\
                             </div>\
                         </div>\

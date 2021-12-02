@@ -1,8 +1,9 @@
 <?php
    include('../db_connect.php');
+   session_start();
 
     /* Rep Information */
-    $createdBy = $_SESSION['userType']; 
+    $createdBy = $_SESSION['userID']; 
     $supplier = $_POST['supplier'];
     $orderDate = date('Y-m-d');
     $shippingdate = date('Y-m-d', strtotime($_POST['shippingDate']));

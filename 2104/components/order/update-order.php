@@ -2,7 +2,6 @@
     <div class="modal fade" id="<?php echo $modal ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-
                 <div class="modal-header">
                     <div class="d-flex flex-row">
                         <div class="p-2">
@@ -10,7 +9,6 @@
                         </div>
                     </div>
                     <div class="d-flex flex-row-reverse">
-                        <input type="hidden" name="defaultOrderStatus" value="<?php echo $order['orderStatus'] ?>">
                         <?php if ($order['orderStatus'] != "Awaiting-Approval") { ?>
                             <div class="p-2">
                                 <select class="form-select <?php echo $hide1 ?>" name="orderStatus">
@@ -28,16 +26,22 @@
                             <!-- ELSE IF USER TYPE = MANAGER -->
                         <?php } else if ($_SESSION['userType'] == "Manager") { ?>
                             <div class="p-2">
-                                <a href="../crud/order/approve-order.php?id=<?php echo $order['orderID'] ?>" type="submit" class="btn btn-outline-primary">Approve</a>
-                            </div>
-                            <div class="p-2">
-                                <a href="../crud/order/cancel-order.php?id=<?php echo $order['orderID'] ?>" type="submit" class="btn btn-outline-danger">Cancel</a>
+                                <select class="form-select <?php echo $hide1 ?>" name="orderStatus">
+                                    <option value="<?php echo $order['orderStatus'] ?>" selected disabled><?php echo $order['orderStatus'] ?></option>
+                                    <option value="Awaiting-Payment">Awaiting Payment</option>
+                                    <option value="Processing-Order">Processing Order</option>
+                                    <option value="Awaiting-Shipment">Awaiting Shipment</option>
+                                    <option value="Awaiting-Pickup">Awaiting Pickup</option>
+                                    <option value="Completed">Completed</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                    <option value="Manual-Verification-Required">Manual Verification Required</option>
+                                    <option value="Refunded">Refunded</option>
+                                </select>
                             </div>
                         <?php } ?>
-
                     </div>
                 </div>
-
+                <input type="hidden" name="defaultOrderStatus" value="<?php echo $order['orderStatus'] ?>">
                 <div class="modal-body">
 
                     <div class="row g-3">

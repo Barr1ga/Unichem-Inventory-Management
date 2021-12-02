@@ -2,7 +2,6 @@
     <div class="modal fade" id="<?php echo $modal ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-
                 <div class="modal-header">
                     <div class="d-flex flex-row">
                         <div class="p-2">
@@ -12,7 +11,6 @@
                     <div class="d-flex flex-row-reverse">
                         <?php if ($rep['orderStatus'] != "Awaiting-Approval") { ?>
                             <div class="p-2">
-                                <input type="hidden" name="defaultOrderStatus" value="<?php echo $rep['orderStatus'] ?>">
                                 <select class="form-select" name="orderStatus">
                                     <option value="<?php echo $rep['orderStatus'] ?>" selected disabled><?php echo $rep['orderStatus'] ?></option>
                                     <option value="Awaiting-Payment">Awaiting-Payment</option>
@@ -28,15 +26,22 @@
                             <!-- ELSE IF USER TYPE = MANAGER -->
                         <?php } else if ($_SESSION['userType'] == "Manager") { ?>
                             <div class="p-2">
-                                <a href="../crud/replenishment/approve-repOrder.php?id=<?php echo $rep['repOrderID'] ?>" type="submit" class="btn btn-outline-primary">Approve</a>
-                            </div>
-                            <div class="p-2">
-                                <a href="../crud/replenishment/cancel-repOrder.php?id=<?php echo $rep['repOrderID'] ?>" type="submit" class="btn btn-outline-danger">Cancel</a>
+                                <select class="form-select" name="orderStatus">
+                                    <option value="<?php echo $rep['orderStatus'] ?>" selected disabled><?php echo $rep['orderStatus'] ?></option>
+                                    <option value="Awaiting-Payment">Awaiting-Payment</option>
+                                    <option value="Processing-Order">Processing-Order</option>
+                                    <option value="Awaiting-Shipment">Awaiting-Shipment</option>
+                                    <option value="Awaiting-Pickup">Awaiting-Pickup</option>
+                                    <option value="Completed">Completed</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                    <option value="Manaul-Verification-Required">Manual-Verification-Required</option>
+                                    <option value="Refunded">Refunded</option>
+                                </select>
                             </div>
                         <?php } ?>
                     </div>
                 </div>
-
+                <input type="hidden" name="defaultOrderStatus" value="<?php echo $rep['orderStatus'] ?>">
                 <div class="modal-body">
 
                     <div class="row g-3">

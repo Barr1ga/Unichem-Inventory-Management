@@ -1,8 +1,9 @@
 <?php
     include('../db_connect.php');
+    session_start();
 
     /* Order Information */
-    $createdBy = $_SESSION['userType'];
+    $createdBy = $_SESSION['userID'];
     $orderDate = date('Y-m-d');
     $shippingDate = date('Y-m-d', strtotime($_POST['shippingDate']));
 
@@ -113,5 +114,5 @@
             }
         }
     }
-    header('location: ../../sections/orders.php');
+    // header('location: ../../sections/orders.php');
 ?>  
