@@ -98,6 +98,7 @@
   }
 
   .white-box-container-none {
+    background-color: white;
     padding: 20px;
   }
 
@@ -449,15 +450,7 @@
     width: 429.27px;
   }
 
-<<<<<<< Updated upstream
-  .btn-logout {
-    width: 20rem;
-  }
-
-  .graph-long {
-=======
   .long-chart {
->>>>>>> Stashed changes
     width: 1495px;
     height: 500px;
   }
