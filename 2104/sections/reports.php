@@ -212,29 +212,29 @@ include('../style/import.php');
 
             <div class="scroll-list-3">
                 <?php
-                include('../components/report/general/order-cost.php');
+                include('../components/report/order/order-cost.php');
                 ?>
                 <br>
                  <?php
-                include('../components/report/general/ordered-prod-count.php');
+                include('../components/report/order/order-rep-count.php');
                 ?>
                 <br>
                 <?php
-                include('../components/report/general/order-count.php');
+                include('../components/report/order/order-count.php');
                 ?>
                
                 <br>
 
                 <?php
-                include('../components/report/general/rep-cost.php');
+                include('../components/report/replenishment/rep-cost.php');
                 ?>
                 <br>
                 <?php
-                include('../components/report/general/rep-prod-count.php');
+                include('../components/report/replenishment/rep-prod-count.php');
                 ?>
                 <br>
                 <?php
-                include('../components/report/general/rep-count.php');
+                include('../components/report/replenishment/rep-count.php');
                 ?>
                 <br>
 

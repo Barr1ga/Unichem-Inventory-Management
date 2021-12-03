@@ -1,6 +1,7 @@
 <?php
-  include("../crud/report/general/order-count.php");
+  include("../crud/report/replenishment/rep-cost.php");
 ?>
+
 
 
 <html>
@@ -12,20 +13,21 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Date', 'Orders'],
+          ['Date', 'Replenishment'],
           <?php
             while($row = mysqli_fetch_array($result)){
-                echo "['".$row['month']. '-' .$row['year']."', ".$row['orderCount']."], ";
+                echo "['".$row['month']. '-' .$row['year']."', ".$row['totalPrice']."], ";
             }
           
           ?>
         ]);
 
         var options = {
-          title: ' Count of Orders (Month-Year)',
+          title: 'total cost of replenishments graph (by month)',
           legend: {
             position: 'right'
           },
+          curveType: 'function',
           curveType: 'function',
           enableInteractivity: true,
           fontSize: 13,
@@ -37,13 +39,13 @@
           }
         };
 
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart_three'));
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart_gwapo'));
 
         chart.draw(data, options);
       }
     </script>
   </head>
   <body>
-    <div id="curve_chart_three" class="white-box-container round-edge long-chart"></div>
+    <div id="curve_chart_gwapo" class="white-box-container round-edge long-chart"></div>
   </body>
 </html>
