@@ -136,6 +136,9 @@
                     <input type='hidden' name='addressID' value=" <?php echo $order['addressID'] ?>">
 
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <?php if ($order['orderStatus'] == "Cancelled" || $order['orderStatus'] == "Completed" || $order['orderStatus'] == "Refunded") { ?>
+                        <a href="../crud/delete.php?id=<?php echo $order['orderID']?>&delete=order&status=<?php echo $order['orderStatus']?>" type="submit" class="btn btn-danger">Delete</a>
+                    <?php } ?>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
 

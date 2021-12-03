@@ -95,6 +95,9 @@
                     <input type='hidden' name='repOrderID' value=" <?php echo $rep['repOrderID'] ?>">
 
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <?php if ($rep['orderStatus'] == "Cancelled" || $rep['orderStatus'] == "Completed" || $rep['orderStatus'] == "Refunded") { ?>
+                        <a href="../crud/delete.php?id=<?php echo $rep['repOrderID']?>&delete=replenishment&status=<?php echo $rep['orderStatus']?>" type="submit" class="btn btn-danger">Delete</a>
+                    <?php } ?>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
 

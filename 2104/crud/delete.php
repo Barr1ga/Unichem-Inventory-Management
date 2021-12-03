@@ -1,18 +1,27 @@
 <?php 
     include('db_connect.php');
+    session_start();
 
-    switch($_POST['delete']){
+    switch($_GET['delete']){
          case "order":
-            $orderID = $_POST['orderID'];
+            $orderID = $_GET['id'];
+            $active = "../sections/orders.php/orderActive=" .$_GET['status'];
             $deleteOrder = "DELETE FROM orders WHERE orderID=$orderID";
-            mysqli_query($conn, $deleteOrder);
-            header("Location: ../sections/orders.php");      
+            if (mysqli_query($conn, $deleteOrder)) 
+                $_SESSION['msg'] = "Order is Deleted Successfully";
+            else 
+                $_SESSION['msg'] = "Order is not Deleted Successfully";
+            header("Location: $active");      
             break;      
         case "replenishment":
-            $repID = $_POST['repID'];
+            $repID = $_GET['id'];
+            $active = "../sections/replenishments.php/repActive=" .$_GET['status'];
             $deleteRep = "DELETE FROM replenishment WHERE repOrderID=$repID";
-            mysqli_query($conn, $deleteRep);
-            header("Location: ../sections/replenishments.php");      
+            if (mysqli_query($conn, $deleteRep)) 
+                $_SESSION['msg'] = "Order is Deleted Successfully";
+            else 
+                $_SESSION['msg'] = "Order is not Deleted Successfully";
+            header("Location: $active");      
             break;    
     }    
 ?>
