@@ -14,7 +14,7 @@ if(isset($userID)){
                 </button>
 
                 <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                    <div class='modal-dialog'>
+                    <div class='modal-dialog modal-lg'>
                         <div class='modal-content'>
                             <div class='modal-header'>
                                 <h4>Update Employee ".$user['userID']."</h4>
@@ -71,6 +71,6 @@ if(isset($userID)){
         </div>
     ";
     }else{
-        echo "<div class ='empty-information empty-message'>There are no employees.</div>";
+        echo "<div class ='empty-information empty-message'></div>";
     }
 ?>

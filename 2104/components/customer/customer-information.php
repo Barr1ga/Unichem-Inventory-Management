@@ -1,4 +1,5 @@
-<?php if(isset($customerID)){
+<?php 
+if(isset($customerID)){
 echo "
 <div class='container white-box-container customer-supplier-information round-edge'>
     <div class='row'>
@@ -13,7 +14,7 @@ echo "
 
             
             <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                <div class='modal-dialog'>
+                <div class='modal-dialog modal-lg'>
                     <div class='modal-content'>
                         <div class='modal-header'>
                             <h4>Update Customer ".$customer['customerID']."</h4>
@@ -88,7 +89,7 @@ echo "
 </div>
 ";
 }else{
-    echo "<div class ='empty-information empty-message'>There are no Customers.</div>";
+    echo "<div class ='empty-information empty-message'></div>";
 }
 
 ?>

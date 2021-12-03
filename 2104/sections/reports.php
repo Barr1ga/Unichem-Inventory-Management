@@ -79,16 +79,17 @@ include('../style/import.php');
                         Replenishments
                     </a>
                 </li>
+                <?php if($_SESSION['userType']=="Manager"){
+                    echo "
                 <li>
-                    <a href="employees.php" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#employee" />
+                    <a href='employees.php' class='nav-link link-dark'>
+                        <svg class='bi me-2' width='16' height='16'>
+                            <use xlink:href='#employee' />
                         </svg>
                         Employees
                     </a>
                 </li>
-                <?php if($_SESSION['userType']=="Manager"){
-                    echo "
+                
                     <li>
                         <a href='reports.php' class='nav-link active link-dark'>
                             <svg class='bi me-2' width='16' height='16'>

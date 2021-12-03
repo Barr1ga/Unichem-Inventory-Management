@@ -131,9 +131,11 @@
                 $viscosity = $_POST['viscosity'];
                 $chemicalComposition = $_POST['chemicalComposition'];
                 $operatingTempRange = $_POST['operatingTempRange'];
-                $productImage = $_POST['productImage'];
                 $inStock = $_POST['inStock'];
-            
+
+                $filename = $_FILES["productImage"]["name"];
+                $tempname = $_FILES["productImage"]["tmp_name"];
+                $folder = "../assets/images/".$filename;
     
                 $updateProductInfo = "UPDATE `product`
                                             SET
@@ -153,11 +155,16 @@
                                             `viscosity`='$viscosity',
                                             `chemicalComposition`='$chemicalComposition',
                                             `operatingTempRange`='$operatingTempRange',
-                                            `productImage`='$productImage',
+                                            `productImage`='$filename',
                                             `inStock`='$inStock'
                                             WHERE productID='$productID'";
          
                 if (mysqli_query($conn, $updateProductInfo)) {
+                    if (move_uploaded_file($tempname, $folder)) {
+                        $msg = "Image uploaded successfully";
+                    } else {
+                        $msg = "Failed to upload image";
+                    }
                     echo "Record updated successfully";
                     header("Location: inventory.php");
                 } else {

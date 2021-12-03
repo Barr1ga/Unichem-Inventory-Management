@@ -4,7 +4,7 @@ include('../crud/db_connect.php');
 
 if(!isset($_GET['userID'])){
 
-    $getEmployeeList = "SELECT * FROM inventory_users LIMIT 1";
+    $getEmployeeList = "SELECT * FROM inventory_users WHERE userType='User' LIMIT 1";
 
     $result = mysqli_query($conn, $getEmployeeList);
        

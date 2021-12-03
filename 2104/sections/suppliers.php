@@ -77,16 +77,17 @@ include('../crud/supplier/check-default.php');
                     Replenishments
                 </a>
             </li>
-            <li>
-                <a href="employees.php" class="nav-link link-dark">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#employee  " />
-                    </svg>
-                    Employees
-                </a>
-            </li>
             <?php if($_SESSION['userType']=="Manager"){
                 echo "
+                <li>
+                    <a href='employees.php' class='nav-link link-dark'>
+                        <svg class='bi me-2' width='16' height='16'>
+                            <use xlink:href='#employee  ' />
+                        </svg>
+                        Employees
+                    </a>
+                </li>
+                
                 <li>
                     <a href='reports.php' class='nav-link link-dark'>
                         <svg class='bi me-2' width='16' height='16'>
@@ -139,7 +140,7 @@ include('../crud/supplier/check-default.php');
             <?php if ($_SESSION['userType'] == "Manager") {
                 echo "
                     <li class='nav-item' role='presentation'>
-                        <button class='nav-link' id='To-Confirm' data-bs-toggle='pill' data-bs-target='#pills-to-confirm' type='button' role='tab' aria-controls='pills-to-confirm' aria-selected='false'>Create Supplier</button>
+                        <button class='nav-link' id='To-Confirm' data-bs-toggle='pill' data-bs-target='#pills-to-confirm' type='button' role='tab' aria-controls='pills-to-confirm' aria-selected='false'>Create</button>
                     </li>";
             }
             ?>
@@ -163,10 +164,9 @@ include('../crud/supplier/check-default.php');
 
                     <div class="layout-column">
                         Supplier Orders<br><br>
-                        <div class="scroll-list-2">
+                        
                             <?php include('../crud/supplier/supplier-replenishment.php'); ?>
 
-                        </div>
                     </div>
                 </div>
             </div>

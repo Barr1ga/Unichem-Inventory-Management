@@ -67,16 +67,17 @@ include('../crud/db_connect.php');
                     Replenishments
                 </a>
             </li>
-            <li>
-                <a href="employees.php" class="nav-link link-dark">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#employee  " />
-                    </svg>
-                    Employees
-                </a>
-            </li>
             <?php if($_SESSION['userType']=="Manager"){
                 echo "
+                <li>
+                    <a href='employees.php' class='nav-link link-dark'>
+                        <svg class='bi me-2' width='16' height='16'>
+                            <use xlink:href='#employee  ' />
+                        </svg>
+                        Employees
+                    </a>
+                </li>
+                
                 <li>
                     <a href='reports.php' class='nav-link link-dark'>
                         <svg class='bi me-2' width='16' height='16'>

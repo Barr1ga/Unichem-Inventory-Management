@@ -6,8 +6,8 @@
 
         </div>
         <div class="col align-self-center">
-            <h4><b><?php echo $inventory["productID"]; ?></b></h3>
-                <div class="Trade-Name"><?php echo $inventory["tradeName"]; ?></div>
+            <h4><b>
+                <div class="Trade-Name"><?php echo $inventory["tradeName"]; ?></div></b></h3>
         </div>
 
         <div class="col-md-auto">
@@ -88,14 +88,14 @@
     </div>
 </div>
 
-<div class="modal fade" id="inventory-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+<div class="modal fade " id="inventory-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content ">
             <div class="modal-header">
                 <h5 class="modal-title" id="modal-title">Product Information <?php echo $inventory["productID"]; ?> </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body ">
                 <!-- insert body and info to be change -->
                 <?php include('product-info-update.php'); ?>
             </div>

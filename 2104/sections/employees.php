@@ -138,7 +138,7 @@ include('../crud/employee/check-default.php');
                 </li>
                 <?php if ($_SESSION['userType'] == "Manager") {
                     echo "<li class='nav-item' role='presentation'>
-                        <button class='nav-link' id='To-Confirm' data-bs-toggle='pill' data-bs-target='#pills-to-confirm' type='button' role='tab' aria-controls='pills-to-confirm' aria-selected='false'>Create Employee</button>
+                        <button class='nav-link' id='To-Confirm' data-bs-toggle='pill' data-bs-target='#pills-to-confirm' type='button' role='tab' aria-controls='pills-to-confirm' aria-selected='false'></button>
                     </li>";
                 } ?>
 

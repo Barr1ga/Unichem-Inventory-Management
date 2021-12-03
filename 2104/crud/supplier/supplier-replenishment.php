@@ -10,7 +10,7 @@
             
             
             if (mysqli_num_rows($result2) > 0) {
-
+                echo "<div class='scroll-list-2'>";
                 while ($Replenishment = mysqli_fetch_assoc($result2)) {
                     
                     $createdByID = $Replenishment['createdBy'];
@@ -30,12 +30,13 @@
                     }
                     include('../components/supplier/supplier-replenishment-details.php');
                 }  
+                echo "</div>";
                 
                 echo "<div class ='empty-list empty-message'></div>";
                 
             }
     }else{
-        echo "<div class ='empty-list empty-message'>There are no Suppliers.</div>";
+        echo "<div class ='empty-list empty-message'></div>";
     }
     
 

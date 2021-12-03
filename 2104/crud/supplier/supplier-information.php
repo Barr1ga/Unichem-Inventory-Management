@@ -11,8 +11,6 @@
         if ($result = mysqli_query($conn, $getSupplierInformation)) {
             $supplier = mysqli_fetch_assoc($result);
         }
-    }else{
-        // echo "<div class ='empty-message'>There are no Suppliers.</div>";
     }
     
    
