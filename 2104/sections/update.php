@@ -136,7 +136,7 @@
             
     
                 $updateProductInfo = "UPDATE `product`
-                                            SET `productID`='$productID', 
+                                            SET
                                             `tradeName`='$tradeName',
                                             `description`='$description',
                                             `brandName`='$brandName',
@@ -155,9 +155,9 @@
                                             `operatingTempRange`='$operatingTempRange',
                                             `productImage`='$productImage',
                                             `inStock`='$inStock'
-                                            WHERE product='$productID'";
+                                            WHERE productID='$productID'";
          
-                if (mysqli_query($conn, $updateEmployee)) {
+                if (mysqli_query($conn, $updateProductInfo)) {
                     echo "Record updated successfully";
                     header("Location: inventory.php");
                 } else {

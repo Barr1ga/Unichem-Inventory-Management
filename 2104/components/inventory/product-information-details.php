@@ -15,10 +15,9 @@
         </div>
         
         <div class="col-md-auto">
-            <button class="update" data-bs-toggle ="modal" data-bs-target="#inventory-modal">Update</button>
-        </div>
-        <div class="col-md-auto">
-            <button class="delete">Delete</button>
+        <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#inventory-modal'>
+            Update
+            </button>
         </div>
     </div>
     <br>
@@ -31,6 +30,9 @@
     <div class="row d-flex justify-content-between">
         <div class="row">
             <div class="col">Date Contained</div>    <div class="col"><b><?php echo $inventory["dateContained"];?></b></div><br>
+        </div>
+        <div class="row">
+            <div class="col">Brand Name</div>    <div class="col"><b><?php echo $inventory["brandName"];?></b></div><br>
         </div>
         <div class="row">
             <div class="col">Price</div>    <div class="col"><b><?php echo $inventory["price"];?></b></div><br>
@@ -86,8 +88,10 @@
                 <!-- insert body and info to be change -->
                 <?php include('product-info-update.php'); ?>
             </div>
+
             <div class="modal-footer">
                 <button type='submit' class='btn btn-primary' value='submit'>Update</button>
+            </form>
             </div>
         </div>
     </div>

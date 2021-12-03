@@ -1,6 +1,6 @@
 <form method="post" action="../sections/update.php" class="row g-3">
                         <input type="hidden" name="update" value="product">
-                        <input type="hidden" name="productID" value="<?php echo $product['productID']; ?>">
+                        <input type="hidden" name="productID" value="<?php echo $inventory['productID']; ?>">
                         <div class="col-md-6">
                             <label for="inputProdName" class="form-label">Product Name</label>
                             <input type="text" class="form-control" id="inputProdName" name="tradeName" required value="<?php echo $inventory['tradeName']; ?>">
@@ -11,7 +11,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="inputDescription" class="form-label">Description</label>
-                            <textarea class="form-control" id="inputDescription" rows="3" required value="<?php echo $inventory["description"];?>"></textarea>
+                            <textarea class="form-control" id="inputDescription" name="description" rows="3" required value="<?php echo $inventory["description"];?>"></textarea>
                         </div>
                         
 
@@ -20,8 +20,14 @@
 
                         <div class="col-md-4">
                             <label for="inputDate" class="form-label">Date Contained</label>
-                            <input type="date" class="form-control" id="inputDate" name="date" required value="<?php echo $inventory['dateContained']; ?>">
+                            <input type="date" class="form-control" id="inputDate" name="dateContained" required value="<?php echo $inventory['dateContained']; ?>">
                         </div>
+
+                        <div class="col-md-4">
+                            <label for="inputBrand" class="form-label">Brand Name</label>
+                            <input type="text" class="form-control" id="inputBrand" name="brandName" required value="<?php echo $inventory['brandName']; ?>">
+                        </div>
+
                         <div class="col-md-4">
                             <label for="inputEmail4" class="form-label">Price</label>
                             <input type="text" class="form-control" id="inputEmail4" name="price" required value="<?php echo $inventory['price']; ?>">
@@ -56,7 +62,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="inputEmail4" class="form-label">Max Operating Temp</label>
-                            <input type="text" class="form-control" id="inputEmail4" name="macOperatingTemp" required value="<?php echo $inventory['maxOperatingTemp']; ?>">
+                            <input type="text" class="form-control" id="inputEmail4" name="maxOperatingTemp" required value="<?php echo $inventory['maxOperatingTemp']; ?>">
                         </div>
                         <div class="col-md-4">
                             <label for="inputEmail4" class="form-label">Viscosity</label>
@@ -65,7 +71,7 @@
                         
                         <div class="col-md-4">
                             <label for="inputEmail4" class="form-label">Temp Range</label>
-                            <input type="text" class="form-control" id="inputEmail4" name="tempRange" required value="<?php echo $inventory['operatingTempRange']; ?>">
+                            <input type="text" class="form-control" id="inputEmail4" name="operatingTempRange" required value="<?php echo $inventory['operatingTempRange']; ?>">
                         </div>
                         <div class="col-md-4">
                             <label for="inputEmail4" class="form-label">In Stock</label>
@@ -77,5 +83,5 @@
                         </div>
                         <<div class="mb-3">
                             <label for="formFile" class="form-label">Product Image</label>
-                            <input class="form-control" type="file" id="formFile" required value="<?php echo $productImage['productImage']; ?>">
+                            <input class="form-control" type="file" id="formFile" name="productImage" required value="<?php echo $productImage['productImage']; ?>">
                         </div>
