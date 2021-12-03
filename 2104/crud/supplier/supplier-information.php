@@ -1,19 +1,16 @@
 <?php 
     include('../crud/db_connect.php');
 
-
-    $supplierID = $_GET['supplierID'];
-    
     if(isset($supplierID)){
+        $supplierID = $_GET['supplierID'];
         $getSupplierInformation = "SELECT * 
                                 FROM supplier c, supplier_address ca
                                 WHERE c.supplierID=$supplierID 
                                 AND ca.supplierID=$supplierID";
 
-        $result = mysqli_query($conn, $getSupplierInformation);
-
-        $supplier = mysqli_fetch_assoc($result);
-        
+        if ($result = mysqli_query($conn, $getSupplierInformation)) {
+            $supplier = mysqli_fetch_assoc($result);
+        }
     }else{
         // echo "<div class ='empty-message'>There are no Suppliers.</div>";
     }

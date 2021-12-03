@@ -118,10 +118,6 @@ include('../crud/inventory/check-default.php');
             </div>
             <br>
 
-
-
-
-
             <ul class="nav nav-pills mb-3 orderNav" id="pills-tab" role="tablist">
 
                 <li class="nav-item" role="presentation">
@@ -131,8 +127,7 @@ include('../crud/inventory/check-default.php');
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="To-Confirm" data-bs-toggle="pill" data-bs-target="#pills-to-confirm" type="button" role="tab" aria-controls="pills-to-confirm" aria-selected="false">Create Product</button>
                 </li>
-
-
+                
             </ul>
 
             <div class="tab-content" id="pills-tabContent">
@@ -144,10 +139,14 @@ include('../crud/inventory/check-default.php');
 
                         <div class="layout-column">
                             Production Information<br><br>
-                            <div class="scroll-list-2">
-                                <?php include('../crud/inventory/product-information-details.php'); ?>
-                                <?php include('../components/inventory/product-information-details.php'); ?>
-
+                            
+                                <?php 
+                                    include('../crud/inventory/product-information-details.php'); 
+                                    if ($bool) { ?>
+                                        <div class="scroll-list-2">
+                                <?php 
+                                    include('../components/inventory/product-information-details.php'); 
+                                }  ?>
                             </div>
                         </div>
                     </div>
@@ -158,29 +157,6 @@ include('../crud/inventory/check-default.php');
                 </div>
 
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         </div>
     </main>

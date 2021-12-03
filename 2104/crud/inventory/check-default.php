@@ -6,10 +6,10 @@ if(!isset($_GET['productID'])){
 
     $getProductList = "SELECT * FROM product LIMIT 1";
 
-    $result = mysqli_query($conn, $getProductList);
-       
-    $defaultproduct = mysqli_fetch_assoc($result);
-            
-
-    $_GET['productID'] = $defaultproduct['productID'];
+    if ($result = mysqli_query($conn, $getProductList)) {
+        if ($defaultproduct = mysqli_fetch_assoc($result)) {
+            $_GET['productID'] = $defaultproduct['productID'];
+        }
+    }
+   
 }

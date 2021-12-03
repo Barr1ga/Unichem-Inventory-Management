@@ -36,7 +36,7 @@
             
         }
     }else{
-        echo "<div class ='empty-list empty-message'>There are no Suppliers.</div>";
+        echo "<div class ='empty-list empty-message'>There are no Customers .</div>";
     }
 
 

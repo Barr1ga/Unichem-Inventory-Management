@@ -8,8 +8,6 @@ if(!isset($_GET['userID'])){
 
     $result = mysqli_query($conn, $getEmployeeList);
        
-    $defaultEmployee = mysqli_fetch_assoc($result);
-            
-
-    $_GET['userID'] = $defaultEmployee['userID'];
+    if ($defaultEmployee = mysqli_fetch_assoc($result))
+        $_GET['userID'] = $defaultEmployee['userID'];
 }

@@ -1,25 +1,18 @@
 <?php 
     include('../crud/db_connect.php');
 
-    $userID = $_GET['userID'];
-    
-    if(isset($userID)){
-        $getEmployeeInformation = "SELECT * 
-                                    FROM inventory_users
-                                    WHERE userID=$userID";
-
-        $result = mysqli_query($conn, $getEmployeeInformation);
+    if (isset($_GET['userID'])) {
+        $userID = $_GET['userID'];
         
-        $user = mysqli_fetch_assoc($result);
+        if(isset($userID)){
+            $getEmployeeInformation = "SELECT * 
+                                        FROM inventory_users
+                                        WHERE userID=$userID";
+
+            if ($result = mysqli_query($conn, $getEmployeeInformation))
+                $user = mysqli_fetch_assoc($result);
+        } 
     }
-      
-    
-
-
-   
-    
-
-    
 ?>
 
 

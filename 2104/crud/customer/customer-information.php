@@ -1,7 +1,9 @@
 <?php 
     include('../crud/db_connect.php');
 
-    $customerID = $_GET['customerID'];
+    if (isset($_GET['customerID'])) {
+        $customerID = $_GET['customerID'];
+    }
     
     if(isset($customerID)){
         $getCustomerInformation = "SELECT * 
@@ -9,18 +11,10 @@
                                     WHERE c.customerID=$customerID 
                                     AND ca.customerID=$customerID";
 
-        $result = mysqli_query($conn, $getCustomerInformation);
-        
-        $customer = mysqli_fetch_assoc($result);
-    }
-      
-    
-
-
-   
-    
-
-    
+        if ($result = mysqli_query($conn, $getCustomerInformation)) {
+            $customer = mysqli_fetch_assoc($result);
+        }
+    }  
 ?>
 
 

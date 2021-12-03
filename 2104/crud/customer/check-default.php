@@ -6,10 +6,10 @@ if(!isset($_GET['customerID'])){
 
     $getCustomerList = "SELECT * FROM customer LIMIT 1";
 
-    $result = mysqli_query($conn, $getCustomerList);
-       
-    $defaultCustomer = mysqli_fetch_assoc($result);
-            
+    if ($result = mysqli_query($conn, $getCustomerList)) {
+        if ($defaultCustomer = mysqli_fetch_assoc($result)){
+            $_GET['customerID'] = $defaultCustomer['customerID'];
+        }
+    }
 
-    $_GET['customerID'] = $defaultCustomer['customerID'];
 }
