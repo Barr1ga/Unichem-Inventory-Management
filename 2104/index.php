@@ -40,7 +40,7 @@ marge123
                 <input type="text" class="form-control" name="email" placeholder="Email Address" required />
                 <label for="floatingInput">Email address</label>
             </div>
-            <div class="form-floating">
+            <div class="form-floating mt-2">
                 <input type="password" class="form-control" name="password" placeholder="Password" required />
                 <label for="floatingPassword">Password</label>
             </div>
