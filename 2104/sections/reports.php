@@ -90,9 +90,9 @@ include('../style/import.php');
                 <?php if($_SESSION['userType']=="Manager"){
                     echo "
                     <li>
-                        <a href='reports.php' class='nav-link link-dark'>
+                        <a href='reports.php' class='nav-link active link-dark'>
                             <svg class='bi me-2' width='16' height='16'>
-                                <use xlink:href='#sales' />
+                                <use class='active-color' xlink:href='#sales' />
                             </svg>
                             Reports
                         </a>

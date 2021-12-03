@@ -53,10 +53,6 @@ include("../crud/report/inventory/products.php");
 </head>
 
 <body>
-<<<<<<< Updated upstream
-  <div id="top_x_div" class="white-box-container round-edge graph-long"></div>
-=======
   <div id="top_x_div_products" class="white-box-container round-edge long-chart"></div>
->>>>>>> Stashed changes
   
 </body>
