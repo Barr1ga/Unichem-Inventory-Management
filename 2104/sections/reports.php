@@ -167,9 +167,21 @@ include('../style/import.php');
 
             <div class="scroll-list-3">
                 <?php
-                include('../components/report/general/order-rep-count.php');
+                include('../components/report/general/order-cost.php');
                 ?>
+                <br>
+                <?php
+                include('../components/report/general/ordered-prod-count.php');
+                ?>
+                <br>
+                <?php
+                include('../components/report/general/order-count.php');
+                ?>
+                <br>
 
+                <?php
+                include('../components/report/general/rep-cost.php');
+                ?>
 
                 <br>
 
@@ -183,6 +195,8 @@ include('../style/import.php');
                 ?>
 
                 <br>
+
+                
 
                 <?php
                 include('../components/report/replenishment/ratio.php');

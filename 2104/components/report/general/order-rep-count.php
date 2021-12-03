@@ -38,6 +38,6 @@
     </script>
   </head>
   <body>
-    <div id="columnchart_material" class="white-box-container round-edge" style="width: 1495px; height: 422px;"></div>
+    <div id="columnchart_material" class="white-box-container round-edge" style="width: 3495px; height: 422px;"></div>
   </body>
 </html>
