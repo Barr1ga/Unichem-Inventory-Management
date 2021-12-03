@@ -25,8 +25,7 @@
         var options = {
           title: 'total cost of replenishments graph (by month)',
           width: 1495,
-          curveType: 'function',
-          legend: { position: 'bottom' }
+          
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart_gwapo'));
