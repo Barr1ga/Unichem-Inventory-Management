@@ -5,7 +5,7 @@
     switch($_GET['delete']){
          case "order":
             $orderID = $_GET['id'];
-            $active = "../sections/orders.php/orderActive=" .$_GET['status'];
+            $active = "../sections/orders.php?orderActive=" .$_GET['status'];
             $deleteOrder = "DELETE FROM orders WHERE orderID=$orderID";
             if (mysqli_query($conn, $deleteOrder)) 
                 $_SESSION['msg'] = "Order is Deleted Successfully";
@@ -15,7 +15,7 @@
             break;      
         case "replenishment":
             $repID = $_GET['id'];
-            $active = "../sections/replenishments.php/repActive=" .$_GET['status'];
+            $active = "../sections/replenishments.php?repActive=" .$_GET['status'];
             $deleteRep = "DELETE FROM replenishment WHERE repOrderID=$repID";
             if (mysqli_query($conn, $deleteRep)) 
                 $_SESSION['msg'] = "Order is Deleted Successfully";
