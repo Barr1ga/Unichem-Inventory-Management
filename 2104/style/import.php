@@ -459,6 +459,12 @@
   .modal-product {
     width: 1000px;
   }
+  .chart-header {
+  }
+
+  .chart-subheader {
+    color: gray;
+  }
 </style>
 
 

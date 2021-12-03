@@ -11,7 +11,7 @@
                 WHERE r.orderStatus='Completed'
                 GROUP BY MONTH(r.repOrderDate), YEAR(r.repOrderDate) 
                 ORDER BY r.repOrderDate ASC
-                LIMIT 18";
+                LIMIT 24";
 
     $result = mysqli_query($conn, $query);
 

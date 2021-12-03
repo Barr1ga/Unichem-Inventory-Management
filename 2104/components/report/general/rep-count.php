@@ -24,7 +24,18 @@
 
         var options = {
           title: ' Count of Replenishments (Month-Year)',
-          width: 1495,
+          legend: {
+            position: 'right'
+          },
+          curveType: 'function',
+          enableInteractivity: true,
+          fontSize: 13,
+          chartArea:{
+            left:88,
+            top:30,
+            width:'87%',
+            height:400,
+          }
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart_wew'));
@@ -34,6 +45,6 @@
     </script>
   </head>
   <body>
-    <div id="curve_chart_wew" class="white-box-container round-edge graph-long"></div>
+    <div id="curve_chart_wew" class="white-box-container round-edge long-chart"></div>
   </body>
 </html>

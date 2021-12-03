@@ -5,7 +5,7 @@
                 FROM orders o
                 GROUP BY MONTH(o.orderDate), YEAR(o.orderDate) 
                 ORDER BY o.orderDate ASC
-                LIMIT 18";
+                LIMIT 24";
 
     $result = mysqli_query($conn, $query);
 
