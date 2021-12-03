@@ -31,7 +31,7 @@
         </div>
     ";
     }else{
-        echo "<div class ='empty-message'>There are no To-Receive Replenishments.</div>";
+        echo "<div class ='empty-message'>There are no Processing-Order Replenishments.</div>";
     }
 
 ?>

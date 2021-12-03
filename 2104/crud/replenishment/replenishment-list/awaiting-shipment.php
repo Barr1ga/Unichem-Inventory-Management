@@ -31,7 +31,7 @@
         </div>
     ";
     }else{
-        echo "<div class ='empty-message'>There are no Completed Replenishments.</div>";
+        echo "<div class ='empty-message'>There are no Awaiting-Shipment Replenishments.</div>";
     }
 
 ?>
