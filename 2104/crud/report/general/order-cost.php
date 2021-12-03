@@ -6,8 +6,10 @@
                 JOIN order_line ol 
                 ON o.orderID=ol.orderID 
                 JOIN product p ON ol.productID=p.productID 
+                WHERE o.orderStatus='Completed'
                 GROUP BY MONTH(o.orderDate), YEAR(o.orderDate) 
-                ORDER BY o.orderDate ASC";
+                ORDER BY o.orderDate ASC
+                LIMIT 18";
 
     $result = mysqli_query($conn, $query);
 ?>
