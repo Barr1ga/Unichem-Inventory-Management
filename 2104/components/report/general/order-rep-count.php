@@ -1,5 +1,5 @@
 <?php
-  include("../crud/report/order/order-rep-count.php");
+  include("../crud/report/general/order-rep-count.php");
 ?>
 
 <html>

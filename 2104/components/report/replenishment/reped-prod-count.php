@@ -1,6 +1,7 @@
 <?php
-  include("../crud/report/general/ordered-prod-count.php");
+  include("../crud/report/replenishment/reped-prod-count.php");
 ?>
+
 
 
 <html>
@@ -12,7 +13,7 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Date', 'Orders'],
+          ['Date', 'Replenishment'],
           <?php
             while($row = mysqli_fetch_array($result)){
                 echo "['".$row['month']. '-' .$row['year']."', ".$row['quantity']."], ";
@@ -22,7 +23,7 @@
         ]);
 
         var options = {
-          title: 'Count of Products Ordered (Month-Year) ',
+          title: 'Count of Products Replenished (Month-Year) ',
           legend: {
             position: 'right'
           },
@@ -37,13 +38,13 @@
           }
         };
 
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart_two'));
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart_twotwo'));
 
         chart.draw(data, options);
       }
     </script>
   </head>
   <body>
-    <div id="curve_chart_two" class="white-box-container round-edge long-chart"></div>
+    <div id="curve_chart_twotwo" class="white-box-container round-edge long-chart"></div>
   </body>
 </html>

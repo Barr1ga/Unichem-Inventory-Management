@@ -82,20 +82,31 @@ include('../crud/supplier/check-default.php');
                 <li>
                     <a href='employees.php' class='nav-link link-dark'>
                         <svg class='bi me-2' width='16' height='16'>
-                            <use xlink:href='#employee  ' />
+                            <use xlink:href='#employee' />
                         </svg>
                         Employees
                     </a>
                 </li>
-                
-                <li>
-                    <a href='reports.php' class='nav-link link-dark'>
-                        <svg class='bi me-2' width='16' height='16'>
-                            <use xlink:href='#sales' />
-                        </svg>
-                        Reports
-                    </a>
-                </li>
+            
+               
+
+                    <li>
+                        <div class='dropdown '>
+                            <button class='nav-reports' type='button' id='dropdownMenu2' data-bs-toggle='dropdown' aria-expanded='false'>
+                                <svg class='bi me-2' width='16' height='16'>
+                                <use class='' xlink:href='#sales' />
+                                </svg>
+                                &nbspReports
+                            </button>
+                            
+                            <ul class='dropdown-menu dropdown-menu-reports' aria-labelledby='dropdownMenu2'>
+                                <li><a class='dropdown-item-reports' type='button' href='reports/report-general.php'>           General</a></li>
+                                <li><a class='dropdown-item-reports' type='button' href='reports/report-orders.php'>            Orders</a></li>
+                                <li><a class='dropdown-item-reports' type='button' href='reports/report-replenishments.php'>    Replenishments</a></li>
+                                <li><a class='dropdown-item-reports' type='button' href='reports/report-inventory.php'>         Inventory</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 ";
             }?>
         </ul>

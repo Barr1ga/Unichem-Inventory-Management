@@ -1,9 +1,9 @@
 <?php
 session_start();
 if (empty($_SESSION['userType'])) {
-    header('Location: ../index.php');
+    header('Location: ../../index.php');
 }
-include('../style/import.php');
+include('../../style/import.php');
 ?>
 
 <html lang="en">
@@ -79,27 +79,38 @@ include('../style/import.php');
                         Replenishments
                     </a>
                 </li>
-                <?php if($_SESSION['userType']=="Manager"){
+                <?php if ($_SESSION['userType'] == "Manager") {
                     echo "
-                <li>
-                    <a href='employees.php' class='nav-link link-dark'>
-                        <svg class='bi me-2' width='16' height='16'>
-                            <use xlink:href='#employee' />
-                        </svg>
-                        Employees
-                    </a>
-                </li>
-                
                     <li>
-                        <a href='reports.php' class='nav-link active link-dark'>
+                        <a href='employees.php' class='nav-link link-dark'>
                             <svg class='bi me-2' width='16' height='16'>
-                                <use class='active-color' xlink:href='#sales' />
+                                <use xlink:href='#employee' />
                             </svg>
-                            Reports
+                            Employees
                         </a>
                     </li>
+                
+                   
+
+                    <li>
+                        <div class='dropdown '>
+                            <button class='nav-reports' type='button' id='dropdownMenu2' data-bs-toggle='dropdown' aria-expanded='false'>
+                                <svg class='bi me-2' width='16' height='16'>
+                                <use class='' xlink:href='#sales' />
+                                </svg>
+                                &nbspReports
+                            </button>
+                            
+                            <ul class='dropdown-menu dropdown-menu-reports' aria-labelledby='dropdownMenu2'>
+                                <li><a class='dropdown-item-reports' type='button' href='reports/report-general.php'>           General</a></li>
+                                <li><a class='dropdown-item-reports' type='button' href='reports/report-orders.php'>            Orders</a></li>
+                                <li><a class='dropdown-item-reports' type='button' href='reports/report-replenishments.php'>    Replenishments</a></li>
+                                <li><a class='dropdown-item-reports' type='button' href='reports/report-inventory.php'>         Inventory</a></li>
+                            </ul>
+                        </div>
+                    </li>
                     ";
-                }?>
+                } ?>
             </ul>
             <hr>
 
@@ -115,7 +126,7 @@ include('../style/import.php');
         </div>
 
         <div class="father-container">
-            <h4>Reports</h4>
+            <h4>Inventory Reports</h4>
             <br>
             <div class="layout-column">
                 <form method="post" action="">
@@ -124,7 +135,7 @@ include('../style/import.php');
             </div>
             <br>
 
-<!--       
+            <!--       
             =
 
             REPLENISHMENT
@@ -206,50 +217,48 @@ include('../style/import.php');
                 
                 products in stock graph (bar chart) -->
 
-                
+
 
 
 
             <div class="scroll-list-3">
                 <?php
                 include('../components/report/order/order-cost.php');
-                ?>
-                <br>
-                 <?php
-                include('../components/report/order/order-rep-count.php');
-                ?>
-                <br>
+                ?><br>
+
+                <?php
+                include('../components/report/order/ordered-prod-count.php');
+                ?><br>
+
                 <?php
                 include('../components/report/order/order-count.php');
-                ?>
-               
-                <br>
-
-                <?php
-                include('../components/report/replenishment/rep-cost.php');
-                ?>
-                <br>
-                <?php
-                include('../components/report/replenishment/rep-prod-count.php');
-                ?>
-                <br>
-                <?php
-                include('../components/report/replenishment/rep-count.php');
-                ?>
-                <br>
-
-                <?php
-                include('../components/report/inventory/products.php');
-                ?>
-                <br>
+                ?><br>
 
                 <?php
                 include('../components/report/order/ratio.php');
-                ?>
+                ?><br>
+
+                <?php
+                include('../components/report/replenishment/rep-cost.php');
+                ?><br>
+
+                <?php
+                include('../components/report/replenishment/rep-prod-count.php');
+                ?><br>
+
+                <?php
+                include('../components/report/replenishment/rep-count.php');
+                ?><br>
+
+                <?php
+                include('../components/report/inventory/products.php');
+                ?><br>
+
+
 
                 <br>
 
-                
+
 
                 <?php
                 include('../components/report/replenishment/ratio.php');

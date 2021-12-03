@@ -12,9 +12,4 @@
                 LIMIT 24";
 
     $result = mysqli_query($conn, $query);
-
-    
-           
-          
-          
 ?>

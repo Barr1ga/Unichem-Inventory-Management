@@ -459,12 +459,52 @@
   .modal-product {
     width: 1000px;
   }
-  .chart-header {
-  }
+
 
   .chart-subheader {
     color: gray;
   }
+
+  .nav-reports {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    padding: 9px 9px 9px 15px;
+    width: 100%;
+    color: black;
+    border-radius: 7px;
+    border:none;
+  }
+
+  .nav-reports:visited {
+    background-color: #216eeb;
+    color: white;
+  }
+
+  .dropdown-menu-reports {
+    background-color: whitesmoke;
+    width: 245px;
+    border: none;
+  }
+
+  .dropdown-item-reports {
+   text-align: left;
+   border-radius: 4px;
+   background-color: whitesmoke;
+   width: 100%;
+   border: none;
+   text-decoration: none;
+   color: black;
+   font-size: .9rem;
+   padding: 8px 10px 8px 17px;
+ }
+ 
+ .dropdown-item-reports:hover {
+  background-color: #216eeb;
+  color: white;
+ }
+ 
 </style>
 
 
