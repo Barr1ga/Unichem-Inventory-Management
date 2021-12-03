@@ -31,7 +31,7 @@
         </div>
     ";
     }else{
-        echo "<div class ='empty-message'>There are no Awaiting-Payment Replenishments.</div>";
+        echo "<div class ='empty-message'>There are no Awaiting Payments.</div>";
     }
 
 ?>
