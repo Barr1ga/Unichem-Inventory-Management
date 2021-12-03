@@ -24,8 +24,7 @@
         var options = {
           title: 'Count of Products Ordered (Month-Year) ',
           width: 1495,
-          curveType: 'function',
-          legend: { position: 'bottom' }
+          
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart_two'));

@@ -170,19 +170,27 @@ include('../style/import.php');
                 include('../components/report/general/order-cost.php');
                 ?>
                 <br>
-                <?php
+                 <?php
                 include('../components/report/general/ordered-prod-count.php');
                 ?>
                 <br>
                 <?php
                 include('../components/report/general/order-count.php');
                 ?>
+               
                 <br>
 
                 <?php
                 include('../components/report/general/rep-cost.php');
                 ?>
-
+                <br>
+                <?php
+                include('../components/report/general/rep-prod-count.php');
+                ?>
+                <br>
+                <?php
+                include('../components/report/general/rep-count.php');
+                ?>
                 <br>
 
                 <?php
