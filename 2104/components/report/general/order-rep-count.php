@@ -38,6 +38,10 @@
     </script>
   </head>
   <body>
-    <div id="columnchart_material" class="white-box-container round-edge" style="width: 3495px; height: 422px;"></div>
+<<<<<<< Updated upstream
+    <div id="columnchart_material" class="white-box-container round-edge graph-long"></div>
+=======
+    <div id="columnchart_material" class="white-box-container round-edge long-chart"></div>
+>>>>>>> Stashed changes
   </body>
 </html>

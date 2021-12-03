@@ -34,6 +34,6 @@
     </script>
   </head>
   <body>
-    <div id="curve_chart_two" style="width: 1495px; height: 422px"></div>
+    <div id="curve_chart_two" class="white-box-container round-edge graph-long"></div>
   </body>
 </html>

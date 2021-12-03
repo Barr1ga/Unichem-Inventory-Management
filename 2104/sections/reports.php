@@ -87,14 +87,18 @@ include('../style/import.php');
                         Employees
                     </a>
                 </li>
-                <li>
-                    <a href="reports.php" class="nav-link link-dark active">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use class="active-color" xlink:href="#sales" />
-                        </svg>
-                        Reports
-                    </a>
-                </li>
+                <?php if($_SESSION['userType']=="Manager"){
+                    echo "
+                    <li>
+                        <a href='reports.php' class='nav-link link-dark'>
+                            <svg class='bi me-2' width='16' height='16'>
+                                <use xlink:href='#sales' />
+                            </svg>
+                            Reports
+                        </a>
+                    </li>
+                    ";
+                }?>
             </ul>
             <hr>
 
@@ -119,47 +123,87 @@ include('../style/import.php');
             </div>
             <br>
 
-            <!-- =
-
-            CUSTOMER/SUPPLIER
-
-            number of customers graph (by month) 
-
-            number of supplier graph (by month)
-
+<!--       
             =
 
             REPLENISHMENT
 
-                number of Replenishments graph (by month) 
+                Count of Replenishments (Month-Year) 
+                    SELECT MONTH(repOrderDate) AS month, YEAR(repOrderDate) AS year, COUNT(*) AS repCount
+                    FROM replenishment
+                    GROUP BY MONTH(repOrderDate), YEAR(repOrderDate) 
+                    ORDER BY repOrderDate ASC
+                    LIMIT 18
+                    
+                Count of Products Replenished (Month-Year) 
+                    SELECT MONTH(r.repOrderDate) AS month, YEAR(r.repOrderDate) AS year, SUM(rl.quantity) AS quantity
+                    FROM replenishment r 
+                    JOIN replenishment_line rl 
+                    ON r.repOrderID=rl.repOrderID 
+                    JOIN product p ON rl.productID=p.productID 
+                    WHERE r.orderStatus='Completed'
+                    GROUP BY MONTH(r.repOrderDate), YEAR(r.repOrderDate) 
+                    ORDER BY r.repOrderDate ASC
+                    LIMIT 18
 
-                number of products replenished graph (by month) 
+                Cost of Replenishment (Month-Year)
+                    SELECT MONTHNAME(r.repOrderDate) AS 'month', YEAR(r.repOrderDate) AS year, p.price * rl.quantity AS totalPrice 
+                    FROM replenishment r
+                    JOIN replenishment_line rl 
+                    ON r.repOrderID=rl.repOrderID 
+                    JOIN product p ON rl.productID=p.productID 
+                    WHERE r.orderStatus='Completed'
+                    GROUP BY month, YEAR(r.repOrderDate) 
+                    ORDER BY r.repOrderDate ASC
+                    LIMIT 18
 
-                total cost of replenishments graph (by month)
 
             =
 
             ORDER
 
-                number of Orders graph (by month)
+                Count of Orders (Month-Year)
+                    SELECT MONTH(o.orderDate) AS month, YEAR(o.orderDate) AS year, COUNT(*) AS orderCount
+                    FROM orders o
+                    GROUP BY MONTH(o.orderDate), YEAR(o.orderDate) 
+                    ORDER BY o.orderDate ASC
+                    LIMIT 18
+                    
+                Count of Products Ordered (Month-Year) 
+                    SELECT MONTH(o.orderDate) AS month, YEAR(o.orderDate) AS year, SUM(ol.quantity) AS quantity
+                    FROM orders o 
+                    JOIN order_line ol 
+                    ON o.orderID=ol.orderID 
+                    JOIN product p ON ol.productID=p.productID 
+                    WHERE o.orderStatus='Completed'
+                    GROUP BY MONTH(o.orderDate), YEAR(o.orderDate) 
+                    ORDER BY o.orderDate ASC
+                    LIMIT 18
 
-                number of products ordered graph (by month) 
-
-                total cost of Orders graph (by month)
+                Cost of Orders (Month-Year)
+                    SELECT MONTH(o.orderDate) AS month, YEAR(o.orderDate) AS year, p.price * ol.quantity AS totalPrice 
+                    FROM orders o 
+                    JOIN order_line ol 
+                    ON o.orderID=ol.orderID 
+                    JOIN product p ON ol.productID=p.productID 
+                    WHERE o.orderStatus='Completed'
+                    GROUP BY MONTH(o.orderDate), YEAR(o.orderDate) 
+                    ORDER BY o.orderDate ASC
+                    LIMIT 18
 
             =
 
-            RATIO OF ORDER STATUS
+            RATIO OF ORDER STATUS (DONE) 
 
                 ratio of order statuses on orders (pie chart) 
 
-                ratio of order statuses on replenishment (pie chart)
+                ratio of order statuses on replenishment (pie chart) 
                 
             =
 
-            INVENTORY
+            INVENTORY (DONE) 
                 
-                products in stock graph (bar chart) (DONE) -->
+                products in stock graph (bar chart) -->
 
 
 
