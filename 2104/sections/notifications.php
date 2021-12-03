@@ -75,14 +75,19 @@ include('../crud/db_connect.php');
                     Employees
                 </a>
             </li>
-            <li>
-                <a href="reports.php" class="nav-link link-dark">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#sales" />
-                    </svg>
-                    Reports
-                </a>
-            </li>
+            <?php if($_SESSION['userType']=="Manager"){
+                echo "
+                <li>
+                    <a href='reports.php' class='nav-link link-dark'>
+                        <svg class='bi me-2' width='16' height='16'>
+                            <use xlink:href='#sales' />
+                        </svg>
+                        Reports
+                    </a>
+                </li>
+                ";
+            }?>
+            
         </ul>
         <hr>
 

@@ -23,8 +23,8 @@
         ]);
 
         var options = {
-          title: 'total cost of Orders graph (by month-year)',
-          width: 1495,
+          title: 'Cost of Orders graph (Month-Year)',
+          width: 1450,
           
         };
 
@@ -35,6 +35,6 @@
     </script>
   </head>
   <body>
-    <div id="curve_chart_one" style="width: 1495px; height: 422px"></div>
+    <div id="curve_chart_one" class="white-box-container round-edge graph-long"></div>
   </body>
 </html>

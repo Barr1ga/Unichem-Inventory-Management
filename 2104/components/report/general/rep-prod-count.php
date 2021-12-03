@@ -24,7 +24,7 @@
 
         var options = {
           title: 'Count of Products Replenished (Month-Year) ',
-          width: 1495,
+          width: 1195,
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart_twotwo'));
@@ -34,6 +34,6 @@
     </script>
   </head>
   <body>
-    <div id="curve_chart_twotwo" style="width: 1495px; height: 422px"></div>
+    <div id="curve_chart_twotwo" class="white-box-container round-edge graph-long"></div>
   </body>
 </html>

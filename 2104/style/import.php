@@ -23,7 +23,7 @@
   body {
     min-height: 100vh;
     min-height: -webkit-fill-available;
-    background-color: #fff;
+    background-color: whitesmoke;
   }
 
   html {
@@ -450,8 +450,17 @@
     width: 429.27px;
   }
 
+<<<<<<< Updated upstream
   .btn-logout {
     width: 20rem;
+  }
+
+  .graph-long {
+=======
+  .long-chart {
+>>>>>>> Stashed changes
+    width: 1495px;
+    height: 500px;
   }
 </style>
 
