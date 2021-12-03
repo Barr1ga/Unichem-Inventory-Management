@@ -10,7 +10,7 @@
             if (mysqli_query($conn, $deleteOrder)) 
                 $_SESSION['msg'] = "Order is Deleted Successfully";
             else 
-                $_SESSION['msg'] = "Order is not Deleted Successfully";
+                $_SESSION['msg'] = "Order is not Deleted Successfully.";
             header("Location: $active");      
             break;      
         case "replenishment":
@@ -20,7 +20,7 @@
             if (mysqli_query($conn, $deleteRep)) 
                 $_SESSION['msg'] = "Order is Deleted Successfully";
             else 
-                $_SESSION['msg'] = "Order is not Deleted Successfully";
+                $_SESSION['msg'] = "Order is not Deleted Successfully.";
             header("Location: $active");      
             break;    
     }    
