@@ -1,5 +1,5 @@
 <?php
-  include("../crud/report/general/rep-count.php");
+  include("../crud/report/replenishment/rep-prod-count.php");
 ?>
 
 
@@ -16,24 +16,24 @@
           ['Date', 'Replenishment'],
           <?php
             while($row = mysqli_fetch_array($result)){
-                echo "['".$row['month']. '-' .$row['year']."', ".$row['repCount']."], ";
+                echo "['".$row['month']. '-' .$row['year']."', ".$row['quantity']."], ";
             }
           
           ?>
         ]);
 
         var options = {
-          title: ' Count of Replenishments (Month-Year)',
-          width: 1495,
+          title: 'Count of Products Replenished (Month-Year) ',
+          width: 1195,
         };
 
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart_wew'));
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart_twotwo'));
 
         chart.draw(data, options);
       }
     </script>
   </head>
   <body>
-    <div id="curve_chart_wew" class="white-box-container round-edge graph-long"></div>
+    <div id="curve_chart_twotwo" class="white-box-container round-edge graph-long"></div>
   </body>
 </html>

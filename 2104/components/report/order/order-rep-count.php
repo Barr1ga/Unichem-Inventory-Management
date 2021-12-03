@@ -1,5 +1,5 @@
 <?php
-  include("../crud/report/general/order-rep-count.php");
+  include("../crud/report/order/order-rep-count.php");
 ?>
 
 <html>
@@ -38,10 +38,6 @@
     </script>
   </head>
   <body>
-<<<<<<< Updated upstream
-    <div id="columnchart_material" class="white-box-container round-edge graph-long"></div>
-=======
     <div id="columnchart_material" class="white-box-container round-edge long-chart"></div>
->>>>>>> Stashed changes
   </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-  include("../crud/report/general/rep-cost.php");
+  include("../crud/report/replenishment/rep-cost.php");
 ?>
 
 
