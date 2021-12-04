@@ -26,8 +26,7 @@ include("../../crud/report/replenishment/rep-cost.php");
         legend: {
           position: 'right'
         },
-        curveType: 'function',
-        curveType: 'function',
+        
         enableInteractivity: true,
         fontSize: 13,
         chartArea: {

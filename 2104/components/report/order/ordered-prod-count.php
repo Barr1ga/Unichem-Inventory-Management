@@ -25,7 +25,7 @@
           legend: {
             position: 'right'
           },
-          curveType: 'function',
+          
           enableInteractivity: true,
           fontSize: 13,
           chartArea:{

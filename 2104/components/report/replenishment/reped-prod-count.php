@@ -26,7 +26,7 @@ include("../../crud/report/replenishment/reped-prod-count.php");
         legend: {
           position: 'right'
         },
-        curveType: 'function',
+        
         enableInteractivity: true,
         fontSize: 13,
         chartArea: {
