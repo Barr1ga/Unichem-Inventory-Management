@@ -1,5 +1,5 @@
 <?php
-include("../crud/report/order/ratio.php");
+include("../../crud/report/order/ratio.php");
 ?>
 <html>
 
@@ -52,6 +52,9 @@ include("../crud/report/order/ratio.php");
 
 <body>
     <!--Table and divs that hold the pie charts-->
+    <br>
+    <h6>Composition of status</h6>
+    <p>Total count of each orders status</p>
     <table class="columns">
         <tr>
             <td>
@@ -62,6 +65,7 @@ include("../crud/report/order/ratio.php");
             </td>
         </tr>
     </table>
+    <br>
 </body>
 
 </html>

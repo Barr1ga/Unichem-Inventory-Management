@@ -262,8 +262,9 @@ include('../components/popup-msg.php');
                 </div>
 
                 <div class="layout-column">
-                    <br><br>
-                    Replenishment Information<br><br>
+                <br><br><br><br>
+                    <h6>Replenishment Information</h6>
+                        <br>
                     <?php include('../crud/replenishment/rep-information.php') ?>
                 </div>
 

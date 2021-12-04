@@ -1,5 +1,5 @@
 <?php
-include('../crud/db_connect.php');
+include('../../crud/db_connect.php');
 
 $query = "SELECT orderStatus, COUNT(*) AS Quantity FROM `orders` GROUP BY orderStatus";
 

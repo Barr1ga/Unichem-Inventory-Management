@@ -1,5 +1,5 @@
 <?php
-include("../crud/report/inventory/products.php");
+include("../../crud/report/inventory/products.php");
 ?>
 
 
@@ -28,10 +28,7 @@ include("../crud/report/inventory/products.php");
         legend: {
           position: 'none'
         },
-        chart: {
-          title: 'Products in Stock ',
-          subtitle: 'Present quantity of each products in stock'
-        },
+        
         bars: 'horizontal', // Required for Material Bar Charts.
         axes: {
           x: {
@@ -53,6 +50,8 @@ include("../crud/report/inventory/products.php");
 </head>
 
 <body>
+  <h6>Products In Stock</h6>
+  <p>Present quantity of each products in stock</p>
   <div id="top_x_div_products" class="white-box-container round-edge long-chart"></div>
   
 </body>

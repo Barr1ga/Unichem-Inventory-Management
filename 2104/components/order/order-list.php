@@ -4,7 +4,7 @@
     echo "
         <div class='d-flex align-items-center justify-content-between white-box-container one-order-replenishment-list round-edge'>
             <div class='list-cell'>
-                <b>" . $order['orderID'] . "</b>
+                <b> #" . $order['orderID'] . "</b>
             </div>
 
             <div class='list-cell'>

@@ -2,7 +2,7 @@
 <div class="white-box-container-details-card-body">
     <div class="row d-flex justify-content-between">
         <div class="col">
-            <h4><b># <?php echo $Replenishment['repOrderID']; ?></b></h3>
+            <h4><b>#<?php echo $Replenishment['repOrderID']; ?></b></h3>
         </div>
         <div class="col-md-auto">
             <?php echo $Replenishment['repOrderDate']; ?>
@@ -17,12 +17,12 @@
         </div>
         <div class="col-12 col-sm-6 col-md-8">
             <b>
-                <?php echo $Replenishment['supplierID']."# ".$supplier['contactFName']." ".$supplier['contactLName']; ?><br>
-                <?php echo $createdBy['userType']."#".$Replenishment['createdBy']." ".$createdBy['userFirstName']." ".$createdBy['userLastName']; ?><br>
+                <?php echo $supplier['contactFName']." ".$supplier['contactLName']; ?><br>
+                <?php echo $createdBy['userFirstName']." ".$createdBy['userLastName']; ?><br>
 
                 <?php 
                 if($Replenishment['approvedBy'] != NULL){
-                    echo $approvedBy['userType']."#".$Replenishment['approvedBy']." ".$approvedBy['userFirstName']." ".$approvedBy['userLastName']; 
+                    echo $approvedBy['userFirstName']." ".$approvedBy['userLastName']; 
                 }else{
                     echo "To-Approve";
                 }
@@ -42,7 +42,7 @@
             TotalPrice
         </div>
         <div class="col-4 d-flex justify-content-end">
-            <b>$ <?php echo $totalPrice; ?></b>
+            <b>₱ <?php echo $totalPrice; ?></b>
         </div>
     </div>
 </div>

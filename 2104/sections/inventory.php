@@ -154,7 +154,8 @@ include('../crud/inventory/check-default.php');
                         </div>
 
                         <div class="layout-column">
-                            Production Information<br><br>
+                        <h6>Product Information</h6>
+                        <br>
                             
                                 <?php 
                                     include('../crud/inventory/product-information-details.php'); 

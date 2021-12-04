@@ -1,7 +1,7 @@
 
 
 <?php
-    include('../crud/db_connect.php');
+    include('../../crud/db_connect.php');
 
     $query = "SELECT MONTH(r.repOrderDate) AS month, YEAR(r.repOrderDate) AS year, SUM(rl.quantity) AS quantity
                 FROM replenishment r 

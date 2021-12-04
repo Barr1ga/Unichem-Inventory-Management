@@ -78,8 +78,8 @@ include('../crud/employee/check-default.php');
                         Replenishments
                     </a>
                 </li>
-                
-                <?php if($_SESSION['userType']=="Manager"){
+
+                <?php if ($_SESSION['userType'] == "Manager") {
                     echo "
                     <li>
                         <a href='employees.php' class='nav-link link-dark active'>
@@ -110,7 +110,7 @@ include('../crud/employee/check-default.php');
                             </div>
                         </li>
                     ";
-                }?>
+                } ?>
             </ul>
             <hr>
 
@@ -168,7 +168,8 @@ include('../crud/employee/check-default.php');
                         <?php include('../crud/employee/employee-information.php'); ?>
 
                         <div class="layout-column">
-                            Employee Information<br><br>
+                            <h6>Empployee Information</h6>
+                            <br>
                             <?php include('../components/employee/employee-information.php'); ?>
                         </div>
 

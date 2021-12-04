@@ -10,7 +10,7 @@
                         
                         <div class='d-flex align-items-center justify-content-between white-box-container one-supplier-customer-list round-edge'>
                             <div class='column list-name'>
-                                <b>" . "$CustomerID" . "# " . "$CustomerFName" . " " . "$CustomerLName" . "</b>
+                                <b>" . "$CustomerID" . "# </b>" . "$CustomerFName" . " " . "$CustomerLName" . "
                             </div>
                             <div class=''>
                                     <form method='get' action='../sections/customers.php'>

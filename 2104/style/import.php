@@ -331,8 +331,16 @@
   }
 
   .list-cell {
-    width: 115px;
+    width: 130px;
     height: 20px;
+    
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  .list-cell-2 {
+    width: 128px;
+    height: 20px;
+    
     overflow-x: hidden;
     overflow-y: hidden;
   }
@@ -460,6 +468,7 @@
     width: 1000px;
   }
 
+  
 
   .chart-subheader {
     color: gray;

@@ -1,5 +1,5 @@
 <?php
-  include("../crud/report/order/order-cost.php");
+  include("../../crud/report/order/order-cost.php");
 ?>
 
 
@@ -24,7 +24,6 @@
 
         var options = {
           
-          title: 'Cost of Orders graph (Month-Year)',
           // width: 1470,
           // height: 475,
           
@@ -36,7 +35,7 @@
           fontSize: 13,
           chartArea:{
             left:88,
-            top:30,
+            top:20,
             width:'87%',
             height:400,
           }
@@ -49,7 +48,10 @@
     </script>
   </head>
   <body>
-
+    <br>
+    <h6>Cost of Orders</h6>
+    <p>Total cost of all orders completed</p>
     <div id="curve_chart_one" class="white-box-container round-edge long-chart"></div>
   </body>
+  <br>
 </html>

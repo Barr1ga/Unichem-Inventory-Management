@@ -78,8 +78,8 @@ include('../crud/customer/check-default.php');
                         Replenishments
                     </a>
                 </li>
-                <?php if($_SESSION['userType']=="Manager"){
-                echo "
+                <?php if ($_SESSION['userType'] == "Manager") {
+                    echo "
                 <li>
                     <a href='employees.php' class='nav-link link-dark'>
                         <svg class='bi me-2' width='16' height='16'>
@@ -109,7 +109,7 @@ include('../crud/customer/check-default.php');
                         </div>
                     </li>
                 ";
-            }?>
+                } ?>
             </ul>
             <hr>
 
@@ -165,16 +165,18 @@ include('../crud/customer/check-default.php');
                         <?php include('../crud/customer/customer-information.php'); ?>
 
                         <div class="layout-column">
-                            Customer Information<br><br>
+                            <h6>Customer Information</h6>
+                            <br>
                             <?php include('../components/customer/customer-information.php'); ?>
                         </div>
 
                         <div class="layout-column">
-                            Customer Orders<br><br>
-                            
-                                <?php include('../crud/customer/customer-orders.php'); ?>
+                            <h6>Customer Orders</h6>
+                            <br>
 
-                            
+                            <?php include('../crud/customer/customer-orders.php'); ?>
+
+
                         </div>
                     </div>
                 </div>

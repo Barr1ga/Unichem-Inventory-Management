@@ -7,42 +7,25 @@
     
         echo "
         <div class='container-header d-flex'>
-                <div class='list-cell'>
+                <div class='list-cell-2'>
                         Product ID
                 </div>
                 
-                <div class='list-cell'>
+                <div class='list-cell-2'>
                         Trade Name
                 </div>
                 
-                <div class='list-cell'>
+                <div class='list-cell-2'>
                         Price
                 </div>
 
-                <div class='list-cell'>
+                <div class='list-cell-2'>
                         Quantity
-                </div>
-
-                <div class='list-cell'>
-                        
-                </div>
-
-                <div class='list-cell'>
-                        
                 </div>
 
                 
 
-                <div class='list-cell'>
-                        
-                </div>
 
-                <div class='list-cell'>
-                        
-                </div>
-                <div class='list-cell'>
-                        
-                </div>
   
             </div>
             

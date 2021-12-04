@@ -8,7 +8,8 @@
     if (mysqli_num_rows($result) > 0) {
         echo "
             <div class=''>
-            Supplier List<br><br>
+            <h6>Supplier List</h6>
+                        <br>
             <div class='scroll-list'>
             ";
         while ($Supplier = mysqli_fetch_assoc($result)) {

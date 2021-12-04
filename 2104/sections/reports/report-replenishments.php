@@ -25,14 +25,14 @@ include('../../style/import.php');
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light nav-container shadow-md bg-body rounded" style="width: 280px;">
             <a href="notifications.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                 <div class="row justify-content-md-center">
-                    <img class="unichem-logo-login" src="../assets/images/Unichem-Logo-Text.svg">
+                    <img class="unichem-logo-login" src="../../assets/images/Unichem-Logo-Text.svg">
                 </div>
             </a>
 
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="notifications.php" class="nav-link link-dark " aria-current="page">
+                    <a href="../notifications.php" class="nav-link link-dark " aria-current="page">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#notif" />
                         </svg>
@@ -40,7 +40,7 @@ include('../../style/import.php');
                     </a>
                 </li>
                 <li>
-                    <a href="suppliers.php" class="nav-link link-dark ">
+                    <a href="../suppliers.php" class="nav-link link-dark ">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#supplier" />
                         </svg>
@@ -48,7 +48,7 @@ include('../../style/import.php');
                     </a>
                 </li>
                 <li>
-                    <a href="customers.php" class="nav-link link-dark ">
+                    <a href="../customers.php" class="nav-link link-dark ">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#customer" />
                         </svg>
@@ -56,7 +56,7 @@ include('../../style/import.php');
                     </a>
                 </li>
                 <li>
-                    <a href="inventory.php" class="nav-link link-dark">
+                    <a href="../inventory.php" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#inventory" />
                         </svg>
@@ -64,7 +64,7 @@ include('../../style/import.php');
                     </a>
                 </li>
                 <li>
-                    <a href="orders.php" class="nav-link link-dark">
+                    <a href="../orders.php" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#order" />
                         </svg>
@@ -72,7 +72,7 @@ include('../../style/import.php');
                     </a>
                 </li>
                 <li>
-                    <a href="replenishments.php" class="nav-link link-dark">
+                    <a href="../replenishments.php" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#rep" />
                         </svg>
@@ -82,7 +82,7 @@ include('../../style/import.php');
                 <?php if ($_SESSION['userType'] == "Manager") {
                     echo "
                     <li>
-                        <a href='employees.php' class='nav-link link-dark'>
+                        <a href='../employees.php' class='nav-link link-dark'>
                             <svg class='bi me-2' width='16' height='16'>
                                 <use xlink:href='#employee' />
                             </svg>
@@ -102,10 +102,10 @@ include('../../style/import.php');
                             </button>
                             
                             <ul class='dropdown-menu dropdown-menu-reports' aria-labelledby='dropdownMenu2'>
-                                <li><a class='dropdown-item-reports' type='button' href='reports/report-general.php'>           General</a></li>
-                                <li><a class='dropdown-item-reports' type='button' href='reports/report-orders.php'>            Orders</a></li>
-                                <li><a class='dropdown-item-reports' type='button' href='reports/report-replenishments.php'>    Replenishments</a></li>
-                                <li><a class='dropdown-item-reports' type='button' href='reports/report-inventory.php'>         Inventory</a></li>
+                                <li><a class='dropdown-item-reports' type='button' href='report-general.php'>           General</a></li>
+                                <li><a class='dropdown-item-reports' type='button' href='report-orders.php'>            Orders</a></li>
+                                <li><a class='dropdown-item-reports' type='button' href='report-replenishments.php'>    Replenishments</a></li>
+                                <li><a class='dropdown-item-reports' type='button' href='report-inventory.php'>         Inventory</a></li>
                             </ul>
                         </div>
                     </li>
@@ -128,12 +128,7 @@ include('../../style/import.php');
         <div class="father-container">
             <h4>Replenishment Reports</h4>
             <br>
-            <div class="layout-column">
-                <form method="post" action="">
-                    <input type="text" class="form-control search-input" placeholder="Search">
-                </form>
-            </div>
-            <br>
+            
 
             <!--       
             =
@@ -222,47 +217,24 @@ include('../../style/import.php');
 
 
             <div class="scroll-list-3">
+                
+                <!-- replenishment -->
                 <?php
-                include('../components/report/order/order-cost.php');
-                ?><br>
-
-                <?php
-                include('../components/report/order/ordered-prod-count.php');
-                ?><br>
-
-                <?php
-                include('../components/report/order/order-count.php');
-                ?><br>
-
-                <?php
-                include('../components/report/order/ratio.php');
-                ?><br>
-
-                <?php
-                include('../components/report/replenishment/rep-cost.php');
-                ?><br>
-
-                <?php
-                include('../components/report/replenishment/rep-prod-count.php');
-                ?><br>
-
-                <?php
-                include('../components/report/replenishment/rep-count.php');
-                ?><br>
-
-                <?php
-                include('../components/report/inventory/products.php');
-                ?><br>
-
-
-
-                <br>
-
-
-
-                <?php
-                include('../components/report/replenishment/ratio.php');
+                include('../../components/report/replenishment/rep-cost.php');
                 ?>
+
+                <?php
+                include('../../components/report/replenishment/reped-prod-count.php');
+                ?>
+
+                <?php
+                include('../../components/report/replenishment/rep-count.php');
+                ?>
+
+                <?php
+                include('../../components/report/replenishment/ratio.php');
+                ?>
+
             </div>
 
 

@@ -4,7 +4,7 @@
     <div class='container white-box-container customer-supplier-information round-edge'>
     <div class='row'>
         <div class='col'>
-            <h4><b>".$supplier['supplierID']."</b></h3>
+            <h4><b>#".$supplier['supplierID']."</b></h3>
         </div>
         <div class='col d-flex justify-content-end'>
             
@@ -22,7 +22,7 @@
                 <div class='modal-dialog modal-lg'>
                     <div class='modal-content '>
                         <div class='modal-header'>
-                            <h4>Update Supplier ".$supplier['supplierID']."</h4>
+                            <h4>Update Supplier #".$supplier['supplierID']."</h4>
                             <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                         </div>
                         <div class='modal-body'>

@@ -261,8 +261,9 @@ include('../components/popup-msg.php');
                 </div>
 
                 <div class="layout-column">
-                    <br><br>
-                    Order Information<br><br>
+                    <br><br><br><br>
+                    <h6>Order Information</h6>
+                        <br>
                     <?php include('../crud/order/order-information.php') ?>
                 </div>
 

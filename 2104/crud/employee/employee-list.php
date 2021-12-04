@@ -8,7 +8,8 @@
     if (mysqli_num_rows($result) > 0) {
         echo "
             <div class=''>
-            Employee List<br><br>
+            <h6>Employee List</h6>
+                        <br>
             <div class='scroll-list-2'>
             ";
         while ($user = mysqli_fetch_assoc($result)) {

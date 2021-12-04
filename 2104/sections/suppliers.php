@@ -77,7 +77,7 @@ include('../crud/supplier/check-default.php');
                     Replenishments
                 </a>
             </li>
-            <?php if($_SESSION['userType']=="Manager"){
+            <?php if ($_SESSION['userType'] == "Manager") {
                 echo "
                 <li>
                     <a href='employees.php' class='nav-link link-dark'>
@@ -108,7 +108,7 @@ include('../crud/supplier/check-default.php');
                         </div>
                     </li>
                 ";
-            }?>
+            } ?>
         </ul>
         <hr>
 
@@ -116,7 +116,7 @@ include('../crud/supplier/check-default.php');
             <div class="row align-items-end">
                 <div class="col d-flex justify-content-center">
                     <a href="../index.php" class="text-decoration-none btn btn-danger btn-logout">
-                    Log Out
+                        Log Out
                     </a>
                 </div>
             </div>
@@ -169,14 +169,16 @@ include('../crud/supplier/check-default.php');
                     <?php include('../crud/supplier/supplier-information.php'); ?>
 
                     <div class="layout-column">
-                        Supplier Information<br><br>
+                        <h6>Supplier Information</h6>
+                        <br>
                         <?php include('../components/supplier/supplier-information.php'); ?>
                     </div>
 
                     <div class="layout-column">
-                        Supplier Orders<br><br>
-                        
-                            <?php include('../crud/supplier/supplier-replenishment.php'); ?>
+                    <h6>Supplier Orders</h6>
+                        <br>
+
+                        <?php include('../crud/supplier/supplier-replenishment.php'); ?>
 
                     </div>
                 </div>

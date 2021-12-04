@@ -1,5 +1,5 @@
 <?php
-    include('../crud/db_connect.php');
+    include('../../crud/db_connect.php');
 
     $query = "SELECT MONTH(o.orderDate) AS month, YEAR(o.orderDate) AS year, p.price * ol.quantity AS totalPrice 
                 FROM orders o 

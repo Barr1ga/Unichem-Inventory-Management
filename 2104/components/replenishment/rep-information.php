@@ -6,7 +6,7 @@
     <div class="white-box-container-details-card-body rounded">
         <div class="row d-flex justify-content-between">
             <div class="col">
-                <h5><b># <?php echo $rep['replenishmentLineID'] ?></b></h5>
+                <h5><b>#<?php echo $rep['replenishmentLineID'] ?></b></h5>
             </div>
             <div class="col-md-auto">
                 <?php echo $rep['repOrderDate'] ?>
@@ -39,7 +39,7 @@
         <?php while ($row = mysqli_fetch_assoc($result2)) { ?>
             <div class="row d-flex justify-content-between">
                 <div class="col">
-                    <?php echo $row['productID']; ?>#
+                    <b><?php echo $row['productID']; ?>#</b>
                     <?php echo $row['tradeName']; ?>
                 </div>
 

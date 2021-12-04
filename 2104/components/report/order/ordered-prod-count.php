@@ -1,5 +1,5 @@
 <?php
-  include("../crud/report/order/ordered-prod-count.php");
+  include("../../crud/report/order/ordered-prod-count.php");
 ?>
 
 
@@ -22,7 +22,6 @@
         ]);
 
         var options = {
-          title: 'Count of Products Ordered (Month-Year) ',
           legend: {
             position: 'right'
           },
@@ -31,7 +30,7 @@
           fontSize: 13,
           chartArea:{
             left:88,
-            top:30,
+            top:20,
             width:'87%',
             height:400,
           }
@@ -44,6 +43,10 @@
     </script>
   </head>
   <body>
+    <br>
+    <h6>Count of products ordered</h6>
+    <p>Total count of all products ordered</p>
     <div id="curve_chart_two" class="white-box-container round-edge long-chart"></div>
   </body>
+  <br>
 </html>

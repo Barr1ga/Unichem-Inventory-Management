@@ -1,6 +1,6 @@
 
 <?php
-    include('../crud/db_connect.php');
+    include('../../crud/db_connect.php');
 
     $query = "SELECT MONTH(repOrderDate) AS month, YEAR(repOrderDate) AS year, COUNT(*) AS repCount
                 FROM replenishment

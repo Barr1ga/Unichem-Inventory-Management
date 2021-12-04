@@ -22,7 +22,7 @@
                     <form method='get'>
                         <div class='d-flex align-items-center justify-content-between white-box-container one-order-replenishment-list round-edge'>
                             <div class='list-cell'>
-                                <b>"."$productID"."</b>
+                                <b>#$productID</b>
                             </div>
                             
                             <div class='list-cell'>
@@ -30,24 +30,22 @@
                             </div>
                             
                             <div class='list-cell'>
-                                    $price     
+                                    ₱ $price     
                             </div>
 
                             <div class='list-cell'>
-                                    $quantity
+                                    x $quantity
                             </div>
 
                             <div class='list-cell'>
                         
                             </div>
+                            <div class='list-cell'>
+                        
+                            </div>
                             
 
-                            <div class='list-cell'>
-                                    
-                            </div>
-                            <div class='list-cell'>
-                                    
-                            </div>
+                          
                            
 
                             <div class=''>

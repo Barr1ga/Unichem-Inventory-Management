@@ -2,7 +2,7 @@
 <div class="white-box-container-details-card-body">
     <div class="row d-flex justify-content-between">
         <div class="col">
-            <h4><b># <?php echo $Order['orderID']; ?></b></h3>
+            <h4><b>#<?php echo $Order['orderID']; ?></b></h3>
         </div>
         <div class="col-md-auto">
             <?php echo $Order['orderDate']; ?>
@@ -17,11 +17,11 @@
         </div>
         <div class="col-12 col-sm-6 col-md-8">
             <b>
-                <?php echo $Order['customerID']."# ".$customer['customerFName']." ". $customer['customerLName'];; ?><br>
-                <?php echo $createdBy['userType']."#".$Order['createdBy']." ".$createdBy['userFirstName']." ".$createdBy['userLastName']; ?><br>
+                <?php echo $customer['customerFName']." ". $customer['customerLName'];; ?><br>
+                <?php echo $createdBy['userFirstName']." ".$createdBy['userLastName']; ?><br>
                 <?php
                     if($Order['approvedBy'] != NULL){
-                        echo $approvedBy['userType']."#".$Order['approvedBy']." ".$approvedBy['userFirstName']." ".$approvedBy['userLastName']; 
+                        echo $approvedBy['userType']." #".$Order['approvedBy']." ".$approvedBy['userFirstName']." ".$approvedBy['userLastName']; 
                     }else{
                         echo "To-Approve";
                     }
@@ -39,7 +39,7 @@
             TotalPrice
         </div>
         <div class="col-4 d-flex justify-content-end">
-            <b>$ <?php echo $totalPrice; ?></b>
+            <b>₱ <?php echo $totalPrice; ?></b>
         </div>
     </div>
 </div>

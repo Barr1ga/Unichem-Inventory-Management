@@ -1,5 +1,5 @@
 <?php
-include("../crud/report/replenishment/ratio.php");
+include("../../crud/report/replenishment/ratio.php");
 ?>
 
 <html>
@@ -32,7 +32,6 @@ include("../crud/report/replenishment/ratio.php");
             ]);
 
             var piechart_options = {
-                title: 'Replenishment: Composition of Order Status',
                 width: 695,
                 height: 400
             };
@@ -40,7 +39,6 @@ include("../crud/report/replenishment/ratio.php");
             piechart.draw(data, piechart_options);
 
             var barchart_options = {
-                title: 'Replenishment: Composition of Order Status',
                 width: 695,
                 height: 400,
                 legend: 'none'
@@ -54,16 +52,20 @@ include("../crud/report/replenishment/ratio.php");
 
 <body>
     <!--Table and divs that hold the pie charts-->
+    <br>
+    <h6>Composition of status</h6>
+    <p>Total count of each orders status</p>
     <table class="columns">
         <tr>
             <td>
                 <div id="piechart_div_ratio_rep" class="white-box-container round-edge" style="margin-right: 20px;"></div>
             </td>
             <td>
-                <div id="barchart_div_ratio_rep" class="white-box-container round-edge" ></div>
+                <div id="barchart_div_ratio_rep" class="white-box-container round-edge"></div>
             </td>
         </tr>
     </table>
+    <br>
 </body>
 
 </html>
