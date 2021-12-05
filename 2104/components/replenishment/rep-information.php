@@ -18,7 +18,7 @@
                 Supplier Name<br>
                 Created By<br>
                 Approved By<br>
-                Date Shipped
+                Required Ship Date
             </div>
             <div class="col-12 col-sm-6 col-md-8">
                 <b>
