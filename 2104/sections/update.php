@@ -114,6 +114,7 @@
             break;
 
             case "product":
+                
                 $productID = $_POST['productID'];
                 $tradeName = $_POST['tradeName'];
                 $description = $_POST['description'];
@@ -133,11 +134,41 @@
                 $operatingTempRange = $_POST['operatingTempRange'];
                 $inStock = $_POST['inStock'];
 
-                $filename = $_FILES["productImage"]["name"];
-                $tempname = $_FILES["productImage"]["tmp_name"];
-                $folder = "../assets/images/".$filename;
-    
-                $updateProductInfo = "UPDATE `product`
+                if(empty($_FILES['productImage']['name'])){
+                    $updateProductInfo = "UPDATE `product`
+                                            SET
+                                            `tradeName`='$tradeName',
+                                            `description`='$description',
+                                            `brandName`='$brandName',
+                                            `dateContained`='$dateContained',
+                                            `price`='$price',
+                                            `applicationType`='$applicationType',
+                                            `cureTime`='$cureTime',
+                                            `color`='$color',
+                                            `form`='$form',
+                                            `packageType`='$packageType',
+                                            `packageSize`='$packageSize',
+                                            `maxOperatingTemp`='$maxOperatingTemp',
+                                            `minOperatingTemp`='$minOperatingTemp',
+                                            `viscosity`='$viscosity',
+                                            `chemicalComposition`='$chemicalComposition',
+                                            `operatingTempRange`='$operatingTempRange',
+                                            `inStock`='$inStock'
+                                            WHERE productID='$productID'";
+
+                    if (mysqli_query($conn, $updateProductInfo)) {
+                        echo "Record updated successfully";
+                        header("Location: inventory.php");
+                    } else {
+                        echo "Error updating record: " . mysqli_error($conn);
+                    } 
+
+                }else{
+                    $filename = $_FILES["productImage"]["name"];
+                    $tempname = $_FILES["productImage"]["tmp_name"];
+                    $folder = "../assets/images/".$filename;
+
+                    $updateProductInfo = "UPDATE `product`
                                             SET
                                             `tradeName`='$tradeName',
                                             `description`='$description',
@@ -158,18 +189,22 @@
                                             `productImage`='$filename',
                                             `inStock`='$inStock'
                                             WHERE productID='$productID'";
-         
-                if (mysqli_query($conn, $updateProductInfo)) {
-                    if (move_uploaded_file($tempname, $folder)) {
-                        $msg = "Image uploaded successfully";
+
+                    if (mysqli_query($conn, $updateProductInfo)) {
+                        if (move_uploaded_file($tempname, $folder)) {
+                            $msg = "Image uploaded successfully";
+                        } else {
+                            $msg = "Failed to upload image";
+                        }
+                        echo "Record updated successfully";
+                        header("Location: inventory.php");
                     } else {
-                        $msg = "Failed to upload image";
-                    }
-                    echo "Record updated successfully";
-                    header("Location: inventory.php");
-                } else {
-                    echo "Error updating record: " . mysqli_error($conn);
-                } 
+                        echo "Error updating record: " . mysqli_error($conn);
+                    } 
+
+                }
+         
+                
     
                 break;
     }

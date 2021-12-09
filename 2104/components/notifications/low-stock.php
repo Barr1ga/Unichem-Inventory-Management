@@ -1,8 +1,4 @@
-<?php
-include('../crud/db_connect.php');
 
-?>
-<?php include('../style/import.php'); ?>
     <div class="">
 
             <!-- QUERRY TO SELECT ALL PRODUCTS ON LOW STOCKS-->
@@ -16,6 +12,7 @@ include('../crud/db_connect.php');
                 -->
                 <?php
                    if(mysqli_num_rows($lowStockQuery)>0){
+                    $_SESSION['flag'] = 1;
                     ?>
                     Inventory<br>
                     <br>

@@ -53,7 +53,7 @@
                             
                         </div>
                         <div class="col-md-4"><br>
-                            <button type="submit" class="btn btn-primary" value="submit">Update</button>
+                            <button type="submit" class="btn btn-primary" value="submit">Create</button>
                         </div>
                     </form>
                 </div>

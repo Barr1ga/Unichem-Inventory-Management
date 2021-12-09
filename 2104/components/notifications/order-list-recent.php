@@ -1,12 +1,9 @@
-<?php
-include('../crud/db_connect.php');
-?>
-<?php include('../style/import.php'); ?>
+
     <div class="">
 
             <!-- QUERRY TO SELECT ALL RECENT ORDERS -->
             <!-- <?php
-                   $getRecentOrders = "SELECT * FROM orders o WHERE DATEDIFF(o.orderDate, CURDATE()) <= 0 AND DATEDIFF(o.orderDate, CURDATE()) > -1";
+                   $getRecentOrders = "SELECT * FROM orders o WHERE DATEDIFF(o.orderDate, CURDATE()) <= 0 AND DATEDIFF(o.orderDate, CURDATE()) >= -1";
 
                    $recentOrderQuery = mysqli_query($conn,$getRecentOrders);
 
@@ -16,6 +13,7 @@ include('../crud/db_connect.php');
             <?php
 
             if(mysqli_num_rows($recentOrderQuery)>0){
+                $_SESSION['flag'] = 1;
                 ?>
                 Orders<br>
                 <br>

@@ -100,7 +100,6 @@ include('../crud/supplier/check-default.php');
                             </button>
                             
                             <ul class='dropdown-menu dropdown-menu-reports' aria-labelledby='dropdownMenu2'>
-                                <li><a class='dropdown-item-reports' type='button' href='reports/report-general.php'>           General</a></li>
                                 <li><a class='dropdown-item-reports' type='button' href='reports/report-orders.php'>            Orders</a></li>
                                 <li><a class='dropdown-item-reports' type='button' href='reports/report-replenishments.php'>    Replenishments</a></li>
                                 <li><a class='dropdown-item-reports' type='button' href='reports/report-inventory.php'>         Inventory</a></li>
@@ -126,12 +125,6 @@ include('../crud/supplier/check-default.php');
 
     <div class="father-container">
         <h4>Suppliers</h4>
-        <br>
-        <div class="layout-column">
-            <form method="post" action="">
-                <input type="text" class="form-control search-input" placeholder="Search">
-            </form>
-        </div>
         <br>
 
 

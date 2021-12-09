@@ -78,5 +78,5 @@
                         </div>
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Product Image</label>
-                            <input class="form-control" type="file" id="formFile" name="productImage"  required>
+                            <input class="form-control" type="file" id="formFile" name="productImage" >
                         </div>

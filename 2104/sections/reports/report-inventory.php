@@ -23,7 +23,7 @@ include('../../style/import.php');
 <body>
     <main>
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light nav-container shadow-md bg-body rounded" style="width: 280px;">
-            <a href="notifications.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <a href="../notifications.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                 <div class="row justify-content-md-center">
                     <img class="unichem-logo-login" src="../../assets/images/Unichem-Logo-Text.svg">
                 </div>
@@ -94,15 +94,14 @@ include('../../style/import.php');
 
                     <li>
                         <div class='dropdown '>
-                            <button class='nav-reports' type='button' id='dropdownMenu2' data-bs-toggle='dropdown' aria-expanded='false'>
+                            <a class='nav-link nav-reports active' type='button' id='dropdownMenu2' data-bs-toggle='dropdown' aria-expanded='false'>
                                 <svg class='bi me-2' width='16' height='16'>
-                                <use class='' xlink:href='#sales' />
+                                <use class='active-color' xlink:href='#sales' />
                                 </svg>
                                 &nbspReports
-                            </button>
+                            </a>
                             
                             <ul class='dropdown-menu dropdown-menu-reports' aria-labelledby='dropdownMenu2'>
-                                <li><a class='dropdown-item-reports' type='button' href='report-general.php'>           General</a></li>
                                 <li><a class='dropdown-item-reports' type='button' href='report-orders.php'>            Orders</a></li>
                                 <li><a class='dropdown-item-reports' type='button' href='report-replenishments.php'>    Replenishments</a></li>
                                 <li><a class='dropdown-item-reports' type='button' href='report-inventory.php'>         Inventory</a></li>

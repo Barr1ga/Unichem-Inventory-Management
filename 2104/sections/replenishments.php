@@ -108,7 +108,6 @@ include('../components/popup-msg.php');
                                 </button>
                                 
                                 <ul class='dropdown-menu dropdown-menu-reports' aria-labelledby='dropdownMenu2'>
-                                    <li><a class='dropdown-item-reports' type='button' href='reports/report-general.php'>           General</a></li>
                                     <li><a class='dropdown-item-reports' type='button' href='reports/report-orders.php'>            Orders</a></li>
                                     <li><a class='dropdown-item-reports' type='button' href='reports/report-replenishments.php'>    Replenishments</a></li>
                                     <li><a class='dropdown-item-reports' type='button' href='reports/report-inventory.php'>         Inventory</a></li>
@@ -133,12 +132,6 @@ include('../components/popup-msg.php');
 
         <div class="father-container">
             <h4>Replenishments</h4>
-            <br>
-            <div class="layout-column">
-                <form method="post" action="">
-                    <input type="text" class="form-control search-input" placeholder="Search">
-                </form>
-            </div>
             <br>
             <div class="d-flex">
                 <div class="layout-column">

@@ -1,12 +1,9 @@
-<?php
-include('../crud/db_connect.php');
-?>
-<?php include('../style/import.php'); ?>
+
     <div class="">
 
             <!-- QUERRY TO SELECT ALL RECENT REPLENISHMENTS -->
             <!-- <?php
-                   $getRecentReps = "SELECT * FROM replenishment r WHERE DATEDIFF(r.repOrderDate, CURDATE()) <= 1 AND DATEDIFF(r.repOrderDate, CURDATE()) > -1";
+                   $getRecentReps = "SELECT * FROM replenishment r WHERE DATEDIFF(r.repOrderDate, CURDATE()) <= 0 AND DATEDIFF(r.repOrderDate, CURDATE()) >= -1";
 
                    $recentRepsQuery = mysqli_query($conn,$getRecentReps);
                     ?> -->
@@ -14,6 +11,7 @@ include('../crud/db_connect.php');
             <?php
 
             if(mysqli_num_rows($recentRepsQuery)>0){
+                $_SESSION['flag'] = 1;
                 ?>
                 Replenishments<br>
                 <br>
@@ -52,7 +50,7 @@ include('../crud/db_connect.php');
                                     Qty: ".$row3['quantity']."
                                 </div>
                                 <div class='column reports-right-data'>
-                                    P".$row3['quantity']*$row4['price']."
+                                    P".$row3['quantity']*$row3['priceEach']."
                                 </div>
                         </div>
                     </form>
