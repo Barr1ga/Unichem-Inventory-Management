@@ -99,7 +99,6 @@
   }
 
   .white-box-container-none {
-    background-color: white;
     padding: 20px;
   }
 

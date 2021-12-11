@@ -152,7 +152,7 @@ $_SESSION['flag']=0;
                 </div>
             </div>
                 <?php if($_SESSION['flag']==0){
-                    echo "There no recent notifications";
+                    echo "<p class='text-danger'>There no recent notifications</p>";
                 }
                     ?>
 
