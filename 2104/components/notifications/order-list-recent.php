@@ -17,7 +17,6 @@
                 ?>
                 Orders<br>
                 <br>
-                <br>
                 <?php
                 while($row = mysqli_fetch_array($recentOrderQuery)){
 

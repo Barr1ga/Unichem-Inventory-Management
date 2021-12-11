@@ -16,7 +16,6 @@
                     ?>
                     Inventory<br>
                     <br>
-                    <br>
                     <?php
                        while($row = mysqli_fetch_array($lowStockQuery)){
                         echo "
