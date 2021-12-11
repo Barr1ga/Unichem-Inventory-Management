@@ -161,7 +161,7 @@ include('../crud/employee/check-default.php');
                         <?php include('../crud/employee/employee-information.php'); ?>
 
                         <div class="layout-column">
-                            <h6>Empployee Information</h6>
+                            <h6>Employee Information</h6>
                             <br>
                             <?php include('../components/employee/employee-information.php'); ?>
                         </div>

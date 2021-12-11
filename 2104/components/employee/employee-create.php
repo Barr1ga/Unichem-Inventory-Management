@@ -17,7 +17,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="userType" class="form-label">User Type</label>
-                            <select name="userType" id="inputState" class="form-select">
+                            <select name="userType" id="inputState" class="form-select" required>
                                 <option value=""></option>
                                 <option value="Manager">Manager</option>
                                 <option value="User">User</option>
