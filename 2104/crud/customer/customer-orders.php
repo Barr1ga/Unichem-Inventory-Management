@@ -4,8 +4,8 @@
     if(isset($customerID)){
         
         $getCustomerOrderInformation = "SELECT * 
-                                FROM orders o, inventory_users iu
-                                WHERE o.customerID=$customerID";
+                                FROM orders
+                                WHERE customerID=$customerID";
 
         $result2 = mysqli_query($conn, $getCustomerOrderInformation);
         
