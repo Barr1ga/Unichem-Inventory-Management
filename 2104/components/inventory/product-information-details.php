@@ -84,6 +84,10 @@
             <div class="col">In Stock</div>
             <div class="col"><b><?php echo $inventory["inStock"]; ?></b></div><br>
         </div>
+        <div class="row">
+            <div class="col">Minimum Stock</div>
+            <div class="col"><b><?php echo $inventory["minimumStock"]; ?></b></div><br>
+        </div>
 
     </div>
 </div>

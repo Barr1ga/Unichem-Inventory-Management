@@ -133,6 +133,7 @@
                 $chemicalComposition = $_POST['chemicalComposition'];
                 $operatingTempRange = $_POST['operatingTempRange'];
                 $inStock = $_POST['inStock'];
+                $minimumStock = $_POST['minimumStock'];
 
                 if(empty($_FILES['productImage']['name'])){
                     $updateProductInfo = "UPDATE `product`
@@ -153,7 +154,8 @@
                                             `viscosity`='$viscosity',
                                             `chemicalComposition`='$chemicalComposition',
                                             `operatingTempRange`='$operatingTempRange',
-                                            `inStock`='$inStock'
+                                            `inStock`='$inStock',
+                                            `minimumStock` = '$minimumStock'
                                             WHERE productID='$productID'";
 
                     if (mysqli_query($conn, $updateProductInfo)) {
@@ -188,6 +190,7 @@
                                             `operatingTempRange`='$operatingTempRange',
                                             `productImage`='$filename',
                                             `inStock`='$inStock'
+                                            `minimumStock` = '$minimumStock'
                                             WHERE productID='$productID'";
 
                     if (mysqli_query($conn, $updateProductInfo)) {

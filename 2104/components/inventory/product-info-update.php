@@ -69,12 +69,17 @@
                             <input type="text" class="form-control" id="inputEmail4" name="operatingTempRange" value="<?php echo $inventory['operatingTempRange']; ?>" required>
                         </div>
                         <div class="col-md-4">
+                            <label for="inputEmail4" class="form-label">Chemical Composition</label>
+                            <input type="text" class="form-control" id="inputEmail4" name="chemicalComposition" value="<?php echo $inventory['chemicalComposition']; ?>" required>
+                        </div>
+
+                        <div class="col-md-4">
                             <label for="inputEmail4" class="form-label">In Stock</label>
                             <input type="text" class="form-control" id="inputEmail4" name="inStock" value="<?php echo $inventory['inStock']; ?>" required>
                         </div>
                         <div class="col-md-4">
-                            <label for="inputEmail4" class="form-label">Chemical Composition</label>
-                            <input type="text" class="form-control" id="inputEmail4" name="chemicalComposition" value="<?php echo $inventory['chemicalComposition']; ?>" required>
+                            <label for="inputEmail4" class="form-label">Minimum Stock</label>
+                            <input type="text" class="form-control" id="inputEmail4" name="minimumStock" value="<?php echo $inventory['minimumStock']; ?>" required>
                         </div>
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Product Image</label>
