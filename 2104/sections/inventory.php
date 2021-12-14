@@ -77,7 +77,7 @@ include('../crud/inventory/check-default.php');
                         Replenishments
                     </a>
                 </li>
-                <?php if($_SESSION['userType']=="Manager"){
+                <?php if ($_SESSION['userType'] == "Manager") {
                     echo "
                     <li>
                         <a href='employees.php' class='nav-link link-dark'>
@@ -107,7 +107,7 @@ include('../crud/inventory/check-default.php');
                             </div>
                         </li>
                     ";
-                }?>
+                } ?>
             </ul>
             <hr>
 
@@ -135,7 +135,7 @@ include('../crud/inventory/check-default.php');
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="To-Confirm" data-bs-toggle="pill" data-bs-target="#pills-to-confirm" type="button" role="tab" aria-controls="pills-to-confirm" aria-selected="false">Create</button>
                 </li>
-                
+
             </ul>
 
             <div class="tab-content" id="pills-tabContent">
@@ -146,21 +146,23 @@ include('../crud/inventory/check-default.php');
                         </div>
 
                         <div class="layout-column">
-                        <h6>Product Information</h6>
-                        <br>
+                            <h6>Product Information</h6>
+                            <br>
+
+                            <?php
+                            include('../crud/inventory/product-information-details.php');
+                            ?>
                             
-                                <?php 
-                                    include('../crud/inventory/product-information-details.php'); 
-                                    if ($bool) { ?>
-                                        <div class="scroll-list-2">
-                                <?php 
-                                    include('../components/inventory/product-information-details.php'); 
-                                }  ?>
-                            </div>
+                                <div class="scroll-list-2">
+                                <?php
+                                if ($bool) { 
+                                include('../components/inventory/product-information-details.php');
+                            }  ?>
+                                </div>
                         </div>
                     </div>
                 </div>
-
+                         
                 <div class="tab-pane fade" id="pills-to-confirm" role="tabpanel" aria-labelledby="pills-to-cofirm-tab">
                     <?php include('../components/inventory/product-create.php'); ?>
                 </div>
