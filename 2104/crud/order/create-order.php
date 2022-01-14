@@ -151,9 +151,15 @@
             $bool = false;
         }
     }
+
+    $stmt->close(); 
+    $conn->close();
+    
     if ($bool)
         $_SESSION['msg'] = "Order is successfully created.";
     else 
         $_SESSION['msg'] = "Order is not successfully created.";
 
     header('location: ../../sections/orders.php');
+
+?>
