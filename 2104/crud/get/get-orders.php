@@ -16,12 +16,6 @@
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('i', $id);
     $stmt->execute();
-    $result = $stmt->get_result();
-    
-    if ($result->num_rows > 0) {
-        while ($orders = $result->fetch_assoc()) {
-            include('../components/order/get-orders.php');
-        } 
-    }
+    $rs = $stmt->get_result();
 
 ?>

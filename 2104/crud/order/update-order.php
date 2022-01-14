@@ -4,6 +4,14 @@
 
     $active = "../../sections/orders.php?orderActive=".$_POST['defaultOrderStatus'];
 
+    /* Order Information */
+    $product = $_POST['product'];
+    $quantity = $_POST['quantity'];
+    $orderID = $_POST['orderID'];
+    $createdBy = $_POST['createdBy'];
+    $orderDate = $_POST['orderDate'];
+    $shippingDate = date('Y-m-d', strtotime($_POST['shippingDate']));
+
     /* Customer Information */
     $customerID = $_POST['customerID']; 
     $customerFname = $_POST['fname'];
@@ -21,7 +29,6 @@
     $region = $_POST['region'];
     $country = $_POST['country'];
     $zip = $_POST['zip'];
-
 
     /* Update Order quantity if status is changed to cancelled*/
     if (!isset($_POST['orderStatus'])) {
@@ -50,14 +57,6 @@
             }
         }
     }
-
-    /* Order Information */
-    $product = $_POST['product'];
-    $quantity = $_POST['quantity'];
-    $orderID = $_POST['orderID'];
-    $createdBy = $_POST['createdBy'];
-    $orderDate = $_POST['orderDate'];
-    $shippingDate = date('Y-m-d', strtotime($_POST['shippingDate']));
 
     /* Query to update order information */
     /* First check if order status is awaiting-approval, then allow admin to approve the order */

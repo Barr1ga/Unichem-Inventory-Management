@@ -46,8 +46,27 @@
 
                     <div class="row g-3">
                         <b>Product Information</b>
+
                         <?php
-                        include("../crud/get/get-orders.php")
+                        include("../crud/get/get-orders.php");
+
+                        if ($rs->num_rows > 0) { 
+                            while ($row = $rs->fetch_assoc()) {
+                        ?>
+
+                            <div class="col-md-6">
+                                <label class="col-form-label">Product</label>
+                                <input class="form-control" name="product[]" value="<?php echo $row['tradeName']?>" readonly/>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="col-form-label">Quantity</label>
+                                <input type="text" class="form-control" name="quantity[]" value="<?php echo $row['quantity'] ?>" readonly/>
+                            </div>
+
+                        <?php      
+                            } 
+                        }
                         ?>
 
                         <div class="col-md-6">

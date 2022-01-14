@@ -3,7 +3,7 @@ include('../crud/db_connect.php');
 
 if (isset($_GET['repID'])) {
     $repID = $_GET['repID'];
-    $total = 0;
+
     $getRepInformation = "SELECT *, SUM(rl.quantity * rl.priceEach) as 'Total' 
                             FROM replenishment r
                             JOIN replenishment_line rl ON rl.repOrderID = r.repOrderID
@@ -20,10 +20,17 @@ if (isset($_GET['repID'])) {
                         WHERE rl.repOrderID = $repID
                         GROUP BY rl.replenishmentLineID";
 
-    $result1 = mysqli_query($conn, $getRepInformation);
-    $result2 = mysqli_query($conn, $getRepLine);
 
-    if (mysqli_num_rows($result1) > 0) {
+    $stmt = $conn->prepare($getRepInformation );
+    $stmt->execute();
+    $result1 = $stmt->get_result();
+
+    $stmt = $conn->prepare($getRepLine);
+    $stmt->execute();
+    $result2 = $stmt->get_result();
+
+
+    if ($result1->num_rows > 0) {
         echo "<div class='scroll-list-2'>";
         if ($rep = mysqli_fetch_assoc($result1)) {
 
@@ -38,17 +45,26 @@ if (isset($_GET['repID'])) {
                             FROM inventory_users
                             WHERE userID=$approvedByID LIMIT 1";
 
-            $createdByResult = mysqli_query($conn, $createdByquery);
-            $approvedByResult = mysqli_query($conn, $approvedByquery);
+            $stmt = $conn->prepare($createdByquery);
+            $stmt->execute();
+            $createdByResult = $stmt->get_result();
+            $createdBy = $createdByResult->fetch_assoc();
 
-            $createdBy = mysqli_fetch_assoc($createdByResult);
-            if ($approvedByResult)
-                $approvedBy = mysqli_fetch_assoc($approvedByResult);
+            if ($stmt = $conn->prepare($approvedByquery)) {
+                $stmt->execute();
+                $approvedByResult = $stmt->get_result();
+                $approvedBy = $approvedByResult->fetch_assoc();
+                $stmt->close();
+            } else {
+                $approvedByResult = false;
+            }
 
             include('../components/replenishment/rep-information.php');
         }
         echo "</div>";
     }
 }
+
+$conn->close();
 
 ?>

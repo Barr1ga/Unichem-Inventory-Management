@@ -4,13 +4,6 @@
 
     $active = "../../sections/replenishments.php?repActive=".$_POST['defaultOrderStatus'];
 
-    /* Replenishment Information */
-    $orderDate = $_POST['orderDate'];
-    $shippingDate = $_POST['shippingDate'];
-    $repOrderID = $_POST['repOrderID'];
-    $product = $_POST['product'];
-    $quantity = $_POST['quantity'];
-
     /* Update Order quantity if status is changed to completed*/
     if (!isset($_POST['orderStatus'])) {
         $orderStatus = $_POST['defaultOrderStatus'];
@@ -34,6 +27,13 @@
             }
         }
     }
+
+    /* Replenishment Information */
+    $orderDate = $_POST['orderDate'];
+    $shippingDate = $_POST['shippingDate'];
+    $repOrderID = $_POST['repOrderID'];
+    $product = $_POST['product'];
+    $quantity = $_POST['quantity'];
 
      /* Query to update repOrder information */
      $sql = "UPDATE replenishment
