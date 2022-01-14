@@ -1,15 +1,8 @@
 <?php
+    session_start();
     include('../db_connect.php');
 
     $active = "../../sections/orders.php?orderActive=".$_POST['defaultOrderStatus'];
-
-    /* Order Information */
-    $product = $_POST['product'];
-    $quantity = $_POST['quantity'];
-    $orderID = $_POST['orderID'];
-    $createdBy = 2; // Change this to Session Variable
-    $orderDate = $_POST['orderDate'];
-    $shippingDate = date('Y-m-d', strtotime($_POST['shippingDate']));
 
     /* Customer Information */
     $customerID = $_POST['customerID']; 
@@ -42,50 +35,95 @@
                 $qty = $quantity[$index];
     
                 /* Query to update InStock */
-                $query = "UPDATE product
-                            SET inStock = inStock + '$qty'
-                            WHERE tradeName = '$tradeName' ";
-                if (mysqli_query($conn, $query)) {
+                $sql = "UPDATE product
+                            SET inStock = inStock + (?)
+                            WHERE tradeName = (?) ";
+
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param('is', $qty, $tradeName);
+
+                if ($stmt->execute()) {
                     echo '<br /> Product In Stock is successfully updated';
                 }else {
-                    echo '<br /> Product In Stock is not successfully updated ' . mysqli_error($conn);
+                    echo '<br /> Product In Stock is not successfully updated ' . $conn->error;
                 }
             }
         }
     }
 
-    /* Query to update order information */
-    $sql1 = "UPDATE orders 
-                SET orderDate = '$orderDate', shipRequiredDate = '$shippingDate', orderStatus = '$orderStatus'
-                WHERE orderID = '$orderID' ";
+    /* Order Information */
+    $product = $_POST['product'];
+    $quantity = $_POST['quantity'];
+    $orderID = $_POST['orderID'];
+    $createdBy = $_POST['createdBy'];
+    $orderDate = $_POST['orderDate'];
+    $shippingDate = date('Y-m-d', strtotime($_POST['shippingDate']));
 
-    if (mysqli_query($conn, $sql1)) {
-        echo '<br /> Order Information is successfully updated.';
+    /* Query to update order information */
+    /* First check if order status is awaiting-approval, then allow admin to approve the order */
+
+    if ($_POST['defaultOrderStatus'] == 'Awaiting-Approval' && $orderStatus != 'Awaiting-Approval') {
+        $approvedBy = $_SESSION['userID'];
+
+        $sql = "UPDATE orders 
+                    SET orderDate = (?), shipRequiredDate = (?), orderStatus = (?), approvedBy = (?)
+                    WHERE orderID = (?) ";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('sssii', $orderDate, $shippingDate, $orderStatus, $approvedBy, $orderID);
+        
+        if ($stmt->execute()) {
+            echo '<br /> Order Information is successfully updated.';
+        } else {
+            echo '<br /> Order Information is not successfully updated. ' . $conn->error;
+        }
+    
     } else {
-        echo '<br /> Order Information is not successfully updated. ' . mysqli_error($conn);
+        $sql = "UPDATE orders 
+                    SET orderDate = (?), shipRequiredDate = (?), orderStatus = (?)
+                    WHERE orderID = (?) ";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('sssi', $orderDate, $shippingDate, $orderStatus, $orderID);
+
+        if ($stmt->execute()) {
+            echo '<br /> Order Information is successfully updated.';
+        } else {
+            echo '<br /> Order Information is not successfully updated. ' . $conn->error;
+        }
     }
 
     /* Query to update customer information */
-    $sql2 = "UPDATE customer
-                SET customerFName = '$customerFname', customerLName = '$customerLname', dateofBirth = '$dateOfBirth', gender = '$gender', 
-                    contactNo = '$contactNo', email = '$email'
-                WHERE customerID = '$customerID'";
+    $sql = "UPDATE customer
+                SET customerFName = (?), customerLName = (?), dateofBirth = (?), gender = (?), 
+                    contactNo = (?), email = (?)
+                WHERE customerID = (?)";
 
-    if (mysqli_query($conn, $sql2)) {
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('ssssssi', $customerFname, $customerLname, $dateOfBirth, $gender, $contactNo, $email, $customerID);
+
+    if ($stmt->execute()) {
         echo '<br /> Customer Address is successfully updated.';
     } else {
-        echo '<br /> Customer Address is not successfully updated. ' . mysqli_error($conn);
+        echo '<br /> Customer Address is not successfully updated. ' . $conn->error;
     }
 
     /* Query to update customer address */
-    $sql3 = "UPDATE customer_address 
-                SET street = '$street', barangay = '$barangay', city = '$city', region = '$region', country = '$country', zip = '$zip'
-                WHERE addressID = '$addressID'";
-                
-    if (mysqli_query($conn, $sql3)) {
+    $sql = "UPDATE customer_address 
+                SET street = (?), barangay = (?), city = (?), region = (?), country = (?), zip = (?)
+                WHERE addressID = (?)";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('ssssssi', $street, $barangay, $city, $region, $country, $zip, $addressID);
+
+    if ($stmt->execute()) {
         echo '<br /> Customer Address is successfully updated.';
     } else {
-        echo '<br /> Customer Address is not successfully updated. ' . mysqli_error($conn);
+        echo '<br /> Customer Address is not successfully updated. ' . $conn->error;
     }
 
     header("location: $active");
+
+    $stmt->close();
+    $conn->close();
+?>

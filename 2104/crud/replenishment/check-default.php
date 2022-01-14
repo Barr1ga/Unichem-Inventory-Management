@@ -4,8 +4,8 @@ include('../crud/db_connect.php');
 
 if(!isset($_GET['repID'])){
 
-    $getRepList = "SELECT * FROM replenishment r
-                    WHERE r.orderStatus = 'Awaiting-Approval'
+    $getRepList = "SELECT * FROM replenishment 
+                    WHERE orderStatus = 'Awaiting-Approval'
                     LIMIT 1";
 
     $stmt = $conn->prepare($getRepList);

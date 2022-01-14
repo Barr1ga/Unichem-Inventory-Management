@@ -11,30 +11,30 @@
                     <div class="d-flex flex-row-reverse">
                         <?php if ($order['orderStatus'] != "Awaiting-Approval") { ?>
                             <div class="p-2">
-                                <select class="form-select <?php echo $hide1 ?>" name="orderStatus">
+                                <select class="form-select" name="orderStatus">
                                     <option value="<?php echo $order['orderStatus'] ?>" selected disabled><?php echo $order['orderStatus'] ?></option>
-                                    <option value="Awaiting-Payment">Awaiting Payment</option>
-                                    <option value="Processing-Order">Processing Order</option>
-                                    <option value="Awaiting-Shipment">Awaiting Shipment</option>
-                                    <option value="Awaiting-Pickup">Awaiting Pickup</option>
+                                    <option value="Awaiting-Payment">Awaiting-Payment</option>
+                                    <option value="Processing-Order">Processing-Order</option>
+                                    <option value="Awaiting-Shipment">Awaiting-Shipment</option>
+                                    <option value="Awaiting-Pickup">Awaiting-Pickup</option>
                                     <option value="Completed">Completed</option>
                                     <option value="Cancelled">Cancelled</option>
-                                    <option value="Manual-Verification-Required">Manual Verification Required</option>
+                                    <option value="Manual-Verification-Required">Manual-Verification-Required</option>
                                     <option value="Refunded">Refunded</option>
                                 </select>
                             </div>
                             <!-- ELSE IF USER TYPE = MANAGER -->
                         <?php } else if ($_SESSION['userType'] == "Manager") { ?>
                             <div class="p-2">
-                                <select class="form-select <?php echo $hide1 ?>" name="orderStatus">
+                                <select class="form-select" name="orderStatus">
                                     <option value="<?php echo $order['orderStatus'] ?>" selected disabled><?php echo $order['orderStatus'] ?></option>
-                                    <option value="Awaiting-Payment">Awaiting Payment</option>
-                                    <option value="Processing-Order">Processing Order</option>
-                                    <option value="Awaiting-Shipment">Awaiting Shipment</option>
-                                    <option value="Awaiting-Pickup">Awaiting Pickup</option>
+                                    <option value="Awaiting-Payment">Awaiting-Payment</option>
+                                    <option value="Processing-Order">Processing-Order</option>
+                                    <option value="Awaiting-Shipment">Awaiting-Shipment</option>
+                                    <option value="Awaiting-Pickup">Awaiting-Pickup</option>
                                     <option value="Completed">Completed</option>
                                     <option value="Cancelled">Cancelled</option>
-                                    <option value="Manual-Verification-Required">Manual Verification Required</option>
+                                    <option value="Manual-Verification-Required">Manual-Verification-Required</option>
                                     <option value="Refunded">Refunded</option>
                                 </select>
                             </div>
@@ -134,6 +134,7 @@
                     <input type='hidden' name='orderID' value=" <?php echo $order['orderID'] ?>">
                     <input type='hidden' name='customerID' value=" <?php echo $order['customerID'] ?>">
                     <input type='hidden' name='addressID' value=" <?php echo $order['addressID'] ?>">
+                    <input type='hidden' name='createdBy' value=" <?php echo $order['createdBy'] ?>">
 
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <?php if ($order['orderStatus'] == "Cancelled" || $order['orderStatus'] == "Completed" || $order['orderStatus'] == "Refunded") { ?>

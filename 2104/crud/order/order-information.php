@@ -20,12 +20,17 @@ if (isset($_GET['orderID'])) {
                         WHERE ol.orderID = $orderID
                         GROUP BY ol.orderlineID";
 
-    $result1 = mysqli_query($conn, $getOrderInformation);
-    $result2 = mysqli_query($conn, $getOrderLine );
+    $stmt = $conn->prepare($getOrderInformation);
+    $stmt->execute();
+    $result1 = $stmt->get_result();
 
-    if (mysqli_num_rows($result) > 0) {
+    $stmt = $conn->prepare($getOrderLine);
+    $stmt->execute();
+    $result2 = $stmt->get_result();
+
+    if ($result1->num_rows > 0) {
         echo "<div class='scroll-list-2'>";
-        if ($order = mysqli_fetch_assoc($result1)) {
+        if ($order = $result1->fetch_assoc()) {
 
             $createdByID = $order['createdBy'];
             $approvedByID = $order['approvedBy'];
@@ -38,12 +43,19 @@ if (isset($_GET['orderID'])) {
                             FROM inventory_users
                             WHERE userID=$approvedByID LIMIT 1";
 
-            $createdByResult = mysqli_query($conn, $createdByquery);
-            $approvedByResult = mysqli_query($conn, $approvedByquery);
+            $stmt = $conn->prepare($createdByquery);
+            $stmt->execute();
+            $createdByResult = $stmt->get_result();
+            $createdBy = $createdByResult->fetch_assoc();
 
-            $createdBy = mysqli_fetch_assoc($createdByResult);
-            if ($approvedByResult)
-                $approvedBy = mysqli_fetch_assoc($approvedByResult);
+            if ($stmt = $conn->prepare($approvedByquery)) {
+                $stmt->execute();
+                $approvedByResult = $stmt->get_result();
+                $approvedBy = $approvedByResult->fetch_assoc();
+                $stmt->close();
+            } else {
+                $approvedByResult = false;
+            }
 
             include('../components/order/order-information.php');
         }
@@ -51,5 +63,7 @@ if (isset($_GET['orderID'])) {
         echo "</div>";
     }
 }
+
+$conn->close();
 
 ?>

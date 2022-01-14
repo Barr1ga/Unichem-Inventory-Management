@@ -11,8 +11,6 @@
             " . $order['customerLName'] . ", " . $order['customerFName'] . "
             </div>
             
-
-
             <div class='list-cell'>
                 " . $order['orderDate'] . "
             </div>

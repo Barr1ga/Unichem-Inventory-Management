@@ -7,10 +7,10 @@
         $customerID = $_POST['customer'];
     } else {
         /* Query to insert customer information */
-        $sql1 = "INSERT INTO customer (customerFName, CustomerLName, dateofBirth, gender, contactNo, email)
+        $sql = "INSERT INTO customer (customerFName, CustomerLName, dateofBirth, gender, contactNo, email)
                     VALUES (?, ?, ?, ?, ?, ?)";
 
-        $stmt = $conn->prepare($sql1);
+        $stmt = $conn->prepare($sql);
         $stmt->bind_param("ssssss", $customerFname, $customerLname, $dateOfBirth, $gender, $contactNo, $email);
 
         /* Customer Information */
@@ -30,10 +30,10 @@
         }
 
         /* Query to insert customer address */
-        $sql2 = "INSERT INTO customer_address (customerID, street, barangay, city, region, country, zip)
+        $sql = "INSERT INTO customer_address (customerID, street, barangay, city, region, country, zip)
                     VALUES (?, ?, ?, ?, ?, ?, ?)"; 
                     
-        $stmt = $conn->prepare($sql2);
+        $stmt = $conn->prepare($sql);
         $stmt->bind_param("issssss", $customerID, $street, $barangay, $city, $region, $country, $zip);
                     
         /* Customer Address */
@@ -53,10 +53,10 @@
     }
 
     /* Query to insert order information */
-    $sql3 = "INSERT INTO orders (customerID, createdBy, orderDate, orderStatus, shipRequiredDate) 
+    $sql = "INSERT INTO orders (customerID, createdBy, orderDate, orderStatus, shipRequiredDate) 
                 VALUES (?, ?, ?, ?, ?)";
 
-    $stmt = $conn->prepare($sql3);
+    $stmt = $conn->prepare($sql);
     $stmt->bind_param("issss", $customerID, $createdBy, $orderDate, $orderStatus, $shippingDate);
 
     /* Order Information */
@@ -84,11 +84,11 @@
         $qty = $quantity[$index];
 
         /* Query to get current InStock */
-        $sql4 = "SELECT *
+        $sql = "SELECT *
                     FROM product
                     WHERE productID = (?)";
 
-        $stmt = $conn->prepare($sql4);
+        $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $prodID);
         $stmt->execute();
                     
@@ -96,7 +96,7 @@
             $result = $stmt->get_result(); 
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                echo $row['inStock'];
+                echo '<br /> InStock: ' . $row['inStock'];
             }
             echo '<br /> In Stock is fetched successfully.';
         }else {
@@ -108,9 +108,9 @@
         if ($row['inStock'] >= $qty) {
 
             /* Query to insert the specific order */
-            $sql5 = "INSERT INTO order_line (orderID, productID, quantity) VALUES (?, ?, ?)";
+            $sql = "INSERT INTO order_line (orderID, productID, quantity) VALUES (?, ?, ?)";
 
-            $stmt = $conn->prepare($sql5);
+            $stmt = $conn->prepare($sql);
             $stmt->bind_param("iii", $orderID, $prodID, $qty);
 
             if ($stmt->execute()) {
@@ -121,11 +121,11 @@
             }
 
             /* Query to update InStock */
-            $sql6 = "UPDATE product
+            $sql = "UPDATE product
                         SET inStock = IF(inStock >= (?), inStock - (?), inStock)
                         WHERE productID = (?) ";
 
-            $stmt = $conn->prepare($sql6);
+            $stmt = $conn->prepare($sql);
             $stmt->bind_param("iii", $qty, $qty, $prodID);
             
             if ($stmt->execute()) {
@@ -137,10 +137,10 @@
         } else {
             
             /* Query to delete order information when Instock is lesser than given quantity */
-            $sql7 = "DELETE FROM orders 
+            $sql = "DELETE FROM orders 
                         WHERE orderID = (?)";
             
-            $stmt = $conn->prepare($sql7);
+            $stmt = $conn->prepare($sql);
             $stmt->bind_param("iii", $orderID);
 
             if ($stmt->execute()) {
