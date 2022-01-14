@@ -56,7 +56,8 @@
 
                             <div class="col-md-6">
                                 <label class="col-form-label">Product</label>
-                                <input class="form-control" name="product[]" value="<?php echo $row['tradeName']?>" readonly/>
+                                <input type="hidden" class="form-control" name="product[]" value="<?php echo $row['productID']?>"/>
+                                <input type="text" class="form-control" value="<?php echo $row['tradeName']?>" readonly/>
                             </div>
 
                             <div class="col-md-6">

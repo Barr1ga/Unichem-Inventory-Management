@@ -4,31 +4,8 @@
 
     $active = "../../sections/orders.php?orderActive=".$_POST['defaultOrderStatus'];
 
-    /* Order Information */
     $product = $_POST['product'];
     $quantity = $_POST['quantity'];
-    $orderID = $_POST['orderID'];
-    $createdBy = $_POST['createdBy'];
-    $orderDate = $_POST['orderDate'];
-    $shippingDate = date('Y-m-d', strtotime($_POST['shippingDate']));
-
-    /* Customer Information */
-    $customerID = $_POST['customerID']; 
-    $customerFname = $_POST['fname'];
-    $customerLname = $_POST['lname'];
-    $email = $_POST['email'];
-    $dateOfBirth = date('Y-m-d', strtotime($_POST['dob']));
-    $gender = $_POST['gender'];
-    $contactNo = $_POST['contactNo'];
-
-    /* Customer Address */
-    $addressID = $_POST['addressID']; 
-    $street = $_POST['street'];
-    $barangay = $_POST['barangay'];
-    $city = $_POST['city'];
-    $region = $_POST['region'];
-    $country = $_POST['country'];
-    $zip = $_POST['zip'];
 
     /* Update Order quantity if status is changed to cancelled*/
     if (!isset($_POST['orderStatus'])) {
@@ -37,17 +14,17 @@
     else {
         $orderStatus = $_POST['orderStatus'];
         if ($orderStatus == "Cancelled") {
-            foreach($product as $index => $name) {
-                $tradeName = $name;
+            foreach($product as $index => $prodID) {
+                $productID = $prodID;
                 $qty = $quantity[$index];
     
                 /* Query to update InStock */
                 $sql = "UPDATE product
                             SET inStock = inStock + (?)
-                            WHERE tradeName = (?) ";
+                            WHERE productID = (?) ";
 
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param('is', $qty, $tradeName);
+                $stmt->bind_param('ii', $qty, $productID);
 
                 if ($stmt->execute()) {
                     echo '<br /> Product In Stock is successfully updated';
@@ -57,6 +34,11 @@
             }
         }
     }
+
+    /* Order Information */
+    $orderID = $_POST['orderID'];
+    $orderDate = $_POST['orderDate'];
+    $shippingDate = date('Y-m-d', strtotime($_POST['shippingDate']));
 
     /* Query to update order information */
     /* First check if order status is awaiting-approval, then allow admin to approve the order */
@@ -101,6 +83,15 @@
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('ssssssi', $customerFname, $customerLname, $dateOfBirth, $gender, $contactNo, $email, $customerID);
 
+    /* Customer Information */
+    $customerID = $_POST['customerID']; 
+    $customerFname = $_POST['fname'];
+    $customerLname = $_POST['lname'];
+    $email = $_POST['email'];
+    $dateOfBirth = date('Y-m-d', strtotime($_POST['dob']));
+    $gender = $_POST['gender'];
+    $contactNo = $_POST['contactNo'];
+
     if ($stmt->execute()) {
         echo '<br /> Customer Address is successfully updated.';
     } else {
@@ -115,14 +106,23 @@
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('ssssssi', $street, $barangay, $city, $region, $country, $zip, $addressID);
 
+    /* Customer Address */
+    $addressID = $_POST['addressID']; 
+    $street = $_POST['street'];
+    $barangay = $_POST['barangay'];
+    $city = $_POST['city'];
+    $region = $_POST['region'];
+    $country = $_POST['country'];
+    $zip = $_POST['zip'];
+    
     if ($stmt->execute()) {
         echo '<br /> Customer Address is successfully updated.';
     } else {
         echo '<br /> Customer Address is not successfully updated. ' . $conn->error;
     }
 
-    header("location: $active");
-
     $stmt->close();
     $conn->close();
+
+    header("location: $active");
 ?>
