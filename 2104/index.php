@@ -37,7 +37,7 @@ marge123
             <img class="mb-4" src="assets/images/Unichem-Logo-Text.svg" alt="" width="200" height="100" />
             <input type="hidden" name="user" value="login">
             <div class="form-floating">
-                <input type="text" class="form-control" name="email" placeholder="Email Address" required />
+                <input type="email" class="form-control" name="email" placeholder="Email Address" required />
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating mt-2">

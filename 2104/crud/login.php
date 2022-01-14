@@ -7,28 +7,34 @@ $password = $_POST['password'];
 
 
 $checkuser = "SELECT * FROM `inventory_users`
-                                WHERE `email`='$email'
+                                WHERE `email`= (?)
                                 LIMIT 1";
+                                
+$stmt = $conn->prepare($checkuser);
+$stmt->bind_param('s', $email);
 
-$result = mysqli_query($conn, $checkuser);
+$stmt->execute();
+$result = $stmt->get_result();
 
-$user = mysqli_fetch_assoc($result);
+if ($result->num_rows > 0) {
+    $user = $result->fetch_assoc();
+    if (password_verify($password, $user['password'])) {
 
-if (password_verify($password, $user['password'])) {
-
-    $_SESSION['userID'] = $user['userID'];
-    $_SESSION['userType'] = $user['userType'];
-    $_SESSION['userFirstName'] = $user['userFirstName'];
-    $_SESSION['userLastName'] = $user['userLastName'];
-    $_SESSION['userName'] = $user['userName'];
-    $_SESSION['email'] = $user['email'];
-    $_SESSION['password'] = $user['password'];
-
-    echo $_SESSION['email'];
-
-    header("Location: ../sections/notifications.php");
-} else {
+        $_SESSION['userID'] = $user['userID'];
+        $_SESSION['userType'] = $user['userType'];
+        // $_SESSION['userFirstName'] = $user['userFirstName'];
+        // $_SESSION['userLastName'] = $user['userLastName'];
+        // $_SESSION['userName'] = $user['userName'];
+        // $_SESSION['email'] = $user['email'];
+        // $_SESSION['password'] = $user['password'];
+    
+        header("Location: ../sections/notifications.php");
+    } 
+}
+else {
     header("Location: ../index.php");
     $_SESSION['msg'] = "Invalid Email or Password";
 }
+
+
 ?>
