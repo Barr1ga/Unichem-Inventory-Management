@@ -3,6 +3,10 @@ session_start();
 if (empty($_SESSION['userType'])) {
     header('Location: ../index.php');
 }
+
+unset($_SESSION['orderActive']);
+unset($_SESSION['repActive']);
+
 include('../style/import.php');
 include('../crud/customer/check-default.php');
 

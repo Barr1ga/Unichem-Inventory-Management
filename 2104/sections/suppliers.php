@@ -4,6 +4,9 @@ if (empty($_SESSION['userType'])) {
     header('Location: ../index.php');
 }
 
+unset($_SESSION['orderActive']);
+unset($_SESSION['repActive']);
+
 include('../style/import.php');
 include('../crud/supplier/check-default.php');
 
