@@ -15,9 +15,9 @@
                 <select class="form-select form-select-md mb-3" name="productID[]" required>
                     <option value="">Select Product</option>
                     <?php
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                echo "<option value=" . $row['productID'] . ">" ."Name: ". $row['tradeName'] . "  Stock: ". $row['inStock'] ."</option>";
+                        if ($result->num_rows > 0) {
+                            while ($prod = $result->fetch_assoc()) {
+                                echo "<option value=" . $prod['productID'] . ">" ."Name: ". $prod['tradeName'] . "  Stock: ". $prod['inStock'] ."</option>";
                             }
                         } else {
                             echo "No items are found in the database.";
@@ -48,11 +48,11 @@
             <?php include "../crud/get/get-suppliers.php" ?>
             <div class="col-md-4">
                 <label class="form-label">Supplier</label>
-                <select class="form-select form-select-md mb-3" name="supplier" required>
+                <select class="form-select form-select-md mb-3" name="supplierID" required>
                     <option value="">Select Supplier</option>
                     <?php
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($sup = mysqli_fetch_assoc($result)) {
+                        if ($result->num_rows > 0) {
+                            while ($sup = $result->fetch_assoc()) {
                                 echo "<option value=" . $sup['supplierID'] . ">". $sup['companyName']. "</option>";
                             }
                         } else {

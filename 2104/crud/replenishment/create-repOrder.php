@@ -5,26 +5,31 @@
 
     /* Rep Information */
     $createdBy = $_SESSION['userID']; 
-    $supplier = $_POST['supplier'];
+    $supplierID = $_POST['supplierID'];
     $orderDate = date('Y-m-d');
-    $shippingdate = date('Y-m-d', strtotime($_POST['shippingDate']));
+    $shipRequiredDate = date('Y-m-d', strtotime($_POST['shippingDate']));
+    $orderStatus = 'Awaiting-Approval';
+
+    /* Query to insert replenishment information */
+    $sql = "INSERT INTO replenishment
+                (supplierID, createdBy, repOrderDate, orderStatus, shipRequiredDate)
+            VALUES (?, ?, ?, ?, ?)";
+    
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('issss', $supplierID, $createdBy, $orderDate, $orderStatus, $shipRequiredDate);
+     
+    if ($stmt->execute()) {
+        echo '<br /> Replenishment Information is successfully added.';
+        $repOrderID = $conn->insert_id;
+    }  else {
+        echo '<br /> Replenishment Information is not successfully added. ' . $conn->error;
+        $bool = false;
+    }
 
     /* RepLine Information */
     $productID = $_POST['productID'];
     $quantity = $_POST['quantity'];
     $price = $_POST['price'];
-    
-    /* Query to insert replenishment information */
-    $sql1 = "INSERT INTO replenishment
-                (supplierID, createdBy, repOrderDate, orderStatus, shipRequiredDate)
-            VALUES ('$supplier', '$createdBy', '$orderDate', 'Awaiting-Approval', '$shippingdate')";
-    if (mysqli_query($conn, $sql1)) {
-        echo '<br /> Replenishment Information is successfully added.';
-        $repOrderID = mysqli_insert_id($conn);
-    }  else {
-        echo '<br /> Replenishment Information is not successfully added. ' . mysqli_error($conn);
-        $bool = false;
-    }
 
     /* Loop through the array of products and quantity */
     foreach($productID as $index => $elemID) {
@@ -33,16 +38,23 @@
         $priceEach = $price[$index];
 
         /* Query to insert replenishment line */
-        $sql2 = "INSERT INTO replenishment_line
+        $sql = "INSERT INTO replenishment_line
                     (repOrderID, productID, quantity, priceEach)
-                VALUES ('$repOrderID', '$prodID', '$qty', '$priceEach')";
-        if (mysqli_query($conn, $sql2)) {
+                VALUES (?, ?, ?, ?)";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('iiid', $repOrderID, $prodID, $qty, $priceEach);        
+
+        if ($stmt->execute()) {
             echo '<br /> A Replenishment Line is successfully added.';
         }  else {
-            echo '<br /> A Replenishment Line is not successfully added. ' . mysqli_error($conn);
+            echo '<br /> A Replenishment Line is not successfully added. ' . $conn->error;
             $bool = false;
         }
     }
+
+    $stmt->close(); 
+    $conn->close();
 
     if ($bool)
         $_SESSION['msg'] = "Replenishment Order is successfully created.";

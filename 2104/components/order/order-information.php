@@ -36,7 +36,7 @@
             </div>
         </div>
         <hr>
-        <?php while ($row = mysqli_fetch_assoc($result2)) { ?>
+        <?php while ($row = $result2->fetch_assoc()) { ?>
             <div class="row d-flex justify-content-between">
                 <div class="col">
                     <b><?php echo $row['productID']; ?>#</b>

@@ -3,6 +3,8 @@
 include('../crud/db_connect.php');
 
 $sql = "SELECT * FROM supplier";
-$result = mysqli_query($conn,$sql);
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
 
 ?>

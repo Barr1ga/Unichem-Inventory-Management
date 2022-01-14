@@ -1,25 +1,27 @@
 <?php
-include('../crud/db_connect.php');
 
-$id = $rep['repOrderID'];
+    include('../crud/db_connect.php');
 
-$sql = "SELECT *
-        FROM
-            replenishment r
-        JOIN replenishment_line rl ON
-            rl.repOrderID = r.repOrderID
-        JOIN product p ON
-            p.productID = rl.productID
-        WHERE r.repOrderID = $id;";
+    $id = $rep['repOrderID'];
 
-if ($rs = mysqli_query($conn, $sql)) {
-    if (mysqli_num_rows($rs) > 0) {
-        while ($prod = mysqli_fetch_assoc($rs)) {
+    $sql = "SELECT *
+            FROM
+                replenishment r
+            JOIN replenishment_line rl ON
+                rl.repOrderID = r.repOrderID
+            JOIN product p ON
+                p.productID = rl.productID
+            WHERE r.repOrderID = (?)";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        while ($repOrder = $result->fetch_assoc()) {
             include('../components/replenishment/get-repOrder.php');
         } 
     }
-} else {
-    echo 'Error: '. mysqli_error($conn);
-}
 
 ?>
