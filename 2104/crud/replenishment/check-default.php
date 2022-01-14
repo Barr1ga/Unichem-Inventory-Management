@@ -20,4 +20,5 @@ if(!isset($_GET['repID'])){
     $stmt->close();
 }
 
+$conn->close();
 ?>

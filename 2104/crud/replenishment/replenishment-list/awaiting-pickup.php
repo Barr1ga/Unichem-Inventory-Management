@@ -37,4 +37,6 @@
         echo "<div class ='empty-message'>There are no Awaiting Pickups.</div>";
     }
 
+    $stmt->close();
+    $conn->close();
 ?>
