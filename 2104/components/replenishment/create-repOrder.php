@@ -16,8 +16,8 @@
                     <option value="">Select Product</option>
                     <?php
                         if ($result->num_rows > 0) {
-                            while ($prod = $result->fetch_assoc()) {
-                                echo "<option value=" . $prod['productID'] . ">" ."Name: ". $prod['tradeName'] . "  Stock: ". $prod['inStock'] ."</option>";
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<option value=" . $row['productID'] . ">" ."Name: ". $row['tradeName'] . str_repeat('&nbsp;', 5) . "  Stock: ". $row['inStock'] ."</option>";
                             }
                         } else {
                             echo "No items are found in the database.";
@@ -92,7 +92,7 @@
                             <label class="form-label">Select Product</label>\
                             <select class="form-select form-select-md mb-3" name="productID[]" required>\
                                 <option value="">Select Product</option>\
-                                <?php if (mysqli_num_rows($result) > 0) { while ($row = mysqli_fetch_assoc($result)) { echo "<option value=" . $row['productID'] . ">" ."Name: ". $row['tradeName'] ." Stock: ". $row['inStock']. "</option>"; }} else { echo "bad";} ?>\
+                                <?php if ($result->num_rows > 0) { while ($row = $result->fetch_assoc()) { echo "<option value=" . $row['productID'] . ">" ."Name: ". $row['tradeName'] . str_repeat('&nbsp;', 5) . " Stock: ". $row['inStock']. "</option>"; }} else { echo "bad";} ?>\
                             </select>\
                         </div>\
                         <div class="col-md-3">\
