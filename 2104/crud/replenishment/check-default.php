@@ -8,10 +8,16 @@ if(!isset($_GET['repID'])){
                     WHERE r.orderStatus = 'Awaiting-Approval'
                     LIMIT 1";
 
-    if ($result = mysqli_query($conn, $getRepList)) {
-        if ($defaultRep = mysqli_fetch_assoc($result)) {
+    $stmt = $conn->prepare($getRepList);
+    $stmt->execute();
+
+    if ($result = $stmt->get_result()) {
+        if ($defaultRep = $result->fetch_assoc()) {
             $_GET['repID'] = $defaultRep['repOrderID'];
         }
     }
-    
+
+    $stmt->close();
 }
+
+?>

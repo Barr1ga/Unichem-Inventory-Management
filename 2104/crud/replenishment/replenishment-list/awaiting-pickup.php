@@ -16,14 +16,17 @@
                         r.orderStatus = 'Awaiting-Pickup'
                     GROUP BY r.repOrderID";
 
-    $result = mysqli_query($conn, $getRepList);
+    $stmt = $conn->prepare($getRepList);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
     
-    if (mysqli_num_rows($result) > 0) {
+    if ($result->num_rows > 0) {
         echo "
             <div class=''>
             <div class='scroll-list'>
             ";
-        while ($rep = mysqli_fetch_assoc($result)) {
+        while ($rep = $result->fetch_assoc()) {
             include('../components/replenishment/rep-list.php');
         } 
         echo "

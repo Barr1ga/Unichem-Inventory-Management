@@ -11,14 +11,17 @@
                     WHERE o.orderStatus = 'Awaiting-Approval'
                     GROUP BY o.orderID";
 
-    $result = mysqli_query($conn, $getOrderList);
+    $stmt = $conn->prepare($getOrderList);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
     
-    if (mysqli_num_rows($result) > 0) {
+    if ($result->num_rows > 0) {
         echo "
         <div class=''>
             <div class='scroll-list'>
             ";
-        while ($order = mysqli_fetch_assoc($result)) {
+        while ($order = $result->fetch_assoc()) {
             include('../components/order/order-list.php');
         } 
         echo "
@@ -29,6 +32,7 @@
         echo "<div class ='empty-message'>There are no Awaiting Approvals.</div>";
     }
 
+    $stmt->close();
 ?>
 
 

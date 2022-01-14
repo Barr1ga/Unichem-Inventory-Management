@@ -8,9 +8,16 @@ if(!isset($_GET['orderID'])){
                     WHERE o.orderStatus = 'Awaiting-Approval'
                     LIMIT 1";
 
-    if ($result = mysqli_query($conn, $getOrderList)) {
-        if ($defaultOrder = mysqli_fetch_assoc($result)) {
+    $stmt = $conn->prepare($getOrderList);
+    $stmt->execute();
+
+    if ($result = $stmt->get_result()) {
+        if ($defaultOrder = $result->fetch_assoc()) {
             $_GET['orderID'] = $defaultOrder['orderID'];
         }
     }
+
+    $stmt->close();
 }
+
+?>
