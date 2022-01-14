@@ -18,7 +18,7 @@ include('../crud/supplier/check-default.php');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Unichem</title>
+    <title>Suppliers | Unichem</title>
 </head>
 
 <main>

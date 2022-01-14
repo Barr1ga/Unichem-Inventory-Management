@@ -18,9 +18,8 @@ include('../crud/employee/check-default.php');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Unichem</title>
+    <title>Employees | Unichem</title>
 </head>
-<!-- bayor -->
 
 <body>
     <main>

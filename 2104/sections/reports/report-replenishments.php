@@ -15,7 +15,7 @@ include('../../style/import.php');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Unichem</title>
+    <title>Reports | Unichem</title>
 </head>
 
 <script type="text/javascript">

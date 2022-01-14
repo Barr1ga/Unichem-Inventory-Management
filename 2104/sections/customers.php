@@ -18,7 +18,7 @@ include('../crud/customer/check-default.php');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Unichem</title>
+    <title>Customers | Unichem</title>
 </head>
 <!-- bayor -->
 
