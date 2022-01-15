@@ -120,7 +120,7 @@ include('../../style/import.php');
             <div class="container">
                 <div class="row align-items-end">
                     <div class="col d-flex justify-content-center">
-                        <a href="../crud/logout.php" class="text-decoration-none btn btn-danger btn-logout">
+                        <a href="../../crud/logout.php" class="text-decoration-none btn btn-danger btn-logout">
                             Log Out
                         </a>
                     </div>
@@ -214,9 +214,6 @@ include('../../style/import.php');
             INVENTORY (DONE) 
                 
                 products in stock graph (bar chart) -->
-
-
-
 
 
             <div class="scroll-list-3">
