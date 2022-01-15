@@ -97,12 +97,12 @@ include('../components/popup-msg.php');
                     </li>
                 
                     <li>
-                        <div class='dropdown '>
-                            <button class='nav-reports' type='button' id='dropdownMenu2' data-bs-toggle='dropdown' aria-expanded='false'>
+                        <div class='dropdown'>
+                            <button class='nav-reports dropdown-toggle' type='button' id='dropdownMenu2' data-bs-toggle='dropdown' aria-expanded='false'>
                                 <svg class='bi me-2' width='16' height='16'>
                                 <use class='' xlink:href='#sales' />
                                 </svg>
-                                &nbspReports
+                                &nbspReports". str_repeat('&nbsp;', 2) . "
                             </button>
                             
                             <ul class='dropdown-menu dropdown-menu-reports' aria-labelledby='dropdownMenu2'>

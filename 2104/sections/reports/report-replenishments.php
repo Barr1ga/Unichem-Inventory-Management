@@ -97,12 +97,12 @@ include('../../style/import.php');
                    
 
                     <li>
-                        <div class='dropdown '>
-                            <a class='nav-link nav-reports active' type='button' id='dropdownMenu2' data-bs-toggle='dropdown' aria-expanded='false'>
+                        <div class='dropdown'>
+                            <a class='nav-link nav-reports active dropdown-toggle' type='button' id='dropdownMenu2' data-bs-toggle='dropdown' aria-expanded='false'>
                                 <svg class='bi me-2' width='16' height='16'>
                                 <use class='active-color' xlink:href='#sales' />
                                 </svg>
-                                &nbspReports
+                                &nbspReports". str_repeat('&nbsp;', 2) . "
                             </a>
                             
                             <ul class='dropdown-menu dropdown-menu-reports' aria-labelledby='dropdownMenu2'>
