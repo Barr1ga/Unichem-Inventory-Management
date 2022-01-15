@@ -16,7 +16,6 @@
             else 
                 $_SESSION['msg'] = "Order is not Deleted Successfully.";
 
-            header("Location: $active");   
             break;      
         case "replenishment":
             $repID = $_GET['id'];
@@ -30,11 +29,11 @@
                 $_SESSION['msg'] = "Order is Deleted Successfully";
             else 
                 $_SESSION['msg'] = "Order is not Deleted Successfully.";
-
-            header("Location: $active");    
+  
             break;    
     }  
     
     $stmt->close();
     $conn->close();
+    header("Location: $active"); 
 ?>
