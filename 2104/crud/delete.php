@@ -26,7 +26,7 @@
             $stmt = $conn->prepare($deleteRep);
             $stmt->bind_param('i', $repID);
 
-            if (mysqli_query($conn, $deleteRep)) 
+            if ($stmt->execute()) 
                 $_SESSION['msg'] = "Order is Deleted Successfully";
             else 
                 $_SESSION['msg'] = "Order is not Deleted Successfully.";
