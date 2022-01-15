@@ -33,15 +33,16 @@ marge123
 
 <body class="text-center">
     <main class="form-signin border shadow">
-        <form method="post" action="crud/login.php"> 
+        <form method="post" action="crud/login.php"  > 
             <img class="mb-4" src="assets/images/Unichem-Logo-Text.svg" alt="" width="200" height="100" />
             <input type="hidden" name="user" value="login">
             <div class="form-floating">
-                <input type="email" class="form-control" name="email" placeholder="Email Address" required />
+                <input type="email" class="form-control" name="email" placeholder="Email Address"  required/>
                 <label for="floatingInput">Email address</label>
             </div>
+            
             <div class="form-floating mt-2">
-                <input type="password" class="form-control" name="password" placeholder="Password" required />
+                <input type="password" class="form-control" name="password" placeholder="Password" required/>
                 <label for="floatingPassword">Password</label>
             </div>
 
