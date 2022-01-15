@@ -55,7 +55,7 @@ marge123
             }
             ?>
 
-            <p class="mt-5 mb-3 text-muted">&copy; 2021 UniChem Co.</p>
+            <p class="mt-5 mb-3 text-muted">&copy; <script>document.write(new Date().getFullYear())</script> | UniChem</p>
         </form>
     </main>
 </body>

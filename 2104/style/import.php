@@ -95,7 +95,7 @@
     background-color: white;
     border: 1px solid #D5DBE4;
     padding: 20px;
-    
+
   }
 
   .white-box-container-none {
@@ -332,14 +332,15 @@
   .list-cell {
     width: 130px;
     height: 20px;
-    
+
     overflow-x: hidden;
     overflow-y: hidden;
   }
+
   .list-cell-2 {
     width: 128px;
     height: 20px;
-    
+
     overflow-x: hidden;
     overflow-y: hidden;
   }
@@ -467,8 +468,6 @@
     width: 1000px;
   }
 
-  
-
   .chart-subheader {
     color: gray;
   }
@@ -482,7 +481,7 @@
     width: 100%;
     color: black;
     border-radius: 7px;
-    border:none;
+    border: none;
   }
 
   .nav-reports:visited {
@@ -497,24 +496,22 @@
   }
 
   .dropdown-item-reports {
-   text-align: left;
-   border-radius: 4px;
-   background-color: whitesmoke;
-   width: 100%;
-   border: none;
-   text-decoration: none;
-   color: black;
-   font-size: .9rem;
-   padding: 8px 10px 8px 17px;
- }
- 
- .dropdown-item-reports:hover {
-  background-color: #216eeb;
-  color: white;
- }
- 
-</style>
+    text-align: left;
+    border-radius: 4px;
+    background-color: whitesmoke;
+    width: 100%;
+    border: none;
+    text-decoration: none;
+    color: black;
+    font-size: .9rem;
+    padding: 8px 10px 8px 17px;
+  }
 
+  .dropdown-item-reports:hover {
+    background-color: #216eeb;
+    color: white;
+  }
+</style>
 
 <!-- SIDEBAR IMG HERE -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">

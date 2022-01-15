@@ -2,6 +2,8 @@
 session_start();
 include('../crud/db_connect.php');
 
+$location = '../index.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $email = $_POST['email'];
@@ -28,24 +30,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['userType'] = $user['userType'];
                 $_SESSION['userName'] = $user['userName'];
             
-                header("Location: ../sections/notifications.php");
-            } 
+                $location = '../sections/notifications.php';
+            } else {
+                $_SESSION['msg'] = "Invalid Email or Password";
+            }
         }
         else {
-            header("Location: ../index.php");
             $_SESSION['msg'] = "Invalid Email or Password";
         }
         
     } else {
-        header("Location: ../index.php");
         $_SESSION['msg'] = "Invalid Email or Password";
     }
-} else {
-    header("Location: ../index.php");
-}
+} 
 
 $stmt->close();
 $conn->close();
+
+header("Location: $location");
 
 ?>
 
