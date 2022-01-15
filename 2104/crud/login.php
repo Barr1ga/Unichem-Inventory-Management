@@ -22,7 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result->num_rows > 0) {
             $user = $result->fetch_assoc();
             if (password_verify($password, $user['password'])) {
-        
+
+                session_regenerate_id();
                 $_SESSION['userID'] = $user['userID'];
                 $_SESSION['userType'] = $user['userType'];
                 $_SESSION['userName'] = $user['userName'];
@@ -42,6 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     header("Location: ../index.php");
 }
+
+$stmt->close();
+$conn->close();
 
 ?>
 

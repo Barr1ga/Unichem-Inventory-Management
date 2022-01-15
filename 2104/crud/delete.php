@@ -33,17 +33,8 @@
 
             header("Location: $active");    
             break;    
-    }    
+    }  
+    
+    $stmt->close();
+    $conn->close();
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
