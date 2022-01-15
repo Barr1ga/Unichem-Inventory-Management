@@ -6,22 +6,32 @@
          case "order":
             $orderID = $_GET['id'];
             $active = "../sections/orders.php?orderActive=" .$_GET['status'];
-            $deleteOrder = "DELETE FROM orders WHERE orderID=$orderID";
-            if (mysqli_query($conn, $deleteOrder)) 
+
+            $deleteOrder = "DELETE FROM orders WHERE orderID = (?)";
+            $stmt = $conn->prepare($deleteOrder);
+            $stmt->bind_param('i', $orderID);
+
+            if ($stmt->execute()) 
                 $_SESSION['msg'] = "Order is Deleted Successfully";
             else 
                 $_SESSION['msg'] = "Order is not Deleted Successfully.";
-            header("Location: $active");      
+
+            header("Location: $active");   
             break;      
         case "replenishment":
             $repID = $_GET['id'];
             $active = "../sections/replenishments.php?repActive=" .$_GET['status'];
-            $deleteRep = "DELETE FROM replenishment WHERE repOrderID=$repID";
+            
+            $deleteRep = "DELETE FROM replenishment WHERE repOrderID = (?)";
+            $stmt = $conn->prepare($deleteRep);
+            $stmt->bind_param('i', $repID);
+
             if (mysqli_query($conn, $deleteRep)) 
                 $_SESSION['msg'] = "Order is Deleted Successfully";
             else 
                 $_SESSION['msg'] = "Order is not Deleted Successfully.";
-            header("Location: $active");      
+
+            header("Location: $active");    
             break;    
     }    
 ?>
