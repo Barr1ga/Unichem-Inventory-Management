@@ -92,24 +92,22 @@ include('../crud/inventory/check-default.php');
                         </a>
                     </li>
                 
-                   
-
-                        <li>
-                            <div class='dropdown '>
-                                <button class='nav-reports' type='button' id='dropdownMenu2' data-bs-toggle='dropdown' aria-expanded='false'>
-                                    <svg class='bi me-2' width='16' height='16'>
-                                    <use class='' xlink:href='#sales' />
-                                    </svg>
-                                    &nbspReports
-                                </button>
-                                
-                                <ul class='dropdown-menu dropdown-menu-reports' aria-labelledby='dropdownMenu2'>
-                                    <li><a class='dropdown-item-reports' type='button' href='reports/report-orders.php'>            Orders</a></li>
-                                    <li><a class='dropdown-item-reports' type='button' href='reports/report-replenishments.php'>    Replenishments</a></li>
-                                    <li><a class='dropdown-item-reports' type='button' href='reports/report-inventory.php'>         Inventory</a></li>
-                                </ul>
-                            </div>
-                        </li>
+                    <li>
+                        <div class='dropdown '>
+                            <button class='nav-reports' type='button' id='dropdownMenu2' data-bs-toggle='dropdown' aria-expanded='false'>
+                                <svg class='bi me-2' width='16' height='16'>
+                                <use class='' xlink:href='#sales' />
+                                </svg>
+                                &nbspReports
+                            </button>
+                            
+                            <ul class='dropdown-menu dropdown-menu-reports' aria-labelledby='dropdownMenu2'>
+                                <li><a class='dropdown-item-reports' type='button' href='reports/report-orders.php'>            Orders</a></li>
+                                <li><a class='dropdown-item-reports' type='button' href='reports/report-replenishments.php'>    Replenishments</a></li>
+                                <li><a class='dropdown-item-reports' type='button' href='reports/report-inventory.php'>         Inventory</a></li>
+                            </ul>
+                        </div>
+                    </li>
                     ";
                 } ?>
             </ul>
@@ -118,7 +116,7 @@ include('../crud/inventory/check-default.php');
             <div class="container">
                 <div class="row align-items-end">
                     <div class="col d-flex justify-content-center">
-                        <a href="../index.php" class="text-decoration-none btn btn-danger btn-logout">
+                        <a href="../crud/logout.php" class="text-decoration-none btn btn-danger btn-logout">
                             Log Out
                         </a>
                     </div>

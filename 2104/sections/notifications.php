@@ -25,7 +25,7 @@ $_SESSION['flag']=0;
 
 <body>
     <main>
-        <!-- NAV -->
+        
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light nav-container shadow-md bg-body rounded" style="width: 280px;">
             <a href="notifications.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                 <div class="row justify-content-md-center">
@@ -93,35 +93,32 @@ $_SESSION['flag']=0;
                             Employees
                         </a>
                     </li>
-                
-                   
 
-                        <li>
-                            <div class='dropdown '>
-                                <button class='nav-reports' type='button' id='dropdownMenu2' data-bs-toggle='dropdown' aria-expanded='false'>
-                                    <svg class='bi me-2' width='16' height='16'>
-                                    <use class='' xlink:href='#sales' />
-                                    </svg>
-                                    &nbspReports
-                                </button>
-                                
-                                <ul class='dropdown-menu dropdown-menu-reports' aria-labelledby='dropdownMenu2'>
-                                    <li><a class='dropdown-item-reports' type='button' href='reports/report-orders.php'>            Orders</a></li>
-                                    <li><a class='dropdown-item-reports' type='button' href='reports/report-replenishments.php'>    Replenishments</a></li>
-                                    <li><a class='dropdown-item-reports' type='button' href='reports/report-inventory.php'>         Inventory</a></li>
-                                </ul>
-                            </div>
-                        </li>
+                    <li>
+                        <div class='dropdown '>
+                            <button class='nav-reports' type='button' id='dropdownMenu2' data-bs-toggle='dropdown' aria-expanded='false'>
+                                <svg class='bi me-2' width='16' height='16'>
+                                <use class='' xlink:href='#sales' />
+                                </svg>
+                                &nbspReports
+                            </button>
+                            
+                            <ul class='dropdown-menu dropdown-menu-reports' aria-labelledby='dropdownMenu2'>
+                                <li><a class='dropdown-item-reports' type='button' href='reports/report-orders.php'>            Orders</a></li>
+                                <li><a class='dropdown-item-reports' type='button' href='reports/report-replenishments.php'>    Replenishments</a></li>
+                                <li><a class='dropdown-item-reports' type='button' href='reports/report-inventory.php'>         Inventory</a></li>
+                            </ul>
+                        </div>
+                    </li>
                     ";
                 } ?>
             </ul>
             <hr>
 
-
             <div class="container">
                 <div class="row align-items-end">
                     <div class="col d-flex justify-content-center">
-                        <a href="../index.php" class="text-decoration-none btn btn-danger btn-logout">
+                        <a href="../crud/logout.php" class="text-decoration-none btn btn-danger btn-logout">
                             Log Out
                         </a>
                     </div>
@@ -129,8 +126,6 @@ $_SESSION['flag']=0;
 
             </div>
         </div>
-
-
 
         <div class="father-container">
 
@@ -155,17 +150,12 @@ $_SESSION['flag']=0;
                     <?php include('../components/notifications/low-stock.php'); ?>
                 </div>
             </div>
-                <?php if($_SESSION['flag']==0){
+                <?php 
+                if($_SESSION['flag']==0) {
                     echo "<p class='text-danger'>There no recent notifications</p>";
                 }
-                    ?>
-
-
-
-
+                ?>
         </div>
-
-
 
     </main>
 </body>
