@@ -130,9 +130,7 @@ include('../../style/import.php');
 
         <div class="father-container">
             <h4>Replenishment Reports</h4>
-            <br>
-
-
+            
             <!--       
             =
 

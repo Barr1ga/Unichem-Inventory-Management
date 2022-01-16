@@ -45,7 +45,7 @@
             }
         }
     } else {
-        echo "<p class='text-danger'>There are no new replenishments.</p>";
+        echo "<p class='text-muted'>There are no new replenishments.</p>";
     }
 
     $stmt->close();

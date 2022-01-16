@@ -6,15 +6,15 @@
         &nbsp
         <div>
             <div>
-                <b>Low On Stock</b>
+                <b class="text-danger">Low On Stock</b>
             </div>
 
             <div>
                 <?php
                 if ($row['inStock'] == $row['minimumStock']) {
-                    echo "" . $row['tradeName'] . " is at minimum stock";
+                    echo "" . $row['tradeName'] . " is at minimum stock.";
                 } elseif ($row['inStock'] < $row['minimumStock'] and $row['inStock'] > 0) {
-                    echo "" . $row['tradeName'] . " is below minimum stock";
+                    echo "" . $row['tradeName'] . " is below minimum stock.";
                 } elseif ($row['inStock'] == 0) {
                     echo "" . $row['tradeName'] . " stock is at 0!";
                 }

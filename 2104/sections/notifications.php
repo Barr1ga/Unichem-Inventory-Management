@@ -132,24 +132,24 @@ include('../style/import.php');
             <br />
             <div class="d-flex">
                 <div class="layout-column">
-                    Inventory Status
-                    <br /><br />
+                    <h6>Inventory Status</h6>
+                    <br />
                     <?php include("../crud/notifications/low-stock.php") ?>
                 </div>
             </div>
             <br />
             <div class="d-flex">
                 <div class="layout-column">
-                    Recent Orders
-                    <br /><br />
+                    <h6>Recent Orders</h6>
+                    <br />
                     <?php include("../crud/notifications/order-list-recent.php") ?>
                 </div>
             </div>
             <br />
             <div class="d-flex">
                 <div class="layout-column">
-                    Recent Replenishments
-                    <br /><br />
+                    <h6>Recent Replenishments</h6>
+                    <br />
                     <?php include("../crud/notifications/rep-list-recent.php") ?>
                 </div>
             </div>

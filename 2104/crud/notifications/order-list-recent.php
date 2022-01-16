@@ -43,7 +43,7 @@
             }
         }
     }  else {
-        echo "<p class='text-danger'>There are no new orders.</p>";
+        echo "<p class='text-muted'>There are no new orders.</p>";
     }
     
     $stmt->close();

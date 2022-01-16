@@ -12,7 +12,7 @@
             include("../components/notifications/low-stock.php");
         }
     } else {
-        echo "<p class='text-danger'>There are no low level stock in the inventory.</p>";
+        echo "<p class='text-muted'>There are no low level stock in the inventory.</p>";
     }
 
     $stmt->close();
