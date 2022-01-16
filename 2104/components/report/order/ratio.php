@@ -1,12 +1,12 @@
 <?php
-    include("../../crud/report/order/ratio.php");
+include("../../crud/report/order/ratio.php");
 ?>
 
 <!-- ratio of order statuses on orders (pie chart)  -->
 
 <script type="text/javascript">
     // Load Charts and the corechart and barchart packages.
-    //   google.charts.load('current', {'packages':['corechart']});
+    // google.charts.load('current', {'packages':['corechart']});
 
     // Draw the pie chart and bar chart when Charts is loaded.
     google.charts.setOnLoadCallback(drawChart);
@@ -24,7 +24,6 @@
                 }
             }
             ?>
-
         ]);
 
         var piechart_options = {

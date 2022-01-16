@@ -6,7 +6,7 @@ include("../../crud/report/replenishment/ratio.php");
 
 <script type="text/javascript">
     // Load Charts and the corechart and barchart packages.
-    //   google.charts.load('current', {'packages':['corechart']});
+    // google.charts.load('current', {'packages':['corechart']});
 
     // Draw the pie chart and bar chart when Charts is loaded.
     google.charts.setOnLoadCallback(drawChart);
