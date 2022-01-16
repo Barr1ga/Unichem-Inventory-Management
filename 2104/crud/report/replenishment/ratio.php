@@ -1,11 +1,12 @@
 <?php
-include('../../crud/db_connect.php');
+    include('../../crud/db_connect.php');
 
-$query = "SELECT orderStatus, COUNT(*) AS Quantity FROM `replenishment` GROUP BY orderStatus";
+    $query = "SELECT orderStatus, COUNT(*) AS Quantity FROM `replenishment` GROUP BY orderStatus";
 
-$exec = mysqli_query($conn, $query);
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $exec = $stmt->get_result();
+    $stmt->close();
 
-
+    $conn->close();
 ?>
-
-

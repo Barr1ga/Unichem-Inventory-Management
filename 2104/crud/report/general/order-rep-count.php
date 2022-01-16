@@ -9,5 +9,10 @@
                 GROUP BY MONTH(o.orderDate), YEAR(o.orderDate) 
                 ORDER BY o.orderDate ASC";
 
-    $result = mysqli_query($conn, $query);
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
+    
+    $conn->close();
 ?>

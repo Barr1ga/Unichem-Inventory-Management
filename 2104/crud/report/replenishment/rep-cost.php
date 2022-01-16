@@ -10,10 +10,10 @@
                 GROUP BY MONTH(r.repOrderDate), YEAR(r.repOrderDate) 
                 ORDER BY r.repOrderDate ASC";
 
-    $result = mysqli_query($conn, $query);
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
 
-    
-           
-          
-          
+    $conn->close();         
 ?>

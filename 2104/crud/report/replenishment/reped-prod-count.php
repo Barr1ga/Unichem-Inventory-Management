@@ -13,10 +13,10 @@
                 ORDER BY r.repOrderDate ASC
                 LIMIT 24";
 
-    $result = mysqli_query($conn, $query);
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
 
-    
-           
-          
-          
+    $conn->close();     
 ?>
