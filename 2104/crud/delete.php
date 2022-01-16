@@ -26,9 +26,9 @@
             $stmt->bind_param('i', $repID);
 
             if ($stmt->execute()) 
-                $_SESSION['msg'] = "Order is Deleted Successfully";
+                $_SESSION['msg'] = "Replenishment Order is Deleted Successfully";
             else 
-                $_SESSION['msg'] = "Order is not Deleted Successfully.";
+                $_SESSION['msg'] = "Replenishment Order is not Deleted Successfully.";
   
             break;    
     }  
