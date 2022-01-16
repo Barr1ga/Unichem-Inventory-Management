@@ -158,7 +158,7 @@
     if ($bool)
         $_SESSION['msg'] = "Order is successfully created.";
     else 
-        $_SESSION['msg'] = "Order is not successfully created.";
+        $_SESSION['msg'] = "Failed to create order.";
 
     header('location: ../../sections/orders.php');
 

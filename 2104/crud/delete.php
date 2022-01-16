@@ -12,9 +12,9 @@
             $stmt->bind_param('i', $orderID);
 
             if ($stmt->execute()) 
-                $_SESSION['msg'] = "Order is Deleted Successfully";
+                $_SESSION['msg'] = "Order is successfully deleted.";
             else 
-                $_SESSION['msg'] = "Order is not Deleted Successfully.";
+                $_SESSION['msg'] = "Failed to delete order.";
 
             break;      
         case "replenishment":
@@ -26,9 +26,9 @@
             $stmt->bind_param('i', $repID);
 
             if ($stmt->execute()) 
-                $_SESSION['msg'] = "Replenishment Order is Deleted Successfully";
+                $_SESSION['msg'] = "Replenishment order is successfully deleted.";
             else 
-                $_SESSION['msg'] = "Replenishment Order is not Deleted Successfully.";
+                $_SESSION['msg'] = "Failed to delete replenishment order.";
   
             break;    
     }  

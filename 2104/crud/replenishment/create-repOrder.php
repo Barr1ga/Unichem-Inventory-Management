@@ -57,9 +57,9 @@
     $conn->close();
 
     if ($bool)
-        $_SESSION['msg'] = "Replenishment Order is successfully created.";
+        $_SESSION['msg'] = "Replenishment order is successfully created.";
     else 
-        $_SESSION['msg'] = "Replenishment Order is not successfully created.";
+        $_SESSION['msg'] = "Failed to create replenishment order.";
 
     header('location: ../../sections/replenishments.php');
 ?>
