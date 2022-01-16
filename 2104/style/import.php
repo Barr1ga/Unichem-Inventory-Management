@@ -490,7 +490,7 @@
   }
 
   .dropdown-menu-reports {
-    background-color: whitesmoke;
+    background-color: #f0f2f5;
     width: 245px;
     border: none;
   }
@@ -498,7 +498,7 @@
   .dropdown-item-reports {
     text-align: left;
     border-radius: 4px;
-    background-color: whitesmoke;
+    background-color: #f0f2f5;
     width: 100%;
     border: none;
     text-decoration: none;

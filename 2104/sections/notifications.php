@@ -8,9 +8,6 @@ unset($_SESSION['orderActive']);
 unset($_SESSION['repActive']);
 
 include('../style/import.php');
-include('../crud/db_connect.php');
-
-$_SESSION['flag']=0;
 
 ?>
 
@@ -25,7 +22,7 @@ $_SESSION['flag']=0;
 
 <body>
     <main>
-        
+
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light nav-container shadow-md bg-body rounded" style="width: 280px;">
             <a href="notifications.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                 <div class="row justify-content-md-center">
@@ -100,7 +97,7 @@ $_SESSION['flag']=0;
                                 <svg class='bi me-2' width='16' height='16'>
                                 <use class='' xlink:href='#sales' />
                                 </svg>
-                                &nbspReports". str_repeat('&nbsp;', 2) . "
+                                &nbspReports" . str_repeat('&nbsp;', 2) . "
                             </button>
                             
                             <ul class='dropdown-menu dropdown-menu-reports' aria-labelledby='dropdownMenu2'>
@@ -132,29 +129,30 @@ $_SESSION['flag']=0;
             <div class="d-flex">
                 <h4>Notifications</h4>
             </div>
-            <br>
+            <br />
             <div class="d-flex">
                 <div class="layout-column">
-                    <?php include('../components/notifications/rep-list-recent.php'); ?>
+                    Inventory Status
+                    <br /><br />
+                    <?php include("../crud/notifications/low-stock.php") ?>
                 </div>
             </div>
             <br />
             <div class="d-flex">
                 <div class="layout-column">
-                    <?php include('../components/notifications/order-list-recent.php'); ?>
+                    Recent Orders
+                    <br /><br />
+                    <?php include("../crud/notifications/order-list-recent.php") ?>
                 </div>
             </div>
             <br />
             <div class="d-flex">
                 <div class="layout-column">
-                    <?php include('../components/notifications/low-stock.php'); ?>
+                    Recent Replenishments
+                    <br /><br />
+                    <?php include("../crud/notifications/rep-list-recent.php") ?>
                 </div>
             </div>
-                <?php 
-                if($_SESSION['flag']==0) {
-                    echo "<p class='text-danger'>There no recent notifications</p>";
-                }
-                ?>
         </div>
 
     </main>
