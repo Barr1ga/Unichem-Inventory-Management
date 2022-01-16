@@ -116,7 +116,7 @@ include('../crud/inventory/check-default.php');
             <div class="container">
                 <div class="row align-items-end">
                     <div class="col d-flex justify-content-center">
-                        <a href="../crud/logout.php" class="text-decoration-none btn btn-danger btn-logout">
+                        <a href="../crud/logout.php" class="text-decoration-none btn btn-danger btn-logout btn-sm">
                             Log Out
                         </a>
                     </div>
