@@ -2,17 +2,19 @@
     include('../crud/db_connect.php');
     
     $getSupplierList = "SELECT * FROM supplier";
+    $stmt = $conn->prepare($getSupplierList);
+    $stmt->execute();
 
-    $result = mysqli_query($conn, $getSupplierList);
+    $result = $stmt->get_result();
     
-    if (mysqli_num_rows($result) > 0) {
+    if ($result->num_rows > 0) {
         echo "
             <div class=''>
             <h6>Supplier List</h6>
                         <br>
             <div class='scroll-list'>
             ";
-        while ($Supplier = mysqli_fetch_assoc($result)) {
+        while ($Supplier = $result->fetch_assoc()) {
             
                 include('../components/supplier/supplier-list.php');
             

@@ -5,16 +5,18 @@
         $supplierID = $_GET['supplierID'];
         $getSupplierInformation = "SELECT * 
                                 FROM supplier c, supplier_address ca
-                                WHERE c.supplierID=$supplierID 
-                                AND ca.supplierID=$supplierID";
+                                WHERE c.supplierID=? 
+                                AND ca.supplierID=?";
 
-        if ($result = mysqli_query($conn, $getSupplierInformation)) {
-            $supplier = mysqli_fetch_assoc($result);
+        $stmt = $conn->prepare($getSupplierInformation);
+        $stmt->bind_param("ii", $supplierID, $supplierID);
+        $stmt->execute();
+        if ($result = $stmt->get_result()) {
+            $supplier = $result->fetch_assoc();
         }
+       
     }
-    
-   
-    
+
 
     
 ?>

@@ -8,11 +8,16 @@
     if(isset($customerID)){
         $getCustomerInformation = "SELECT * 
                                     FROM customer c, customer_address ca
-                                    WHERE c.customerID=$customerID 
-                                    AND ca.customerID=$customerID";
+                                    WHERE c.customerID=? 
+                                    AND ca.customerID=?";
+        $stmt = $conn->prepare($getCustomerInformation);
+        $stmt->bind_param("ii", $customerID, $customerID);
+        
+        
+        $stmt->execute();
 
-        if ($result = mysqli_query($conn, $getCustomerInformation)) {
-            $customer = mysqli_fetch_assoc($result);
+        if ($result = $stmt->get_result()) {
+            $customer = $result->fetch_assoc();
         }
     }  
 ?>

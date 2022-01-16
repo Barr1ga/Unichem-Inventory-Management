@@ -5,28 +5,42 @@
         
         $getCustomerOrderInformation = "SELECT * 
                                 FROM orders
-                                WHERE customerID=$customerID";
+                                WHERE customerID=?";
 
-        $result2 = mysqli_query($conn, $getCustomerOrderInformation);
+        $stmt = $conn->prepare($getCustomerOrderInformation);
+        $stmt->bind_param("i", $customerID);
+        $stmt->execute();
+
+        $result2 = $stmt->get_result();
         
-        if (mysqli_num_rows($result) > 0) {
+        if ($result2->num_rows > 0) {
             echo "<div class='scroll-list-2'>";
-            while ($Order = mysqli_fetch_assoc($result2)) {
+            while ($Order = $result2->fetch_assoc()) {
 
-                $createdByID = $Order['createdBy'];
+                
                 $createdByquery = "SELECT * 
                             FROM inventory_users
-                            WHERE userID=$createdByID LIMIT 1";
-                $resultC = mysqli_query($conn, $createdByquery);
-                $createdBy = mysqli_fetch_assoc($resultC);
+                            WHERE userID=? LIMIT 1";
+                $stmtCB = $conn->prepare($createdByquery);
+                $stmtCB->bind_param("i", $createdByID);
+                $createdByID = $Order['createdBy'];
+                $stmtCB->execute();
+                
+                $resultC = $stmtCB->get_result();
+                $createdBy = $resultC->fetch_assoc();
                 
                 if($Order['approvedBy'] != NULL) {
-                    $approvedByID = $Order['approvedBy'];
+                    
                     $approvedByquery = "SELECT * 
                                 FROM inventory_users
-                                WHERE userID=$approvedByID LIMIT 1";
-                    $resultA = mysqli_query($conn, $approvedByquery);
-                    $approvedBy = mysqli_fetch_assoc($resultA);
+                                WHERE userID=? LIMIT 1";
+                    $stmtAB = $conn->prepare($approvedByquery);
+                    $stmtAB->bind_param("i", $approvedByID);
+                    $approvedByID = $Order['approvedBy'];
+                    $stmtAB->execute();
+                    
+                    $resultA = $stmtAB->get_result();
+                    $approvedBy = $resultA->fetch_assoc();
                 }
                     
                 include('../components/customer/customer-order-details.php');

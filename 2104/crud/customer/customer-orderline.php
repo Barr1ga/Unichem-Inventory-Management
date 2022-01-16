@@ -4,15 +4,16 @@
     $orderID = $Order['orderID'];
 
     $getCustomerOrderLine = "SELECT * FROM order_line ol, product p 
-                            WHERE orderID=$orderID
+                            WHERE orderID=?
                             AND ol.productID=p.productID";
-
+    $stmt = $conn->prepare($getCustomerOrderLine);
+    $stmt->bind_param("i", $orderID);
+    $stmt->execute();
     
-
-    $result = mysqli_query($conn, $getCustomerOrderLine);
+    $result = $stmt->get_result();
     $totalPrice=0;
-    while ($OrderLine = mysqli_fetch_assoc($result)) {
-            
+    while ($OrderLine = $result->fetch_assoc()) {
+        
         include('../components/customer/customer-orderline.php');
         $totalPrice += $totalEach;
     }

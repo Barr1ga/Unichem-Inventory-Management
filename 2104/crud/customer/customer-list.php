@@ -2,18 +2,18 @@
     include('../crud/db_connect.php');
     
     $getCustomerList = "SELECT * FROM customer";
-
-    $result = mysqli_query($conn, $getCustomerList);
+    $stmt = $conn->prepare($getCustomerList);
+    $stmt->execute();
     
-    
-    if (mysqli_num_rows($result) > 0) {
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
         echo "
             <div class=''>
             <h6>Customer List</h6>
                         <br>
             <div class='scroll-list-2'>
             ";
-        while ($customer = mysqli_fetch_assoc($result)) {
+        while ($customer = $result->fetch_assoc()) {
             
             include('../components/customer/customer-list.php');
             

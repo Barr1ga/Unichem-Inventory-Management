@@ -5,11 +5,13 @@ include('../crud/db_connect.php');
 if(!isset($_GET['customerID'])){
 
     $getCustomerList = "SELECT * FROM customer LIMIT 1";
-
-    if ($result = mysqli_query($conn, $getCustomerList)) {
-        if ($defaultCustomer = mysqli_fetch_assoc($result)){
+    $stmt = $conn->prepare($getCustomerList);
+    $stmt->execute();
+    if ($result = $stmt->get_result()) {
+    // if ($result = mysqli_query($conn, $getCustomerList)) {
+        if ($defaultCustomer = $result->fetch_assoc()){
             $_GET['customerID'] = $defaultCustomer['customerID'];
         }
     }
-
+    
 }

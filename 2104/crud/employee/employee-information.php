@@ -7,12 +7,20 @@
         if(isset($userID)){
             $getEmployeeInformation = "SELECT * 
                                         FROM inventory_users
-                                        WHERE userID=$userID";
+                                        WHERE userID=?";
 
-            if ($result = mysqli_query($conn, $getEmployeeInformation))
-                $user = mysqli_fetch_assoc($result);
+            $stmt = $conn->prepare($getEmployeeInformation);
+            $stmt->bind_param("i", $userID);
+            
+            $stmt->execute();
+
+            if ($result = $stmt->get_result()) {
+                $user = $result->fetch_assoc();
+            }   
+
         } 
     }
+
 ?>
 
 

@@ -2,17 +2,19 @@
     include('../crud/db_connect.php');
     
     $getEmployeeList = "SELECT * FROM inventory_users WHERE userType='User'";
+    $stmt = $conn->prepare($getEmployeeList);
+    $stmt->execute();
 
-    $result = mysqli_query($conn, $getEmployeeList);
+    $result = $stmt->get_result();
     
-    if (mysqli_num_rows($result) > 0) {
+    if ($result->num_rows > 0) {
         echo "
             <div class=''>
             <h6>Employee List</h6>
                         <br>
             <div class='scroll-list-2'>
             ";
-        while ($user = mysqli_fetch_assoc($result)) {
+        while ($user = $result->fetch_assoc()) {
             
             include('../components/employee/employee-list.php');
             
