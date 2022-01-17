@@ -5,10 +5,18 @@ include('../crud/db_connect.php');
 $location = '../index.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    $email = $_POST['email'];
-    $password = $_POST['password'];
 
+    if (empty($_POST['email'])) {
+        $_SESSION['msg'] = "Email Address is required";
+        header("Location: $location");
+        exit;
+    } else $email = $_POST['email'];
+
+    if (empty($_POST['password'])) {
+        $_SESSION['msg'] = "Password is required";
+        header("Location: $location");
+        exit;
+    } else $password = $_POST['password'];
 
     $checkuser = "SELECT * 
                     FROM `inventory_users`
