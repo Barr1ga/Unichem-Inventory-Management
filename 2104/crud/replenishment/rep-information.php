@@ -52,10 +52,10 @@ if (isset($_GET['repID'])) {
 
             if (isset($approvedByID)) {
                 $stmt = $conn->prepare($approvedByquery);
-                    $stmt->execute();
-                    $approvedByResult = $stmt->get_result();
-                    $approvedBy = $approvedByResult->fetch_assoc();
-                    $stmt->close();
+                $stmt->execute();
+                $approvedByResult = $stmt->get_result();
+                $approvedBy = $approvedByResult->fetch_assoc();
+                $stmt->close();
             } else {
                 $approvedByResult = false;
             }
