@@ -39,20 +39,21 @@ if (isset($_GET['orderID'])) {
                             FROM inventory_users
                             WHERE userID=$createdByID LIMIT 1";
 
-            $approvedByquery = "SELECT * 
-                            FROM inventory_users
-                            WHERE userID=$approvedByID LIMIT 1";
-
             $stmt = $conn->prepare($createdByquery);
             $stmt->execute();
             $createdByResult = $stmt->get_result();
             $createdBy = $createdByResult->fetch_assoc();
 
-            if ($stmt = $conn->prepare($approvedByquery)) {
-                $stmt->execute();
-                $approvedByResult = $stmt->get_result();
-                $approvedBy = $approvedByResult->fetch_assoc();
-                $stmt->close();
+            $approvedByquery = "SELECT * 
+                            FROM inventory_users
+                            WHERE userID=$approvedByID LIMIT 1";
+
+            if (isset($approvedByID)) {
+                $stmt = $conn->prepare($approvedByquery);
+                    $stmt->execute();
+                    $approvedByResult = $stmt->get_result();
+                    $approvedBy = $approvedByResult->fetch_assoc();
+                    $stmt->close();
             } else {
                 $approvedByResult = false;
             }
@@ -61,6 +62,7 @@ if (isset($_GET['orderID'])) {
         }
 
         echo "</div>";
+        
     }
 }
 

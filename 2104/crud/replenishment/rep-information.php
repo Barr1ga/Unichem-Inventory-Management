@@ -50,11 +50,12 @@ if (isset($_GET['repID'])) {
             $createdByResult = $stmt->get_result();
             $createdBy = $createdByResult->fetch_assoc();
 
-            if ($stmt = $conn->prepare($approvedByquery)) {
-                $stmt->execute();
-                $approvedByResult = $stmt->get_result();
-                $approvedBy = $approvedByResult->fetch_assoc();
-                $stmt->close();
+            if (isset($approvedByID)) {
+                $stmt = $conn->prepare($approvedByquery);
+                    $stmt->execute();
+                    $approvedByResult = $stmt->get_result();
+                    $approvedBy = $approvedByResult->fetch_assoc();
+                    $stmt->close();
             } else {
                 $approvedByResult = false;
             }
