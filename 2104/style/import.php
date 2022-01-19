@@ -229,6 +229,12 @@
 
   .reports-right-data {
     width: 150px;
+    text-align: center;
+  }
+
+  .reports-right-data-long {
+    width: 270px;
+    text-align: center;
   }
 
   .one-order-replenishment-list {

@@ -16,4 +16,7 @@
     <div class='column reports-right-data'>
         <?php echo "₱ " . $row3['quantity'] * $row4['price'] ?>
     </div>
+    <div class='column reports-right-data-long'>
+        <?php echo "". $row['orderStatus']?>
+    </div>
 </div>
