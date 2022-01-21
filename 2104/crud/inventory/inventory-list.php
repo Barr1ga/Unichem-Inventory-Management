@@ -2,8 +2,10 @@
     include('../crud/db_connect.php');
     $bool = false;
     $getproduct = "SELECT * FROM product";
-
-    $result = mysqli_query($conn, $getproduct);
+    
+    $stmt = $conn->prepare($getproduct);
+    $stmt->execute();
+    $result = $stmt->get_result();
     
         echo "
         <div class='container-header d-flex'>
@@ -22,18 +24,13 @@
                 <div class='list-cell-2'>
                         Quantity
                 </div>
-
-                
-
-
-  
-            </div>
+        </div>
             
    <br>
     <div class='scroll-list-2'>
             ";
-        if (mysqli_num_rows($result) > 0) {
-                while ($inventory = mysqli_fetch_assoc($result)) {
+        if ($result->num_rows > 0) {
+                while ($inventory = $result->fetch_assoc()) {
                 
                         include('../components/inventory/inventory-list.php');
                         $bool = true;
@@ -48,16 +45,3 @@
         ";
   
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-

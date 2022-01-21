@@ -7,23 +7,11 @@
         $getProductInformation = "SELECT * 
                                     FROM product
                                     WHERE productID=$productID LIMIT 1";
-                    
-
-        if ($result = mysqli_query($conn, $getProductInformation)) {
-            $inventory = mysqli_fetch_assoc($result);
+        
+        if ($stmt = $conn->prepare($getProductInformation)) {
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $inventory = $result->fetch_assoc();
         };
     }
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
