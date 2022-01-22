@@ -1,6 +1,6 @@
 <div class="container white-box-container round-edge">
     <div class="scroll-list-2">
-                    <form enctype="multipart/form-data" method="post" action="../sections/create.php" class="row g-3">
+                <form enctype="multipart/form-data" method="post" action="../crud/create.php" class="row g-3">
                     <input type="hidden" name="create" value="product">
                         <input type="hidden" name="productID" value="<?php echo $inventory['productID']; ?>" required>
                         <div class="mb-3">

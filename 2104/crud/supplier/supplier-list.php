@@ -27,3 +27,5 @@
     }else{
         echo "<div class ='empty-list empty-message'>There are no Suppliers.</div>";
     }
+    $stmt->close();
+    $conn->close();

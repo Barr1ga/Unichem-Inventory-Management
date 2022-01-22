@@ -13,5 +13,7 @@
             $result = $stmt->get_result();
             $inventory = $result->fetch_assoc();
         };
+        $stmt->close();
     }
+    $conn->close();
 ?>

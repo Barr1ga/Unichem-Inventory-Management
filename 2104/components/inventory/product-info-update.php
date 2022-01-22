@@ -1,4 +1,4 @@
-<form enctype="multipart/form-data" method="post" action="../sections/update.php" class=" row g-3">
+<form enctype="multipart/form-data" method="post" action="../crud/update.php" class=" row g-3">
                         <input type="hidden" name="update" value="product">
                         <input type="hidden" name="productID" value="<?php echo $inventory['productID']; ?>" required>
                         <div class="mb-3">

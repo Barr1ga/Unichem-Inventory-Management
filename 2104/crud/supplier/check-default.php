@@ -12,9 +12,10 @@ if(!isset($_GET['supplierID'])){
             $_GET['supplierID'] = $defaultSupplier['supplierID'];
         }
     }
-
+    $stmt->close();
 
     
     
    
 }
+$conn->close();

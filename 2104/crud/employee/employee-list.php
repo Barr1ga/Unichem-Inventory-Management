@@ -27,7 +27,8 @@
     }else{
         echo "<div class ='empty-list empty-message'>There are no employees.</div>";
     }
-    
+    $stmt->close();
+    $conn->close();
 
     
 ?>

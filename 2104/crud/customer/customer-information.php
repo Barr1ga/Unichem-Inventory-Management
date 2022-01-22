@@ -19,7 +19,10 @@
         if ($result = $stmt->get_result()) {
             $customer = $result->fetch_assoc();
         }
+        $stmt->close();
+        
     }  
+    $conn->close();
 ?>
 
 

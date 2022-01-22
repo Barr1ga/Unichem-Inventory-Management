@@ -1,4 +1,4 @@
-                    <form method="post" action="../sections/update.php" class="row g-3">
+                    <form method="post" action="../crud/update.php" class="row g-3">
                         <input type="hidden" name="update" value="user">
                         <input type="hidden" name="userID" value="<?php echo $user['userID']; ?>">
                         <div class="col-md-6">
@@ -16,8 +16,9 @@
                         <div class="col-md-6">
                             <label for="userType" class="form-label">User Type</label>
                             <select name="userType" id="inputState" class="form-select">
-                                <option value="Manager">Manager</option>
                                 <option value="User">User</option>
+                                <option value="Manager">Manager</option>
+                                
                             </select>
                         </div>
                         <div class="col-md-6">

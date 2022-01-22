@@ -17,6 +17,6 @@
         include('../components/supplier/supplier-replenishment.php');
         $totalPrice += $totalEach;
     }
-  
+    $stmt->close();
 
 

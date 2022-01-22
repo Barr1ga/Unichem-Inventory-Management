@@ -20,7 +20,7 @@
                             </div>
 
                             <div class=''>
-                                    <form method='post' action='../sections/delete.php'>
+                                    <form method='get' action='../crud/delete.php'>
                                         <input type='hidden' name='delete' value='supplier'>
                                         <input type='hidden' name='supplierID' value='".$supplierID."'>
                                         <button type='submit' class='btn btn-link btn-delete'>Delete</button>

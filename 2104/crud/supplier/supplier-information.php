@@ -14,9 +14,9 @@
         if ($result = $stmt->get_result()) {
             $supplier = $result->fetch_assoc();
         }
-       
+        $stmt->close();
     }
-
+    $conn->close();
 
     
 ?>

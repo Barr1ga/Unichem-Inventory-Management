@@ -1,5 +1,5 @@
 <div class="container white-box-container round-edge">
-                    <form method="post" action="../sections/create.php" class="row g-3">
+                    <form method="post" action="../crud/create.php" class="row g-3">
                         <input type="hidden" name="create" value="user">
                         <h4>Create Employee</h4>
                         <input type="hidden" name="userID">

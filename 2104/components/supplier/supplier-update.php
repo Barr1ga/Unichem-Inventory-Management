@@ -1,4 +1,4 @@
-                    <form method="post" action="../sections/update.php" class="row g-3">
+                    <form method="post" action="../crud/update.php" class="row g-3">
                         <input type="hidden" name="update" value="supplier">
                         
                         <input type="hidden" name="supplierID" value="<?php echo $supplier['supplierID']; ?>">

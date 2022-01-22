@@ -43,5 +43,6 @@
         echo "
         </div>
         ";
-  
+$stmt->close();
+$conn->close();
 ?>

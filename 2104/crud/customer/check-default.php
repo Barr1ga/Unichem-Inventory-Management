@@ -13,5 +13,8 @@ if(!isset($_GET['customerID'])){
             $_GET['customerID'] = $defaultCustomer['customerID'];
         }
     }
+    $stmt->close();
+    
     
 }
+$conn->close();

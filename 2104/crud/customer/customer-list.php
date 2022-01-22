@@ -27,7 +27,8 @@
         echo "<div class ='empty-list empty-message'>There are no Customers.</div>";
     }
 
-    
+    $stmt->close();
+    $conn->close();
 ?>
 
 
