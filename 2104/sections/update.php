@@ -4,6 +4,7 @@
 
     switch($_POST['update']){
         case "customer":
+            // bayot
             $customerID = $_POST['customerID'];
             $customerFName = $_POST['customerFName'];
             $customerLName = $_POST['customerLName'];
@@ -189,7 +190,7 @@
                                             `chemicalComposition`='$chemicalComposition',
                                             `operatingTempRange`='$operatingTempRange',
                                             `productImage`='$filename',
-                                            `inStock`='$inStock'
+                                            `inStock`='$inStock',
                                             `minimumStock` = '$minimumStock'
                                             WHERE productID='$productID'";
 
